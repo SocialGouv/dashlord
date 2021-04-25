@@ -1,0 +1,124 @@
+name: DashLord scans
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Single url to scan or scan all urls"
+        required: false
+        default: ""
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'dashlord.yaml'
+      - 'dashlord.yml'
+      - 'urls.txt'
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    name: Prepare
+    outputs:
+      urls: ${{ steps.init.outputs.urls }}
+      urls_json: ${{ steps.init.outputs.urls_json }}
+    steps:
+      - uses: actions/checkout@v2
+      - id: init
+        uses: "SocialGouv/dashlord-init-action@master"
+
+  scans:
+    runs-on: ubuntu-latest
+    name: Scan
+    needs: init
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        url: ${{ fromJson(needs.init.outputs.urls_json) }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          mkdir scans
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Wappalyzer scan
+        uses: "socialgouv/wappalyzer-action@master"
+        continue-on-error: true
+        with:
+          url: "${{ matrix.url }}"
+          output: scans/wappalyzer.json
+
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.4.0
+        continue-on-error: true
+        with:
+          token: "" # disable issue creation
+          rules_file_name: "zap-rules.tsv"
+          docker_name: "owasp/zap2docker-stable"
+          target: "${{ matrix.url }}"
+          cmd_options: "-a"
+
+      - name: Lighthouse scan
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@v7
+        with:
+          urls: "${{ matrix.url }}"
+          uploadArtifacts: false
+          temporaryPublicStorage: false
+          configPath: "./lighthouserc.json"
+
+      - name: Mozilla HTTP Observatory
+        continue-on-error: true
+        uses: SocialGouv/httpobs-action@master
+        with:
+          url: "${{ matrix.url }}"
+          output: "scans/http.json"
+
+      - name: Third-party scripts scan
+        continue-on-error: true
+        uses: SocialGouv/thirdparties-action@master
+        with:
+          url: "${{ matrix.url }}"
+          output: "scans/thirdparties.json"
+
+      # testssl.sh action needs an hostname to save its output so we build it here
+      - name: Extract hostname
+        id: hostname
+        run: |
+          HOSTNAME=$(echo "${{ matrix.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
+          echo "::set-output name=value::$HOSTNAME"
+
+      - name: testssl.sh scan
+        continue-on-error: true
+        uses: "mbogh/test-ssl-action@v1.1"
+        with:
+          host: ${{ steps.hostname.outputs.value }}
+          output: scans
+          grade: "F"
+          options: "--fast"
+          
+      - name: Nuclei scan
+        continue-on-error: true
+        uses: "SocialGouv/dashlord-nuclei-action@master"
+        with:
+          url: ${{ matrix.url }}
+          output: "scans/nuclei.log"
+
+      - uses: SocialGouv/dashlord-save-action@master
+        with:
+          url: ${{ matrix.url }}
+
+      - uses: EndBug/add-and-commit@v7
+        with:
+          add: '["results"]'
+          author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          message: "update: ${{ matrix.url }}"
