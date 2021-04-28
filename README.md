@@ -12,6 +12,7 @@ Pour déployer votre version de DashLord :
 
 - Créer un nouveau repository [**à partir du template dashlord**](https://github.com/SocialGouv/dashlord)
 - Éditer le fichier `dashlord.yml`
+- Éditer le fichier `scans.yml`
 - Lancer `DashLord scans` dans l'onglet `Actions` de votre projet GitHub
 
 Une fois les scans terminés, un rapport sera généré dans la branche `gh-pages` du repository. Vous devez aller dans l'onglet `Settings` du repository pour activer la fonctionnalité "GitHub Pages" et choisir la source `gh-pages`. Ceci permet de publier le rapport sur `https://[organisation].github.io/[repository]` (publiquement).
