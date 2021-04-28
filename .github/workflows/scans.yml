@@ -123,6 +123,7 @@ jobs:
 
       - name: Dependabot vulnerabilities alerts
         continue-on-error: true
+        if: ${{ matrix.urls.repositories }}
         uses: "MTES-MCT/dependabotalerts-action@tristanrobert/issue1"
         with:
           token: ${{ secrets.DEPENDABOTALERTS_TOKEN }}
