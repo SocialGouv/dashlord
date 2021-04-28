@@ -50,68 +50,68 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Wappalyzer scan
-        uses: "socialgouv/wappalyzer-action@master"
-        continue-on-error: true
-        with:
-          url: "${{ matrix.urls.url }}"
-          output: scans/wappalyzer.json
+      # - name: Wappalyzer scan
+      #   uses: "socialgouv/wappalyzer-action@master"
+      #   continue-on-error: true
+      #   with:
+      #     url: "${{ matrix.urls.url }}"
+      #     output: scans/wappalyzer.json
 
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.4.0
-        continue-on-error: true
-        with:
-          token: "" # disable issue creation
-          rules_file_name: "zap-rules.tsv"
-          docker_name: "owasp/zap2docker-stable"
-          target: "${{ matrix.urls.url }}"
-          cmd_options: "-a"
+      # - name: ZAP Scan
+      #   uses: zaproxy/action-baseline@v0.4.0
+      #   continue-on-error: true
+      #   with:
+      #     token: "" # disable issue creation
+      #     rules_file_name: "zap-rules.tsv"
+      #     docker_name: "owasp/zap2docker-stable"
+      #     target: "${{ matrix.urls.url }}"
+      #     cmd_options: "-a"
 
-      - name: Lighthouse scan
-        continue-on-error: true
-        uses: treosh/lighthouse-ci-action@v7
-        with:
-          urls: "${{ matrix.urls.url }}"
-          uploadArtifacts: false
-          temporaryPublicStorage: false
-          configPath: "./lighthouserc.json"
+      # - name: Lighthouse scan
+      #   continue-on-error: true
+      #   uses: treosh/lighthouse-ci-action@v7
+      #   with:
+      #     urls: "${{ matrix.urls.url }}"
+      #     uploadArtifacts: false
+      #     temporaryPublicStorage: false
+      #     configPath: "./lighthouserc.json"
 
-      - name: Mozilla HTTP Observatory
-        continue-on-error: true
-        uses: SocialGouv/httpobs-action@master
-        with:
-          url: "${{ matrix.urls.url }}"
-          output: "scans/http.json"
+      # - name: Mozilla HTTP Observatory
+      #   continue-on-error: true
+      #   uses: SocialGouv/httpobs-action@master
+      #   with:
+      #     url: "${{ matrix.urls.url }}"
+      #     output: "scans/http.json"
 
-      - name: Third-party scripts scan
-        continue-on-error: true
-        uses: SocialGouv/thirdparties-action@master
-        with:
-          url: "${{ matrix.urls.url }}"
-          output: "scans/thirdparties.json"
+      # - name: Third-party scripts scan
+      #   continue-on-error: true
+      #   uses: SocialGouv/thirdparties-action@master
+      #   with:
+      #     url: "${{ matrix.urls.url }}"
+      #     output: "scans/thirdparties.json"
 
-      # testssl.sh action needs an hostname to save its output so we build it here
-      - name: Extract hostname
-        id: hostname
-        run: |
-          HOSTNAME=$(echo "${{ matrix.urls.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
-          echo "::set-output name=value::$HOSTNAME"
+      # # testssl.sh action needs an hostname to save its output so we build it here
+      # - name: Extract hostname
+      #   id: hostname
+      #   run: |
+      #     HOSTNAME=$(echo "${{ matrix.urls.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
+      #     echo "::set-output name=value::$HOSTNAME"
 
-      - name: testssl.sh scan
-        continue-on-error: true
-        uses: "mbogh/test-ssl-action@v1.1"
-        with:
-          host: ${{ steps.hostname.outputs.value }}
-          output: scans
-          grade: "F"
-          options: "--fast"
+      # - name: testssl.sh scan
+      #   continue-on-error: true
+      #   uses: "mbogh/test-ssl-action@v1.1"
+      #   with:
+      #     host: ${{ steps.hostname.outputs.value }}
+      #     output: scans
+      #     grade: "F"
+      #     options: "--fast"
           
-      - name: Nuclei scan
-        continue-on-error: true
-        uses: "SocialGouv/dashlord-nuclei-action@master"
-        with:
-          url: ${{ matrix.urls.url }}
-          output: "scans/nuclei.log"
+      # - name: Nuclei scan
+      #   continue-on-error: true
+      #   uses: "SocialGouv/dashlord-nuclei-action@master"
+      #   with:
+      #     url: ${{ matrix.urls.url }}
+      #     output: "scans/nuclei.log"
 
       - name: Updown.io checks
         continue-on-error: true
