@@ -96,6 +96,7 @@ DashLord fonctionne en deux étapes :
 | [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
 | [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)             | Dump Wappalyzer scan result                                |
 | [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
+| [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [SocialGouv/dashlord-init-action](https://github.com/SocialGouv/dashlord-report-action)     | action that parse the configuration for a job matrix       |
 | [SocialGouv/dashlord-save-action](https://github.com/SocialGouv/dashlord-save-action)       | aggregate all scanners data and saves it locally           |
