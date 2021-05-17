@@ -70,6 +70,7 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | wappalyzer   | [Wappalyzer](https://www.wappalyzer.com)                                                                                       | Détection des technologies web, Javascript, CMS, outillage...         |
 | updownio     | [UpDown.io](https://www.updown.io)                                                                                             | Monitoring d'uptime et performance                                    |
 | dependabot   | [Dependabot security alerts](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-security-updates) | Alertes de vulnerabilités                                             |
+| nmap         | [nmap](https://nmap.org/) port scan                                                                                            | Ports ouverts                                                         |
 
 ## Contribute
 
@@ -98,6 +99,7 @@ DashLord fonctionne en deux étapes :
 | [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
 | [MTES-MCT/codescanalerts-action](https://github.com/MTES-MCT/codescanalerts-action)         | Dump Github CodeQL security alerts                         |
 | [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
+| [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                             | Dump nmap port scan stats                                  |
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [SocialGouv/dashlord-init-action](https://github.com/SocialGouv/dashlord-report-action)     | action that parse the configuration for a job matrix       |
 | [SocialGouv/dashlord-save-action](https://github.com/SocialGouv/dashlord-save-action)       | aggregate all scanners data and saves it locally           |
