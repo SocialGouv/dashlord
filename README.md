@@ -1,6 +1,6 @@
 # DashLord
 
-Tableau de bord des données brutes issues de plusieurs outils qui évaluent une URL et les repositories associés
+Tableau de bord de métriques techniques issues de plusieurs outils de mesure.
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
