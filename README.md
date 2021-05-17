@@ -4,8 +4,12 @@ Tableau de bord des données brutes issues de plusieurs outils qui évaluent une
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
-Démo : https://socialgouv.github.io/dnum-dashboard
-
+Démos :
+ - https://socialgouv.github.io/dashlord-fabrique
+ - https://mtes-mct.github.io/dashlord
+ - https://dashlord.incubateur.net/
+ - https://socialgouv.github.io/dnum-dashboard
+ - 
 ## Usage
 
 Pour déployer votre version de DashLord :
