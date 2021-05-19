@@ -9,7 +9,7 @@ Démos :
  - https://mtes-mct.github.io/dashlord
  - https://dashlord.incubateur.net/
  - https://socialgouv.github.io/dnum-dashboard
- - 
+ 
 ## Usage
 
 Pour déployer votre version de DashLord :
@@ -74,7 +74,7 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | wappalyzer   | [Wappalyzer](https://www.wappalyzer.com)                                                                                       | Détection des technologies web, Javascript, CMS, outillage...         |
 | updownio     | [UpDown.io](https://www.updown.io)                                                                                             | Monitoring d'uptime et performance                                    |
 | dependabot   | [Dependabot security alerts](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-security-updates) | Alertes de vulnerabilités                                             |
-| nmap         | [nmap](https://nmap.org/) port scan                                                                                            | Ports ouverts                                                         |
+| nmap         | [nmap](https://nmap.org/) port scan                                                                                            | Ports ouverts     
 
 ## Contribute
 
@@ -107,6 +107,7 @@ DashLord fonctionne en deux étapes :
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [SocialGouv/dashlord-init-action](https://github.com/SocialGouv/dashlord-report-action)     | action that parse the configuration for a job matrix       |
 | [SocialGouv/dashlord-save-action](https://github.com/SocialGouv/dashlord-save-action)       | aggregate all scanners data and saves it locally           |
+| [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
 
 ### Ajouter un scanner
 
