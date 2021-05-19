@@ -52,6 +52,15 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Screenshot Website
+        uses: swinton/screenshot-website@v1.x
+        with:
+          source: "${{ matrix.urls.url }}"
+          type: jpeg
+          destination: screenshot.jpeg
+          width: 1280
+          scaleFactor: 0.5
+
       - name: Wappalyzer scan
         uses: "socialgouv/wappalyzer-action@master"
         continue-on-error: true
