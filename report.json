@@ -7,44 +7,90 @@
     "http": {
       "url": "https://www.fabrique.social.gouv.fr",
       "algorithm_version": 2,
-      "end_time": "Wed, 28 Apr 2021 21:29:32 GMT",
-      "grade": "D+",
+      "end_time": "Mon, 31 May 2021 08:52:02 GMT",
+      "grade": "A+",
       "hidden": false,
-      "likelihood_indicator": "MEDIUM",
+      "likelihood_indicator": "LOW",
       "response_headers": {
         "Connection": "keep-alive",
         "Content-Encoding": "gzip",
+        "Content-Security-Policy": "default-src 'none'; connect-src 'self' https://*.gouv.fr; font-src 'self'; img-src 'self'; prefetch-src 'self' https://*.gouv.fr; script-src 'self' https://*.gouv.fr; frame-src 'self' https://*.gouv.fr; style-src 'self' 'unsafe-inline'",
         "Content-Type": "text/html",
-        "Date": "Wed, 28 Apr 2021 21:29:30 GMT",
-        "ETag": "W/\"6088a4ee-65bb\"",
-        "Last-Modified": "Tue, 27 Apr 2021 23:57:34 GMT",
+        "Date": "Mon, 31 May 2021 08:52:00 GMT",
+        "ETag": "W/\"60b2ddc2-66c8\"",
+        "Last-Modified": "Sun, 30 May 2021 00:35:14 GMT",
         "Server": "nginx/1.17.8",
         "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
         "Transfer-Encoding": "chunked",
-        "Vary": "Accept-Encoding"
+        "Vary": "Accept-Encoding",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block"
       },
-      "scan_id": 18900853,
-      "score": 40,
-      "start_time": "Wed, 28 Apr 2021 21:29:26 GMT",
+      "scan_id": 19425198,
+      "score": 100,
+      "start_time": "Mon, 31 May 2021 08:51:57 GMT",
       "state": "FINISHED",
       "status_code": 200,
-      "tests_failed": 4,
-      "tests_passed": 8,
+      "tests_failed": 0,
+      "tests_passed": 12,
       "tests_quantity": 12,
       "details": {
         "content-security-policy": {
           "expectation": "csp-implemented-with-no-unsafe",
           "name": "content-security-policy",
           "output": {
-            "data": null,
-            "http": false,
+            "data": {
+              "connect-src": [
+                "'self'",
+                "https://*.gouv.fr"
+              ],
+              "default-src": [
+                "'none'"
+              ],
+              "font-src": [
+                "'self'"
+              ],
+              "frame-src": [
+                "'self'",
+                "https://*.gouv.fr"
+              ],
+              "img-src": [
+                "'self'"
+              ],
+              "prefetch-src": [
+                "'self'",
+                "https://*.gouv.fr"
+              ],
+              "script-src": [
+                "'self'",
+                "https://*.gouv.fr"
+              ],
+              "style-src": [
+                "'self'",
+                "'unsafe-inline'"
+              ]
+            },
+            "http": true,
             "meta": false,
-            "policy": null
+            "policy": {
+              "antiClickjacking": false,
+              "defaultNone": true,
+              "insecureBaseUri": true,
+              "insecureFormAction": true,
+              "insecureSchemeActive": false,
+              "insecureSchemePassive": false,
+              "strictDynamic": false,
+              "unsafeEval": false,
+              "unsafeInline": false,
+              "unsafeInlineStyle": true,
+              "unsafeObjects": false
+            }
           },
-          "pass": false,
-          "result": "csp-not-implemented",
-          "score_description": "Content Security Policy (CSP) header not implemented",
-          "score_modifier": -25
+          "pass": true,
+          "result": "csp-implemented-with-unsafe-inline-in-style-src-only",
+          "score_description": "Content Security Policy (CSP) implemented with unsafe sources inside style-src. This includes 'unsafe-inline', data: or overly broad sources such as https:.",
+          "score_modifier": 0
         },
         "contribute": {
           "expectation": "contribute-json-only-required-on-mozilla-properties",
@@ -159,34 +205,34 @@
           "expectation": "x-content-type-options-nosniff",
           "name": "x-content-type-options",
           "output": {
-            "data": null
+            "data": "nosniff"
           },
-          "pass": false,
-          "result": "x-content-type-options-not-implemented",
-          "score_description": "X-Content-Type-Options header not implemented",
-          "score_modifier": -5
+          "pass": true,
+          "result": "x-content-type-options-nosniff",
+          "score_description": "X-Content-Type-Options header set to \"nosniff\"",
+          "score_modifier": 0
         },
         "x-frame-options": {
           "expectation": "x-frame-options-sameorigin-or-deny",
           "name": "x-frame-options",
           "output": {
-            "data": null
+            "data": "deny"
           },
-          "pass": false,
-          "result": "x-frame-options-not-implemented",
-          "score_description": "X-Frame-Options (XFO) header not implemented",
-          "score_modifier": -20
+          "pass": true,
+          "result": "x-frame-options-sameorigin-or-deny",
+          "score_description": "X-Frame-Options (XFO) header set to SAMEORIGIN or DENY",
+          "score_modifier": 0
         },
         "x-xss-protection": {
           "expectation": "x-xss-protection-1-mode-block",
           "name": "x-xss-protection",
           "output": {
-            "data": null
+            "data": "1; mode=block"
           },
-          "pass": false,
-          "result": "x-xss-protection-not-implemented",
-          "score_description": "X-XSS-Protection header not implemented",
-          "score_modifier": -10
+          "pass": true,
+          "result": "x-xss-protection-enabled-mode-block",
+          "score_description": "X-XSS-Protection header set to \"1; mode=block\"",
+          "score_modifier": 0
         }
       }
     },
@@ -196,7 +242,7 @@
       {
         "url": "https://github.com/SocialGouv/www",
         "vulnerabilityAlerts": {
-          "totalCount": 4,
+          "totalCount": 6,
           "nodes": [
             {
               "dismissedAt": null,
@@ -292,29 +338,89 @@
             },
             {
               "dismissedAt": null,
-              "createdAt": "2021-03-08T23:56:39Z",
+              "createdAt": "2021-05-10T19:22:41Z",
               "securityVulnerability": {
-                "severity": "MODERATE",
+                "severity": "HIGH",
                 "package": {
-                  "name": "elliptic"
+                  "name": "trim"
                 },
                 "advisory": {
                   "identifiers": [
                     {
                       "type": "GHSA",
-                      "value": "GHSA-r9p9-mrjm-926w"
+                      "value": "GHSA-w5p7-h5w8-2hfq"
                     },
                     {
                       "type": "CVE",
-                      "value": "CVE-2020-28498"
+                      "value": "CVE-2020-7753"
                     }
                   ],
                   "references": [
                     {
-                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-28498"
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-7753"
                     },
                     {
-                      "url": "https://github.com/advisories/GHSA-r9p9-mrjm-926w"
+                      "url": "https://github.com/advisories/GHSA-w5p7-h5w8-2hfq"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "dismissedAt": null,
+              "createdAt": "2021-05-10T23:55:37Z",
+              "securityVulnerability": {
+                "severity": "MODERATE",
+                "package": {
+                  "name": "postcss"
+                },
+                "advisory": {
+                  "identifiers": [
+                    {
+                      "type": "GHSA",
+                      "value": "GHSA-hwj9-h5mp-3pm3"
+                    },
+                    {
+                      "type": "CVE",
+                      "value": "CVE-2021-23368"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23368"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-hwj9-h5mp-3pm3"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "dismissedAt": null,
+              "createdAt": "2021-05-25T00:04:45Z",
+              "securityVulnerability": {
+                "severity": "MODERATE",
+                "package": {
+                  "name": "browserslist"
+                },
+                "advisory": {
+                  "identifiers": [
+                    {
+                      "type": "GHSA",
+                      "value": "GHSA-w8qv-6jwh-64r5"
+                    },
+                    {
+                      "type": "CVE",
+                      "value": "CVE-2021-23364"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23364"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-w8qv-6jwh-64r5"
                     }
                   ]
                 }
@@ -366,7 +472,7 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "is not offered"
+        "finding": "not offered"
       },
       {
         "id": "TLS1_2",
@@ -596,28 +702,28 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "045B4FED8F1AD37A2001AD4C2AC36CDC036D"
+        "finding": "0301476023A01E847B65E7C6BD00C3E1D71F"
       },
       {
         "id": "cert_fingerprintSHA1",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "8709114E720582982E618294FD284409BA59D582"
+        "finding": "43D16CE09859C68C6D4FAF8DC0F948816238BFAD"
       },
       {
         "id": "cert_fingerprintSHA256",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "62684B4838470E8AF069E8DCC8C40C83D3C4CB84EFB77B2CD3DAD7F1F75E4A06"
+        "finding": "302E01462899E32663129B7C33C80D53FF1B66372B7D3124E079692228960CBC"
       },
       {
         "id": "cert",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "-----BEGIN CERTIFICATE----- MIIFPDCCBCSgAwIBAgISBFtP7Y8a03ogAa1MKsNs3ANtMA0GCSqGSIb3DQEBCwUA MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD EwJSMzAeFw0yMTAzMjMxNjE2MzdaFw0yMTA2MjExNjE2MzdaMCYxJDAiBgNVBAMT G3d3dy5mYWJyaXF1ZS5zb2NpYWwuZ291di5mcjCCASIwDQYJKoZIhvcNAQEBBQAD ggEPADCCAQoCggEBANcGK1O7EUiWsO1gqdg0BtTiohfMlBQrD++3YMEy5QPT7a3z Aj59lon4ykpt0hPS32VaegFIenp+fJT9+E6hwQ+dxRlvtwngpmVwmPfHjLiZX2Xj WP8Qh92aO+A/tRy8mqIwP7P8HE4mCztSWMAAwXadF9sd1dXbE6KqPAio4nh1WqKQ IKGApL6f6trwo9wqw8eiOesEjKsyweQoM9WgCIR69LZVSr0FnikdOeWNQnfn2fYb QY+XeK00E53jAqJEPbzBs0jhmxoABVEeIONlfvJJokUspktaozJrvNVhDtNrrEHM uoP4/IMpWWAoHxKqmMz4TWRNJmQ+g1HpYmwBFTMCAwEAAaOCAlYwggJSMA4GA1Ud DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T AQH/BAIwADAdBgNVHQ4EFgQUIVpPKtvcK2w3zLWsH9RYd5nmUCkwHwYDVR0jBBgw FoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUF BzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9y My5pLmxlbmNyLm9yZy8wJgYDVR0RBB8wHYIbd3d3LmZhYnJpcXVlLnNvY2lhbC5n b3V2LmZyMEwGA1UdIARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYI KwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBAYKKwYBBAHW eQIEAgSB9QSB8gDwAHUARJRlLrDuzq/EQAfYqP4owNrmgr7YyzG1P9MzlrW2gagA AAF4YBaaQgAABAMARjBEAiBIylsR47rigLnetcjwu4nhDcDBFB6vk7uGmdfcJkCl wQIgCVA2D2GbmJFuH8vxtZh9FnRPYz1pWjT3QOK2bkLEtwwAdwD2XJQv0XcwIhRU GAgwlFaO400TGTO/3wwvIAvMTvFk4wAAAXhgFpovAAAEAwBIMEYCIQCAs4n4L0G9 Sy8NXoYod3nHyubbdUXoBU3/h3F233NXdwIhAPlezcTTwwWmifOlLEBdYeEhO8td jbEll1WNa3tXpcGBMA0GCSqGSIb3DQEBCwUAA4IBAQCCgDV9LIgW5UyhuTFFiWfs +V5bv6i9ly6IcypQride8uRrwJB93ZohLD8US7I/f1aBzwdzl1ADuRKKE7svR7cW GPrXoRbNahZIfR5XWCUaMN2nTTjjWKWQexVFqvZ7uyqxPEiYHkbKpdE8Sb3LpNZn cw50csMttzw3fnWP3OhjuFKVUYEpYF13emaJA0V9nCIhfvL8+VM78ZUYWYG+SbCf 51JTv0fUkLv2vhcTocgB8JFlfzmMXFUs9JPOZwJ1Jy2v5hMebVf+gS4vbzq+/H8p 1bn1TPZ6Y+3cfE8SJwXocFK/jpuHJHiaoXdoJh87zl5EI8Q7B6us6RuF+CNNQp5k -----END CERTIFICATE-----"
+        "finding": "-----BEGIN CERTIFICATE----- MIIFPTCCBCWgAwIBAgISAwFHYCOgHoR7ZefGvQDD4dcfMA0GCSqGSIb3DQEBCwUA MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD EwJSMzAeFw0yMTA1MjIxNTE3MTBaFw0yMTA4MjAxNTE3MTBaMCYxJDAiBgNVBAMT G3d3dy5mYWJyaXF1ZS5zb2NpYWwuZ291di5mcjCCASIwDQYJKoZIhvcNAQEBBQAD ggEPADCCAQoCggEBANcGK1O7EUiWsO1gqdg0BtTiohfMlBQrD++3YMEy5QPT7a3z Aj59lon4ykpt0hPS32VaegFIenp+fJT9+E6hwQ+dxRlvtwngpmVwmPfHjLiZX2Xj WP8Qh92aO+A/tRy8mqIwP7P8HE4mCztSWMAAwXadF9sd1dXbE6KqPAio4nh1WqKQ IKGApL6f6trwo9wqw8eiOesEjKsyweQoM9WgCIR69LZVSr0FnikdOeWNQnfn2fYb QY+XeK00E53jAqJEPbzBs0jhmxoABVEeIONlfvJJokUspktaozJrvNVhDtNrrEHM uoP4/IMpWWAoHxKqmMz4TWRNJmQ+g1HpYmwBFTMCAwEAAaOCAlcwggJTMA4GA1Ud DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T AQH/BAIwADAdBgNVHQ4EFgQUIVpPKtvcK2w3zLWsH9RYd5nmUCkwHwYDVR0jBBgw FoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUF BzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9y My5pLmxlbmNyLm9yZy8wJgYDVR0RBB8wHYIbd3d3LmZhYnJpcXVlLnNvY2lhbC5n b3V2LmZyMEwGA1UdIARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYI KwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBQYKKwYBBAHW eQIEAgSB9gSB8wDxAHcARJRlLrDuzq/EQAfYqP4owNrmgr7YyzG1P9MzlrW2gagA AAF5lN28lwAABAMASDBGAiEA8PunyRFanJtfOe9mA5FefykpjU0km3UJ4vpfMzGw E1kCIQD9sdUpzViZEHSN43ss27Y9Z3UfTzkL3RJN0g2e+42PqwB2AH0+8viP/4hV aCTCwMqeUol5K8UOeAl/LmqXaJl+IvDXAAABeZTdvOoAAAQDAEcwRQIgS251p+5u wk+y/+eIKvIVEVtZAotoP3KP/0wbhs1DghkCIQDOkWEWha0Qw9MTx83SCbC6IkHi GBGgtYH62+nlxURhzzANBgkqhkiG9w0BAQsFAAOCAQEAk9afBCGyyYF3NQmn9War VuwBGQ8EjFnacYL3uDerVudAHSfH3jy1J2IqHiY+r3BJa5jbAa34cSsA6Rn84bqc epiIGPRXcdYghig/rMyVlTuNtXhBfaz0vdt1tZ7Z0LzUk/Bf/uABBNKj2wOtEwy3 a/hPwtSNyW/TyXCrXYYNwYSM2Uux6dIm0TtlwfF+qSfrlhjU0oq/J/NQLKq1SHpB LQrVJ6kP4avt7ZjPiRjt6h5aCTSUvHKwCmGQhQMochzUuuUN+HSNUfpCg4BZR6a2 2UphgcEllzm9mJEQ+Pg9PXhRFcsZJypNeUQQbJ4oqTOcNirkMThaclgpS7INok3d 4Q== -----END CERTIFICATE-----"
       },
       {
         "id": "cert_commonName",
@@ -666,21 +772,21 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "OK",
-        "finding": "53 >= 30 days"
+        "finding": "81 >= 30 days"
       },
       {
         "id": "cert_notBefore",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "2021-03-23 16:16"
+        "finding": "2021-05-22 15:17"
       },
       {
         "id": "cert_notAfter",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "OK",
-        "finding": "2021-06-21 16:16"
+        "finding": "2021-08-20 15:17"
       },
       {
         "id": "cert_extlifeSpan",
@@ -743,7 +849,7 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "2"
+        "finding": "3"
       },
       {
         "id": "certs_list_ordering_problem",
@@ -764,28 +870,28 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "-----BEGIN CERTIFICATE----- MIIEZTCCA02gAwIBAgIQQAF1BIMUpMghjISpDBbN3zANBgkqhkiG9w0BAQsFADA/ MSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT DkRTVCBSb290IENBIFgzMB4XDTIwMTAwNzE5MjE0MFoXDTIxMDkyOTE5MjE0MFow MjELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxCzAJBgNVBAMT AlIzMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuwIVKMz2oJTTDxLs jVWSw/iC8ZmmekKIp10mqrUrucVMsa+Oa/l1yKPXD0eUFFU1V4yeqKI5GfWCPEKp Tm71O8Mu243AsFzzWTjn7c9p8FoLG77AlCQlh/o3cbMT5xys4Zvv2+Q7RVJFlqnB U840yFLuta7tj95gcOKlVKu2bQ6XpUA0ayvTvGbrZjR8+muLj1cpmfgwF126cm/7 gcWt0oZYPRfH5wm78Sv3htzB2nFd1EbjzK0lwYi8YGd1ZrPxGPeiXOZT/zqItkel /xMY6pgJdz+dU/nPAeX1pnAXFK9jpP+Zs5Od3FOnBv5IhR2haa4ldbsTzFID9e1R oYvbFQIDAQABo4IBaDCCAWQwEgYDVR0TAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8E BAMCAYYwSwYIKwYBBQUHAQEEPzA9MDsGCCsGAQUFBzAChi9odHRwOi8vYXBwcy5p ZGVudHJ1c3QuY29tL3Jvb3RzL2RzdHJvb3RjYXgzLnA3YzAfBgNVHSMEGDAWgBTE p7Gkeyxx+tvhS5B1/8QVYIWJEDBUBgNVHSAETTBLMAgGBmeBDAECATA/BgsrBgEE AYLfEwEBATAwMC4GCCsGAQUFBwIBFiJodHRwOi8vY3BzLnJvb3QteDEubGV0c2Vu Y3J5cHQub3JnMDwGA1UdHwQ1MDMwMaAvoC2GK2h0dHA6Ly9jcmwuaWRlbnRydXN0 LmNvbS9EU1RST09UQ0FYM0NSTC5jcmwwHQYDVR0OBBYEFBQusxe3WFbLrlAJQOYf r52LFMLGMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjANBgkqhkiG9w0B AQsFAAOCAQEA2UzgyfWEiDcx27sT4rP8i2tiEmxYt0l+PAK3qB8oYevO4C5z70kH ejWEHx2taPDY/laBL21/WKZuNTYQHHPD5b1tXgHXbnL7KqC401dk5VvCadTQsvd8 S8MXjohyc9z9/G2948kLjmE6Flh9dDYrVYA9x2O+hEPGOaEOa1eePynBgPayvUfL qjBstzLhWVQLGAkXXmNs+5ZnPBxzDJOLxhF2JIbeQAcH5H0tZrUlo5ZYyOqA7s9p O5b85o3AM/OJ+CktFBQtfvBhcJVd9wvlwPsk+uyOy2HI7mNxKKgsBTt375teA2Tw UdHkhVNcsAKX1H7GNNLOEADksd86wuoXvg== -----END CERTIFICATE-----"
+        "finding": "-----BEGIN CERTIFICATE----- MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMjAwOTA0MDAwMDAw WhcNMjUwOTE1MTYwMDAwWjAyMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3Mg RW5jcnlwdDELMAkGA1UEAxMCUjMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK AoIBAQC7AhUozPaglNMPEuyNVZLD+ILxmaZ6QoinXSaqtSu5xUyxr45r+XXIo9cP R5QUVTVXjJ6oojkZ9YI8QqlObvU7wy7bjcCwXPNZOOftz2nwWgsbvsCUJCWH+jdx sxPnHKzhm+/b5DtFUkWWqcFTzjTIUu61ru2P3mBw4qVUq7ZtDpelQDRrK9O8Zutm NHz6a4uPVymZ+DAXXbpyb/uBxa3Shlg9F8fnCbvxK/eG3MHacV3URuPMrSXBiLxg Z3Vms/EY96Jc5lP/Ooi2R6X/ExjqmAl3P51T+c8B5fWmcBcUr2Ok/5mzk53cU6cG /kiFHaFpriV1uxPMUgP17VGhi9sVAgMBAAGjggEIMIIBBDAOBgNVHQ8BAf8EBAMC AYYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMBIGA1UdEwEB/wQIMAYB Af8CAQAwHQYDVR0OBBYEFBQusxe3WFbLrlAJQOYfr52LFMLGMB8GA1UdIwQYMBaA FHm0WeZ7tuXkAXOACIjIGlj26ZtuMDIGCCsGAQUFBwEBBCYwJDAiBggrBgEFBQcw AoYWaHR0cDovL3gxLmkubGVuY3Iub3JnLzAnBgNVHR8EIDAeMBygGqAYhhZodHRw Oi8veDEuYy5sZW5jci5vcmcvMCIGA1UdIAQbMBkwCAYGZ4EMAQIBMA0GCysGAQQB gt8TAQEBMA0GCSqGSIb3DQEBCwUAA4ICAQCFyk5HPqP3hUSFvNVneLKYY611TR6W PTNlclQtgaDqw+34IL9fzLdwALduO/ZelN7kIJ+m74uyA+eitRY8kc607TkC53wl ikfmZW4/RvTZ8M6UK+5UzhK8jCdLuMGYL6KvzXGRSgi3yLgjewQtCPkIVz6D2QQz CkcheAmCJ8MqyJu5zlzyZMjAvnnAT45tRAxekrsu94sQ4egdRCnbWSDtY7kh+BIm lJNXoB1lBMEKIq4QDUOXoRgffuDghje1WrG9ML+Hbisq/yFOGwXD9RiX8F6sw6W4 avAuvDszue5L3sz85K+EC4Y/wFVDNvZo4TYXao6Z0f+lQKc0t8DQYzk1OXVu8rp2 yJMC6alLbBfODALZvYH7n7do1AZls4I9d1P4jnkDrQoxB3UqQ9hVl3LEKQ73xF1O yK5GhDDX8oVfGKF5u+decIsH4YaTw7mP3GFxJSqv3+0lUFJoi5Lc5da149p90Ids hCExroL1+7mryIkXPeFM5TgO9r0rvZaBFOvV2z0gp35Z0+L4WPlbuEjN/lxPFin+ HlUjr8gRsI3qfJOQFy/9rKIJR0Y/8Omwt/8oTWgy1mdeHmmjk7j1nYsvC9JSQ6Zv MldlTTKB3zhThV1+XWYp6rjd5JW1zbVWEkLNxE7GJThEUG3szgBVGP7pSWTUTsqX nLRbwHOoq7hHwg== -----END CERTIFICATE-----"
       },
       {
         "id": "intermediate_cert_fingerprintSHA256 <#1>",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "730C1BDCD85F57CE5DC0BBA733E5F1BA5A925B2A771D640A26F7A454224DAD3B"
+        "finding": "67ADD1166B020AE61B8F5FC96813C04C2AA589960796865572A3C7E737613DFD"
       },
       {
         "id": "intermediate_cert_notBefore <#1>",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "2020-10-07 19:21"
+        "finding": "2020-09-04 00:00"
       },
       {
         "id": "intermediate_cert_notAfter <#1>",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "OK",
-        "finding": "2021-09-29 19:21"
+        "finding": "2025-09-15 16:00"
       },
       {
         "id": "intermediate_cert_expiration <#1>",
@@ -799,7 +905,49 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "R3 <-- DST Root CA X3"
+        "finding": "R3 <-- ISRG Root X1"
+      },
+      {
+        "id": "intermediate_cert <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "INFO",
+        "finding": "-----BEGIN CERTIFICATE----- MIIFYDCCBEigAwIBAgIQQAF3ITfU6UK47naqPGQKtzANBgkqhkiG9w0BAQsFADA/ MSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT DkRTVCBSb290IENBIFgzMB4XDTIxMDEyMDE5MTQwM1oXDTI0MDkzMDE4MTQwM1ow TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwggIiMA0GCSqGSIb3DQEB AQUAA4ICDwAwggIKAoICAQCt6CRz9BQ385ueK1coHIe+3LffOJCMbjzmV6B493XC ov71am72AE8o295ohmxEk7axY/0UEmu/H9LqMZshftEzPLpI9d1537O4/xLxIZpL wYqGcWlKZmZsj348cL+tKSIG8+TA5oCu4kuPt5l+lAOf00eXfJlII1PoOK5PCm+D LtFJV4yAdLbaL9A4jXsDcCEbdfIwPPqPrt3aY6vrFk/CjhFLfs8L6P+1dy70sntK 4EwSJQxwjQMpoOFTJOwT2e4ZvxCzSow/iaNhUd6shweU9GNx7C7ib1uYgeGJXDR5 bHbvO5BieebbpJovJsXQEOEO3tkQjhb7t/eo98flAgeYjzYIlefiN5YNNnWe+w5y sR2bvAP5SQXYgd0FtCrWQemsAXaVCg/Y39W9Eh81LygXbNKYwagJZHduRze6zqxZ Xmidf3LWicUGQSk+WT7dJvUkyRGnWqNMQB9GoZm1pzpRboY7nn1ypxIFeFntPlF4 FQsDj43QLwWyPntKHEtzBRL8xurgUBN8Q5N0s8p0544fAQjQMNRbcTa0B7rBMDBc SLeCO5imfWCKoqMpgsy6vYMEG6KDA0Gh1gXxG8K28Kh8hjtGqEgqiNx2mna/H2ql PRmP6zjzZN7IKw0KKP/32+IVQtQi0Cdd4Xn+GOdwiK1O5tmLOsbdJ1Fu/7xk9TND TwIDAQABo4IBRjCCAUIwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYw SwYIKwYBBQUHAQEEPzA9MDsGCCsGAQUFBzAChi9odHRwOi8vYXBwcy5pZGVudHJ1 c3QuY29tL3Jvb3RzL2RzdHJvb3RjYXgzLnA3YzAfBgNVHSMEGDAWgBTEp7Gkeyxx +tvhS5B1/8QVYIWJEDBUBgNVHSAETTBLMAgGBmeBDAECATA/BgsrBgEEAYLfEwEB ATAwMC4GCCsGAQUFBwIBFiJodHRwOi8vY3BzLnJvb3QteDEubGV0c2VuY3J5cHQu b3JnMDwGA1UdHwQ1MDMwMaAvoC2GK2h0dHA6Ly9jcmwuaWRlbnRydXN0LmNvbS9E U1RST09UQ0FYM0NSTC5jcmwwHQYDVR0OBBYEFHm0WeZ7tuXkAXOACIjIGlj26Ztu MA0GCSqGSIb3DQEBCwUAA4IBAQAKcwBslm7/DlLQrt2M51oGrS+o44+/yQoDFVDC 5WxCu2+b9LRPwkSICHXM6webFGJueN7sJ7o5XPWioW5WlHAQU7G75K/QosMrAdSW 9MUgNTP52GE24HGNtLi1qoJFlcDyqSMo59ahy2cI2qBDLKobkx/J3vWraV0T9VuG WCLKTVXkcGdtwlfFRjlBz4pYg1htmf5X6DYO8A4jqv2Il9DjXA6USbW1FzXSLr9O he8Y4IWS6wY7bCkjCWDcRQJMEhg76fsO3txE+FiYruq9RUWhiF1myv4Q6W+CyBFC Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5 -----END CERTIFICATE-----"
+      },
+      {
+        "id": "intermediate_cert_fingerprintSHA256 <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "INFO",
+        "finding": "6D99FB265EB1C5B3744765FCBC648F3CD8E1BFFAFDC4C2F99B9D47CF7FF1C24F"
+      },
+      {
+        "id": "intermediate_cert_notBefore <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "INFO",
+        "finding": "2021-01-20 19:14"
+      },
+      {
+        "id": "intermediate_cert_notAfter <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "OK",
+        "finding": "2024-09-30 18:14"
+      },
+      {
+        "id": "intermediate_cert_expiration <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "OK",
+        "finding": "ok > 40 days"
+      },
+      {
+        "id": "intermediate_cert_chain <#2>",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "INFO",
+        "finding": "ISRG Root X1 <-- DST Root CA X3"
       },
       {
         "id": "intermediate_cert_badOCSP",
@@ -827,7 +975,7 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "OK",
-        "finding": "182 days (=15724800 seconds) > 15465600 seconds"
+        "finding": "182 days (=15724800 seconds) > 15552000 seconds"
       },
       {
         "id": "HSTS_subdomains",
@@ -872,11 +1020,32 @@
         "finding": "0 at '/'"
       },
       {
-        "id": "security_headers",
+        "id": "X-Frame-Options",
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
-        "severity": "MEDIUM",
-        "finding": "--"
+        "severity": "OK",
+        "finding": "deny"
+      },
+      {
+        "id": "X-Content-Type-Options",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "OK",
+        "finding": "nosniff"
+      },
+      {
+        "id": "Content-Security-Policy",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "OK",
+        "finding": "default-src 'none'; connect-src 'self' https://*.gouv.fr; font-src 'self'; img-src 'self'; prefetch-src 'self' https://*.gouv.fr; script-src 'self' https://*.gouv.fr; frame-src 'self' https://*.gouv.fr; style-src 'self' 'unsafe-inline'"
+      },
+      {
+        "id": "X-XSS-Protection",
+        "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
+        "port": "443",
+        "severity": "INFO",
+        "finding": "1; mode=block"
       },
       {
         "id": "banner_reverseproxy",
@@ -1007,7 +1176,7 @@
         "severity": "INFO",
         "cve": "CVE-2016-0800 CVE-2016-0703",
         "cwe": "CWE-310",
-        "finding": "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=62684B4838470E8AF069E8DCC8C40C83D3C4CB84EFB77B2CD3DAD7F1F75E4A06"
+        "finding": "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=302E01462899E32663129B7C33C80D53FF1B66372B7D3124E079692228960CBC"
       },
       {
         "id": "LOGJAM",
@@ -1390,52 +1559,25 @@
         "ip": "www.fabrique.social.gouv.fr/51.11.227.220",
         "port": "443",
         "severity": "INFO",
-        "finding": "125"
+        "finding": "120"
       }
     ],
     "thirdparties": {
       "trackers": [],
-      "cookies": [
-        {
-          "name": "_pk_ses.2.6321",
-          "value": "1",
-          "domain": "www.fabrique.social.gouv.fr",
-          "path": "/",
-          "expires": 1619649332,
-          "size": 15,
-          "httpOnly": false,
-          "secure": false,
-          "session": false,
-          "sameSite": "Lax",
-          "sameParty": false,
-          "sourceScheme": "Secure",
-          "sourcePort": 443
-        },
-        {
-          "name": "_pk_id.2.6321",
-          "value": "2daef3ab4f16130b.1619647532.",
-          "domain": "www.fabrique.social.gouv.fr",
-          "path": "/",
-          "expires": 1653602732,
-          "size": 41,
-          "httpOnly": false,
-          "secure": false,
-          "session": false,
-          "sameSite": "Lax",
-          "sameParty": false,
-          "sourceScheme": "Secure",
-          "sourcePort": 443
-        }
-      ],
+      "cookies": [],
       "headers": {
         "server": "nginx/1.17.8",
-        "date": "Wed, 28 Apr 2021 22:05:31 GMT",
+        "date": "Mon, 31 May 2021 09:24:35 GMT",
         "content-type": "text/html",
-        "last-modified": "Tue, 27 Apr 2021 23:57:34 GMT",
+        "last-modified": "Mon, 31 May 2021 08:59:53 GMT",
         "vary": "Accept-Encoding",
-        "etag": "W/\"6088a4ee-65bb\"",
+        "etag": "W/\"60b4a589-66c8\"",
         "content-encoding": "gzip",
-        "strict-transport-security": "max-age=15724800; includeSubDomains"
+        "strict-transport-security": "max-age=15724800; includeSubDomains",
+        "content-security-policy": "default-src 'none'; connect-src 'self' https://*.gouv.fr; font-src 'self'; img-src 'self'; prefetch-src 'self' https://*.gouv.fr; script-src 'self' https://*.gouv.fr; frame-src 'self' https://*.gouv.fr; style-src 'self' 'unsafe-inline'",
+        "x-frame-options": "deny",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff"
       },
       "endpoints": [
         {
@@ -1554,16 +1696,16 @@
         "https://www.fabrique.social.gouv.fr/actus/seminaire-1": {
           "status": 200
         },
-        "https://www.fabrique.social.gouv.fr/startups/tumeplay/": {
+        "https://www.fabrique.social.gouv.fr/startups/archifiltre/": {
           "status": 200
         },
         "https://www.fabrique.social.gouv.fr/faq/": {
           "status": 200
         },
-        "https://www.fabrique.social.gouv.fr/startups/e-mjpm/": {
+        "https://www.fabrique.social.gouv.fr/startups/work-in-france": {
           "status": 200
         },
-        "https://www.fabrique.social.gouv.fr/startups/work-in-france": {
+        "https://www.fabrique.social.gouv.fr/startups/e-mjpm/": {
           "status": 200
         }
       },
@@ -1715,7 +1857,7 @@
     },
     "zap": {
       "@version": "2.10.0",
-      "@generated": "Wed, 28 Apr 2021 22:05:01",
+      "@generated": "Mon, 31 May 2021 09:24:05",
       "site": [
         {
           "@name": "https://www.fabrique.social.gouv.fr",
@@ -1738,18 +1880,25 @@
               "desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>"
             },
             {
+              "name": "CSP: Wildcard Directive",
+              "riskcode": "2",
+              "confidence": "2",
+              "riskdesc": "Medium (Medium)",
+              "desc": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>frame-ancestors, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>"
+            },
+            {
+              "name": "CSP: style-src unsafe-inline",
+              "riskcode": "2",
+              "confidence": "2",
+              "riskdesc": "Medium (Medium)",
+              "desc": "<p>style-src includes unsafe-inline.</p>"
+            },
+            {
               "name": "Modern Web Application",
               "riskcode": "0",
               "confidence": "2",
               "riskdesc": "Informational (Medium)",
               "desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>"
-            },
-            {
-              "name": "X-Frame-Options Header Not Set",
-              "riskcode": "2",
-              "confidence": "2",
-              "riskdesc": "Medium (Medium)",
-              "desc": "<p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p>"
             },
             {
               "name": "Reverse Tabnabbing",
@@ -1759,11 +1908,11 @@
               "desc": "<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.</p>"
             },
             {
-              "name": "X-Content-Type-Options Header Missing",
-              "riskcode": "1",
-              "confidence": "2",
-              "riskdesc": "Low (Medium)",
-              "desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>"
+              "name": "Information Disclosure - Suspicious Comments",
+              "riskcode": "0",
+              "confidence": "1",
+              "riskdesc": "Informational (Low)",
+              "desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>"
             },
             {
               "name": "Base64 Disclosure",
@@ -1771,13 +1920,6 @@
               "confidence": "2",
               "riskdesc": "Informational (Medium)",
               "desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>"
-            },
-            {
-              "name": "Content Security Policy (CSP) Header Not Set",
-              "riskcode": "2",
-              "confidence": "3",
-              "riskdesc": "Medium (High)",
-              "desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>"
             },
             {
               "name": "Dangerous JS Functions",
@@ -1792,13 +1934,6 @@
               "confidence": "2",
               "riskdesc": "Low (Medium)",
               "desc": "<p>Feature Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Feature Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>"
-            },
-            {
-              "name": "Information Disclosure - Suspicious Comments",
-              "riskcode": "0",
-              "confidence": "1",
-              "riskdesc": "Informational (Low)",
-              "desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>"
             },
             {
               "name": "Timestamp Disclosure - Unix",
@@ -1818,46 +1953,17 @@
         }
       ]
     },
-    "nuclei": [
-      {
-        "templateID": "waf-detect",
-        "info": {
-          "name": "WAF Detection",
-          "author": "dwisiswant0",
-          "severity": "info"
-        },
-        "matcher_name": "nginxgeneric",
-        "type": "http",
-        "host": "https://www.fabrique.social.gouv.fr",
-        "matched": "https://www.fabrique.social.gouv.fr/",
-        "ip": "51.11.227.220",
-        "timestamp": "2021-04-28T22:09:00.216236381Z"
-      },
-      {
-        "templateID": "tech-detect",
-        "info": {
-          "name": "Wappalyzer Technology Detection",
-          "author": "hakluke",
-          "severity": "info"
-        },
-        "matcher_name": "nginx",
-        "type": "http",
-        "host": "https://www.fabrique.social.gouv.fr",
-        "matched": "https://www.fabrique.social.gouv.fr",
-        "ip": "51.11.227.220",
-        "timestamp": "2021-04-28T22:09:08.865709015Z"
-      }
-    ],
+    "nuclei": [],
     "lhr": {
       "requestedUrl": "https://www.fabrique.social.gouv.fr/",
       "finalUrl": "https://www.fabrique.social.gouv.fr/",
-      "fetchTime": "2021-04-28T22:05:03.607Z",
+      "fetchTime": "2021-05-31T09:24:08.496Z",
       "runWarnings": [],
       "categories": {
         "performance": {
           "title": "Performance",
           "id": "performance",
-          "score": 0.88
+          "score": 0.5
         },
         "accessibility": {
           "title": "Accessibility",
@@ -1869,7 +1975,7 @@
         "best-practices": {
           "title": "Best Practices",
           "id": "best-practices",
-          "score": 0.93
+          "score": 0.8
         },
         "seo": {
           "title": "SEO",
@@ -1893,49 +1999,49 @@
           "description": "Collects all available metrics.",
           "score": null,
           "scoreDisplayMode": "informative",
-          "numericValue": 2502,
+          "numericValue": 2749,
           "numericUnit": "millisecond",
           "details": {
             "type": "debugdata",
             "items": [
               {
-                "firstContentfulPaint": 1345,
-                "firstMeaningfulPaint": 1945,
-                "largestContentfulPaint": 3895,
-                "firstCPUIdle": 1945,
-                "interactive": 2502,
-                "speedIndex": 2136,
+                "firstContentfulPaint": 1547,
+                "firstMeaningfulPaint": 2147,
+                "largestContentfulPaint": 4730,
+                "firstCPUIdle": 2674,
+                "interactive": 2749,
+                "speedIndex": 1991,
                 "estimatedInputLatency": 13,
-                "totalBlockingTime": 168,
-                "maxPotentialFID": 214,
+                "totalBlockingTime": 139,
+                "maxPotentialFID": 167,
                 "cumulativeLayoutShift": 0.0008589238656159644,
                 "cumulativeLayoutShiftAllFrames": 0,
                 "observedTimeOrigin": 0,
-                "observedTimeOriginTs": 186416651,
+                "observedTimeOriginTs": 170028043,
                 "observedNavigationStart": 0,
-                "observedNavigationStartTs": 186416651,
-                "observedFirstPaint": 702,
-                "observedFirstPaintTs": 187118311,
-                "observedFirstContentfulPaint": 702,
-                "observedFirstContentfulPaintTs": 187118311,
-                "observedFirstMeaningfulPaint": 1089,
-                "observedFirstMeaningfulPaintTs": 187505445,
-                "observedLargestContentfulPaint": 1121,
-                "observedLargestContentfulPaintTs": 187537617,
-                "observedTraceEnd": 2392,
-                "observedTraceEndTs": 188809114,
-                "observedLoad": 1324,
-                "observedLoadTs": 187740458,
-                "observedDomContentLoaded": 705,
-                "observedDomContentLoadedTs": 187121856,
+                "observedNavigationStartTs": 170028043,
+                "observedFirstPaint": 547,
+                "observedFirstPaintTs": 170574627,
+                "observedFirstContentfulPaint": 547,
+                "observedFirstContentfulPaintTs": 170574627,
+                "observedFirstMeaningfulPaint": 861,
+                "observedFirstMeaningfulPaintTs": 170889199,
+                "observedLargestContentfulPaint": 946,
+                "observedLargestContentfulPaintTs": 170973799,
+                "observedTraceEnd": 2115,
+                "observedTraceEndTs": 172143114,
+                "observedLoad": 1049,
+                "observedLoadTs": 171076666,
+                "observedDomContentLoaded": 535,
+                "observedDomContentLoadedTs": 170563490,
                 "observedCumulativeLayoutShift": 0.0008589238656159644,
                 "observedCumulativeLayoutShiftAllFrames": 0,
-                "observedFirstVisualChange": 709,
-                "observedFirstVisualChangeTs": 187125651,
-                "observedLastVisualChange": 2392,
-                "observedLastVisualChangeTs": 188808651,
-                "observedSpeedIndex": 1080,
-                "observedSpeedIndexTs": 187496500
+                "observedFirstVisualChange": 548,
+                "observedFirstVisualChangeTs": 170576043,
+                "observedLastVisualChange": 2115,
+                "observedLastVisualChangeTs": 172143043,
+                "observedSpeedIndex": 882,
+                "observedSpeedIndexTs": 170910497
               },
               {
                 "lcpInvalidated": false
@@ -1953,57 +2059,77 @@
             "type": "debugdata",
             "items": [
               {
-                "numRequests": 46,
-                "numScripts": 14,
+                "numRequests": 44,
+                "numScripts": 12,
                 "numStylesheets": 1,
                 "numFonts": 3,
-                "numTasks": 1147,
-                "numTasksOver10ms": 4,
+                "numTasks": 1048,
+                "numTasksOver10ms": 7,
                 "numTasksOver25ms": 2,
-                "numTasksOver50ms": 1,
+                "numTasksOver50ms": 0,
                 "numTasksOver100ms": 0,
                 "numTasksOver500ms": 0,
-                "rtt": 111.76700000000001,
-                "throughput": 52625553.61797118,
-                "maxRtt": 112.788,
-                "maxServerLatency": 144.598,
-                "totalByteWeight": 4409778,
-                "totalTaskTime": 431.87999999999954,
-                "mainDocumentTransferSize": 7581
+                "rtt": 85.603,
+                "throughput": 88985103.12926224,
+                "maxRtt": 86.05,
+                "maxServerLatency": 154.868,
+                "totalByteWeight": 4420169,
+                "totalTaskTime": 468.0199999999991,
+                "mainDocumentTransferSize": 7859
               }
             ]
           }
         }
       }
     },
-    "screenshot": false
+    "screenshot": false,
+    "summary": {
+      "httpGrade": "A+",
+      "dependabotGrade": "F",
+      "dependabotCount": 6,
+      "testsslGrade": "A+",
+      "cookiesGrade": "A",
+      "cookiesCount": 0,
+      "trackersGrade": "A",
+      "trackersCount": 0,
+      "lighthouse_performance": 0.5,
+      "lighthouse_performanceGrade": "D",
+      "lighthouse_accessibility": 0.92,
+      "lighthouse_accessibilityGrade": "A",
+      "lighthouse_best-practices": 0.8,
+      "lighthouse_best-practicesGrade": "B",
+      "lighthouse_seo": 0.83,
+      "lighthouse_seoGrade": "B",
+      "lighthouse_pwa": 0.42,
+      "lighthouse_pwaGrade": "D"
+    }
   },
   {
     "url": "https://beta.gouv.fr",
     "http": {
       "url": "https://beta.gouv.fr",
       "algorithm_version": 2,
-      "end_time": "Wed, 28 Apr 2021 00:37:36 GMT",
+      "end_time": "Mon, 31 May 2021 01:48:23 GMT",
       "grade": "D",
       "hidden": false,
       "likelihood_indicator": "MEDIUM",
       "response_headers": {
-        "Age": "26340",
+        "Age": "20500",
         "Cache-Control": "public, max-age=0, must-revalidate",
         "Connection": "keep-alive",
         "Content-Encoding": "gzip",
-        "Content-Length": "6883",
+        "Content-Length": "11162",
         "Content-Type": "text/html; charset=UTF-8",
-        "Date": "Tue, 27 Apr 2021 17:18:35 GMT",
-        "Etag": "\"2083ea2840d142fc5a8a91907fbaf411-ssl-df\"",
+        "Date": "Sun, 30 May 2021 20:06:42 GMT",
+        "Etag": "\"49add13538dc576cd376066c65e3b0bb-ssl-df\"",
         "Server": "Netlify",
         "Strict-Transport-Security": "max-age=31536000",
         "Vary": "Accept-Encoding",
-        "X-NF-Request-ID": "fdeea3cd-b783-4f62-9328-7690b9b085aa-186949689"
+        "X-NF-Request-ID": "52d1ef77-e929-4ca9-9f7b-291c03ec726a-376874569"
       },
-      "scan_id": 18884593,
+      "scan_id": 19416865,
       "score": 35,
-      "start_time": "Wed, 28 Apr 2021 00:37:34 GMT",
+      "start_time": "Mon, 31 May 2021 01:48:19 GMT",
       "state": "FINISHED",
       "status_code": 200,
       "tests_failed": 5,
@@ -2226,7 +2352,7 @@
         "ip": "beta.gouv.fr/75.2.60.5",
         "port": "443",
         "severity": "INFO",
-        "finding": "is not offered"
+        "finding": "not offered"
       },
       {
         "id": "TLS1_2",
@@ -2526,7 +2652,7 @@
         "ip": "beta.gouv.fr/75.2.60.5",
         "port": "443",
         "severity": "OK",
-        "finding": "89 >= 30 days"
+        "finding": "57 >= 30 days"
       },
       {
         "id": "cert_notBefore",
@@ -2680,14 +2806,14 @@
         "ip": "beta.gouv.fr/75.2.60.5",
         "port": "443",
         "severity": "INFO",
-        "finding": "-11213 seconds from localtime"
+        "finding": "-278 seconds from localtime"
       },
       {
         "id": "HSTS_time",
         "ip": "beta.gouv.fr/75.2.60.5",
         "port": "443",
         "severity": "OK",
-        "finding": "365 days (=31536000 seconds) > 15465600 seconds"
+        "finding": "365 days (=31536000 seconds) > 15552000 seconds"
       },
       {
         "id": "HSTS_subdomains",
@@ -3250,14 +3376,14 @@
         "ip": "beta.gouv.fr/75.2.60.5",
         "port": "443",
         "severity": "INFO",
-        "finding": "100"
+        "finding": "102"
       }
     ],
     "thirdparties": {
       "trackers": [
         {
           "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/bundles/09d286a2f3f4c3e7292be1469e6bb284826c7104.css",
+          "url": "https://d33wubrfki0l68.cloudfront.net/bundles/61bd987b9f90de2a8ad797e7ae2c0d5a971ecf1e.css",
           "details": {
             "id": "cloudfront",
             "message": "Host files locally"
@@ -3289,62 +3415,6 @@
         },
         {
           "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/dad9d712d7edaef22c96552a371901be5da8f31b/064e9/img/layouts/home/index.jpg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/6208654d378a274dab1fda368fb623dc2b656c72/00ba6/img/layouts/home/icons/pen.svg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/3792233785243639365c1ef293cdf69c0c20daa5/15e2b/img/layouts/home/icons/book.svg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/403dfa33f7b5a248912448c665ff9651b888a0a4/addf3/img/layouts/home/icons/pencil.svg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/7b4bc7969390ea78e20ad7aec832f8309851a2fd/52346/img/layouts/home/icons/rocket.svg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/img/layouts/home/3c5fcd6bcaad39c4454865dfd5b94576fc2c490e/agent_public.jpg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
-          "url": "https://d33wubrfki0l68.cloudfront.net/img/layouts/home/a5d6f46e44d01f1849259b1662d4c0dd768ce510/decideur_public.jpg",
-          "details": {
-            "id": "cloudfront",
-            "message": "Host files locally"
-          }
-        },
-        {
-          "type": "cloudfront",
           "url": "https://d33wubrfki0l68.cloudfront.net/4cc35a5f882145ec7feb23ac0a3cac8bd2832b93/cdaec/assets/gouvfr/fonts/marianne-bold.woff2",
           "details": {
             "id": "cloudfront",
@@ -3366,7 +3436,7 @@
           "value": "1",
           "domain": "beta.gouv.fr",
           "path": "/",
-          "expires": 1619649502,
+          "expires": 1622455072,
           "size": 16,
           "httpOnly": false,
           "secure": false,
@@ -3378,10 +3448,10 @@
         },
         {
           "name": "_pk_id.21.968e",
-          "value": "9df364e79cf5df6e.1619647702.1.1619647702.1619647702.",
+          "value": "6249dd27b9ad121a.1622453273.1.1622453273.1622453273.",
           "domain": "beta.gouv.fr",
           "path": "/",
-          "expires": 1653602902,
+          "expires": 1656408473,
           "size": 66,
           "httpOnly": false,
           "secure": false,
@@ -3395,15 +3465,15 @@
       "headers": {
         "cache-control": "public, max-age=0, must-revalidate",
         "content-type": "text/html; charset=UTF-8",
-        "date": "Wed, 28 Apr 2021 20:34:37 GMT",
-        "etag": "\"91403e59535072b077119c37fc187580-ssl-df\"",
+        "date": "Mon, 31 May 2021 09:22:21 GMT",
+        "etag": "\"f84342c1ea6409d5589d60c81a8f7dd1-ssl-df\"",
         "strict-transport-security": "max-age=31536000",
         "content-encoding": "br",
-        "content-length": "6447",
-        "age": "5625",
+        "content-length": "10357",
+        "age": "330",
         "server": "Netlify",
         "vary": "Accept-Encoding",
-        "x-nf-request-id": "d36d6f1a-2062-4400-804b-9e990dff0bd8-207082785"
+        "x-nf-request-id": "d43bc1fa-1f0c-4a16-81da-711321bf8787-391853802"
       },
       "endpoints": [
         {
@@ -3462,7 +3532,7 @@
         },
         {
           "hostname": "d33wubrfki0l68.cloudfront.net",
-          "ip": "52.84.160.205",
+          "ip": "54.230.125.35",
           "geoip": {
             "continent": {
               "code": "NA",
@@ -3539,13 +3609,13 @@
         "https://beta.gouv.fr/approche/intrapreneurs": {
           "status": 200
         },
-        "https://beta.gouv.fr/startups/sante-psy-etudiant.html": {
-          "status": 200
-        },
-        "https://beta.gouv.fr/recrutement/2021/04/23/commun-orientation-chargee-deploiement.html": {
-          "status": 200
-        },
         "https://beta.gouv.fr/approche/sponsors": {
+          "status": 200
+        },
+        "https://beta.gouv.fr/recrutement/2021/05/27/developpeur.se.full.stack.-.python.django.html": {
+          "status": 200
+        },
+        "https://beta.gouv.fr/startups/avril.html": {
           "status": 200
         }
       },
@@ -3639,7 +3709,7 @@
     },
     "zap": {
       "@version": "2.10.0",
-      "@generated": "Wed, 28 Apr 2021 22:07:54",
+      "@generated": "Mon, 31 May 2021 09:27:25",
       "site": [
         {
           "@name": "http://beta.gouv.fr",
@@ -3655,6 +3725,27 @@
           "@ssl": "true",
           "alerts": [
             {
+              "name": "Timestamp Disclosure - Unix",
+              "riskcode": "0",
+              "confidence": "1",
+              "riskdesc": "Informational (Low)",
+              "desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>"
+            },
+            {
+              "name": "Storable but Non-Cacheable Content",
+              "riskcode": "0",
+              "confidence": "2",
+              "riskdesc": "Informational (Medium)",
+              "desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>"
+            },
+            {
+              "name": "Reverse Tabnabbing",
+              "riskcode": "2",
+              "confidence": "2",
+              "riskdesc": "Medium (Medium)",
+              "desc": "<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.</p>"
+            },
+            {
               "name": "Information Disclosure - Suspicious Comments",
               "riskcode": "0",
               "confidence": "1",
@@ -3669,13 +3760,6 @@
               "desc": "<p>The cache-control and pragma HTTP header have not been set properly or are missing allowing the browser and proxies to cache content.</p>"
             },
             {
-              "name": "Feature Policy Header Not Set",
-              "riskcode": "1",
-              "confidence": "2",
-              "riskdesc": "Low (Medium)",
-              "desc": "<p>Feature Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Feature Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>"
-            },
-            {
               "name": "Dangerous JS Functions",
               "riskcode": "1",
               "confidence": "1",
@@ -3683,18 +3767,11 @@
               "desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>"
             },
             {
-              "name": "Timestamp Disclosure - Unix",
-              "riskcode": "0",
-              "confidence": "1",
-              "riskdesc": "Informational (Low)",
-              "desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>"
-            },
-            {
-              "name": "Base64 Disclosure",
+              "name": "Retrieved from Cache",
               "riskcode": "0",
               "confidence": "2",
               "riskdesc": "Informational (Medium)",
-              "desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>"
+              "desc": "<p>The content was retrieved from a shared cache. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance. </p>"
             },
             {
               "name": "X-Frame-Options Header Not Set",
@@ -3718,11 +3795,11 @@
               "desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>"
             },
             {
-              "name": "Modern Web Application",
+              "name": "Base64 Disclosure",
               "riskcode": "0",
               "confidence": "2",
               "riskdesc": "Informational (Medium)",
-              "desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>"
+              "desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>"
             },
             {
               "name": "User Controllable HTML Element Attribute (Potential XSS)",
@@ -3730,13 +3807,6 @@
               "confidence": "1",
               "riskdesc": "Informational (Low)",
               "desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>"
-            },
-            {
-              "name": "Reverse Tabnabbing",
-              "riskcode": "2",
-              "confidence": "2",
-              "riskdesc": "Medium (Medium)",
-              "desc": "<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.</p>"
             },
             {
               "name": "Content Security Policy (CSP) Header Not Set",
@@ -3753,11 +3823,18 @@
               "desc": "<p>The page includes one or more script files from a third-party domain.</p>"
             },
             {
-              "name": "Retrieved from Cache",
+              "name": "Feature Policy Header Not Set",
+              "riskcode": "1",
+              "confidence": "2",
+              "riskdesc": "Low (Medium)",
+              "desc": "<p>Feature Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Feature Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>"
+            },
+            {
+              "name": "Modern Web Application",
               "riskcode": "0",
               "confidence": "2",
               "riskdesc": "Informational (Medium)",
-              "desc": "<p>The content was retrieved from a shared cache. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance. </p>"
+              "desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>"
             },
             {
               "name": "Cross-Domain Misconfiguration",
@@ -3781,13 +3858,6 @@
               "desc": "<p>Application Source Code was disclosed by the web server - Perl</p>"
             },
             {
-              "name": "Storable but Non-Cacheable Content",
-              "riskcode": "0",
-              "confidence": "2",
-              "riskdesc": "Informational (Medium)",
-              "desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>"
-            },
-            {
               "name": "Strict-Transport-Security Header Not Set",
               "riskcode": "1",
               "confidence": "3",
@@ -3798,81 +3868,24 @@
         }
       ]
     },
-    "nuclei": [
-      {
-        "templateID": "waf-detect",
-        "info": {
-          "name": "WAF Detection",
-          "author": "dwisiswant0",
-          "severity": "info"
-        },
-        "matcher_name": "ats",
-        "type": "http",
-        "host": "https://beta.gouv.fr",
-        "matched": "https://beta.gouv.fr/",
-        "ip": "75.2.60.5",
-        "timestamp": "2021-04-28T22:10:45.978493415Z"
-      },
-      {
-        "templateID": "waf-detect",
-        "info": {
-          "name": "WAF Detection",
-          "author": "dwisiswant0",
-          "severity": "info"
-        },
-        "matcher_name": "cloudfront",
-        "type": "http",
-        "host": "https://beta.gouv.fr",
-        "matched": "https://beta.gouv.fr/",
-        "ip": "75.2.60.5",
-        "timestamp": "2021-04-28T22:10:45.978862849Z"
-      },
-      {
-        "templateID": "docker-compose-config",
-        "info": {
-          "name": "docker-compose.yml exposure",
-          "author": "meme-lord & blckraven & geeknik",
-          "severity": "medium",
-          "tags": "config,exposure"
-        },
-        "type": "http",
-        "host": "https://beta.gouv.fr",
-        "matched": "https://beta.gouv.fr/docker-compose.yml",
-        "ip": "75.2.60.5",
-        "timestamp": "2021-04-28T22:10:58.682318531Z"
-      },
-      {
-        "templateID": "netlify-cms",
-        "info": {
-          "tags": "panel",
-          "name": "Netlify CMS Admin Panel",
-          "author": "sullo",
-          "severity": "info"
-        },
-        "type": "http",
-        "host": "https://beta.gouv.fr",
-        "matched": "https://beta.gouv.fr/admin/index.html",
-        "ip": "75.2.60.5",
-        "timestamp": "2021-04-28T22:11:07.608075914Z"
-      }
-    ],
+    "nuclei": [],
     "lhr": {
       "requestedUrl": "https://beta.gouv.fr/",
       "finalUrl": "https://beta.gouv.fr/",
-      "fetchTime": "2021-04-28T22:07:57.642Z",
+      "fetchTime": "2021-05-31T09:27:28.578Z",
       "runWarnings": [],
       "categories": {
         "performance": {
           "title": "Performance",
           "id": "performance",
-          "score": 0.96
+          "score": 1
         },
         "accessibility": {
           "title": "Accessibility",
           "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developers.google.com/web/fundamentals/accessibility). Only a subset of accessibility issues can be automatically detected so manual testing is also encouraged.",
           "manualDescription": "These items address areas which an automated testing tool cannot cover. Learn more in our guide on [conducting an accessibility review](https://developers.google.com/web/fundamentals/accessibility/how-to-review).",
           "id": "accessibility",
-          "score": 0.9
+          "score": 0.89
         },
         "best-practices": {
           "title": "Best Practices",
@@ -3901,49 +3914,49 @@
           "description": "Collects all available metrics.",
           "score": null,
           "scoreDisplayMode": "informative",
-          "numericValue": 2397,
+          "numericValue": 2464,
           "numericUnit": "millisecond",
           "details": {
             "type": "debugdata",
             "items": [
               {
-                "firstContentfulPaint": 1732,
-                "firstMeaningfulPaint": 2347,
-                "largestContentfulPaint": 2797,
-                "firstCPUIdle": 2347,
-                "interactive": 2397,
-                "speedIndex": 1732,
+                "firstContentfulPaint": 1688,
+                "firstMeaningfulPaint": 2464,
+                "largestContentfulPaint": 2540,
+                "firstCPUIdle": 2464,
+                "interactive": 2464,
+                "speedIndex": 1688,
                 "estimatedInputLatency": 13,
                 "totalBlockingTime": 6,
-                "maxPotentialFID": 62,
+                "maxPotentialFID": 56,
                 "cumulativeLayoutShift": 0.00337646484375,
                 "cumulativeLayoutShiftAllFrames": 0,
                 "observedTimeOrigin": 0,
-                "observedTimeOriginTs": 363563640,
+                "observedTimeOriginTs": 374972425,
                 "observedNavigationStart": 0,
-                "observedNavigationStartTs": 363563640,
-                "observedFirstPaint": 285,
-                "observedFirstPaintTs": 363848608,
-                "observedFirstContentfulPaint": 285,
-                "observedFirstContentfulPaintTs": 363848608,
-                "observedFirstMeaningfulPaint": 382,
-                "observedFirstMeaningfulPaintTs": 363945702,
-                "observedLargestContentfulPaint": 382,
-                "observedLargestContentfulPaintTs": 363945702,
-                "observedTraceEnd": 2064,
-                "observedTraceEndTs": 365627707,
-                "observedLoad": 1006,
-                "observedLoadTs": 364569985,
-                "observedDomContentLoaded": 336,
-                "observedDomContentLoadedTs": 363900086,
+                "observedNavigationStartTs": 374972425,
+                "observedFirstPaint": 270,
+                "observedFirstPaintTs": 375242005,
+                "observedFirstContentfulPaint": 270,
+                "observedFirstContentfulPaintTs": 375242006,
+                "observedFirstMeaningfulPaint": 400,
+                "observedFirstMeaningfulPaintTs": 375372180,
+                "observedLargestContentfulPaint": 400,
+                "observedLargestContentfulPaintTs": 375372180,
+                "observedTraceEnd": 2026,
+                "observedTraceEndTs": 376998600,
+                "observedLoad": 968,
+                "observedLoadTs": 375940156,
+                "observedDomContentLoaded": 370,
+                "observedDomContentLoadedTs": 375342752,
                 "observedCumulativeLayoutShift": 0.00337646484375,
                 "observedCumulativeLayoutShiftAllFrames": 0,
-                "observedFirstVisualChange": 288,
-                "observedFirstVisualChangeTs": 363851640,
-                "observedLastVisualChange": 388,
-                "observedLastVisualChangeTs": 363951640,
-                "observedSpeedIndex": 355,
-                "observedSpeedIndexTs": 363918776
+                "observedFirstVisualChange": 279,
+                "observedFirstVisualChangeTs": 375251425,
+                "observedLastVisualChange": 412,
+                "observedLastVisualChangeTs": 375384425,
+                "observedSpeedIndex": 301,
+                "observedSpeedIndexTs": 375272988
               },
               {
                 "lcpInvalidated": false
@@ -3961,29 +3974,47 @@
             "type": "debugdata",
             "items": [
               {
-                "numRequests": 19,
+                "numRequests": 25,
                 "numScripts": 3,
                 "numStylesheets": 1,
                 "numFonts": 3,
-                "numTasks": 582,
-                "numTasksOver10ms": 6,
+                "numTasks": 738,
+                "numTasksOver10ms": 8,
                 "numTasksOver25ms": 2,
-                "numTasksOver50ms": 0,
+                "numTasksOver50ms": 1,
                 "numTasksOver100ms": 0,
                 "numTasksOver500ms": 0,
-                "rtt": 4.999,
-                "throughput": 17734115.708277933,
-                "maxRtt": 148.614,
-                "maxServerLatency": 10.408999999999999,
-                "totalByteWeight": 450188,
-                "totalTaskTime": 244.95599999999848,
-                "mainDocumentTransferSize": 6678
+                "rtt": 5.0600000000000005,
+                "throughput": 8698463.098942764,
+                "maxRtt": 146.21699999999998,
+                "maxServerLatency": 19.122999999999998,
+                "totalByteWeight": 203534,
+                "totalTaskTime": 375.4619999999984,
+                "mainDocumentTransferSize": 10590
               }
             ]
           }
         }
       }
     },
-    "screenshot": false
+    "screenshot": false,
+    "summary": {
+      "httpGrade": "D",
+      "testsslGrade": "A+",
+      "cookiesGrade": "B",
+      "cookiesCount": 2,
+      "trackersGrade": "C",
+      "trackersCount": 6,
+      "lighthouse_performance": 1,
+      "lighthouse_performanceGrade": "A",
+      "lighthouse_accessibility": 0.89,
+      "lighthouse_accessibilityGrade": "A",
+      "lighthouse_best-practices": 1,
+      "lighthouse_best-practicesGrade": "A",
+      "lighthouse_seo": 1,
+      "lighthouse_seoGrade": "A",
+      "lighthouse_pwa": 0.67,
+      "lighthouse_pwaGrade": "B"
+    }
   }
 ]
