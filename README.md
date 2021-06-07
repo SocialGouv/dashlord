@@ -1,13 +1,13 @@
 # DashLord
 
-Tableau de bord de métriques techniques issues de plusieurs outils de mesure.
+Tableau de bord des bonnes pratiques techniques
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
 Démos :
+ - https://dashlord.incubateur.net/
  - https://socialgouv.github.io/dashlord-fabrique
  - https://mtes-mct.github.io/dashlord
- - https://dashlord.incubateur.net/
  - https://socialgouv.github.io/dnum-dashboard
  
 ## Usage
@@ -74,7 +74,7 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | wappalyzer   | [Wappalyzer](https://www.wappalyzer.com)                                                                                       | Détection des technologies web, Javascript, CMS, outillage...         |
 | updownio     | [UpDown.io](https://www.updown.io)                                                                                             | Monitoring d'uptime et performance                                    |
 | dependabot   | [Dependabot security alerts](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-security-updates) | Alertes de vulnerabilités                                             |
-| nmap         | [nmap](https://nmap.org/) port scan                                                                                            | Ports ouverts     
+| nmap         | [nmap](https://nmap.org/) + vulner port scan                                                                                   | Ports ouverts     
 
 ## Contribute
 
@@ -89,15 +89,15 @@ cf [CONTRIBUTING.md](./CONTRIBUTING.md)
 DashLord fonctionne en deux étapes :
 
 1. **Acquisition des données** : Pour chaque URL, chaque outil est executé et génère un fichier JSON qui sera versionné dans le repository
-2. **Génération du rapport** : À partir des données existantes, l'action [dashlord-report-action](https://github.com/SocialGouv/dashlord-report-action) aggrège, compresse les résultats et produit un rapport web statique.
+2. **Génération du rapport** : À partir des données existantes, l'action [report](https://github.com/SocialGouv/dashlord-actions) aggrège, compresse les résultats et produit un rapport web statique.
 
 ### Related repos
 
 | Repo                                                                                        | desc                                                       |
 | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [SocialGouv/dashlord-report-action](https://github.com/SocialGouv/dashlord-report-action)   | action to aggregate scanners data and produce a web report |
+| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | dashlord specific actions                                  |
 | [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action)   | Dump nuclei result                                         |
-| [SocialGouv/dashlord-httpobs-action](https://github.com/SocialGouv/dashlord-httpobs-action) | Dump Mozilla HTTP Observatory result                       |
+| [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                   | Dump Mozilla HTTP Observatory result                       |
 | [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
 | [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)             | Dump Wappalyzer scan result                                |
 | [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
@@ -105,11 +105,5 @@ DashLord fonctionne en deux étapes :
 | [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
 | [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                             | Dump nmap port scan stats                                  |
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
-| [SocialGouv/dashlord-init-action](https://github.com/SocialGouv/dashlord-report-action)     | action that parse the configuration for a job matrix       |
-| [SocialGouv/dashlord-save-action](https://github.com/SocialGouv/dashlord-save-action)       | aggregate all scanners data and saves it locally           |
 | [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
 
-### Ajouter un scanner
-
-1. Créer une action github qui produit un JSON (cf exemple ci-dessus)
-2. Ajouter le support pour ce type de données dans [dashlord-report-action repo](https://github.com/SocialGouv/dashlord-report-action)
