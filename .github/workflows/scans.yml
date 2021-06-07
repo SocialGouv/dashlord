@@ -54,6 +54,8 @@ jobs:
 
       - name: Screenshot Website
         uses: swinton/screenshot-website@v1.x
+        id: screenshot 
+        if: ${{ !contains(matrix.urls.tools.disabled, steps.screenshot.id) }}
         with:
           source: "${{ matrix.urls.url }}"
           type: jpeg
@@ -63,6 +65,7 @@ jobs:
 
       - name: Wappalyzer scan
         uses: "socialgouv/wappalyzer-action@master"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'wappalyzer')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'wappalyzer')) }}
         continue-on-error: true
         with:
           url: "${{ matrix.urls.url }}"
@@ -70,6 +73,7 @@ jobs:
 
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.4.0
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'zaproxy')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'zaproxy')) }}
         continue-on-error: true
         with:
           token: "" # disable issue creation
@@ -81,6 +85,7 @@ jobs:
       - name: Lighthouse scan
         continue-on-error: true
         uses: treosh/lighthouse-ci-action@v7
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'lighthouse')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'lighthouse')) }}
         with:
           urls: "${{ matrix.urls.url }}"
           uploadArtifacts: false
@@ -88,6 +93,7 @@ jobs:
           configPath: "./lighthouserc.json"
 
       - name: Mozilla HTTP Observatory
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'httpobs')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'httpobs')) }}
         continue-on-error: true
         uses: SocialGouv/httpobs-action@master
         with:
@@ -95,6 +101,7 @@ jobs:
           output: "scans/http.json"
 
       - name: Third-party scripts scan
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'thirdparties')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'thirdparties')) }}
         continue-on-error: true
         uses: SocialGouv/thirdparties-action@master
         with:
@@ -111,6 +118,7 @@ jobs:
       - name: testssl.sh scan
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'testssl')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'testssl')) }}
         with:
           host: ${{ steps.hostname.outputs.value }}
           output: scans
@@ -120,6 +128,7 @@ jobs:
       - name: Nuclei scan
         continue-on-error: true
         uses: "SocialGouv/dashlord-nuclei-action@master"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'nuclei')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'nuclei')) }}
         with:
           url: ${{ matrix.urls.url }}
           output: "scans/nuclei.log"
@@ -127,6 +136,7 @@ jobs:
       - name: Updown.io checks
         continue-on-error: true
         uses: "MTES-MCT/updownio-action@main"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'updownio')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'updownio')) }}
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
           url: ${{ matrix.urls.url }}
@@ -136,6 +146,7 @@ jobs:
         continue-on-error: true
         if: ${{ matrix.urls.repositories }}
         uses: "MTES-MCT/dependabotalerts-action@main"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'dependabot')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'dependabot')) }}
         with:
           token: ${{ secrets.DEPENDABOTALERTS_TOKEN }}
           repositories: ${{ join(matrix.urls.repositories) }}
@@ -143,7 +154,9 @@ jobs:
           
       - name: Code quality alerts
         continue-on-error: true
+        if: ${{ matrix.urls.repositories }}
         uses: "MTES-MCT/codescanalerts-action@main"
+        if: ${{ (matrix.urls.tools.disabled[0] != null && !contains(matrix.urls.tools.disabled, 'codescan')) || (matrix.urls.tools.enabled[0] != null && contains(matrix.urls.tools.enabled, 'codescan')) }}
         with:
           token: ${{ secrets.CODESCANALERTS_TOKEN }}
           repositories: ${{ join(matrix.urls.repositories) }}
