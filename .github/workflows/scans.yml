@@ -21,9 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Prepare
     outputs:
-      urls: ${{ steps.init.outputs.urls }}
-      urls_json: ${{ steps.init.outputs.urls_json }}
-      json: ${{ steps.init.outputs.json }}
+      sites: ${{ steps.init.outputs.sites }}
+      config: ${{ steps.init.outputs.config }}
     steps:
       - uses: actions/checkout@v2
       - id: init
@@ -40,7 +39,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        urls: ${{ fromJson(needs.init.outputs.urls_json) }}
+        sites: ${{ fromJson(needs.init.outputs.sites) }}
     steps:
       - uses: actions/checkout@v2
 
@@ -54,8 +53,10 @@ jobs:
 
       - name: Screenshot Website
         uses: swinton/screenshot-website@v1.x
+        if: ${{ matrix.sites.tools.screenshot }}
+        timeout-minutes: 10
         with:
-          source: "${{ matrix.urls.url }}"
+          source: "${{ matrix.sites.url }}"
           type: jpeg
           destination: screenshot.jpeg
           width: 1280
@@ -63,54 +64,66 @@ jobs:
 
       - name: Wappalyzer scan
         uses: "socialgouv/wappalyzer-action@master"
+        timeout-minutes: 10
+        if: ${{ matrix.sites.tools.wappalyzer }}
         continue-on-error: true
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: scans/wappalyzer.json
 
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.4.0
+        timeout-minutes: 10
+        if: ${{ matrix.sites.tools.zaproxy }}
         continue-on-error: true
         with:
           token: "" # disable issue creation
           rules_file_name: "zap-rules.tsv"
           docker_name: "owasp/zap2docker-stable"
-          target: "${{ matrix.urls.url }}"
+          target: "${{ matrix.sites.url }}"
           cmd_options: "-a"
 
       - name: Lighthouse scan
         continue-on-error: true
+        timeout-minutes: 10
         uses: treosh/lighthouse-ci-action@v7
+        if: ${{ matrix.sites.tools.lighthouse }}
         with:
-          urls: "${{ matrix.urls.url }}"
+          urls: "${{ matrix.sites.url }}"
           uploadArtifacts: false
           temporaryPublicStorage: false
           configPath: "./lighthouserc.json"
 
       - name: Mozilla HTTP Observatory
+        timeout-minutes: 10
+        if: ${{ matrix.sites.tools.httpobs }}
         continue-on-error: true
         uses: SocialGouv/httpobs-action@master
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: "scans/http.json"
 
       - name: Third-party scripts scan
+        timeout-minutes: 10
+        if: ${{ matrix.sites.tools.thirdparties }}
         continue-on-error: true
         uses: SocialGouv/thirdparties-action@master
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: "scans/thirdparties.json"
 
       # testssl.sh action needs an hostname to save its output so we build it here
       - name: Extract hostname
         id: hostname
         run: |
-          HOSTNAME=$(echo "${{ matrix.urls.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
+          HOSTNAME=$(echo "${{ matrix.sites.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
           echo "::set-output name=value::$HOSTNAME"
 
       - name: testssl.sh scan
+        timeout-minutes: 10
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
+        if: ${{ matrix.sites.tools.testssl }}
         with:
           host: ${{ steps.hostname.outputs.value }}
           output: scans
@@ -118,44 +131,51 @@ jobs:
           options: "--fast"
           
       - name: Nuclei scan
+        timeout-minutes: 10
         continue-on-error: true
         uses: "SocialGouv/dashlord-nuclei-action@master"
+        if: ${{ matrix.sites.tools.nuclei }}
         with:
-          url: ${{ matrix.urls.url }}
+          url: ${{ matrix.sites.url }}
           output: "scans/nuclei.log"
 
       - name: Updown.io checks
         continue-on-error: true
+        timeout-minutes: 10
         uses: "MTES-MCT/updownio-action@main"
+        if: ${{ matrix.sites.tools.updownio }}
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
-          url: ${{ matrix.urls.url }}
+          url: ${{ matrix.sites.url }}
           output: scans/updownio.json
 
       - name: Dependabot vulnerabilities alerts
         continue-on-error: true
-        if: ${{ matrix.urls.repositories }}
+        timeout-minutes: 10
         uses: "MTES-MCT/dependabotalerts-action@main"
+        if: ${{ matrix.sites.tools.dependabot && matrix.sites.repositories }}
         with:
           token: ${{ secrets.DEPENDABOTALERTS_TOKEN }}
-          repositories: ${{ join(matrix.urls.repositories) }}
+          repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/dependabotalerts.json
           
       - name: Code quality alerts
         continue-on-error: true
+        timeout-minutes: 10
         uses: "MTES-MCT/codescanalerts-action@main"
+        if: ${{ matrix.sites.tools.codescan && matrix.sites.repositories }}
         with:
           token: ${{ secrets.CODESCANALERTS_TOKEN }}
-          repositories: ${{ join(matrix.urls.repositories) }}
+          repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/codescanalerts.json
 
       - uses: SocialGouv/dashlord-actions/save@main
         with:
-          url: ${{ matrix.urls.url }}
+          url: ${{ matrix.sites.url }}
 
       - uses: EndBug/add-and-commit@v7
         with:
           add: '["results"]'
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "update: ${{ matrix.urls.url }}"
+          message: "update: ${{ matrix.sites.url }}"
