@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: init
-        uses: "SocialGouv/dashlord-actions/init@tristanrobert/issue14"
+        uses: "SocialGouv/dashlord-actions/init@main"
         with:
           url: ${{ github.event.inputs.url }}
 
@@ -169,7 +169,7 @@ jobs:
           repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/codescanalerts.json
 
-      - uses: SocialGouv/dashlord-actions/save@tristanrobert/issue14
+      - uses: SocialGouv/dashlord-actions/save@main
         with:
           url: ${{ matrix.sites.url }}
 
