@@ -4,8 +4,8 @@ Tableau de bord des bonnes pratiques techniques
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
-Démos :
- - https://dashlord.incubateur.net/
+Exemples :
+ - https://dashlord.incubateur.net
  - https://socialgouv.github.io/dashlord-fabrique
  - https://mtes-mct.github.io/dashlord
  - https://socialgouv.github.io/dnum-dashboard
@@ -16,7 +16,7 @@ Pour déployer votre version de DashLord :
 
 - Créer un nouveau repository [**à partir du template dashlord**](https://github.com/SocialGouv/dashlord)
 - Éditer le fichier `dashlord.yml`
-- Éditer le fichier `scans.yml`
+- Éditer le fichier `.github/workflows/scans.yml` si nécessaire
 - Lancer `DashLord scans` dans l'onglet `Actions` de votre projet GitHub
 
 Une fois les scans terminés, un rapport sera généré dans la branche `gh-pages` du repository. Vous devez aller dans l'onglet `Settings` du repository pour activer la fonctionnalité "GitHub Pages" et choisir la source `gh-pages`. Ceci permet de publier le rapport sur `https://[organisation].github.io/[repository]` (publiquement).
@@ -31,8 +31,8 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 ## Customisation
 
 - Le fichier [`dashlord.yml`](./dashlord.yml) permet de paramétrer les urls et quelques options du tableau de bord
-- Le workflow [`scans.yml`](./github/workflows/scans.yml) permet d'activer/désactiver certains scanners
-- Le workflow [`report.yml`](./github/workflows/report.yml) permet de modifier le rapport généré en se basant sur [SocialGouv/dashlord-report-action](https://github.com/SocialGouv/dashlord-report-action).
+- Le workflow [`.github/workflows/scans.yml`](./github/workflows/scans.yml) permet de customiser certains scanners
+- Le workflow [`.github/workflows/report.yml`](./github/workflows/report.yml) permet de générer le rapport web en se basant sur [SocialGouv/dashlord-actions/report](https://github.com/SocialGouv/dashlord-actions).
 
 ### dashlord.yml
 
@@ -40,9 +40,18 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 title: Dashboard title
 # `tools` allows to activate only some of the tools in the report
 tools:
-  - lighthouse
-  - testssl
-  - updownio
+  screenshot: true
+  nmap: true
+  zap: true
+  wappalyzer: true
+  httpobs: true
+  testssl: true
+  lighthouse: true
+  thirdparties: true
+  nuclei: false
+  updownio: true
+  dependabot: true
+  codescan: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
@@ -52,6 +61,8 @@ urls:
     repositories:
       - free/free-ui
       - free/free-css
+    tools:
+      nmap: false
   - url: https://www.lemonde.fr
     title: Homepage lemonde.fr
     tags:
@@ -60,7 +71,7 @@ urls:
 
 ## Outils
 
-Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yaml. Les outils dans le fichier `scans.yaml` doivent refléter cette configuration.
+Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yml. 
 
 | id           | outil                                                                                                                          | description                                                           |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
