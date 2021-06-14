@@ -85,7 +85,7 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | wappalyzer   | [Wappalyzer](https://www.wappalyzer.com)                                                                                       | Détection des technologies web, Javascript, CMS, outillage...         |
 | updownio     | [UpDown.io](https://www.updown.io)                                                                                             | Monitoring d'uptime et performance                                    |
 | dependabot   | [Dependabot security alerts](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-security-updates) | Alertes de vulnerabilités                                             |
-| nmap         | [nmap](https://nmap.org/) + vulner port scan                                                                                   | Ports ouverts     
+| nmap         | [nmap](https://nmap.org/) + [vulner](https://github.com/vulnersCom/nmap-vulners) port scan                                     | Ports ouverts et vulnérabilités     
 
 ## Contribute
 
@@ -102,11 +102,13 @@ DashLord fonctionne en deux étapes :
 1. **Acquisition des données** : Pour chaque URL, chaque outil est executé et génère un fichier JSON qui sera versionné dans le repository
 2. **Génération du rapport** : À partir des données existantes, l'action [report](https://github.com/SocialGouv/dashlord-actions) aggrège, compresse les résultats et produit un rapport web statique.
 
+Voir aussi : [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)
+
 ### Related repos
 
 | Repo                                                                                        | desc                                                       |
 | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | dashlord specific actions                                  |
+| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | Dashlord specific actions                                  |
 | [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action)   | Dump nuclei result                                         |
 | [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                   | Dump Mozilla HTTP Observatory result                       |
 | [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
