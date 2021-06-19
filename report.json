@@ -1922,7 +1922,40 @@
       ]
     },
     "zap": null,
-    "nuclei": [],
+    "nuclei": [
+      {
+        "templateID": "nginx-version",
+        "info": {
+          "name": "nginx version detect",
+          "author": "philippedelteil",
+          "description": "Some nginx servers have the version on the response header. Useful when you need to find specific CVEs on your targets.",
+          "severity": "info"
+        },
+        "type": "http",
+        "host": "https://www.fabrique.social.gouv.fr",
+        "matched": "https://www.fabrique.social.gouv.fr",
+        "extracted_results": [
+          "nginx/1.17.8"
+        ],
+        "ip": "20.74.14.77",
+        "timestamp": "2021-06-14T23:42:43.567234463Z"
+      },
+      {
+        "templateID": "tech-detect",
+        "info": {
+          "author": "hakluke",
+          "severity": "info",
+          "tags": "tech",
+          "name": "Wappalyzer Technology Detection"
+        },
+        "matcher_name": "nginx",
+        "type": "http",
+        "host": "https://www.fabrique.social.gouv.fr",
+        "matched": "https://www.fabrique.social.gouv.fr",
+        "ip": "20.74.14.77",
+        "timestamp": "2021-06-14T23:43:07.635760076Z"
+      }
+    ],
     "lhr": {
       "requestedUrl": "https://www.fabrique.social.gouv.fr/",
       "finalUrl": "https://www.fabrique.social.gouv.fr/",
@@ -3693,7 +3726,36 @@
       ]
     },
     "zap": null,
-    "nuclei": [],
+    "nuclei": [
+      {
+        "templateID": "netlify-cms",
+        "info": {
+          "tags": "panel",
+          "name": "Netlify CMS Admin Panel",
+          "author": "sullo",
+          "severity": "info"
+        },
+        "type": "http",
+        "host": "https://beta.gouv.fr",
+        "matched": "https://beta.gouv.fr/admin/index.html",
+        "ip": "75.2.60.5",
+        "timestamp": "2021-06-14T23:41:57.360595599Z"
+      },
+      {
+        "templateID": "docker-compose-config",
+        "info": {
+          "name": "docker-compose.yml exposure",
+          "author": "meme-lord,blckraven,geeknik",
+          "severity": "medium",
+          "tags": "config,exposure,devops"
+        },
+        "type": "http",
+        "host": "https://beta.gouv.fr",
+        "matched": "https://beta.gouv.fr/docker-compose.yml",
+        "ip": "75.2.60.5",
+        "timestamp": "2021-06-14T23:42:47.390346956Z"
+      }
+    ],
     "lhr": {
       "requestedUrl": "https://beta.gouv.fr/",
       "finalUrl": "https://beta.gouv.fr/",
