@@ -62,6 +62,15 @@ jobs:
           width: 1280
           scaleFactor: 0.5
 
+      - name: Stats page
+        continue-on-error: true
+        uses: "MTES-MCT/stats-action@main"
+        if: ${{ matrix.sites.tools.stats }}
+        with:
+          url: ${{ matrix.sites.url }}
+          uri: 'stats'
+          output: scans/stats.json
+
       - name: Wappalyzer scan
         uses: "socialgouv/wappalyzer-action@master"
         timeout-minutes: 10
