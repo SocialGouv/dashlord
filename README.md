@@ -89,7 +89,6 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
  
-
 ## Contribute
 
 Vous pouvez contribuer en remontant des issues de qualité, en améliorant la documentation, ou en ajoutant du code.
@@ -106,6 +105,4 @@ DashLord fonctionne en deux étapes :
 2. **Génération du rapport** : À partir des données existantes, l'action [report](https://github.com/SocialGouv/dashlord-actions) aggrège, compresse les résultats et produit un rapport web statique.
 
 Voir aussi : [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)
-
-### Related repos
 
