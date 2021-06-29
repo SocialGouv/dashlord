@@ -44,7 +44,7 @@ tools:
   nmap: true
   zap: true
   wappalyzer: true
-  httpobs: true
+  http: true
   testssl: true
   lighthouse: true
   thirdparties: true
@@ -52,6 +52,7 @@ tools:
   updownio: true
   dependabot: true
   codescan: true
+  stats: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
@@ -73,19 +74,21 @@ urls:
 
 Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yml. 
 
-| id           | outil                                                                                                                          | description                                                           |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| lighthouse   | [Google Lighthouse](https://developers.google.com/web/tools/lighthouse)                                                        | Audit automatique de page web (best-practices a11y, webperf, seo...)  |
-| zap          | [OWASP Zed Attack Proxy](https://www.zaproxy.org/docs/docker/baseline-scan)                                                    | Scan de vulnérabilités passif "baseline"                              |
-| testssl      | [testssl.sh](https://testssl.sh)                                                                                               | Évaluation du niveau de confiance d'un certificat SSL                 |
-| http         | [Mozilla HTTP observatory](https://www.zaproxy.org/docs/docker/baseline-scan)                                                  | Évalue le niveau de qualité/sécurité de la page web et de son serveur |
-| thirdparties | [Third parties](https://github.com/SocialGouv/thirdparties)                                                                    | Liste tous les cookies et scripts externes                            |
-| -            | [GeoIP2](https://www.maxmind.com/en/geoip-demo)                                                                                | Géolocalisation des ressources de la page web                         |
-| nuclei       | [Nuclei](https://nuclei.projectdiscovery.io)                                                                                   | Détection d'erreurs de configuration courantes                        |
-| wappalyzer   | [Wappalyzer](https://www.wappalyzer.com)                                                                                       | Détection des technologies web, Javascript, CMS, outillage...         |
-| updownio     | [UpDown.io](https://www.updown.io)                                                                                             | Monitoring d'uptime et performance                                    |
-| dependabot   | [Dependabot security alerts](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-security-updates) | Alertes de vulnerabilités                                             |
-| nmap         | [nmap](https://nmap.org/) + [vulner](https://github.com/vulnersCom/nmap-vulners) port scan                                     | Ports ouverts et vulnérabilités     
+| Repo                                                                                        | desc                                                       |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | Dashlord specific actions                                  |
+| [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action)   | Dump nuclei result                                         |
+| [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                   | Dump Mozilla HTTP Observatory result                       |
+| [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
+| [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)             | Dump Wappalyzer scan result                                |
+| [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
+| [MTES-MCT/codescanalerts-action](https://github.com/MTES-MCT/codescanalerts-action)         | Dump Github CodeQL security alerts                         |
+| [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
+| [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                             | Dump nmap port scan stats                                  |
+| [MTES-MCT/stats-action](https://github.com/MTES-MCT/stats-action)                           | Detect /stats page.                                        |
+| [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
+| [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
+ 
 
 ## Contribute
 
@@ -105,18 +108,4 @@ DashLord fonctionne en deux étapes :
 Voir aussi : [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)
 
 ### Related repos
-
-| Repo                                                                                        | desc                                                       |
-| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | Dashlord specific actions                                  |
-| [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action)   | Dump nuclei result                                         |
-| [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                   | Dump Mozilla HTTP Observatory result                       |
-| [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
-| [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)             | Dump Wappalyzer scan result                                |
-| [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
-| [MTES-MCT/codescanalerts-action](https://github.com/MTES-MCT/codescanalerts-action)         | Dump Github CodeQL security alerts                         |
-| [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
-| [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                             | Dump nmap port scan stats                                  |
-| [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
-| [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
 
