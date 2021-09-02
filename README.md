@@ -38,6 +38,9 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 
 ```yml
 title: Dashboard title
+description: Bonnes pratiques techniques
+entity: Ministères sociaux
+footer: Powered by SocialGouv
 # `tools` allows to activate only some of the tools in the report
 tools:
   screenshot: true
