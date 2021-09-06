@@ -43,6 +43,7 @@ entity: Ministères sociaux
 footer: Powered by SocialGouv
 # `tools` allows to activate only some of the tools in the report
 tools:
+  404: true
   screenshot: true
   nmap: true
   zap: true
@@ -91,7 +92,8 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | [MTES-MCT/stats-action](https://github.com/MTES-MCT/stats-action)                           | Detect /stats page.                                        |
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
- 
+| [SocialGouv/detect-404-action](https://github.com/SocialGouv/detect-404-action)             | detect 404 errors                                          |
+
 ## Contribute
 
 Vous pouvez contribuer en remontant des issues de qualité, en améliorant la documentation, ou en ajoutant du code.
