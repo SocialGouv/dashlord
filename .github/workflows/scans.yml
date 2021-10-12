@@ -146,6 +146,18 @@ jobs:
           grade: "F"
           options: "--fast"
           
+      - name: nmap vulnerabilities scan
+        if: ${{ matrix.sites.tools.nmap }}
+        continue-on-error: true
+        timeout-minutes: 10
+        uses: "MTES-MCT/nmap-action@main"
+        with:
+          host: ${{ steps.hostname.outputs.value }}
+          outputDir: "scans"
+          outputFile: "nmapvuln.json"
+          withVulnerabilities: true
+          raw: false
+
       - name: Nuclei scan
         timeout-minutes: 10
         continue-on-error: true
