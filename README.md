@@ -36,6 +36,8 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 
 ### dashlord.yml
 
+💡 Bonne pratique : enlever les slashs à la fin des urls
+
 ```yml
 title: Dashboard title
 description: Bonnes pratiques techniques
@@ -79,9 +81,11 @@ urls:
 DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
 
  - Créez un compte sur [updown.io](https://updown.io)
+ - Ajoutez-y les urls à monitorer (telles que définies dans dashlord.yml)
  - Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
- - Ajouter votre clé d'API updown.io dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
+ - Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
 
+▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
 ## Outils
 
