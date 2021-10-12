@@ -74,6 +74,15 @@ urls:
       - presse
 ```
 
+### Mesures de disponibilité 
+
+DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
+
+ - Créez un compte sur [updown.io](https://updown.io)
+ - Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
+ - Ajouter votre clé d'API updown.io dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
+
+
 ## Outils
 
 Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yml. 
