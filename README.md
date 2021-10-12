@@ -31,7 +31,7 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 ## Customisation
 
 - Le fichier [`dashlord.yml`](./dashlord.yml) permet de paramétrer les urls et quelques options du tableau de bord
-- Le workflow [`.github/workflows/scans.yml`](./github/workflows/scans.yml) permet de customiser certains scanners
+- Le workflow [`.github/workflows/scans.yml`](./github/workflows/scans.yml) permet de customiser certains scanners, et régler la fréquence de scan (paramètre `schedule` positionné par défaut tous les dimanches à minuit)
 - Le workflow [`.github/workflows/report.yml`](./github/workflows/report.yml) permet de générer le rapport web en se basant sur [SocialGouv/dashlord-actions/report](https://github.com/SocialGouv/dashlord-actions).
 
 ### dashlord.yml
