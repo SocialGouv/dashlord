@@ -8,6 +8,11 @@ on:
    types: 
      - completed
 
+# allow only one concurrent report action
+concurrency:
+  cancel-in-progress: true
+  group: report
+
 jobs:
   website:
     runs-on: ubuntu-latest
