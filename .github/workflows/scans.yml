@@ -18,6 +18,11 @@ on:
       - 'dashlord.yml'
       - 'urls.txt'
 
+# allow only one concurrent scan action
+concurrency:
+  cancel-in-progress: true
+  group: scans
+  
 jobs:
   init:
     runs-on: ubuntu-latest
