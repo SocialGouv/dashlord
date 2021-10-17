@@ -1,0 +1,119 @@
+# Nmap 7.91 scan initiated Sun Oct 17 00:49:40 2021 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln beta.gouv.fr
+Nmap scan report for beta.gouv.fr (75.2.60.5)
+Host is up (0.0050s latency).
+rDNS record for 75.2.60.5: acd89244c803f7181.awsglobalaccelerator.com
+Not shown: 998 filtered ports
+PORT    STATE SERVICE   VERSION
+80/tcp  open  http      Netlify
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, Help, SMBProgNeg, SSLSessionReq, TLSSessionReq: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|     date: Sun, 17 Oct 2021 00:49:57 GMT
+|   DNSVersionBindReqTCP, Kerberos, RPCCheck, TerminalServerCookie: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|     date: Sun, 17 Oct 2021 00:49:56 GMT
+|   FourOhFourRequest, GetRequest, HTTPOptions: 
+|     HTTP/1.0 400 Bad Request
+|     content-length: 19
+|     date: Sun, 17 Oct 2021 00:49:51 GMT
+|     Missing host header
+|   RTSPRequest, X11Probe: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|_    date: Sun, 17 Oct 2021 00:49:51 GMT
+|_http-server-header: Netlify
+443/tcp open  ssl/https Netlify
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, RTSPRequest, SSLSessionReq: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|     date: Sun, 17 Oct 2021 00:50:03 GMT
+|   FourOhFourRequest: 
+|     HTTP/1.0 400 Bad Request
+|     content-length: 19
+|     date: Sun, 17 Oct 2021 00:49:58 GMT
+|     Missing host header
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.0 400 Bad Request
+|     content-length: 19
+|     date: Sun, 17 Oct 2021 00:49:57 GMT
+|     Missing host header
+|   Kerberos, SMBProgNeg, TLSSessionReq, TerminalServerCookie: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|     date: Sun, 17 Oct 2021 00:50:04 GMT
+|   tor-versions: 
+|     HTTP/1.1 400 Bad Request
+|     content-length: 0
+|_    date: Sun, 17 Oct 2021 00:49:57 GMT
+|_http-server-header: Netlify
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.91%I=7%D=10/17%Time=616B732F%P=x86_64-alpine-linux-musl%
+SF:r(GetRequest,68,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-length:\
+SF:x2019\r\ndate:\x20Sun,\x2017\x20Oct\x202021\x2000:49:51\x20GMT\r\n\r\nM
+SF:issing\x20host\x20header")%r(HTTPOptions,68,"HTTP/1\.0\x20400\x20Bad\x2
+SF:0Request\r\ncontent-length:\x2019\r\ndate:\x20Sun,\x2017\x20Oct\x202021
+SF:\x2000:49:51\x20GMT\r\n\r\nMissing\x20host\x20header")%r(RTSPRequest,54
+SF:,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x
+SF:20Sun,\x2017\x20Oct\x202021\x2000:49:51\x20GMT\r\n\r\n")%r(X11Probe,54,
+SF:"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x2
+SF:0Sun,\x2017\x20Oct\x202021\x2000:49:51\x20GMT\r\n\r\n")%r(FourOhFourReq
+SF:uest,68,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-length:\x2019\r\
+SF:ndate:\x20Sun,\x2017\x20Oct\x202021\x2000:49:51\x20GMT\r\n\r\nMissing\x
+SF:20host\x20header")%r(RPCCheck,54,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x202021\x2000:49:56
+SF:\x20GMT\r\n\r\n")%r(DNSVersionBindReqTCP,54,"HTTP/1\.1\x20400\x20Bad\x2
+SF:0Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x202021\
+SF:x2000:49:56\x20GMT\r\n\r\n")%r(DNSStatusRequestTCP,54,"HTTP/1\.1\x20400
+SF:\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oc
+SF:t\x202021\x2000:49:57\x20GMT\r\n\r\n")%r(Help,54,"HTTP/1\.1\x20400\x20B
+SF:ad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x20
+SF:2021\x2000:49:57\x20GMT\r\n\r\n")%r(SSLSessionReq,54,"HTTP/1\.1\x20400\
+SF:x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct
+SF:\x202021\x2000:49:57\x20GMT\r\n\r\n")%r(TerminalServerCookie,54,"HTTP/1
+SF:\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x
+SF:2017\x20Oct\x202021\x2000:49:56\x20GMT\r\n\r\n")%r(TLSSessionReq,54,"HT
+SF:TP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Su
+SF:n,\x2017\x20Oct\x202021\x2000:49:57\x20GMT\r\n\r\n")%r(Kerberos,54,"HTT
+SF:P/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun
+SF:,\x2017\x20Oct\x202021\x2000:49:56\x20GMT\r\n\r\n")%r(SMBProgNeg,54,"HT
+SF:TP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Su
+SF:n,\x2017\x20Oct\x202021\x2000:49:57\x20GMT\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.91%T=SSL%I=7%D=10/17%Time=616B7335%P=x86_64-alpine-linu
+SF:x-musl%r(GetRequest,68,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-l
+SF:ength:\x2019\r\ndate:\x20Sun,\x2017\x20Oct\x202021\x2000:49:57\x20GMT\r
+SF:\n\r\nMissing\x20host\x20header")%r(HTTPOptions,68,"HTTP/1\.0\x20400\x2
+SF:0Bad\x20Request\r\ncontent-length:\x2019\r\ndate:\x20Sun,\x2017\x20Oct\
+SF:x202021\x2000:49:57\x20GMT\r\n\r\nMissing\x20host\x20header")%r(FourOhF
+SF:ourRequest,68,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-length:\x2
+SF:019\r\ndate:\x20Sun,\x2017\x20Oct\x202021\x2000:49:58\x20GMT\r\n\r\nMis
+SF:sing\x20host\x20header")%r(tor-versions,54,"HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x202021\x
+SF:2000:49:57\x20GMT\r\n\r\n")%r(RTSPRequest,54,"HTTP/1\.1\x20400\x20Bad\x
+SF:20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x202021
+SF:\x2000:50:03\x20GMT\r\n\r\n")%r(RPCCheck,54,"HTTP/1\.1\x20400\x20Bad\x2
+SF:0Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20Oct\x202021\
+SF:x2000:50:03\x20GMT\r\n\r\n")%r(DNSVersionBindReqTCP,54,"HTTP/1\.1\x2040
+SF:0\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017\x20O
+SF:ct\x202021\x2000:50:03\x20GMT\r\n\r\n")%r(DNSStatusRequestTCP,54,"HTTP/
+SF:1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\
+SF:x2017\x20Oct\x202021\x2000:50:03\x20GMT\r\n\r\n")%r(Help,54,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x2017
+SF:\x20Oct\x202021\x2000:50:03\x20GMT\r\n\r\n")%r(SSLSessionReq,54,"HTTP/1
+SF:\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate:\x20Sun,\x
+SF:2017\x20Oct\x202021\x2000:50:03\x20GMT\r\n\r\n")%r(TerminalServerCookie
+SF:,54,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\ndate
+SF::\x20Sun,\x2017\x20Oct\x202021\x2000:50:04\x20GMT\r\n\r\n")%r(TLSSessio
+SF:nReq,54,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\n
+SF:date:\x20Sun,\x2017\x20Oct\x202021\x2000:50:04\x20GMT\r\n\r\n")%r(Kerbe
+SF:ros,54,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\nd
+SF:ate:\x20Sun,\x2017\x20Oct\x202021\x2000:50:04\x20GMT\r\n\r\n")%r(SMBPro
+SF:gNeg,54,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x200\r\n
+SF:date:\x20Sun,\x2017\x20Oct\x202021\x2000:50:04\x20GMT\r\n\r\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Oct 17 00:50:07 2021 -- 1 IP address (1 host up) scanned in 27.21 seconds
