@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 19 Dec 2021 00:55:55
+		Generated on Sun, 26 Dec 2021 00:55:07
 	</h3>
 
 	
@@ -144,7 +144,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -152,7 +152,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>3</div>
+					<div>5</div>
 				</td>
 			</tr>
 			<tr>
@@ -160,7 +160,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>5</div>
+					<div>6</div>
 				</td>
 			</tr>
 			<tr>
@@ -194,9 +194,24 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10098">Cross-Domain Misconfiguration</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10099">Source Code Disclosure - Perl</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
@@ -222,6 +237,11 @@ td {
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
 				<td align="center" class="risk-1">Low</td>
 				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10035">Strict-Transport-Security Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
@@ -269,6 +289,79 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://beta.gouv.fr/content/docs/StateStartups-Foucaud.pdf">https://beta.gouv.fr/content/docs/StateStartups-Foucaud.pdf</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">5001000444444333333</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -623,6 +716,167 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10098"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Cross-Domain Misconfiguration</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://beta.gouv.fr/api/v1.7/startups.csv">https://beta.gouv.fr/api/v1.7/startups.csv</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">access-control-allow-origin: *</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</div>
+							<br />
+						
+							<div>Configure the &quot;Access-Control-Allow-Origin&quot; HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy">https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/264.html">264</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">14</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10098/">10098</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10099"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Source Code Disclosure - Perl</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Application Source Code was disclosed by the web server - Perl</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://beta.gouv.fr/content/docs/rapportannuel.pdf">https://beta.gouv.fr/content/docs/rapportannuel.pdf</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">$#fGIEh</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/">http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/540.html">540</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10099/">10099</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -2200,6 +2454,97 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10063/">10063</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10035"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Strict-Transport-Security Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://beta.gouv.fr/content/docs/mooc/2-introduction-methode-startup-etat.pdf">https://beta.gouv.fr/content/docs/mooc/2-introduction-methode-startup-etat.pdf</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							<br />
+						
+							<a href="http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a>
+							<br />
+						
+							<a href="http://caniuse.com/stricttransportsecurity">http://caniuse.com/stricttransportsecurity</a>
+							<br />
+						
+							<a href="http://tools.ietf.org/html/rfc6797">http://tools.ietf.org/html/rfc6797</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/319.html">319</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10035/">10035</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -4849,7 +5194,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 29852</td>
+						<td width="80%">Age: 105170</td>
 					</tr>
 				
 					<tr>
@@ -4875,7 +5220,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 29853</td>
+						<td width="80%">Age: 105171</td>
 					</tr>
 				
 					<tr>
@@ -4901,7 +5246,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 29853</td>
+						<td width="80%">Age: 105171</td>
 					</tr>
 				
 					<tr>
@@ -4927,7 +5272,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 625</td>
+						<td width="80%">Age: 471</td>
 					</tr>
 				
 					<tr>
@@ -4953,7 +5298,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 624</td>
+						<td width="80%">Age: 470</td>
 					</tr>
 				
 					<tr>
@@ -4979,7 +5324,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 625</td>
+						<td width="80%">Age: 471</td>
 					</tr>
 				
 					<tr>
@@ -5005,7 +5350,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 621</td>
+						<td width="80%">Age: 468</td>
 					</tr>
 				
 					<tr>
@@ -5031,7 +5376,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 631</td>
+						<td width="80%">Age: 475</td>
 					</tr>
 				
 					<tr>
@@ -5057,7 +5402,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 624</td>
+						<td width="80%">Age: 470</td>
 					</tr>
 				
 					<tr>
@@ -5083,7 +5428,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 16991</td>
+						<td width="80%">Age: 477</td>
 					</tr>
 				
 					<tr>
@@ -5135,7 +5480,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 624</td>
+						<td width="80%">Age: 470</td>
 					</tr>
 				
 				<tr>

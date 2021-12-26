@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 19 Dec 2021 00:44:37
+		Generated on Sun, 26 Dec 2021 00:44:21
 	</h3>
 
 	
@@ -152,7 +152,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>2</div>
+					<div>3</div>
 				</td>
 			</tr>
 			<tr>
@@ -194,6 +194,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#90022">Application Error Disclosure</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">5</td>
@@ -216,7 +221,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">11</td>
+				<td align="center">14</td>
 			</tr>
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
@@ -244,6 +249,82 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="90022"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Application Error Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/main-d5221eeca408094c7dbf.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/main-d5221eeca408094c7dbf.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Internal Server Error</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90022/">90022</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1361,7 +1442,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1387,7 +1468,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1413,7 +1494,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1439,7 +1520,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1465,7 +1546,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1491,7 +1572,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1517,7 +1598,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1543,7 +1624,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1569,7 +1650,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1595,7 +1676,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js</a></td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1616,6 +1697,58 @@ td {
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%">805306368</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">0123456789</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js">https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">2147483647</td>
 					</tr>
 				
 					<tr>
@@ -1644,9 +1777,35 @@ td {
 						<td width="80%">308308616</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.fabrique.social.gouv.fr/startups/code-du-travail-numerique/release-v3.2.0">https://www.fabrique.social.gouv.fr/startups/code-du-travail-numerique/release-v3.2.0</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">308308616</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">14</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
