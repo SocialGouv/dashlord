@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 19 Dec 2021 00:44:38",
+	"@generated": "Sun, 26 Dec 2021 00:44:21",
 	"site":[ 
 		{
 			"@name": "https://www.fabrique.social.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/main-d5221eeca408094c7dbf.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Internal Server Error"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "278"
+				},
 				{
 					"pluginid": "10055",
 					"alertRef": "10055",
@@ -319,74 +345,88 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1073741823"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1073741824"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1073741825"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "134217727"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "134217728"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "268435456"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "33554432"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "62914560"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "67108864"
 						},
 						{
-							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework.a3bb2ad893c940fc2199.js",
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/framework-005fbeb062faecdac527.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "805306368"
+						},
+						{
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "0123456789"
+						},
+						{
+							"uri": "https://www.fabrique.social.gouv.fr/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2147483647"
 						},
 						{
 							"uri": "https://www.fabrique.social.gouv.fr/startups/code-du-travail-numerique/",
@@ -394,15 +434,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": "308308616"
+						},
+						{
+							"uri": "https://www.fabrique.social.gouv.fr/startups/code-du-travail-numerique/release-v3.2.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "308308616"
 						}
 					],
-					"count": "11",
+					"count": "14",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1073741823, which evaluates to: 2004-01-10 13:37:03</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "275"
+					"sourceid": "277"
 				},
 				{
 					"pluginid": "10094",
@@ -590,7 +637,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"0SpEHGW7y_POaCsoNU\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"Enuy3YDRyyQqoty2Tz\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
