@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 2 Jan 2022 00:54:17",
+	"@generated": "Sun, 9 Jan 2022 00:56:43",
 	"site":[ 
 		{
 			"@name": "https://beta.gouv.fr",
@@ -32,7 +32,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "2191"
+					"sourceid": "2199"
 				},
 				{
 					"pluginid": "10038",
@@ -154,118 +154,17 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "2082"
-				},
-				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/content/docs/rapportannuel.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#fGIEh"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "<p>$#fGIEh</p>",
-					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "2112"
-				},
-				{
-					"pluginid": "90003",
-					"alertRef": "90003",
-					"alert": "Sub Resource Integrity Attribute Missing",
-					"name": "Sub Resource Integrity Attribute Missing",
-					"riskcode": "2",
-					"confidence": "3",
-					"riskdesc": "Medium (High)",
-					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/bundles/5246a0064f4c8ceb9f58c33a99b99aa754a835fb.css'/>"
-						},
-						{
-							"uri": "https://beta.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/bundles/751be1df9f6a9105586381ca6f28bab3b21b689d.css'/>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
-						}
-					],
-					"count": "8",
-					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
-					"cweid": "345",
-					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "2091"
 				},
 				{
 					"pluginid": "10020",
 					"alertRef": "10020",
-					"alert": "X-Frame-Options Header Not Set",
-					"name": "X-Frame-Options Header Not Set",
+					"alert": "Missing Anti-clickjacking Header",
+					"name": "Missing Anti-clickjacking Header",
 					"riskcode": "2",
 					"confidence": "2",
 					"riskdesc": "Medium (Medium)",
-					"desc": "<p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p>",
+					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
 						{
 							"uri": "https://beta.gouv.fr",
@@ -346,10 +245,111 @@
 						}
 					],
 					"count": "11",
-					"solution": "<p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive. </p>",
+					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10099",
+					"alertRef": "10099",
+					"alert": "Source Code Disclosure - Perl",
+					"name": "Source Code Disclosure - Perl",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
+					"instances":[ 
+						{
+							"uri": "https://beta.gouv.fr/content/docs/rapportannuel.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "$#fGIEh"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
+					"otherinfo": "<p>$#fGIEh</p>",
+					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
+					"cweid": "540",
+					"wascid": "13",
+					"sourceid": "2125"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://beta.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/bundles/5246a0064f4c8ceb9f58c33a99b99aa754a835fb.css'/>"
+						},
+						{
+							"uri": "https://beta.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
+						},
+						{
+							"uri": "https://beta.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
+						},
+						{
+							"uri": "https://beta.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='stylesheet' type='text/css' href='https://d33wubrfki0l68.cloudfront.net/bundles/751be1df9f6a9105586381ca6f28bab3b21b689d.css'/>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
+						}
+					],
+					"count": "8",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
 					"wascid": "15",
 					"sourceid": "1"
 				},
@@ -385,42 +385,42 @@
 							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
+							"uri": "https://beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js",
 							"attack": "",
 							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
+							"uri": "https://beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js",
 							"attack": "",
 							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
+							"uri": "https://beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js",
 							"attack": "",
 							"evidence": "<script type='module' src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js",
 							"attack": "",
 							"evidence": "<script type='text/javascript' src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js",
 							"attack": "",
 							"evidence": "<script type='text/javascript' nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js",
 							"attack": "",
@@ -952,7 +952,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "84"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "10021",
@@ -1107,21 +1107,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/recrutement/2021/12/14/developpeur-Front-End-territoires-en-transitions"
+							"evidence": "/recrutement/2022/01/03/developpeur-Front-End-territoires-en-transitions"
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2Fpaquet-mobilite-soutien-a-l-accord-conclu-avec-les-ministres-de-l-ue"
+							"evidence": "2Fmediation-accomplie-discours-pratiques-de-mediation-entre-citoyens-administrations"
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2Fpaquet-mobilite-soutien-a-l-accord-conclu-avec-les-ministres-de-l-ue"
+							"evidence": "2Fmediation-accomplie-discours-pratiques-de-mediation-entre-citoyens-administrations"
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
@@ -1250,11 +1250,11 @@
 					],
 					"count": "13",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>    (function() {</p><p>        window.buildDate = '2022-01-02';</p><p>        window.data = {\"employer\":{\"a\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>    (function() {</p><p>        window.buildDate = '2022-01-08';</p><p>        window.data = {\"employer\":{\"a\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "934"
+					"sourceid": "937"
 				},
 				{
 					"pluginid": "10109",
@@ -1367,84 +1367,84 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 485"
+							"evidence": "Age: 34364"
 						},
 						{
 							"uri": "https://beta.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 486"
+							"evidence": "Age: 34365"
 						},
 						{
 							"uri": "https://beta.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 487"
+							"evidence": "Age: 34365"
 						},
 						{
 							"uri": "https://beta.gouv.fr/approche",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 480"
+							"evidence": "Age: 205"
 						},
 						{
 							"uri": "https://beta.gouv.fr/approche/construction",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 479"
+							"evidence": "Age: 205"
 						},
 						{
 							"uri": "https://beta.gouv.fr/approche/investigation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 480"
+							"evidence": "Age: 205"
 						},
 						{
 							"uri": "https://beta.gouv.fr/communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 476"
+							"evidence": "Age: 204"
 						},
 						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 484"
+							"evidence": "Age: 197"
 						},
 						{
 							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 479"
+							"evidence": "Age: 205"
 						},
 						{
 							"uri": "https://beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 486"
+							"evidence": "Age: 352"
 						},
 						{
 							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 1"
+							"evidence": "Age: 0"
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 479"
+							"evidence": "Age: 423"
 						}
 					],
 					"count": "12",
@@ -1632,14 +1632,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/?incubateur=latelier.numerique.du.ministere.de.leurope.et.des.affaires.etrangeres",
+							"uri": "https://beta.gouv.fr/startups/?incubateur=lab-mi",
 							"method": "GET",
 							"param": "incubateur",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/?incubateur=mission-apprentissage",
+							"uri": "https://beta.gouv.fr/startups/?incubateur=latelier.numerique.du.ministere.de.leurope.et.des.affaires.etrangeres",
 							"method": "GET",
 							"param": "incubateur",
 							"attack": "",
@@ -1652,7 +1652,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "935"
+					"sourceid": "938"
 				}
 			]
 		}
