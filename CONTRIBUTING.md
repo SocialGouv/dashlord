@@ -1,18 +1,21 @@
 # Contributing to DashLord
 
-Contributions are very welcome
+Les contributions sont bienvenues.
 
 ## Faq
 
-### How to change the report output ?
+### Comment modifier le rendu du rapport ?
 
-The report is generated with the [report action](https://github.com/SocialGouv/dashlord-actions). You can create your own and swap it in the `scans.yml` workflow.
+Le rapport est généré avec l'[action report](https://github.com/SocialGouv/dashlord-actions). 
 
-### How to customise some scanner behaviour ?
+Pour développer en local, récupérer le code ici : https://github.com/SocialGouv/dashlord-actions/tree/main/report/www
 
-You can fine tune each scanner with parameters, see related GH action repo.
+Vous pouvez modifier la source de cette action dans votre workflow `report.yml` pour pointer vers votre version.
 
 ### Ajouter un scanner
 
 1. Créer une action github qui produit un fichier JSON
-2. Ajouter le support pour ce type de données dans [l'action report](https://github.com/SocialGouv/dashlord-actions)
+3. Ajouter le support pour ce type de données dans [l'action report](https://github.com/SocialGouv/dashlord-actions) : 
+   - calcul du "summary" (note affichée)
+   - rendu visuel
+   - types typescript
