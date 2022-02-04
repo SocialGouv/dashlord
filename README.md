@@ -59,6 +59,7 @@ tools:
   dependabot: true
   codescan: true
   stats: true
+  declaration-a11y: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
