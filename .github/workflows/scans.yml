@@ -82,6 +82,14 @@ jobs:
           source: "${{ matrix.sites.url }}"
           destination: screenshot.jpeg
 
+      - name: Trivy
+        continue-on-error: true
+        if: ${{ matrix.sites.tools.trivy && matrix.sites.docker }}
+        uses: "socialgouv/dashlord-actions/trivy@v1"
+        with:
+          images: ${{ join(matrix.sites.docker) }}
+          output: scans/trivy.json
+
       - name: Stats page
         continue-on-error: true
         uses: "MTES-MCT/stats-action@main"

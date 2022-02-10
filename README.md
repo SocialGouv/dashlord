@@ -60,6 +60,7 @@ tools:
   codescan: true
   stats: true
   declaration-a11y: true
+  trivy: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
@@ -69,6 +70,9 @@ urls:
     repositories:
       - free/free-ui
       - free/free-css
+    docker:
+      - ghcr.io/socialgouv/fabrique/frontend
+      - ghcr.io/socialgouv/fabrique/backend
     tools:
       nmap: false
   - url: https://www.lemonde.fr
