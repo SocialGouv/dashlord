@@ -111,6 +111,7 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
 | [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
 | [SocialGouv/detect-404-action](https://github.com/SocialGouv/detect-404-action)             | detect 404 errors                                          |
+| [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action)                   | Scan docker images vulnerabilities                         |
 
 ## Contribute
 
