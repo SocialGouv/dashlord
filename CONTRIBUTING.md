@@ -14,10 +14,48 @@ Vous pouvez modifier la source de cette action dans votre workflow `report.yml` 
 
 ### Ajouter un scanner
 
-1. Créer une action github qui produit un fichier JSON dans le dossier "scans"
-2. dans votre workflow `scans.yml`, ajouter un appel à votre action qui doit produire un JSON
-3. Ajouter le support pour ce type de données dans [l'action report](https://github.com/SocialGouv/dashlord-actions)
-   - intégrer les données voulues dans le `report.json` final dans `dashlord-actions/report/src/generateUrlReport`
-   - ajouter le calcul du score pour cet outils dans `dashlord-actions/report/src/summary`
-   - ajouter la colonne dans le dashboard : `dashlord-actions/report/www/src/components/Dashboard`
-   - ajouter le détail dans la vue de l'url : `dashlord-actions/report/www/src/components/Url`
+
+#### Etape 1 : Acquisition des données
+
+ - créer un repo dédié à l'action et ses tests
+ - Dans une branche d'un dashlord:
+     - référencer l'action dans `.github/workflows/scan.yml`
+     - activer le scan dans `dashlord.yml`
+ - Faire tourner un scan d'URL sur cette branche.
+ - Un fichier JSON produit par l'action doit se trouver dans `results/xxxxx/xxxx.json` à la fin du scan.
+
+:warning: L'action doit déposer son JSON dans le dossier `scans` pour qu'il soit automatiquement versionné dans GIT.
+
+
+#### Etape 2 : Ajout des données dans le rapport DashLord
+
+ - cloner le repo `socialgouv/dashlord-actions` localement et créer une branche
+ - dans `report/src/generateUrlReport` inclure le fichier JSON de l'action dans le rapport JSON généré pour l'URL : https://github.com/SocialGouv/dashlord-actions/blob/main/report/src/generateUrlReport.js#L117
+ - si besoin, minimiser les données importées (elle seront servies au front)
+ - si besoin de calculer une "note" pour ce scanner, ajouter une fonction dans `report/src/summary`.
+
+##### Tester la generation du report.json :
+
+Pour tester la generation du rapport, il faut avoir en local un clone d'un dashlord avec les données de votre nouvelle action. (ex: branche de test qui a déjà reçu les résultat de la nouvelle action)
+
+```sh
+cd report
+DASHLORD_REPO_PATH=$PWD/path/to/dashlord node src/index.js
+```
+
+Ceci produira un fichier général `report.json` qui contient les resultats de tous les scans de toutes les urls. Vérifiez que les résultats de votre action sont bien présentes pour l'URL de test.
+
+#### Etape 3 : Affichage des données dans l'UI DashLord
+
+ Lancer le site localement :
+
+```sh
+cd report/www
+yarn && yarn dev
+```
+
+NB : Les fichiers `report/www/src/report.json` et `report/www/src/config.json` doivent contenir les données que vous souhaitez afficher.
+
+Dans le fichier `report/www/src/components/Url.tsx`, logger les données de `report` qui doivent contenir toutes les données pour une URL donnée pour verifier que vous avez bien récupéré les données de votre action.
+
+Ajoutez vos composants qui consomment ces données and have a break :coffee: :v: 
