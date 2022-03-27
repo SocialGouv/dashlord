@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 20 Mar 2022 01:01:46",
+	"@generated": "Sun, 27 Mar 2022 01:09:26",
 	"site":[ 
 		{
 			"@name": "https://beta.gouv.fr",
@@ -8,32 +8,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/content/docs/StateStartups-Foucaud.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "5001000444444333333"
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 500100</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "2373"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -50,16 +24,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form method=\"post\" target=\"_blank\" action=\"https://981c5932.sibforms.com/serve/MUIEAED7q5La6zVwcMrAI5cwJB2EZmeOZVHfadIeHA7u9YyGUb9FB0MqprJ1A4DbWnpORGiPSZA4yxdpLFnWbjSvsFFgYNTtd7A54LhPxK3Zg2jaB_qK-b5Sm6aZ2M6kV1nO2mpJW0KcFGIMb5KbirWUxg8CJsQJUp_AJ6ARN5PSdFNxQpzVAPXKMNs1Z7n9lgK9bMoL9fFVP_Wx\" id=\"newsletter\">"
-						},
-						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"post\" target=\"_blank\" action=\"https://981c5932.sibforms.com/serve/MUIEAED7q5La6zVwcMrAI5cwJB2EZmeOZVHfadIeHA7u9YyGUb9FB0MqprJ1A4DbWnpORGiPSZA4yxdpLFnWbjSvsFFgYNTtd7A54LhPxK3Zg2jaB_qK-b5Sm6aZ2M6kV1nO2mpJW0KcFGIMb5KbirWUxg8CJsQJUp_AJ6ARN5PSdFNxQpzVAPXKMNs1Z7n9lgK9bMoL9fFVP_Wx\" id=\"newsletter\">"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -85,35 +52,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://beta.gouv.fr/approche/construction",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -127,6 +66,20 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
 							"method": "GET",
 							"param": "",
@@ -134,7 +87,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/recrutement/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -148,7 +101,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -187,7 +154,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "2247"
+					"sourceid": "1933"
 				},
 				{
 					"pluginid": "10020",
@@ -207,14 +174,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
+							"uri": "https://beta.gouv.fr/accessibilite/",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
@@ -228,21 +188,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
@@ -263,14 +223,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
@@ -309,7 +276,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "2277"
+					"sourceid": "2274"
 				},
 				{
 					"pluginid": "90003",
@@ -350,28 +317,28 @@
 							"evidence": "<script src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js' type='module'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link href='https://d33wubrfki0l68.cloudfront.net/bundles/73ca55e09efc6b52b6c164ddf14359befa2092a5.css' rel='stylesheet' type='text/css'/>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js' type='text/javascript'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js' type='text/javascript'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -418,21 +385,21 @@
 							"evidence": "<script src='https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js' type='module'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/approche/construction",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js",
 							"attack": "",
 							"evidence": "<script src='https://d33wubrfki0l68.cloudfront.net/js/0f62d6c2c169e85fe272b16c7673aeed5009161c/assets/additional/js/lozad.min.js' type='text/javascript'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/approche/construction",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js",
 							"attack": "",
 							"evidence": "<script nomodule src='https://d33wubrfki0l68.cloudfront.net/js/2221bb3459bcbe993b4165e4239721b835da037d/assets/gouvfr/js/dsfr.nomodule.min.js' type='text/javascript'></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/approche/construction",
 							"method": "GET",
 							"param": "https://d33wubrfki0l68.cloudfront.net/js/b8fcb6f7d29a9cf5497b26b4ab17c3f90d049747/assets/gouvfr/js/dsfr.module.min.js",
 							"attack": "",
@@ -486,6 +453,95 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://beta.gouv.fr/approche/construction",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/communaute/annuaire",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/recrutement/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10035",
+					"alertRef": "10035",
+					"alert": "Strict-Transport-Security Header Not Set",
+					"name": "Strict-Transport-Security Header Not Set",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
+					"instances":[ 
+						{
 							"uri": "https://beta.gouv.fr/",
 							"method": "GET",
 							"param": "",
@@ -500,14 +556,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/approche/construction",
+							"uri": "https://beta.gouv.fr/approche/investigation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
+							"uri": "https://beta.gouv.fr/approche/manifeste",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -521,14 +577,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/communaute/annuaire",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
+							"uri": "https://beta.gouv.fr/en/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -542,27 +591,48 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/sitemap.xml",
+							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/pix.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/transport.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/stats/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "11",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"count": "12",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
-					"cweid": "693",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10096",
@@ -868,7 +938,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "84"
+					"sourceid": "140"
 				},
 				{
 					"pluginid": "10021",
@@ -888,14 +958,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
+							"uri": "https://beta.gouv.fr/accessibilite/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -909,21 +972,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -944,14 +1007,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -984,18 +1054,25 @@
 							"evidence": "com/serve/MUIEAED7q5La6zVwcMrAI5cwJB2EZmeOZVHfadIeHA7u9YyGUb9FB0MqprJ1A4DbWnpORGiPSZA4yxdpLFnWbjSvsFFgYNTtd7A54LhPxK3Zg2jaB_qK-b5Sm6aZ2M6kV1nO2mpJW0KcFGIMb5KbirWUxg8CJsQJUp_AJ6ARN5PSdFNxQpzVAPXKMNs1Z7n9lgK9bMoL9fFVP_Wx"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/serve/MUIEAED7q5La6zVwcMrAI5cwJB2EZmeOZVHfadIeHA7u9YyGUb9FB0MqprJ1A4DbWnpORGiPSZA4yxdpLFnWbjSvsFFgYNTtd7A54LhPxK3Zg2jaB_qK-b5Sm6aZ2M6kV1nO2mpJW0KcFGIMb5KbirWUxg8CJsQJUp_AJ6ARN5PSdFNxQpzVAPXKMNs1Z7n9lgK9bMoL9fFVP_Wx"
-						},
-						{
 							"uri": "https://beta.gouv.fr/accessibilite/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/uploads/DINUM_SchemaPluriannuel_2020"
+						},
+						{
+							"uri": "https://beta.gouv.fr/approche/fast",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/img/posts/FAST_2400x448-nom-du-fonds"
+						},
+						{
+							"uri": "https://beta.gouv.fr/approche/formation/mooc/sequence-3-mesurer-impact.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/content/docs/mooc/15-impact-Maintenant-pole-emploi"
 						},
 						{
 							"uri": "https://beta.gouv.fr/assets/images/favicons/safari-pinned-tab.svg",
@@ -1023,7 +1100,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/recrutement/2022/02/03/bizdev-EFLC"
+							"evidence": "/recrutement/2021/02/10/developpeur-full-stack-SignalConso"
+						},
+						{
+							"uri": "https://beta.gouv.fr/recrutement/2022/01/24/recrutement-dossierfacile-operateur-de-validation.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/particuliers/vosdroits/F1169"
+						},
+						{
+							"uri": "https://beta.gouv.fr/recrutement/2022/03/02/developpeur-se.frontend.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/jorf/id/JORFTEXT000043294613"
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups",
@@ -1031,27 +1122,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "2Fmediation-accomplie-discours-pratiques-de-mediation-entre-citoyens-administrations"
-						},
-						{
-							"uri": "https://beta.gouv.fr/startups/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2Fmediation-accomplie-discours-pratiques-de-mediation-entre-citoyens-administrations"
-						},
-						{
-							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/u/0/reporting/1v-Sim2qMlFSMn4n9JJWaMk8PIONvM757/page/FZIGC"
-						},
-						{
-							"uri": "https://beta.gouv.fr/startups/transport.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/profile_images/1226891323132841991/Z42OxI0v_400x400"
 						}
 					],
 					"count": "11",
@@ -1080,13 +1150,6 @@
 							"evidence": "admin"
 						},
 						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin"
-						},
-						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
 							"method": "GET",
 							"param": "",
@@ -1108,20 +1171,6 @@
 							"evidence": "TODO"
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select"
-						},
-						{
-							"uri": "https://beta.gouv.fr/startups/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "TODO"
-						},
-						{
 							"uri": "https://beta.gouv.fr/startups/?incubateur=anct",
 							"method": "GET",
 							"param": "",
@@ -1158,19 +1207,33 @@
 						},
 						{
 							"uri": "https://beta.gouv.fr/startups/?incubateur=bercy",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "TODO"
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/?incubateur=dinum",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/?incubateur=dinum",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "TODO"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>    (function() {</p><p>        window.buildDate = '2022-03-19';</p><p>        window.data = {\"employer\":{\"a\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>    (function() {</p><p>        window.buildDate = '2022-03-25';</p><p>        window.data = {\"employer\":{\"a\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "995"
+					"sourceid": "985"
 				},
 				{
 					"pluginid": "10109",
@@ -1190,35 +1253,7 @@
 							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
-						},
-						{
 							"uri": "https://beta.gouv.fr/approche/construction",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1232,6 +1267,20 @@
 							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
 						},
 						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
+						},
+						{
 							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
 							"method": "GET",
 							"param": "",
@@ -1239,7 +1288,7 @@
 							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/recrutement/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1253,7 +1302,21 @@
 							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-nav__link\" href=\"/approche\" target=\"_self\">D\u00E9couvrir le programme</a>"
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1267,6 +1330,67 @@
 					"cweid": "-1",
 					"wascid": "-1",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						},
+						{
+							"uri": "https://beta.gouv.fr/approche",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						},
+						{
+							"uri": "https://beta.gouv.fr/approche/investigation",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						},
+						{
+							"uri": "https://beta.gouv.fr/communaute/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						},
+						{
+							"uri": "https://beta.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "502"
+						}
+					],
+					"count": "6",
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10015",
@@ -1286,14 +1410,7 @@
 							"evidence": "public, max-age=0, must-revalidate"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "public, max-age=0, must-revalidate"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
+							"uri": "https://beta.gouv.fr/accessibilite/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1307,21 +1424,21 @@
 							"evidence": "public, max-age=0, must-revalidate"
 						},
 						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "public, max-age=0, must-revalidate"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "public, max-age=0, must-revalidate"
-						},
-						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public, max-age=0, must-revalidate"
+						},
+						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public, max-age=0, must-revalidate"
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1342,14 +1459,21 @@
 							"evidence": "public, max-age=0, must-revalidate"
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "public, max-age=0, must-revalidate"
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/la-bonne-alternance.html",
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public, max-age=0, must-revalidate"
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1379,70 +1503,56 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 16244"
+							"evidence": "Age: 108127"
 						},
 						{
 							"uri": "https://beta.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 16245"
-						},
-						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 16245"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 461"
+							"evidence": "Age: 108128"
 						},
 						{
 							"uri": "https://beta.gouv.fr/approche/construction",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 461"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 461"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 460"
+							"evidence": "Age: 487"
 						},
 						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 464"
+							"evidence": "Age: 500"
+						},
+						{
+							"uri": "https://beta.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 468"
+						},
+						{
+							"uri": "https://beta.gouv.fr/dashboard/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 468"
 						},
 						{
 							"uri": "https://beta.gouv.fr/devenir-intrapreneur",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 460"
+							"evidence": "Age: 488"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/recrutement/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 466"
+							"evidence": "Age: 480"
 						},
 						{
 							"uri": "https://beta.gouv.fr/sitemap.xml",
@@ -1452,11 +1562,25 @@
 							"evidence": "Age: 0"
 						},
 						{
-							"uri": "https://beta.gouv.fr/startups/",
+							"uri": "https://beta.gouv.fr/startups",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 461"
+							"evidence": "Age: 478"
+						},
+						{
+							"uri": "https://beta.gouv.fr/startups/mon-entreprise.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 479"
+						},
+						{
+							"uri": "https://beta.gouv.fr/suivi/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 463"
 						}
 					],
 					"count": "12",
@@ -1485,42 +1609,7 @@
 							"evidence": "max-age=0"
 						},
 						{
-							"uri": "https://beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
 							"uri": "https://beta.gouv.fr/approche/construction",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://beta.gouv.fr/approche/investigation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/annuaire",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1534,7 +1623,7 @@
 							"evidence": "max-age=0"
 						},
 						{
-							"uri": "https://beta.gouv.fr/robots.txt",
+							"uri": "https://beta.gouv.fr/recrutement/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1546,16 +1635,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://beta.gouv.fr/startups/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
 						}
 					],
-					"count": "11",
+					"count": "5",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1664,7 +1746,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "996"
+					"sourceid": "2266"
 				}
 			]
 		}
