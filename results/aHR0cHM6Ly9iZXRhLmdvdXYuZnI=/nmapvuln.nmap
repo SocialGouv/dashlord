@@ -1,14 +1,111 @@
-# Nmap 7.91 scan initiated Sun Apr 10 01:15:29 2022 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln beta.gouv.fr
+# Nmap 7.91 scan initiated Sun Apr 17 01:16:45 2022 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln beta.gouv.fr
 Nmap scan report for beta.gouv.fr (109.232.236.90)
-Host is up (0.11s latency).
+Host is up (0.081s latency).
 Other addresses for beta.gouv.fr (not scanned): 5.104.101.30
 rDNS record for 109.232.236.90: ows-109-232-236-90.eu-west-2.compute.outscale.com
 Not shown: 998 filtered ports
-PORT    STATE SERVICE  VERSION
-80/tcp  open  http     OpenResty web app server
-|_http-server-header: openresty
-443/tcp open  ssl/http OpenResty web app server
-|_http-server-header: openresty
+PORT    STATE SERVICE   VERSION
+80/tcp  open  http
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 404 Not Found
+|     Date: Sun, 17 Apr 2022 01:16:58 GMT
+|     Content-Type: text/html
+|     Content-Length: 15436
+|     Connection: close
+|     Content-Encoding: identity
+|     <!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Application doesn't exist - Scalingo</title><style>html { height: 100%;}body { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; text-align: center; height: 100%; margin: 0; padding: 0; background: -webkit-gradient(linear, left top, left bottom, from(#1864ab), to(#099ec9)) left top/100% 100% no-repeat #1864ab; background: linear-gradient(to bottom, #1864ab, #099ec9) left top/100% 100% no-repeat #1864ab; color: white;}#wrapper { position: relative; top: 40%; -webkit
+|   HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Date: Sun, 17 Apr 2022 01:16:59 GMT
+|     Content-Type: text/html
+|     Content-Length: 15436
+|     Connection: close
+|     Content-Encoding: identity
+|_    <!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Application doesn't exist - Scalingo</title><style>html { height: 100%;}body { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; text-align: center; height: 100%; margin: 0; padding: 0; background: -webkit-gradient(linear, left top, left bottom, from(#1864ab), to(#099ec9)) left top/100% 100% no-repeat #1864ab; background: linear-gradient(to bottom, #1864ab, #099ec9) left top/100% 100% no-repeat #1864ab; color: white;}#wrapper { position: relative; top: 40%; -webkit
+443/tcp open  ssl/https
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Date: Sun, 17 Apr 2022 01:17:05 GMT
+|     Content-Type: text/html
+|     Content-Length: 15436
+|     Connection: close
+|     Content-Encoding: identity
+|_    <!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Application doesn't exist - Scalingo</title><style>html { height: 100%;}body { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; text-align: center; height: 100%; margin: 0; padding: 0; background: -webkit-gradient(linear, left top, left bottom, from(#1864ab), to(#099ec9)) left top/100% 100% no-repeat #1864ab; background: linear-gradient(to bottom, #1864ab, #099ec9) left top/100% 100% no-repeat #1864ab; color: white;}#wrapper { position: relative; top: 40%; -webkit
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.91%I=7%D=4/17%Time=625B6A8B%P=x86_64-alpine-linux-musl%r
+SF:(GetRequest,16A0,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x20
+SF:17\x20Apr\x202022\x2001:16:58\x20GMT\r\nContent-Type:\x20text/html\r\nC
+SF:ontent-Length:\x2015436\r\nConnection:\x20close\r\nContent-Encoding:\x2
+SF:0identity\r\n\r\n<!DOCTYPE\x20html><html><head><meta\x20http-equiv=\"co
+SF:ntent-type\"\x20content=\"text/html;\x20charset=UTF-8\"><meta\x20charse
+SF:t=\"utf-8\"><meta\x20content=\"IE=edge,chrome=1\"\x20http-equiv=\"X-UA-
+SF:Compatible\"><meta\x20content=\"width=device-width,\x20initial-scale=1\
+SF:.0\"\x20name=\"viewport\"><title>Application\x20doesn't\x20exist\x20-\x
+SF:20Scalingo</title><style>html\x20{\x20height:\x20100%;}body\x20{\x20-we
+SF:bkit-transform-style:\x20preserve-3d;\x20transform-style:\x20preserve-3
+SF:d;\x20text-align:\x20center;\x20height:\x20100%;\x20margin:\x200;\x20pa
+SF:dding:\x200;\x20background:\x20-webkit-gradient\(linear,\x20left\x20top
+SF:,\x20left\x20bottom,\x20from\(#1864ab\),\x20to\(#099ec9\)\)\x20left\x20
+SF:top/100%\x20100%\x20no-repeat\x20#1864ab;\x20background:\x20linear-grad
+SF:ient\(to\x20bottom,\x20#1864ab,\x20#099ec9\)\x20left\x20top/100%\x20100
+SF:%\x20no-repeat\x20#1864ab;\x20color:\x20white;}#wrapper\x20{\x20positio
+SF:n:\x20relative;\x20top:\x2040%;\x20-webkit")%r(HTTPOptions,325C,"HTTP/1
+SF:\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x2017\x20Apr\x202022\x2001:
+SF:16:59\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x2015436\
+SF:r\nConnection:\x20close\r\nContent-Encoding:\x20identity\r\n\r\n<!DOCTY
+SF:PE\x20html><html><head><meta\x20http-equiv=\"content-type\"\x20content=
+SF:\"text/html;\x20charset=UTF-8\"><meta\x20charset=\"utf-8\"><meta\x20con
+SF:tent=\"IE=edge,chrome=1\"\x20http-equiv=\"X-UA-Compatible\"><meta\x20co
+SF:ntent=\"width=device-width,\x20initial-scale=1\.0\"\x20name=\"viewport\
+SF:"><title>Application\x20doesn't\x20exist\x20-\x20Scalingo</title><style
+SF:>html\x20{\x20height:\x20100%;}body\x20{\x20-webkit-transform-style:\x2
+SF:0preserve-3d;\x20transform-style:\x20preserve-3d;\x20text-align:\x20cen
+SF:ter;\x20height:\x20100%;\x20margin:\x200;\x20padding:\x200;\x20backgrou
+SF:nd:\x20-webkit-gradient\(linear,\x20left\x20top,\x20left\x20bottom,\x20
+SF:from\(#1864ab\),\x20to\(#099ec9\)\)\x20left\x20top/100%\x20100%\x20no-r
+SF:epeat\x20#1864ab;\x20background:\x20linear-gradient\(to\x20bottom,\x20#
+SF:1864ab,\x20#099ec9\)\x20left\x20top/100%\x20100%\x20no-repeat\x20#1864a
+SF:b;\x20color:\x20white;}#wrapper\x20{\x20position:\x20relative;\x20top:\
+SF:x2040%;\x20-webkit");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.91%T=SSL%I=7%D=4/17%Time=625B6A91%P=x86_64-alpine-linux
+SF:-musl%r(GetRequest,3CEA,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20S
+SF:un,\x2017\x20Apr\x202022\x2001:17:05\x20GMT\r\nContent-Type:\x20text/ht
+SF:ml\r\nContent-Length:\x2015436\r\nConnection:\x20close\r\nContent-Encod
+SF:ing:\x20identity\r\n\r\n<!DOCTYPE\x20html><html><head><meta\x20http-equ
+SF:iv=\"content-type\"\x20content=\"text/html;\x20charset=UTF-8\"><meta\x2
+SF:0charset=\"utf-8\"><meta\x20content=\"IE=edge,chrome=1\"\x20http-equiv=
+SF:\"X-UA-Compatible\"><meta\x20content=\"width=device-width,\x20initial-s
+SF:cale=1\.0\"\x20name=\"viewport\"><title>Application\x20doesn't\x20exist
+SF:\x20-\x20Scalingo</title><style>html\x20{\x20height:\x20100%;}body\x20{
+SF:\x20-webkit-transform-style:\x20preserve-3d;\x20transform-style:\x20pre
+SF:serve-3d;\x20text-align:\x20center;\x20height:\x20100%;\x20margin:\x200
+SF:;\x20padding:\x200;\x20background:\x20-webkit-gradient\(linear,\x20left
+SF:\x20top,\x20left\x20bottom,\x20from\(#1864ab\),\x20to\(#099ec9\)\)\x20l
+SF:eft\x20top/100%\x20100%\x20no-repeat\x20#1864ab;\x20background:\x20line
+SF:ar-gradient\(to\x20bottom,\x20#1864ab,\x20#099ec9\)\x20left\x20top/100%
+SF:\x20100%\x20no-repeat\x20#1864ab;\x20color:\x20white;}#wrapper\x20{\x20
+SF:position:\x20relative;\x20top:\x2040%;\x20-webkit")%r(HTTPOptions,3CEA,
+SF:"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x2017\x20Apr\x202022
+SF:\x2001:17:05\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x2
+SF:015436\r\nConnection:\x20close\r\nContent-Encoding:\x20identity\r\n\r\n
+SF:<!DOCTYPE\x20html><html><head><meta\x20http-equiv=\"content-type\"\x20c
+SF:ontent=\"text/html;\x20charset=UTF-8\"><meta\x20charset=\"utf-8\"><meta
+SF:\x20content=\"IE=edge,chrome=1\"\x20http-equiv=\"X-UA-Compatible\"><met
+SF:a\x20content=\"width=device-width,\x20initial-scale=1\.0\"\x20name=\"vi
+SF:ewport\"><title>Application\x20doesn't\x20exist\x20-\x20Scalingo</title
+SF:><style>html\x20{\x20height:\x20100%;}body\x20{\x20-webkit-transform-st
+SF:yle:\x20preserve-3d;\x20transform-style:\x20preserve-3d;\x20text-align:
+SF:\x20center;\x20height:\x20100%;\x20margin:\x200;\x20padding:\x200;\x20b
+SF:ackground:\x20-webkit-gradient\(linear,\x20left\x20top,\x20left\x20bott
+SF:om,\x20from\(#1864ab\),\x20to\(#099ec9\)\)\x20left\x20top/100%\x20100%\
+SF:x20no-repeat\x20#1864ab;\x20background:\x20linear-gradient\(to\x20botto
+SF:m,\x20#1864ab,\x20#099ec9\)\x20left\x20top/100%\x20100%\x20no-repeat\x2
+SF:0#1864ab;\x20color:\x20white;}#wrapper\x20{\x20position:\x20relative;\x
+SF:20top:\x2040%;\x20-webkit");
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun Apr 10 01:15:52 2022 -- 1 IP address (1 host up) scanned in 23.85 seconds
+# Nmap done at Sun Apr 17 01:17:21 2022 -- 1 IP address (1 host up) scanned in 35.80 seconds
