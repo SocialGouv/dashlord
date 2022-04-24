@@ -52,8 +52,8 @@
               "id"           : "TLS1_3",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "not offered + downgraded to weaker protocol"
+              "severity"     : "OK",
+              "finding"      : "offered with final"
           }
 ,         {
               "id"           : "ALPN_HTTP2",
@@ -150,14 +150,14 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "Default protocol TLS1.2"
+              "finding"      : "Default protocol TLS1.3"
           }
 ,         {
               "id"           : "cipher_negotiated",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256, 256 bit ECDH (P-256)"
+              "finding"      : "TLS_AES_256_GCM_SHA384, 253 bit ECDH (X25519)"
           }
 ,         {
               "id"           : "FS",
@@ -185,14 +185,14 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "'renegotiation info/#65281' 'server name/#0' 'EC point formats/#11' 'session ticket/#35' 'next protocol/#13172' 'max fragment length/#1' 'application layer protocol negotiation/#16' 'extended master secret/#23'"
+              "finding"      : "'renegotiation info/#65281' 'server name/#0' 'EC point formats/#11' 'next protocol/#13172' 'supported versions/#43' 'key share/#51' 'supported_groups/#10' 'max fragment length/#1' 'application layer protocol negotiation/#16' 'extended master secret/#23'"
           }
 ,         {
               "id"           : "TLS_session_ticket",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "valid for 600 seconds only (<daily)"
+              "finding"      : "no -- no lifetime advertised"
           }
 ,         {
               "id"           : "SSL_sessionID_support",
@@ -223,11 +223,11 @@
               "finding"      : "random"
           }
 ,         {
-              "id"           : "cert_compression",
+              "id"           : "certificate_compression",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "N/A"
+              "finding"      : "none"
           }
 ,         {
               "id"           : "clientAuth",
@@ -276,7 +276,7 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "032005C33A3EEA6A1594B6DD7F11A4467D31"
+              "finding"      : "036018BA7052164824E9224C1DFA8CDE0A52"
           }
 ,         {
               "id"           : "cert_serialNumberLen",
@@ -290,21 +290,21 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "A1DA041DD94D20BAB80BE3DEE37766D2C11B1006"
+              "finding"      : "B966C978A6DB579A2C3C7248FED5E6F2C768BE82"
           }
 ,         {
               "id"           : "cert_fingerprintSHA256",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "B3BFF2C8587B17FDDCF37FAF14B6DA538405639DB4875C8D71F746BC93B5F2FC"
+              "finding"      : "98E1A44AA244486B0CA84D45F7FB37615BC16559123BEA3D35E4820453C69C30"
           }
 ,         {
               "id"           : "cert",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-----BEGIN CERTIFICATE----- MIIFPDCCBCSgAwIBAgISAyAFwzo+6moVlLbdfxGkRn0xMA0GCSqGSIb3DQEBCwUA MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD EwJSMzAeFw0yMjAyMTgwNzIzMjNaFw0yMjA1MTkwNzIzMjJaMCYxJDAiBgNVBAMT G3d3dy5mYWJyaXF1ZS5zb2NpYWwuZ291di5mcjCCASIwDQYJKoZIhvcNAQEBBQAD ggEPADCCAQoCggEBALX6PiB5TmqAL+OUDLtFzKChAe+9L8bqpvN/IwUwj21w8Iae WK6d4Yf8wLaSI1Zw4pkTJyu2sw/GRGZcwYg7HJAnF0pfoT0Cac1ktuxgbw9FyxBA zIYAcfFCitagD5nnt6UlHMtUGyQJoEfxSWjFZaI1gYSIUowRSx+BqIqm8QMPwU6/ 5w9yWTujwl9IBs3KO7SmR+RymTG3MY8aDVgLHA2j307CPphuZk6KU+2PRDXxc9Oy dr9K3YdH37aeQ42eCaCb1S1JqgkLJb/b9dIGFYBR7t9pC6u2vx939a1F0GHmS1XP YievwVNROFgfksuVkGZPhtDyBj+P+r1wQ/MDuHkCAwEAAaOCAlYwggJSMA4GA1Ud DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T AQH/BAIwADAdBgNVHQ4EFgQU1Sa94WjvLbGfuF/p1tUXkPmNfIUwHwYDVR0jBBgw FoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUF BzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9y My5pLmxlbmNyLm9yZy8wJgYDVR0RBB8wHYIbd3d3LmZhYnJpcXVlLnNvY2lhbC5n b3V2LmZyMEwGA1UdIARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYI KwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBAYKKwYBBAHW eQIEAgSB9QSB8gDwAHYA36Veq2iCTx9sre64X04+WurNohKkal6OOxLAIERcKnMA AAF/C+28dAAABAMARzBFAiEAjzvF3e9yT+V2KgquL0QTTQV5hU8/HjFca9xKvwPG VCYCIAzHqxCLYyiQx2b6gX9wf7cOESvyyz9AxAAINI2jIlDYAHYAKXm+8J45OSHw VnOfY6V35b5XfZxgCvj5TV0mXCVdx4QAAAF/C+28awAABAMARzBFAiEA94bnCJWP 0ae6lwhUEe7QkhB/0rCdup7M2gzX/Vm3EFICIBPFyUzTSZuTtlrROdda5lMa0Ivt SkCr1X9M0QcueVtUMA0GCSqGSIb3DQEBCwUAA4IBAQBtfIPKoDoM/bLsnXjRbozZ IdDpVYR6SEdzD0RXGzIE99U049K5u/DSeV/QqjP/dNbLj6pS3k26f/WIzbPj6nZd FtZUMFxQ3wL6O2V4M38/iV4ktm+5LyhUIId+Il7qSq5lXavZ4gxx1ehprtrKkrNL qS7DodDcPwHIEO6rmKekrU8DZS9sgi42oX74WVb8vozvKnjihPrQX1h31j2OPPnO WpmAnjLIdHjMUhLE+dr+gqNMz2LVeUIiyKO1kzloJLt7lKG9FX0nG6izc3Xq6gE9 LJl7vAnSAwmhWrcogb2pWQ4JnQDlbQHimPX0CXlNZhUn5PXf2iWyMrnB0R46ypW2 -----END CERTIFICATE-----"
+              "finding"      : "-----BEGIN CERTIFICATE----- MIIFPDCCBCSgAwIBAgISA2AYunBSFkgk6SJMHfqM3gpSMA0GCSqGSIb3DQEBCwUA MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD EwJSMzAeFw0yMjA0MTkwNjI0MTJaFw0yMjA3MTgwNjI0MTFaMCYxJDAiBgNVBAMT G3d3dy5mYWJyaXF1ZS5zb2NpYWwuZ291di5mcjCCASIwDQYJKoZIhvcNAQEBBQAD ggEPADCCAQoCggEBALX6PiB5TmqAL+OUDLtFzKChAe+9L8bqpvN/IwUwj21w8Iae WK6d4Yf8wLaSI1Zw4pkTJyu2sw/GRGZcwYg7HJAnF0pfoT0Cac1ktuxgbw9FyxBA zIYAcfFCitagD5nnt6UlHMtUGyQJoEfxSWjFZaI1gYSIUowRSx+BqIqm8QMPwU6/ 5w9yWTujwl9IBs3KO7SmR+RymTG3MY8aDVgLHA2j307CPphuZk6KU+2PRDXxc9Oy dr9K3YdH37aeQ42eCaCb1S1JqgkLJb/b9dIGFYBR7t9pC6u2vx939a1F0GHmS1XP YievwVNROFgfksuVkGZPhtDyBj+P+r1wQ/MDuHkCAwEAAaOCAlYwggJSMA4GA1Ud DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T AQH/BAIwADAdBgNVHQ4EFgQU1Sa94WjvLbGfuF/p1tUXkPmNfIUwHwYDVR0jBBgw FoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUF BzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9y My5pLmxlbmNyLm9yZy8wJgYDVR0RBB8wHYIbd3d3LmZhYnJpcXVlLnNvY2lhbC5n b3V2LmZyMEwGA1UdIARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYI KwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBAYKKwYBBAHW eQIEAgSB9QSB8gDwAHYAQcjKsd8iRkoQxqE6CUKHXk4xixsD6+tLx2jwkGKWBvYA AAGAQLUaYAAABAMARzBFAiEApeAxi+mmjBWqYvaEUvuZou5qQLSxpH1604XPCt6C k4ICIEsxDzMC90rKlmrXeXoTtPKbExdxow6g4bfHIpG6k2wbAHYAKXm+8J45OSHw VnOfY6V35b5XfZxgCvj5TV0mXCVdx4QAAAGAQLUaVwAABAMARzBFAiEApJzjpFMZ +pBm+PJ7wLYHQrusouJwDZs0V5wpUbzjYwkCIBD+4ir6swo3La+X9+2jPWwCf8fQ TmZyRO8IbRPz3IZnMA0GCSqGSIb3DQEBCwUAA4IBAQB3yxj6AVmDCTuc8JHNsYyY 8kqaQebCQKpjaz2nugzVyQBa2sXcZcvy5WJGXgBUguNC5o2HSteuk7ixilsFMaf/ Jfh5u+dx4TvqINqDI2yTba66ujxXma+14Vxh/gLX12RsZIqBZCtS/fw9++QM7Lay 95yhNHA/590DZXtWzQN8pKLaA7Y1SJ5YKOOgjYn9wLA70gHlAYAym7VJlsx/j5s6 QxtRFawxOi/xm1WIpJMqYj9s5gditFxOj5rf3Mp9OqmUCox5PjlauzHd598M4a5g wxLzKOjUfp69WxtZo7bTpVZulS/AcjsN5bkbxHrCot2XqeECk9E6sT7pLq2pdtiw -----END CERTIFICATE-----"
           }
 ,         {
               "id"           : "cert_commonName",
@@ -353,21 +353,21 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "32 >= 30 days"
+              "finding"      : "85 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2022-02-18 07:23"
+              "finding"      : "2022-04-19 06:24"
           }
 ,         {
               "id"           : "cert_notAfter",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "2022-05-19 07:23"
+              "finding"      : "2022-07-18 06:24"
           }
 ,         {
               "id"           : "cert_extlifeSpan",
@@ -556,7 +556,7 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1650157357"
+              "finding"      : "1650762080"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -668,7 +668,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
-              "finding"      : "not vulnerable"
+              "finding"      : "no session ticket extension"
           }
 ,         {
               "id"           : "ROBOT",
@@ -764,7 +764,7 @@
               "severity"     : "INFO",
               "cve"          : "CVE-2016-0800 CVE-2016-0703",
               "cwe"          : "CWE-310",
-              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=B3BFF2C8587B17FDDCF37FAF14B6DA538405639DB4875C8D71F746BC93B5F2FC"
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=98E1A44AA244486B0CA84D45F7FB37615BC16559123BEA3D35E4820453C69C30"
           }
 ,         {
               "id"           : "LOGJAM",
@@ -860,42 +860,42 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_74_win10",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_71_win10",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_6_xp",
@@ -965,7 +965,7 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_9_ios9",
@@ -993,14 +993,14 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_130_osx_10146",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-apple_ats_9_ios9",
@@ -1035,14 +1035,14 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1201",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_102e",
@@ -1063,14 +1063,14 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-thunderbird_68_3_1",
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "rating_spec",
@@ -1147,6 +1147,6 @@
               "ip"           : "www.fabrique.social.gouv.fr/20.74.14.77",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "131"
+              "finding"      : "145"
           }
 ]
