@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 15 May 2022 01:26:40",
+	"@generated": "Sun, 22 May 2022 01:15:59",
 	"site":[ 
 		{
 			"@name": "https://beta.gouv.fr",
@@ -234,32 +234,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/content/docs/rapportannuel.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#fGIEh"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "<p>$#fGIEh</p>",
-					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "2495"
-				},
-				{
 					"pluginid": "90003",
 					"alertRef": "90003",
 					"alert": "Sub Resource Integrity Attribute Missing",
@@ -326,20 +300,6 @@
 							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/stats",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js\"></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/stats",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
-						},
-						{
 							"uri": "https://beta.gouv.fr/stats/",
 							"method": "GET",
 							"param": "",
@@ -354,13 +314,13 @@
 							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1107"
+					"sourceid": "1152"
 				},
 				{
 					"pluginid": "10017",
@@ -429,20 +389,6 @@
 							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
 						},
 						{
-							"uri": "https://beta.gouv.fr/stats",
-							"method": "GET",
-							"param": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js\"></script>"
-						},
-						{
-							"uri": "https://beta.gouv.fr/stats",
-							"method": "GET",
-							"param": "https://unpkg.com/jquery@2.2.2/dist/jquery.min.js",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
-						},
-						{
 							"uri": "https://beta.gouv.fr/stats/",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js",
@@ -457,13 +403,13 @@
 							"evidence": "<script type=\"text/javascript\" src=\"https://unpkg.com/jquery@2.2.2/dist/jquery.min.js\"></script>"
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1107"
+					"sourceid": "1152"
 				},
 				{
 					"pluginid": "10063",
@@ -571,13 +517,6 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/approche/construction",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "62207575"
-						},
 						{
 							"uri": "https://beta.gouv.fr/communaute/annuaire",
 							"method": "GET",
@@ -835,13 +774,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "73400638"
-						},
-						{
-							"uri": "https://beta.gouv.fr/communaute/annuaire",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "73835224"
 						},
 						{
@@ -880,13 +812,13 @@
 							"evidence": "97455880"
 						}
 					],
-					"count": "44",
+					"count": "42",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>62207575, which evaluates to: 1971-12-21 23:52:55</p>",
+					"otherinfo": "<p>08071963, which evaluates to: 1970-04-04 10:12:43</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "73"
+					"sourceid": "124"
 				},
 				{
 					"pluginid": "10021",
@@ -1188,7 +1120,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1032"
+					"sourceid": "1056"
 				},
 				{
 					"pluginid": "10109",
@@ -1579,7 +1511,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1138"
+					"sourceid": "1182"
 				}
 			]
 		}
