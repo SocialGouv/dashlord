@@ -126,7 +126,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v7
         if: ${{ matrix.sites.tools.lighthouse }}
         with:
-          urls: "${{ matrix.sites.subpages }}"
+          urls: "${{ join(matrix.sites.subpages, '\n') }}"
           uploadArtifacts: false
           temporaryPublicStorage: false
           configPath: "./lighthouserc.json"
