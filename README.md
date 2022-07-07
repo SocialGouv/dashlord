@@ -68,14 +68,17 @@ urls:
     tags:
       - telecom
       - provider
-    repositories:
+    repositories: # pour récupérer les alertes de sécu de ces repos
       - free/free-ui
       - free/free-css
-    docker:
+    docker: # pour scanner les images avec trivy
       - ghcr.io/socialgouv/fabrique/frontend
       - ghcr.io/socialgouv/fabrique/backend
-    tools:
+    tools: # pour desactiver certains outils
       nmap: false
+    pages: # pour lancer lighthouse sur des pages supplémentaires
+      - /profil
+      - /mentions
   - url: https://www.lemonde.fr
     title: Homepage lemonde.fr
     tags:
