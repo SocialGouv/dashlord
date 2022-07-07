@@ -3,38 +3,9 @@
   "title": "Dashlord configuration file",
   "type": "object",
   "additionalProperties": false,
-  "properties": {
-    "title": {
-      "type": "string",
-      "description": "Titre du DashLord"
-    },
-    "description": {
-      "type": "string",
-      "description": "Sous-titre du dashlord"
-    },
-    "entity": {
-      "type": "string",
-      "description": "Nom de votre entité"
-    },
-    "footer": {
-      "type": "string",
-      "description": "Message dans le footer"
-    },
-    "marianne": {
-      "type": "boolean",
-      "description": "Affiche ou pas la Marianne",
-      "default": false
-    },
-    "loginUrl": {
-      "type": "string"
-    },
-    "matomoId": {
-      "type": "number"
-    },
-    "matomoUrl": {
-      "type": "string"
-    },
+  "$defs": {
     "tools": {
+      "$id": "/schemas/tools",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -94,7 +65,40 @@
         }
       },
       "required": []
+    }
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titre du DashLord"
     },
+    "description": {
+      "type": "string",
+      "description": "Sous-titre du dashlord"
+    },
+    "entity": {
+      "type": "string",
+      "description": "Nom de votre entité"
+    },
+    "footer": {
+      "type": "string",
+      "description": "Message dans le footer"
+    },
+    "marianne": {
+      "type": "boolean",
+      "description": "Affiche ou pas la Marianne",
+      "default": false
+    },
+    "loginUrl": {
+      "type": "string"
+    },
+    "matomoId": {
+      "type": "number"
+    },
+    "matomoUrl": {
+      "type": "string"
+    },
+    "tools": { "$ref": "/schemas/tools" },
     "urls": {
       "type": "array",
       "items": {
@@ -133,7 +137,8 @@
             "items": {
               "type": "string"
             }
-          }
+          },
+          "tools": { "$ref": "/schemas/tools" }
         },
         "required": [
           "url"
