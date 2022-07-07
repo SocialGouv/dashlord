@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dashlord configuration file",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "404": {
+          "type": "boolean"
+        },
+        "screenshot": {
+          "type": "boolean"
+        },
+        "lighthouse": {
+          "type": "boolean"
+        },
+        "testssl": {
+          "type": "boolean"
+        },
+        "wappalyzer": {
+          "type": "boolean"
+        },
+        "nuclei": {
+          "type": "boolean"
+        },
+        "zap": {
+          "type": "boolean"
+        },
+        "thirdparties": {
+          "type": "boolean"
+        },
+        "dependabot": {
+          "type": "boolean"
+        },
+        "codescan": {
+          "type": "boolean"
+        },
+        "updownio": {
+          "type": "boolean"
+        },
+        "http": {
+          "type": "boolean"
+        },
+        "nmap": {
+          "type": "boolean"
+        },
+        "stats": {
+          "type": "boolean"
+        },
+        "trivy": {
+          "type": "boolean"
+        },
+        "declaration-a11y": {
+          "type": "boolean"
+        },
+        "declaration-rgpd": {
+          "type": "boolean"
+        },
+        "betagouv": {
+          "type": "boolean"
+        }
+      },
+      "required": []
+    }
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titre du DashLord"
+    },
+    "description": {
+      "type": "string",
+      "description": "Sous-titre du dashlord"
+    },
+    "entity": {
+      "type": "string",
+      "description": "Nom de votre entité"
+    },
+    "footer": {
+      "type": "string",
+      "description": "Message dans le footer"
+    },
+    "marianne": {
+      "type": "boolean",
+      "description": "Affiche ou pas la Marianne",
+      "default": false
+    },
+    "loginUrl": {
+      "type": "string"
+    },
+    "matomoId": {
+      "type": "number"
+    },
+    "matomoUrl": {
+      "type": "string"
+    },
+    "tools": { "$ref": "#/definitions/tools" },
+    "urls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "betaId": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "repositories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "docker": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tools": { "$ref": "#/definitions/tools" }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "entity",
+    "tools",
+    "urls"
+  ]
+}
