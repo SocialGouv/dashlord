@@ -3,7 +3,7 @@
   "title": "Dashlord configuration file",
   "type": "object",
   "additionalProperties": false,
-  "$defs": {
+  "definitions": {
     "tools": {
       "type": "object",
       "additionalProperties": false,
@@ -97,7 +97,7 @@
     "matomoUrl": {
       "type": "string"
     },
-    "tools": { "$ref": "/$defs/tools" },
+    "tools": { "$ref": "#/definitions/tools" },
     "urls": {
       "type": "array",
       "items": {
@@ -137,7 +137,7 @@
               "type": "string"
             }
           },
-          "tools": { "$ref": "/$defs/tools" }
+          "tools": { "$ref": "#/definitions/tools" }
         },
         "required": [
           "url"
