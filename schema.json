@@ -9,58 +9,76 @@
       "additionalProperties": false,
       "properties": {
         "404": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable 404 detection"
         },
         "screenshot": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable screenshots"
         },
         "lighthouse": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable Lighthouse"
         },
         "testssl": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable testssl.sh"
         },
         "wappalyzer": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable wappalyzer scan"
         },
         "nuclei": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable nuclei scan"
         },
         "zap": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable ZaProxy baseline scan"
         },
         "thirdparties": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable thirdparties scan"
         },
         "dependabot": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable dependabot alerts"
         },
         "codescan": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable codescan alerts"
         },
         "updownio": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable updown.io metrics"
         },
         "http": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable Mozilla HTTP Observatory scan"
         },
         "nmap": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable nmapvuln scan"
         },
         "stats": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable /stats page check"
         },
         "trivy": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable trivy docker scans"
         },
         "declaration-a11y": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable declaration a11y scan"
         },
         "declaration-rgpd": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable declaration RGPD scan"
         },
         "betagouv": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enable betagouv API data"
         }
       },
       "required": []
@@ -119,20 +137,26 @@
               "type": "string"
             }
           },
+          "pages": {
+            "type": "array",
+            "description": "Additionnal URLs to scan with LightHouse",
+            "examples": ["/actu", "/partners"],
+            "items": {
+              "type": "string"
+            }
+          },
           "repositories": {
             "type": "array",
+            "description": "Repositories no GitHub",
+            "examples": ["SocialGouv/www", "SocialGouv/template"],
             "items": {
               "type": "string"
             }
           },
           "docker": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "pages": {
-            "type": "array",
+            "description": "Docker images to scan",
+            "examples": ["ghcr.io/socialgouv/www/app"],
             "items": {
               "type": "string"
             }
