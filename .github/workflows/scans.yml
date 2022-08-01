@@ -123,13 +123,10 @@ jobs:
       - name: Lighthouse scan
         continue-on-error: true
         timeout-minutes: 10
-        uses: treosh/lighthouse-ci-action@v7
+        uses: SocialGouv/dashlord-actions/lhci@v1
         if: ${{ matrix.sites.tools.lighthouse }}
         with:
-          urls: "${{ matrix.sites.url }}"
-          uploadArtifacts: false
-          temporaryPublicStorage: false
-          configPath: "./lighthouserc.json"
+          url: "${{ join(matrix.sites.subpages, ',') }}"
 
       - name: Mozilla HTTP Observatory
         timeout-minutes: 10
