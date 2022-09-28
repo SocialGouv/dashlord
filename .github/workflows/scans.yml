@@ -66,6 +66,14 @@ jobs:
           url: ${{ matrix.sites.url }}
           output: scans/declaration-a11y.json
 
+      - name: eco-index
+        continue-on-error: true
+        uses: "socialgouv/dashlord-actions/ecoindex@v1"
+        if: ${{ matrix.sites.tools.ecoindex }}
+        with:
+          url: ${{ matrix.sites.url }}
+          output: scans/ecoindex.json
+          
       - name: Detect 404s
         continue-on-error: true
         uses: "socialgouv/detect-404-action@master"
