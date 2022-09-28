@@ -62,6 +62,7 @@ tools:
   stats: true
   declaration-a11y: true
   trivy: true
+  ecoindex: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
