@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 16 Oct 2022 01:46:14",
+	"@generated": "Sun, 23 Oct 2022 01:41:38",
 	"site":[ 
 		{
 			"@name": "https://beta-gouv-fr-budget.netlify.app",
@@ -8,32 +8,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/main-71a0feb107a7fd63.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Internal Server Error"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "2546"
-				},
 				{
 					"pluginid": "10050",
 					"alertRef": "10050",
@@ -49,87 +23,10 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/8YOaa5EQnaUHVv8BrN1sm/_buildManifest.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/8YOaa5EQnaUHVv8BrN1sm/_ssgManifest.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 1"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/framework-ae4f43955bfa5ddc.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/main-71a0feb107a7fd63.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/pages/_app-6e0f6f809c4ba91c.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/pages/index-899693e6db8ecb34.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/polyfills-0d1b80a048d4787e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/chunks/webpack-34c76af51fb9f015.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/css/27d177a30947857b.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/_next/static/css/97d17c872f410c56.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
-						},
-						{
-							"uri": "https://beta-gouv-fr-budget.netlify.app/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0"
+							"evidence": "Age: 3"
 						}
 					],
-					"count": "12",
+					"count": "1",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
 					"otherinfo": "<p>The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -145,32 +42,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/content/docs/StateStartups-Foucaud.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "5001000444444333333"
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 500100</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "2540"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -444,7 +315,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/recrutement/",
+							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
@@ -458,32 +329,6 @@
 					"cweid": "1021",
 					"wascid": "15",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://beta.gouv.fr/content/docs/rapportannuel.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#fGIEh"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "<p>$#fGIEh</p>",
-					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "2347"
 				},
 				{
 					"pluginid": "90003",
@@ -825,7 +670,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "158"
+					"sourceid": "160"
 				},
 				{
 					"pluginid": "10021",
@@ -908,7 +753,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/recrutement/",
+							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -1034,7 +879,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "DB"
+							"evidence": "admin"
 						},
 						{
 							"uri": "https://beta.gouv.fr/assets/additional/js/search-team.js",
@@ -1123,11 +968,11 @@
 					],
 					"count": "13",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script></p><p>    var authorsteam = [</p><p>        </p><p>            { \"id\"        : \"/authors/matthieu.faugere\",</p><p>                \"fullname\": \"\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script></p><p>    var authorsteam = [</p><p>        </p><p>            { \"id\"        : \"/authors/maxine.sabater\",</p><p>                \"fullname\": \"Ma\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "158"
+					"sourceid": "160"
 				},
 				{
 					"pluginid": "10109",
@@ -1306,7 +1151,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://beta.gouv.fr/recrutement/",
+							"uri": "https://beta.gouv.fr/startups/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1518,7 +1363,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1137"
+					"sourceid": "1140"
 				}
 			]
 		}
