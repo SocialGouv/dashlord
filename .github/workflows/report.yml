@@ -3,10 +3,10 @@ name: DashLord report
 on:
   workflow_dispatch:
   workflow_run:
-   workflows: ["DashLord scans"]
-   branches: [main]
-   types: 
-     - completed
+    workflows: ["DashLord scans"]
+    branches: [main]
+    types:
+      - completed
 
 # allow only one concurrent report action
 concurrency:
@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       # build the report
@@ -46,11 +46,3 @@ jobs:
           add: '["report.json"]'
           default_author: github_actions
           message: "chore: report update"
-
-      # deploy build to gh-pages
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.9
-        with:
-          branch: gh-pages
-          folder: build
-
