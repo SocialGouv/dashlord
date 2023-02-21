@@ -30,5 +30,4 @@ runs:
         cd ${{ github.action_path }}
         node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }}
         STRING_URLS=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")
-        echo $STRING_URLS
-        echo "::set-output name=procedureUrls::$STRING_URLS"
+        echo "::set-output name=urls::$STRING_URLS"
