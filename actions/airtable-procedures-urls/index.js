@@ -44,7 +44,9 @@ const getAirtableUrls = async (api_key, base_id, procedures_table_name) => {
       response
         .map((record) => ({
           id: record.fields["🕶 ID"],
-          link: record.fields["Lien"],
+          link: record.fields["Lien"]
+            ? record.fields["Lien"].replaceAll("\n", "")
+            : "",
         }))
         .filter((record) => !!record.id && urlRegex.test(record.link)),
       null,
