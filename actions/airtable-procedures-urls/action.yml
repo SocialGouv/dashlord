@@ -29,4 +29,5 @@ runs:
       run: |
         cd ${{ github.action_path }}
         node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }}
-        echo "procedure-urls=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")" >> $GITHUB_OUTPUT
+        STRING_URLS=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")
+        echo "procedureUrls=$STRING_URLS" >> $GITHUB_OUTPUT
