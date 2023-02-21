@@ -29,4 +29,4 @@ runs:
       run: |
         cd ${{ github.action_path }}
         node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }}
-        cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); list(map(lambda d : print(d['link']), data));"
+        cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));"
