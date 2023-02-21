@@ -29,5 +29,4 @@ runs:
       run: |
         cd ${{ github.action_path }}
         node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ github.workspace }}/${{ inputs.output }}
-        cat ${{ github.workspace }}/${{ inputs.output }}
-        python3 -c "import json; f = open('${{ github.workspace }}/${{ inputs.output }}'); data = json.load(f); list(map(lambda d : print(d['link']), data)); f.close();"
+        cat ${{ github.workspace }}/${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); list(map(lambda d : print(d['link']), data));"
