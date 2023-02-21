@@ -32,10 +32,17 @@ jobs:
       config: ${{ steps.init.outputs.config }}
     steps:
       - uses: actions/checkout@v2
+      - id: pre_init
+        uses: "DISIC/dashlord-observatoire/actions/airtable-procedures-urls@main"
+        with:
+          airtable_api_key: ${{ secrets.AIRTABLE_API_KEY }}
+          airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
+          airtable_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
+          output: scans/airtable-procedures_urls.json
       - id: init
         uses: "SocialGouv/dashlord-actions/init@main"
         with:
-          url: ${{ github.event.inputs.url }}
+          url: ${{ steps.pre_init.outputs.* }}
 
   scans:
     runs-on: ubuntu-latest
