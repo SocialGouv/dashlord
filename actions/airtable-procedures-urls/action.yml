@@ -15,6 +15,10 @@ inputs:
     description: "Path to output file. defaults to airtable-procedures_urls.json"
     default: "airtable-procedures_urls.json"
     required: true
+outputs:
+  urls:
+    description: "List of procedures urls separated by comma"
+    value: ${{ steps.airtable_urls.outputs.urls }}
 
 runs:
   using: "composite"
@@ -24,7 +28,8 @@ runs:
       run: |
         cd ${{ github.action_path }}
         yarn
-    - name: Get Airtable procedures URLs and IDs
+    - id: airtable_urls
+      name: Get Airtable procedures URLs and IDs
       shell: bash
       run: |
         cd ${{ github.action_path }}
