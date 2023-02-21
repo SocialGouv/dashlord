@@ -1,0 +1,36 @@
+name: "Get Airtable procedures URLs to scan"
+description: "Rapatrier les URLs des démarches via Airtable pour préparer le scan"
+
+inputs:
+  airtable_api_key:
+    description: "Clé API Airtable"
+    required: true
+  airtable_base_id:
+    description: "Identifiant de la base Airtable"
+    required: true
+  airtable_table_name:
+    description: "Nom de la table Airtable"
+    required: true
+  output:
+    description: "Path to output file. defaults to airtable-procedures_urls.json"
+    default: "airtable-procedures_urls.json"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        yarn
+    - name: Get Airtable procedures URLs and IDs
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ github.workspace }}/${{ inputs.output }}
+    - name: Extract procedures URLs
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        python3 -c "import json; f = open(${{ github.workspace }}/${{ inputs.output }}); data = json.load(f); list(map(lambda d : print(d['link']), data)); f.close();"
