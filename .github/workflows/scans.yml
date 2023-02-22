@@ -25,6 +25,7 @@ jobs:
     outputs:
       sites: ${{ steps.init.outputs.sites }}
       config: ${{ steps.init.outputs.config }}
+      json: ${{ steps.pre_init.outputs.json }}
     steps:
       - uses: actions/checkout@v2
       - id: pre_init
@@ -49,6 +50,7 @@ jobs:
       max-parallel: 3
       matrix:
         sites: ${{ fromJson(needs.init.outputs.sites) }}
+        json: ${{ fromJson(needs.init.outputs.json) }}
     steps:
       - uses: actions/checkout@v2
 
@@ -94,9 +96,9 @@ jobs:
           url: ${{ matrix.sites.url }}
           output: scans/updownio.json
 
-      - uses: SocialGouv/dashlord-actions/save@main
+      - uses: DISIC/dashlord-observatoire/actions/airtable-procedures-urls@main
         with:
-          url: ${{ matrix.sites.url }}
+          json: ${{ matrix.json }}
 
       - uses: EndBug/add-and-commit@v7
         with:
