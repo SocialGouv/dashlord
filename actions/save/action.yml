@@ -1,0 +1,82 @@
+name: "DashLord save action"
+description: "Save dashlord results"
+
+inputs:
+  json:
+    description: JSON with procedures ids & urls
+    required: true
+
+#
+# this actions copy scanners results to the dashlord repository for versionning
+#
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install jq for json parsing
+      run: sudo apt-get install -y jq
+    - shell: bash
+      run: |
+        URL=$(${{ inputs.json }} | jq .link)
+        ID=$(${{ inputs.json }} | jq .id) 
+        DASHLORD_REPO_PATH=${{ github.workspace }};
+        # store results in a folder with then base64 encoded url
+        OUT_PATH="./results/${ID}"
+
+        echo "URL: $URL"
+        echo "DASHLORD_REPO_PATH: $DASHLORD_REPO_PATH"
+        echo "OUT_PATH: $OUT_PATH"
+
+        cd $DASHLORD_REPO_PATH
+
+        mkdir -p $OUT_PATH || true
+
+        # cleanup previous scans results
+        echo "Cleanup $OUT_PATH"
+        rm -rf $OUT_PATH/*
+
+        ls -la scans
+
+        ###### filter and jsonify nuclei logs ######
+        if [[ -e "scans/nuclei.log" ]]
+        then
+          cat scans/nuclei.log | jq -s > scans/nuclei.json || true
+          rm scans/nuclei.log || true
+        fi
+
+        ###### rename testssl.sh reports ######
+        # html, json, csv
+        for TESTSSL_PATH in ./scans/${HOSTNAME}_p*; do
+          EXTENSION=$(echo "$TESTSSL_PATH" | sed 's/^.*\.//')
+          mv $TESTSSL_PATH ./scans/testssl.${EXTENSION} || true
+        done
+
+        ###### archive results in repo folder ######
+        mv scans/* $OUT_PATH/ || true
+
+        mv report_json.json $OUT_PATH/zap.json || true
+        mv report_html.html $OUT_PATH/zap.html || true
+
+        ###### put screenshot if any ######
+        mv $RUNNER_TEMP/screenshot.png $OUT_PATH/screenshot.png || true
+        mv $RUNNER_TEMP/screenshot.jpeg $OUT_PATH/screenshot.jpeg || true
+
+        ###### copy LHR reports ######
+
+        # https://stackoverflow.com/a/29438087/174027
+        shopt -s nullglob
+
+        if [[ -e "./.lighthouseci" ]]
+        then
+            # concat all JSON reports
+            jq -s '.' ./.lighthouseci/lhr-*.json > "${OUT_PATH}/lhr.json"
+            # rename html reports with guessable url for publication
+            for LHR_JSON_PATH in ./.lighthouseci/lhr-*.json; do
+                LHR_URL_B64=$(jq -jr ".requestedUrl" "$LHR_JSON_PATH" | base64 -w 500)
+                OUT_FILE="lhr-${LHR_URL_B64}.html"
+                echo "mv ${LHR_JSON_PATH%.json}.html ${OUT_PATH}/${OUT_FILE}"
+                mv "${LHR_JSON_PATH%.json}.html" "${OUT_PATH}/${OUT_FILE}"
+            done
+        fi
+
+        ls -la "${OUT_PATH}"
