@@ -19,6 +19,9 @@ outputs:
   urls:
     description: "List of procedures urls separated by comma"
     value: ${{ steps.airtable_urls.outputs.urls }}
+  json:
+    description: "List of procedures in json with ids & urls"
+    value: ${{ steps.airtable_urls.outputs.json }}
 
 runs:
   using: "composite"
@@ -33,6 +36,7 @@ runs:
       shell: bash
       run: |
         cd ${{ github.action_path }}
-        node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }}
+        JSON_PROCEDURES=$(node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }})
+        echo "json=$JSON_PROCEDURES" >> $GITHUB_OUTPUT
         STRING_URLS=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")
         echo "urls=$STRING_URLS" >> $GITHUB_OUTPUT
