@@ -48,9 +48,7 @@ const getAirtableUrls = async (api_key, base_id, procedures_table_name) => {
             ? record.fields["Lien"].replaceAll("\n", "")
             : "",
         }))
-        // TO UNCOMMENT FOR PRODUCTION
-        // .filter((record) => !!record.id && urlRegex.test(record.link)),
-        .filter((record) => !!record.id && urlRegex.test(record.link)).slice(0, 10),
+        .filter((record) => !!record.id && urlRegex.test(record.link)),
       null,
       2
     )
