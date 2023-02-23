@@ -49,8 +49,7 @@ jobs:
       fail-fast: false
       max-parallel: 2
       matrix:
-        sites: ${{ fromJson(needs.init.outputs.sites) }}
-        json: ${{ fromJson(needs.init.outputs.json) }}
+        sites: ${{ fromJson(needs.init.outputs.json) }}
     steps:
       - uses: actions/checkout@v2
 
@@ -65,7 +64,6 @@ jobs:
       - name: Déclaration a11y
         continue-on-error: true
         uses: "socialgouv/dashlord-actions/declaration-a11y@v1"
-        if: ${{ matrix.sites.tools['declaration-a11y'] }}
         with:
           url: ${{ matrix.sites.url }}
           output: scans/declaration-a11y.json
@@ -73,7 +71,6 @@ jobs:
       - name: eco-index
         continue-on-error: true
         uses: "socialgouv/dashlord-actions/ecoindex@v1"
-        if: ${{ matrix.sites.tools.ecoindex }}
         with:
           url: ${{ matrix.sites.url }}
           output: scans/ecoindex.json
@@ -82,7 +79,6 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         uses: SocialGouv/dashlord-actions/lhci@v1
-        if: ${{ matrix.sites.tools.lighthouse }}
         with:
           url: "${{ join(matrix.sites.subpages, ',') }}"
 
@@ -90,15 +86,14 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         uses: "MTES-MCT/updownio-action@main"
-        if: ${{ matrix.sites.tools.updownio }}
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
           url: ${{ matrix.sites.url }}
           output: scans/updownio.json
 
-      - uses: DISIC/dashlord-observatoire/actions/airtable-procedures-urls@main
+      - uses: DISIC/dashlord-observatoire/actions/save@main
         with:
-          json: ${{ matrix.json }}
+          json: ${{ matrix.sites }}
 
       - uses: EndBug/add-and-commit@v7
         with:
