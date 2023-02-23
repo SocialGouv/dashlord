@@ -23,22 +23,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Prepare
     outputs:
-      sites: ${{ steps.init.outputs.sites }}
-      config: ${{ steps.init.outputs.config }}
-      json: ${{ steps.pre_init.outputs.json }}
+      json: ${{ steps.init.outputs.json }}
     steps:
       - uses: actions/checkout@v2
-      - id: pre_init
+      - id: init
         uses: "DISIC/dashlord-observatoire/actions/airtable-procedures-urls@main"
         with:
           airtable_api_key: ${{ secrets.AIRTABLE_API_KEY }}
           airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
           airtable_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
           output: airtable-procedures_urls.json
-      - id: init
-        uses: "SocialGouv/dashlord-actions/init@main"
-        with:
-          url: ${{ steps.pre_init.outputs.urls }}
 
   scans:
     runs-on: ubuntu-latest
@@ -80,7 +74,7 @@ jobs:
         timeout-minutes: 10
         uses: SocialGouv/dashlord-actions/lhci@v1
         with:
-          url: "${{ join(matrix.sites.subpages, ',') }}"
+          url: ${{ matrix.sites.link }}
 
       - name: Updown.io checks
         continue-on-error: true

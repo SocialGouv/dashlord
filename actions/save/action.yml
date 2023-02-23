@@ -17,14 +17,13 @@ runs:
   using: "composite"
   steps:
     - name: Install jq for json parsing
-       ashell: bash
+      shell: bash
       run: sudo apt-get install -y jq
     - shell: bash
       run: |
         URL=${{ inputs.url }}
-        ID=${{ inputs.id }} 
+        ID=${{ inputs.id }}
         DASHLORD_REPO_PATH=${{ github.workspace }};
-        # store results in a folder with then base64 encoded url
         OUT_PATH="./results/${ID}"
 
         echo "URL: $URL"
