@@ -65,14 +65,14 @@ jobs:
         continue-on-error: true
         uses: "socialgouv/dashlord-actions/declaration-a11y@v1"
         with:
-          url: ${{ matrix.sites.url }}
+          url: ${{ matrix.sites.link }}
           output: scans/declaration-a11y.json
 
       - name: eco-index
         continue-on-error: true
         uses: "socialgouv/dashlord-actions/ecoindex@v1"
         with:
-          url: ${{ matrix.sites.url }}
+          url: ${{ matrix.sites.link }}
           output: scans/ecoindex.json
 
       - name: Lighthouse scan
@@ -88,7 +88,7 @@ jobs:
         uses: "MTES-MCT/updownio-action@main"
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
-          url: ${{ matrix.sites.url }}
+          url: ${{ matrix.sites.link }}
           output: scans/updownio.json
 
       - uses: DISIC/dashlord-observatoire/actions/save@main
@@ -100,4 +100,4 @@ jobs:
           add: '["results"]'
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "update: ${{ matrix.sites.url }}"
+          message: "update: ${{ matrix.sites.link }}"
