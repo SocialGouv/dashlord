@@ -23,8 +23,9 @@ runs:
       run: |
         URL=${{ inputs.url }}
         ID=${{ inputs.id }}
+        DATE=$(date '+%d-%m-%Y')
         DASHLORD_REPO_PATH=${{ github.workspace }};
-        OUT_PATH="./results/${ID}"
+        OUT_PATH="./results/${ID}/${DATE}"
 
         echo "URL: $URL"
         echo "DASHLORD_REPO_PATH: $DASHLORD_REPO_PATH"
