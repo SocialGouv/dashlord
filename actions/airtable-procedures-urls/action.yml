@@ -36,8 +36,8 @@ runs:
       shell: bash
       run: |
         cd ${{ github.action_path }}
-        JSON_PROCEDURES=$(node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} > ${{ inputs.output }})
+        JSON_PROCEDURES=$(node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }})
+        echo $JSON_PROCEDURES > ${{ inputs.output }}
         echo "json=$JSON_PROCEDURES" >> $GITHUB_OUTPUT
-        echo "json=$JSON_PROCEDURES"
         STRING_URLS=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")
         echo "urls=$STRING_URLS" >> $GITHUB_OUTPUT
