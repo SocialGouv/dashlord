@@ -93,7 +93,8 @@ jobs:
 
       - uses: DISIC/dashlord-observatoire/actions/save@main
         with:
-          json: ${{ matrix.sites }}
+          id: ${{ matrix.sites.id }}
+          url: ${{ matrix.sites.link }}
 
       - uses: EndBug/add-and-commit@v7
         with:

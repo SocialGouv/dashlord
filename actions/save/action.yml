@@ -2,8 +2,11 @@ name: "DashLord save action"
 description: "Save dashlord results"
 
 inputs:
-  json:
-    description: JSON with procedures ids & urls
+  id:
+    description: Procedures ID
+    required: true
+  url:
+    description: Procedures url
     required: true
 
 #
@@ -14,12 +17,12 @@ runs:
   using: "composite"
   steps:
     - name: Install jq for json parsing
-      shell: bash
+       ashell: bash
       run: sudo apt-get install -y jq
     - shell: bash
       run: |
-        URL=$(${{ inputs.json }} | jq .link)
-        ID=$(${{ inputs.json }} | jq .id) 
+        URL=${{ inputs.url }}
+        ID=${{ inputs.id }} 
         DASHLORD_REPO_PATH=${{ github.workspace }};
         # store results in a folder with then base64 encoded url
         OUT_PATH="./results/${ID}"
