@@ -14,7 +14,8 @@ const insertAirtableData = async (
   procedures_table_name,
   a11y_json
 ) => {
-  const a11y = JSON.parse(a11y_json);
+  console.log("root a11y : ", a11y_json);
+  const a11y = JSON.parse(JSON.parse(a11y_json).toString());
 
   const body = { fields: {} };
   body.fields[field_names.a11y] = a11y.mention

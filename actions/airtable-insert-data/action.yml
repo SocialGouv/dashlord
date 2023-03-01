@@ -27,7 +27,7 @@ runs:
       run: |
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
-        A11Y=$(cat declaration-a11y.json | jq '@json')
+        A11Y=$(cat declaration-a11y.json | jq -R .)
         echo $A11Y
         echo "$A11Y"
         cd ${{ github.action_path }}
