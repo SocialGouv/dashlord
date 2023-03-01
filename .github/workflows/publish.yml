@@ -1,0 +1,58 @@
+name: DashLord scans
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # see https://crontab.guru
+  push:
+    branches:
+      - master
+      - main
+
+# allow only one concurrent publish action
+concurrency:
+  cancel-in-progress: true
+  group: scans
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    name: Prepare
+    outputs:
+      json: ${{ steps.init.outputs.json }}
+    steps:
+      - uses: actions/checkout@v2
+      - id: init
+        uses: "DISIC/dashlord-observatoire/actions/airtable-procedures-urls@main"
+        with:
+          airtable_api_key: ${{ secrets.AIRTABLE_API_KEY }}
+          airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
+          airtable_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
+          output: airtable-procedures_urls.json
+
+  scans:
+    runs-on: ubuntu-latest
+    name: Scan
+    needs: init
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        sites: ${{ fromJson(needs.init.outputs.json) }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          mkdir scans
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Airtable insert data
+        continue-on-error: true
+        uses: "DISIC/dashlord-observatoire/airtable-insert-data@main"
+        with:
+          id: ${{ matrix.sites.id }}

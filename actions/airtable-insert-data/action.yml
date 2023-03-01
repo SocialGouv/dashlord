@@ -1,0 +1,22 @@
+name: "Get Airtable procedures URLs to scan"
+description: "Rapatrier les URLs des démarches via Airtable pour préparer le scan"
+
+inputs:
+  id:
+    description: "ID of the procedure"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        yarn
+    - id: airtable_urls
+      name: Insert Airtable data
+      shell: bash
+      run: |
+        echo ${{ inputs.url }}
+        ls
