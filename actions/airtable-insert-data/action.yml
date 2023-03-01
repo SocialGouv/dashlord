@@ -9,12 +9,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install
+    - name: Go to last data path
       shell: bash
       run: |
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.action_path }}/results/${{ inputs.id }}/$CURRENT_DATE
-        yarn
     - id: airtable_urls
       name: Insert Airtable data
       shell: bash
