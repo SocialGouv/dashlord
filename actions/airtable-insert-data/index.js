@@ -5,6 +5,7 @@ const field_names = {
   id: "🕶 ID",
   edition: "📡 Édition",
   a11y: "[Dashlord] - Mention accessibilité",
+  a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
 };
 
 const insertAirtableData = async (
@@ -14,18 +15,22 @@ const insertAirtableData = async (
   procedures_table_name,
   a11y_json
 ) => {
-  console.log("root a11y : ", a11y_json);
   const a11y = JSON.parse(JSON.parse(a11y_json).toString());
 
   const body = { fields: {} };
   body.fields[field_names.a11y] = a11y.mention
     ? a11y.mention
     : "Aucune mention";
+  body.fields[field_names.a11yLink] = a11y.declarationUrl
+    ? a11y.declarationUrl
+    : "";
 
   console.log("a11y type : ", typeof a11y);
   console.log("a11y json : ", a11y);
   console.log("a11y mention : ", a11y.mention);
-  console.log("mention : ", body.fields[field_names.a11y]);
+  console.log("a11y link : ", a11y.link);
+  console.log("body mention : ", body.fields[field_names.a11y]);
+  console.log("body link : ", body.fields[field_names.a11yLink]);
 
   let response = await fetch(
     `https://api.airtable.com/v0/${base_id}/${procedures_table_name}?${new URLSearchParams(
