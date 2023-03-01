@@ -30,4 +30,4 @@ runs:
         A11Y=$(cat declaration-a11y.json | jq '@json')
         cd ${{ github.action_path }}
         yarn
-        node index ${{ inputs.id }} ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} ${A11Y}
+        node index ${{ inputs.id }} ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} "${A11Y}"
