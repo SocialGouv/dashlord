@@ -9,13 +9,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Go to last data path
-      shell: bash
-      run: |
-        CURRENT_DATE=$(date +"%d-%m-%Y")
-        cd ${{ github.workspace }}/results/${{ inputs.id }}/$CURRENT_DATE
     - id: airtable_urls
       name: Insert Airtable data
       shell: bash
       run: |
+        CURRENT_DATE=$(date +"%d-%m-%Y")
+        cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
         ls
