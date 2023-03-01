@@ -21,6 +21,9 @@ const insertAirtableData = async (
     ? a11y.mention
     : "Aucune mention";
 
+  console.log("a11y json : ", a11y);
+  console.log("mention : ", body.fields[field_names.a11y]);
+
   let response = await fetch(
     `https://api.airtable.com/v0/${base_id}/${procedures_table_name}?${new URLSearchParams(
       {

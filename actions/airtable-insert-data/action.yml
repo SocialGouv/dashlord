@@ -28,6 +28,8 @@ runs:
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
         A11Y=$(cat declaration-a11y.json | jq '@json')
+        echo $A11Y
+        echo "$A11Y"
         cd ${{ github.action_path }}
         yarn
         node index ${{ inputs.id }} ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} "${A11Y}"
