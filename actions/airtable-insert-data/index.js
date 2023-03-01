@@ -21,7 +21,9 @@ const insertAirtableData = async (
     ? a11y.mention
     : "Aucune mention";
 
+  console.log("a11y type : ", typeof a11y);
   console.log("a11y json : ", a11y);
+  console.log("a11y mention : ", a11y.mention);
   console.log("mention : ", body.fields[field_names.a11y]);
 
   let response = await fetch(
