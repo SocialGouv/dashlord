@@ -30,7 +30,7 @@ jobs:
           airtable_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
           output: airtable-procedures_urls.json
 
-  scans:
+  publish:
     runs-on: ubuntu-latest
     name: Scan
     needs: init
@@ -42,9 +42,6 @@ jobs:
         sites: ${{ fromJson(needs.init.outputs.json) }}
     steps:
       - uses: actions/checkout@v2
-
-      - run: |
-          mkdir scans
 
       - uses: actions/cache@v2
         with:
