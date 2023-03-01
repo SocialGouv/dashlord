@@ -38,10 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Scan
     needs: init
-    continue-on-error: false
+    continue-on-error: true
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 2
       matrix:
         sites: ${{ fromJson(needs.init.outputs.json) }}
     steps:
