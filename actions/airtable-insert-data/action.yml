@@ -13,7 +13,7 @@ runs:
       shell: bash
       run: |
         CURRENT_DATE=$(date +"%d-%m-%Y")
-        cd ${{ github.action_path }}/results/${{ inputs.id }}/$CURRENT_DATE
+        cd ${{ github.workspace }}/results/${{ inputs.id }}/$CURRENT_DATE
     - id: airtable_urls
       name: Insert Airtable data
       shell: bash
