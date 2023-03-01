@@ -12,11 +12,11 @@ runs:
     - name: Install
       shell: bash
       run: |
-        cd ${{ github.action_path }}
+        CURRENT_DATE=$(date +"%d-%m-%Y")
+        cd ${{ github.action_path }}/results/${{ inputs.id }}/$CURRENT_DATE
         yarn
     - id: airtable_urls
       name: Insert Airtable data
       shell: bash
       run: |
-        echo ${{ inputs.url }}
         ls
