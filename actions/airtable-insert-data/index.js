@@ -24,7 +24,7 @@ const insertAirtableData = async (
   let response = await fetch(
     `https://api.airtable.com/v0/${base_id}/${procedures_table_name}?${new URLSearchParams(
       {
-        filterByFormula: `AND({${field_names.id}} = "1302", FIND('Édition actuelle', ARRAYJOIN({${field_names.edition}})))`,
+        filterByFormula: `AND({${field_names.id}} = "${id}", FIND('Édition actuelle', ARRAYJOIN({${field_names.edition}})))`,
       }
     ).toString()}`,
     {
@@ -40,7 +40,7 @@ const insertAirtableData = async (
   const record = json.records[0];
 
   if (record) {
-    const t = await fetch(
+    await fetch(
       `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
       {
         method: "PATCH",
@@ -51,8 +51,6 @@ const insertAirtableData = async (
         body: JSON.stringify(body),
       }
     );
-
-    console.log(t);
   }
 };
 
