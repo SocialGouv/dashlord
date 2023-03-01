@@ -9,10 +9,14 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Install jq for json parsing
+      shell: bash
+      run: sudo apt-get install -y jq
     - id: airtable_urls
       name: Insert Airtable data
       shell: bash
       run: |
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
-        ls
+        A11Y=$(cat declaration-a11y.json | jq '@json')
+        node index ${{ inputs.id }} ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} ${A11Y}
