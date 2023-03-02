@@ -35,7 +35,7 @@ const insertAirtableData = async (
   let response = await fetch(
     `https://api.airtable.com/v0/${base_id}/${procedures_table_name}?${new URLSearchParams(
       {
-        filterByFormula: `AND({${field_names.id}} = "${id}", FIND('Édition actuelle', ARRAYJOIN({${field_names.edition}})))`,
+        filterByFormula: `FIND('Édition actuelle', ARRAYJOIN({${field_names.edition}}))`,
       }
     ).toString()}`,
     {
