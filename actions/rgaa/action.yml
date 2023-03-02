@@ -21,11 +21,11 @@ runs:
     - name: Get URL HTML
       uses: socialgouv/dashlord-actions/get-html@v1
       with:
-        url: ${{ inputs.url }}
+        url: ${{ inputs.declarationUrl }}
         output: result.html
     - name: Detect rgaa
       shell: bash
       run: |
         cd ${{ github.action_path }}
-        node index ${{ inputs.url }} ${{ github.workspace }}/result.html > ${{ github.workspace }}/${{ inputs.output }}
+        node index ${{ inputs.declarationUrl }} ${{ github.workspace }}/result.html > ${{ github.workspace }}/${{ inputs.output }}
         cat ${{ github.workspace }}/${{ inputs.output }}
