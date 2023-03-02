@@ -35,7 +35,7 @@ const getAirtableUrls = async (api_key, base_id, procedures_table_name) => {
       Authorization: `Bearer ${api_key}`,
     },
     {
-      filterByFormula: `FIND('Édition actuelle', ARRAYJOIN({📡 Édition}))`,
+      filterByFormula: `AND(FIND({🕶 ID}, '1860'), FIND('Édition actuelle', ARRAYJOIN({📡 Édition})))`,
     }
   );
 
