@@ -6,16 +6,18 @@ const { JSDOM } = jsdom;
 const analyseDom = async (dom) => {
   const percentages = [];
   const text = dom.window.document.body.textContent;
-  const regexPercentages = /\d+(?:[,.]\d+)?%/g;
+  const regexPercentages = /\d+(?:[,.]\d+)?\s*%/g;
   while ((matches = regexPercentages.exec(text))) {
     if (matches[0]) percentages.push(matches[0]);
   }
 
-  return Math.min(
+  const tauxRgaa = Math.min(
     ...percentages.map((p) =>
       parseFloat(p.replace(",", ".").substring(0, p.length - 1))
     )
   );
+
+  return { taux: tauxRgaa !== Infinity ? tauxRgaa : null };
 };
 
 const analyseFile = async (filePath, { url } = {}) => {
@@ -34,6 +36,6 @@ module.exports = { analyseFile, analyseUrl };
 if (require.main === module) {
   const filePath = process.argv[process.argv.length - 1]; // file path to analyse
   analyseFile(filePath)
-    .then((result) => console.log(result))
-    .catch(() => console.log(""));
+    .then((result) => console.log(JSON.stringify(result)))
+    .catch(() => console.log(JSON.stringify({ taux: null })));
 }
