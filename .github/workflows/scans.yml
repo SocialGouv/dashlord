@@ -57,10 +57,19 @@ jobs:
 
       - name: Déclaration a11y
         continue-on-error: true
-        uses: "socialgouv/dashlord-actions/declaration-a11y@v1"
+        uses: "socialgouv/dashlord-actions/declaration-a11y@feat/a11y-output-url"
+        id: declaration-a11y
         with:
           url: ${{ matrix.sites.link }}
           output: scans/declaration-a11y.json
+
+      - name: RGAA
+        continue-on-error: true
+        if: ${{ steps.declaration-a11y.outputs.url != '' }}
+        uses: "DISIC/dashlord-observatoire/actions/rgaa@main"
+        with:
+          declarationUrl: ${{ steps.declaration-a11y.outputs.url }}
+          output: scans/rgaa.json
 
       - name: eco-index
         timeout-minutes: 2
