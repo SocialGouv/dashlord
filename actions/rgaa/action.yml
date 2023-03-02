@@ -1,0 +1,31 @@
+name: "RGAA Finder"
+description: "Analyse la déclaration d'accessibilité pour tenter de trouver le taux RGAA"
+
+inputs:
+  declarationUrl:
+    description: "URL déclaration d'accessibilité"
+    required: true
+  output:
+    description: "Path to output file. defaults to rgaa.json"
+    default: "rgaa.json"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        yarn
+    - name: Get URL HTML
+      uses: socialgouv/dashlord-actions/get-html@v1
+      with:
+        url: ${{ inputs.url }}
+        output: result.html
+    - name: Detect rgaa
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        node index ${{ inputs.url }} ${{ github.workspace }}/result.html > ${{ github.workspace }}/${{ inputs.output }}
+        cat ${{ github.workspace }}/${{ inputs.output }}
