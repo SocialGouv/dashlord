@@ -19,7 +19,7 @@ const monthes = {
 };
 
 const datesRegex =
-  /\b\s(?:(\d{1,2})\/(\d{1,2})\/(\d{4}))|(?:([1-9]|[12]\d|3[01])\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4}))\s\b/g;
+  /\b\s?(?:(\d{1,2})\/(\d{1,2})\/(\d{4}))|(?:([1-9]|[12]\d|3[01])\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4}))\s?\b/g;
 const percentagesRegex = /\d+(?:[,.]\d+)?\s*%/g;
 
 const formatDateFromTimestamp = (timestamp) => {
