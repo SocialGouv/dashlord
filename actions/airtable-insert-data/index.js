@@ -7,6 +7,7 @@ const field_names = {
   a11y: "[Dashlord] - Mention accessibilité",
   a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
   rgaaTaux: "[Dashlord] - Taux RGAA",
+  rgaaDate: "[Dashlord] - Date de la déclaration d'accessibilité",
 };
 
 const insertAirtableData = async (
@@ -31,10 +32,12 @@ const insertAirtableData = async (
   //RGAA
   const rgaa = JSON.parse(JSON.parse(rgaa_json).toString());
   body.fields[field_names.rgaaTaux] = rgaa.taux ? rgaa.taux + "%" : "";
+  body.fields[field_names.rgaaDate] = rgaa.date ? rgaa.date : "";
 
   console.log("body a11y mention : ", body.fields[field_names.a11y]);
   console.log("body a11y link : ", body.fields[field_names.a11yLink]);
   console.log("body rgaa taux : ", body.fields[field_names.rgaaTaux]);
+  console.log("body rgaa date : ", body.fields[field_names.rgaaDate]);
 
   let response = await fetch(
     `https://api.airtable.com/v0/${base_id}/${procedures_table_name}?${new URLSearchParams(
