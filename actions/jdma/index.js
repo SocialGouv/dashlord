@@ -23,7 +23,7 @@ const getXWikiJdmaData = (id, startDate, endDate) => {
   );
 };
 
-module.exports = { getAirtableUrls };
+module.exports = { getXWikiJdmaData };
 
 if (require.main === module) {
   getXWikiJdmaData(
