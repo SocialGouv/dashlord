@@ -1,0 +1,32 @@
+name: "JDMA data retrieving"
+description: "Récupération des données JDMA pour une démarche"
+
+inputs:
+  id:
+    description: "ID of the procedure"
+    required: true
+  startDate:
+    description: "Get data from this date"
+    required: true
+  endDate:
+    description: "Get data to this date"
+    required: false
+  output:
+    description: "Path to output file. defaults to jdma.json"
+    default: "jdma.json"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        yarn
+    - name: JDMA retrieve data
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        node index ${{ inputs.endDate }} ${{ inputs.startDate }} ${{ inputs.id }} > ${{ github.workspace }}/${{ inputs.output }}
+        cat ${{ github.workspace }}/${{ inputs.output }}
