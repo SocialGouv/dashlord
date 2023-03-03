@@ -1,6 +1,4 @@
 const jsdom = require("jsdom");
-const { fuzzy } = require("fast-fuzzy");
-
 const { JSDOM } = jsdom;
 
 const monthes = {
@@ -18,8 +16,9 @@ const monthes = {
   décembre: 11,
 };
 
-const datesRegex =
-  /\b(?:(?<=\s)(\d{1,2})\/(\d{1,2})\/(\d{4})|([1-9]|[12]\d|3[01])\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4})(?=\s))\b/g;
+const formattedDatesRegex = /(?:\s|^)(\d{2}[/-]\d{2}[/-]\d{4})(?=\W|$)/g;
+const plainDatesRegex =
+  /\s(?:(?:(0?[1-9]|[12]\d|3[01]))\s)?(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s(\d{4})\b/g;
 const percentagesRegex = /\d+(?:[,.]\d+)?\s*%/g;
 
 const formatDateFromTimestamp = (timestamp) => {
@@ -36,8 +35,8 @@ const formatDateFromTimestamp = (timestamp) => {
 
 const getMaxDateFromMatches = (matches) => {
   const timestamps = matches.reduce((acc, date) => {
-    const splittedSlash = date.split("/");
-    const splittedSpace = date.split("/");
+    const splittedSlash = date.trim().split("/");
+    const splittedSpace = date.trim().split(" ");
     if (splittedSlash.length === 3) {
       acc.push(
         new Date(splittedSlash[2], splittedSlash[1] - 1, splittedSlash[0])
@@ -65,11 +64,29 @@ const getMaxDateFromMatches = (matches) => {
     return acc;
   }, []);
 
-  return timestamps.length ? formatDateFromTimestamp(Math.max(timestamps)) : "";
+  return timestamps.length
+    ? formatDateFromTimestamp(
+        timestamps.reduce((acc, t) => {
+          if (t > acc) return t;
+          return acc;
+        }, 0)
+      )
+    : "";
 };
 
 const analyseDom = async (dom) => {
-  const text = dom.window.document.body.textContent;
+  const walker = dom.window.document.createTreeWalker(
+    dom.window.document.body,
+    NodeFilter.SHOW_TEXT
+  );
+  let text = "";
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    // ignore text within <script> tags
+    if (!node.parentNode || node.parentNode.tagName !== "SCRIPT") {
+      text += node.textContent;
+    }
+  }
 
   const percentages = [];
   while ((matches = percentagesRegex.exec(text))) {
@@ -77,7 +94,10 @@ const analyseDom = async (dom) => {
   }
 
   const dates = [];
-  while ((matches = datesRegex.exec(text))) {
+  while ((matches = formattedDatesRegex.exec(text))) {
+    if (matches[0]) dates.push(matches[0]);
+  }
+  while ((matches = plainDatesRegex.exec(text))) {
     if (matches[0]) dates.push(matches[0]);
   }
 
