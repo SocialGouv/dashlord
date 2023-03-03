@@ -73,29 +73,29 @@ jobs:
           endDate: ${{ matrix.sites.endDate }}
           output: scans/jdma.json
 
-      - name: eco-index
-        timeout-minutes: 2
-        continue-on-error: true
-        uses: "socialgouv/dashlord-actions/ecoindex@v1"
-        with:
-          url: ${{ matrix.sites.link }}
-          output: scans/ecoindex.json
+      # - name: eco-index
+      #   timeout-minutes: 2
+      #   continue-on-error: true
+      #   uses: "socialgouv/dashlord-actions/ecoindex@v1"
+      #   with:
+      #     url: ${{ matrix.sites.link }}
+      #     output: scans/ecoindex.json
 
-      - name: Lighthouse scan
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: SocialGouv/dashlord-actions/lhci@v1
-        with:
-          url: ${{ matrix.sites.link }}
+      # - name: Lighthouse scan
+      #   continue-on-error: true
+      #   timeout-minutes: 10
+      #   uses: SocialGouv/dashlord-actions/lhci@v1
+      #   with:
+      #     url: ${{ matrix.sites.link }}
 
-      - name: Updown.io checks
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: "MTES-MCT/updownio-action@main"
-        with:
-          apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
-          url: ${{ matrix.sites.link }}
-          output: scans/updownio.json
+      # - name: Updown.io checks
+      #   continue-on-error: true
+      #   timeout-minutes: 10
+      #   uses: "MTES-MCT/updownio-action@main"
+      #   with:
+      #     apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
+      #     url: ${{ matrix.sites.link }}
+      #     output: scans/updownio.json
 
       - uses: DISIC/dashlord-observatoire/actions/save@main
         with:
