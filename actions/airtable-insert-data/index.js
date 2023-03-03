@@ -147,8 +147,9 @@ const insertAirtableData = async (
 
   const record = json.records[0];
 
+  console.log("FOUND RECORD ? ", !!record);
   if (record) {
-    await fetch(
+    const test = await fetch(
       `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
       {
         method: "PATCH",
@@ -159,6 +160,7 @@ const insertAirtableData = async (
         body: JSON.stringify(body),
       }
     );
+    console.log(test);
   }
 };
 
