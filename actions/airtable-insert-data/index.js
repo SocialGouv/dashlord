@@ -48,43 +48,43 @@ const insertAirtableData = async (
   //JDMA
   const jdma = JSON.parse(JSON.parse(jdma_json).toString());
   body.fields[field_names.jdmaCount] = jdma.answersTotal
-    ? jdma.answersTotal
+    ? jdma.answersTotal.toString()
     : "";
 
   // jdma satisfaction
   body.fields[field_names.jdmaSatisfactionPositive] =
     jdma.satisfaction && jdma.satisfaction.positive
-      ? jdma.satisfaction.positive
+      ? jdma.satisfaction.positive.toString()
       : "";
   body.fields[field_names.jdmaSatisfactionNeutral] =
     jdma.satisfaction && jdma.satisfaction.neutral
-      ? jdma.satisfaction.neutral
+      ? jdma.satisfaction.neutral.toString()
       : "";
   body.fields[field_names.jdmaSatisfactionNegative] =
     jdma.satisfaction && jdma.satisfaction.negative
-      ? jdma.satisfaction.negative
+      ? jdma.satisfaction.negative.toString()
       : "";
 
   // jdma easy
   body.fields[field_names.jdmaEasyPositive] =
-    jdma.easy && jdma.easy.positive ? jdma.easy.positive : "";
+    jdma.easy && jdma.easy.positive ? jdma.easy.positive.toString() : "";
   body.fields[field_names.jdmaEasyNeutral] =
-    jdma.easy && jdma.easy.neutral ? jdma.easy.neutral : "";
+    jdma.easy && jdma.easy.neutral ? jdma.easy.neutral.toString() : "";
   body.fields[field_names.jdmaEasyNegative] =
-    jdma.easy && jdma.easy.negative ? jdma.easy.negative : "";
+    jdma.easy && jdma.easy.negative ? jdma.easy.negative.toString() : "";
 
   // jdma comprehensible
   body.fields[field_names.jdmaComprehensiblePositive] =
     jdma.comprehensible && jdma.comprehensible.positive
-      ? jdma.comprehensible.positive
+      ? jdma.comprehensible.positive.toString()
       : "";
   body.fields[field_names.jdmaComprehensibleNeutral] =
     jdma.comprehensible && jdma.comprehensible.neutral
-      ? jdma.comprehensible.neutral
+      ? jdma.comprehensible.neutral.toString()
       : "";
   body.fields[field_names.jdmaComprehensibleNegative] =
     jdma.comprehensible && jdma.comprehensible.negative
-      ? jdma.comprehensible.negative
+      ? jdma.comprehensible.negative.toString()
       : "";
 
   console.log("body a11y mention : ", body.fields[field_names.a11y]);
