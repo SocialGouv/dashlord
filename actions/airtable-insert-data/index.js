@@ -161,6 +161,7 @@ const insertAirtableData = async (
       }
     );
     console.log(test);
+    console.log(test.json());
   }
 };
 
