@@ -71,6 +71,7 @@ const getMaxDateFromMatches = (matches) => {
 
 const analyseDom = async (dom) => {
   const text = dom.window.document.body.textContent;
+  console.log(text);
 
   const percentages = [];
   while ((matches = percentagesRegex.exec(text))) {
