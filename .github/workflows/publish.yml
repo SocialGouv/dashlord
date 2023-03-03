@@ -1,9 +1,10 @@
 name: DashLord publish Airtable
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *" # see https://crontab.guru
+  workflow_run:
+    workflows: ["CI build"]
+    types:
+      - completed
 
 # allow only one concurrent publish action
 concurrency:
