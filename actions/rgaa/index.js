@@ -77,15 +77,18 @@ const getMaxDateFromMatches = (matches) => {
 const analyseDom = async (dom) => {
   const walker = dom.window.document.createTreeWalker(
     dom.window.document.body,
-    NodeFilter.SHOW_TEXT
+    4
   );
+
+  // loop through all text nodes and concatenate their contents
   let text = "";
   while (walker.nextNode()) {
     const node = walker.currentNode;
     // ignore text within <script> tags
-    if (!node.parentNode || node.parentNode.tagName !== "SCRIPT") {
-      text += node.textContent;
+    if (!node.parentNode || node.parentNode.tagName === "SCRIPT") {
+      continue;
     }
+    text += node.textContent;
   }
 
   const percentages = [];
