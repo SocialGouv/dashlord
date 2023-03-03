@@ -4,14 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 1 * * *" # see https://crontab.guru
-  push:
-    branches:
-      - master
-      - main
-    paths:
-      - "dashlord.yaml"
-      - "dashlord.yml"
-      - "urls.txt"
 
 # allow only one concurrent scan action
 concurrency:
@@ -31,7 +23,8 @@ jobs:
         with:
           airtable_api_key: ${{ secrets.AIRTABLE_API_KEY }}
           airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
-          airtable_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
+          airtable_procedures_table_name: ${{ secrets.AIRTABLE_TABLE_NAME }}
+          airtable_editions_table_name: ${{ secrets.AIRTABLE_EDITIONS_TABLE_NAME }}
           output: airtable-procedures_urls.json
 
   scans:
@@ -65,7 +58,7 @@ jobs:
 
       - name: RGAA
         continue-on-error: true
-        if: ${{ steps.declaration-a11y.outputs.url != '' }}
+        if: ${{ steps.declaration-a11y.outputs.url && steps.declaration-a11y.outputs.url != '' }}
         uses: "DISIC/dashlord-observatoire/actions/rgaa@main"
         with:
           declarationUrl: ${{ steps.declaration-a11y.outputs.url }}

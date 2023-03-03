@@ -8,8 +8,11 @@ inputs:
   airtable_base_id:
     description: "Identifiant de la base Airtable"
     required: true
-  airtable_table_name:
-    description: "Nom de la table Airtable"
+  airtable_procedures_table_name:
+    description: "Nom de la table Airtable des démarches"
+    required: true
+  airtable_editions_table_name:
+    description: "Nom de la table Airtable des éditions"
     required: true
   output:
     description: "Path to output file. defaults to airtable-procedures_urls.json"
@@ -36,7 +39,7 @@ runs:
       shell: bash
       run: |
         cd ${{ github.action_path }}
-        JSON_PROCEDURES=$(node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} | tr '\n' ' ')
+        JSON_PROCEDURES=$(node index ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_procedures_table_name }} ${{ inputs.airtable_editions_table_name }} | tr '\n' ' ')
         echo $JSON_PROCEDURES > ${{ inputs.output }}
         echo "json=$JSON_PROCEDURES" >> $GITHUB_OUTPUT
         STRING_URLS=$(cat ${{ inputs.output }} | python3 -c "import sys, json; data = json.load(sys.stdin); print(','.join(list(map(lambda d : d['link'], data))));")
