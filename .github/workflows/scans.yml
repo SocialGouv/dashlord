@@ -64,6 +64,15 @@ jobs:
           declarationUrl: ${{ steps.declaration-a11y.outputs.url }}
           output: scans/rgaa.json
 
+      - name: JDMA
+        continue-on-error: true
+        uses: "DISIC/dashlord-observatoire/actions/jdma@main"
+        with:
+          id: ${{ matrix.sites.id }}
+          startDate: ${{ matrix.sites.startDate }}
+          endDate: ${{ matrix.sites.endDate }}
+          output: scans/jdma.json
+
       - name: eco-index
         timeout-minutes: 2
         continue-on-error: true
