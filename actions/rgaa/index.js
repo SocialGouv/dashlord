@@ -65,8 +65,7 @@ const getMaxDateFromMatches = (matches) => {
     return acc;
   }, []);
 
-  console.log(timestamps);
-  return formatDateFromTimestamp(Math.max(timestamps));
+  return timestamps.length ? formatDateFromTimestamp(Math.max(timestamps)) : "";
 };
 
 const analyseDom = async (dom) => {
