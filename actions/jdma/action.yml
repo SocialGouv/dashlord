@@ -11,6 +11,12 @@ inputs:
   endDate:
     description: "Get data to this date"
     required: false
+  xwiki_username:
+    description: "Username xWiki for rest authentification"
+    required: true
+  xwiki_password:
+    description: "Password xWiki for rest authentification"
+    required: true
   output:
     description: "Path to output file. defaults to jdma.json"
     default: "jdma.json"
@@ -28,5 +34,5 @@ runs:
       shell: bash
       run: |
         cd ${{ github.action_path }}
-        node index ${{ inputs.endDate }} ${{ inputs.startDate }} ${{ inputs.id }} > ${{ github.workspace }}/${{ inputs.output }}
+        node index ${{ inputs.id }} ${{ inputs.startDate }} ${{ inputs.endDate }} ${{ inputs.xwiki_username }} ${{ inputs.xwiki_password }} > ${{ github.workspace }}/${{ inputs.output }}
         cat ${{ github.workspace }}/${{ inputs.output }}
