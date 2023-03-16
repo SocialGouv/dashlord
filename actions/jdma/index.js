@@ -1,5 +1,5 @@
 const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const getXWikiJdmaData = (
   id,
@@ -13,13 +13,13 @@ const getXWikiJdmaData = (
     {
       headers: {
         Authorization:
-          "Basic " +
-          Buffer.from(`${usernameXWiki}:${passwordXWiki}`).toString("base64"),
-      },
+          'Basic ' +
+          Buffer.from(`${usernameXWiki}:${passwordXWiki}`).toString('base64')
+      }
     }
-  ).then((response) => {
-    response.json().then((json) => {
-      console.log(json);
+  ).then(response => {
+    response.json().then(json => {
+      console.log(JSON.stringify(json));
     });
   });
 };
