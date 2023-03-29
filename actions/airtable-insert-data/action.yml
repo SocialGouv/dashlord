@@ -1,22 +1,22 @@
-name: "Get Airtable procedures URLs to scan"
-description: "Rapatrier les URLs des démarches via Airtable pour préparer le scan"
+name: 'Get Airtable procedures URLs to scan'
+description: 'Rapatrier les URLs des démarches via Airtable pour préparer le scan'
 
 inputs:
   id:
-    description: "ID of the procedure"
+    description: 'ID of the procedure'
     required: true
   airtable_api_key:
-    description: "Clé API Airtable"
+    description: 'Clé API Airtable'
     required: true
   airtable_base_id:
-    description: "Identifiant de la base Airtable"
+    description: 'Identifiant de la base Airtable'
     required: true
   airtable_table_name:
-    description: "Nom de la table Airtable"
+    description: 'Nom de la table Airtable'
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Install jq for json parsing
       shell: bash
@@ -28,8 +28,14 @@ runs:
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
         A11Y=$(cat declaration-a11y.json | jq -R .)
-        RGAA=$(cat rgaa.json | jq -R .)
-        JDMA=$(cat jdma.json | jq -R .)
+        RGAA="{}"
+        if test -f "rgaa.json"; then
+          RGAA=$(cat rgaa.json | jq -R .)
+        fi
+        JDMA="{}"
+        if test -f "jdma.json"; then
+          JDMA=$(cat jdma.json | jq -R .)
+        fi
         cd ${{ github.action_path }}
         yarn
         node index ${{ inputs.id }} ${{ inputs.airtable_api_key }} ${{ inputs.airtable_base_id }} ${{ inputs.airtable_table_name }} "${A11Y}" "${RGAA}" "${JDMA}"
