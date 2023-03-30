@@ -28,11 +28,11 @@ runs:
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
         A11Y=$(cat declaration-a11y.json | jq -R .)
-        RGAA="{}"
+        RGAA=$(echo "{}" | jq -R .)
         if test -f "rgaa.json"; then
           RGAA=$(cat rgaa.json | jq -R .)
         fi
-        JDMA="{}"
+        JDMA=$(echo "{}" | jq -R .)
         if test -f "jdma.json"; then
           JDMA=$(cat jdma.json | jq -R .)
         fi
