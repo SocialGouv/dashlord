@@ -48,44 +48,44 @@ const insertAirtableData = async (
   //JDMA
   const jdma = JSON.parse(JSON.parse(jdma_json).toString());
   body.fields[field_names.jdmaCount] = jdma.answersTotal
-    ? jdma.answersTotal.toString()
-    : '';
+    ? parseInt(jdma.answersTotal)
+    : 0;
 
   // jdma satisfaction
   body.fields[field_names.jdmaSatisfactionPositive] =
     jdma.satisfaction && jdma.satisfaction.positive
-      ? jdma.satisfaction.positive.toString()
-      : '';
+      ? parseInt(jdma.satisfaction.positive)
+      : 0;
   body.fields[field_names.jdmaSatisfactionNeutral] =
     jdma.satisfaction && jdma.satisfaction.neutral
-      ? jdma.satisfaction.neutral.toString()
-      : '';
+      ? parseInt(jdma.satisfaction.neutral)
+      : 0;
   body.fields[field_names.jdmaSatisfactionNegative] =
     jdma.satisfaction && jdma.satisfaction.negative
-      ? jdma.satisfaction.negative.toString()
-      : '';
+      ? parseInt(jdma.satisfaction.negative)
+      : 0;
 
   // jdma easy
   body.fields[field_names.jdmaEasyPositive] =
-    jdma.easy && jdma.easy.positive ? jdma.easy.positive.toString() : '';
+    jdma.easy && jdma.easy.positive ? parseInt(jdma.easy.positive) : 0;
   body.fields[field_names.jdmaEasyNeutral] =
-    jdma.easy && jdma.easy.neutral ? jdma.easy.neutral.toString() : '';
+    jdma.easy && jdma.easy.neutral ? parseInt(jdma.easy.neutral) : 0;
   body.fields[field_names.jdmaEasyNegative] =
-    jdma.easy && jdma.easy.negative ? jdma.easy.negative.toString() : '';
+    jdma.easy && jdma.easy.negative ? parseInt(jdma.easy.negative) : 0;
 
   // jdma comprehensible
   body.fields[field_names.jdmaComprehensiblePositive] =
     jdma.comprehensible && jdma.comprehensible.positive
-      ? jdma.comprehensible.positive.toString()
-      : '';
+      ? parseInt(jdma.comprehensible.positive)
+      : 0;
   body.fields[field_names.jdmaComprehensibleNeutral] =
     jdma.comprehensible && jdma.comprehensible.neutral
-      ? jdma.comprehensible.neutral.toString()
-      : '';
+      ? parseInt(jdma.comprehensible.neutral)
+      : 0;
   body.fields[field_names.jdmaComprehensibleNegative] =
     jdma.comprehensible && jdma.comprehensible.negative
-      ? jdma.comprehensible.negative.toString()
-      : '';
+      ? parseInt(jdma.comprehensible.negative)
+      : 0;
 
   console.log('body a11y mention : ', body.fields[field_names.a11y]);
   console.log('body a11y link : ', body.fields[field_names.a11yLink]);
@@ -148,6 +148,7 @@ const insertAirtableData = async (
   const record = json.records[0];
 
   if (record) {
+    console.log('body', JSON.stringify(body));
     const patchDemarche = await fetch(
       `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
       {
