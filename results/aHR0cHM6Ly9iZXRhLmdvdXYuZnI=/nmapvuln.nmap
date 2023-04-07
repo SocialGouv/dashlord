@@ -1,15 +1,23 @@
-# Nmap 7.92 scan initiated Sun Apr  2 01:12:31 2023 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln beta.gouv.fr
-Nmap scan report for beta.gouv.fr (109.232.236.90)
-Host is up (0.084s latency).
-Other addresses for beta.gouv.fr (not scanned): 5.104.101.30
-rDNS record for 109.232.236.90: ows-109-232-236-90.eu-west-2.compute.outscale.com
+# Nmap 7.92 scan initiated Fri Apr  7 10:28:21 2023 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln beta.gouv.fr
+Nmap scan report for beta.gouv.fr (5.104.101.30)
+Host is up (0.082s latency).
+Other addresses for beta.gouv.fr (not scanned): 109.232.236.90
+rDNS record for 5.104.101.30: ows-5-104-101-30.eu-west-2.compute.outscale.com
 Not shown: 998 filtered tcp ports (no-response)
 PORT    STATE SERVICE   VERSION
 80/tcp  open  http
 | fingerprint-strings: 
-|   GetRequest, HTTPOptions: 
+|   GetRequest: 
 |     HTTP/1.1 404 Not Found
-|     Date: Sun, 02 Apr 2023 01:12:45 GMT
+|     Date: Fri, 07 Apr 2023 10:28:35 GMT
+|     Content-Type: text/html
+|     Content-Length: 15436
+|     Connection: close
+|     Content-Encoding: identity
+|     <!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Application doesn't exist - Scalingo</title><style>html { height: 100%;}body { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; text-align: center; height: 100%; margin: 0; padding: 0; background: -webkit-gradient(linear, left top, left bottom, from(#1864ab), to(#099ec9)) left top/100% 100% no-repeat #1864ab; background: linear-gradient(to bottom, #1864ab, #099ec9) left top/100% 100% no-repeat #1864ab; color: white;}#wrapper { position: relative; top: 40%; -webkit
+|   HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Date: Fri, 07 Apr 2023 10:28:36 GMT
 |     Content-Type: text/html
 |     Content-Length: 15436
 |     Connection: close
@@ -19,7 +27,7 @@ PORT    STATE SERVICE   VERSION
 | fingerprint-strings: 
 |   GetRequest, HTTPOptions: 
 |     HTTP/1.1 404 Not Found
-|     Date: Sun, 02 Apr 2023 01:12:52 GMT
+|     Date: Fri, 07 Apr 2023 10:28:42 GMT
 |     Content-Type: text/html
 |     Content-Length: 15436
 |     Connection: close
@@ -27,9 +35,9 @@ PORT    STATE SERVICE   VERSION
 |_    <!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Application doesn't exist - Scalingo</title><style>html { height: 100%;}body { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; text-align: center; height: 100%; margin: 0; padding: 0; background: -webkit-gradient(linear, left top, left bottom, from(#1864ab), to(#099ec9)) left top/100% 100% no-repeat #1864ab; background: linear-gradient(to bottom, #1864ab, #099ec9) left top/100% 100% no-repeat #1864ab; color: white;}#wrapper { position: relative; top: 40%; -webkit
 2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port80-TCP:V=7.92%I=7%D=4/2%Time=6428D68D%P=x86_64-alpine-linux-musl%r(
-SF:GetRequest,1BE4,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x200
-SF:2\x20Apr\x202023\x2001:12:45\x20GMT\r\nContent-Type:\x20text/html\r\nCo
+SF-Port80-TCP:V=7.92%I=7%D=4/7%Time=642FF054%P=x86_64-alpine-linux-musl%r(
+SF:GetRequest,3CEA,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Fri,\x200
+SF:7\x20Apr\x202023\x2010:28:35\x20GMT\r\nContent-Type:\x20text/html\r\nCo
 SF:ntent-Length:\x2015436\r\nConnection:\x20close\r\nContent-Encoding:\x20
 SF:identity\r\n\r\n<!DOCTYPE\x20html><html><head><meta\x20http-equiv=\"con
 SF:tent-type\"\x20content=\"text/html;\x20charset=UTF-8\"><meta\x20charset
@@ -44,9 +52,9 @@ SF:\x20left\x20bottom,\x20from\(#1864ab\),\x20to\(#099ec9\)\)\x20left\x20t
 SF:op/100%\x20100%\x20no-repeat\x20#1864ab;\x20background:\x20linear-gradi
 SF:ent\(to\x20bottom,\x20#1864ab,\x20#099ec9\)\x20left\x20top/100%\x20100%
 SF:\x20no-repeat\x20#1864ab;\x20color:\x20white;}#wrapper\x20{\x20position
-SF::\x20relative;\x20top:\x2040%;\x20-webkit")%r(HTTPOptions,37C8,"HTTP/1\
-SF:.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x2002\x20Apr\x202023\x2001:1
-SF:2:45\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x2015436\r
+SF::\x20relative;\x20top:\x2040%;\x20-webkit")%r(HTTPOptions,3CEA,"HTTP/1\
+SF:.1\x20404\x20Not\x20Found\r\nDate:\x20Fri,\x2007\x20Apr\x202023\x2010:2
+SF:8:36\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x2015436\r
 SF:\nConnection:\x20close\r\nContent-Encoding:\x20identity\r\n\r\n<!DOCTYP
 SF:E\x20html><html><head><meta\x20http-equiv=\"content-type\"\x20content=\
 SF:"text/html;\x20charset=UTF-8\"><meta\x20charset=\"utf-8\"><meta\x20cont
@@ -63,9 +71,9 @@ SF:864ab,\x20#099ec9\)\x20left\x20top/100%\x20100%\x20no-repeat\x20#1864ab
 SF:;\x20color:\x20white;}#wrapper\x20{\x20position:\x20relative;\x20top:\x
 SF:2040%;\x20-webkit");
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port443-TCP:V=7.92%T=SSL%I=7%D=4/2%Time=6428D694%P=x86_64-alpine-linux-
-SF:musl%r(GetRequest,3CEA,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Su
-SF:n,\x2002\x20Apr\x202023\x2001:12:52\x20GMT\r\nContent-Type:\x20text/htm
+SF-Port443-TCP:V=7.92%T=SSL%I=7%D=4/7%Time=642FF05A%P=x86_64-alpine-linux-
+SF:musl%r(GetRequest,3CEA,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Fr
+SF:i,\x2007\x20Apr\x202023\x2010:28:42\x20GMT\r\nContent-Type:\x20text/htm
 SF:l\r\nContent-Length:\x2015436\r\nConnection:\x20close\r\nContent-Encodi
 SF:ng:\x20identity\r\n\r\n<!DOCTYPE\x20html><html><head><meta\x20http-equi
 SF:v=\"content-type\"\x20content=\"text/html;\x20charset=UTF-8\"><meta\x20
@@ -81,8 +89,8 @@ SF:ft\x20top/100%\x20100%\x20no-repeat\x20#1864ab;\x20background:\x20linea
 SF:r-gradient\(to\x20bottom,\x20#1864ab,\x20#099ec9\)\x20left\x20top/100%\
 SF:x20100%\x20no-repeat\x20#1864ab;\x20color:\x20white;}#wrapper\x20{\x20p
 SF:osition:\x20relative;\x20top:\x2040%;\x20-webkit")%r(HTTPOptions,3CEA,"
-SF:HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x2002\x20Apr\x202023\
-SF:x2001:12:52\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x20
+SF:HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Fri,\x2007\x20Apr\x202023\
+SF:x2010:28:42\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Length:\x20
 SF:15436\r\nConnection:\x20close\r\nContent-Encoding:\x20identity\r\n\r\n<
 SF:!DOCTYPE\x20html><html><head><meta\x20http-equiv=\"content-type\"\x20co
 SF:ntent=\"text/html;\x20charset=UTF-8\"><meta\x20charset=\"utf-8\"><meta\
@@ -100,4 +108,4 @@ SF:#1864ab;\x20color:\x20white;}#wrapper\x20{\x20position:\x20relative;\x2
 SF:0top:\x2040%;\x20-webkit");
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun Apr  2 01:13:08 2023 -- 1 IP address (1 host up) scanned in 36.66 seconds
+# Nmap done at Fri Apr  7 10:28:58 2023 -- 1 IP address (1 host up) scanned in 36.50 seconds
