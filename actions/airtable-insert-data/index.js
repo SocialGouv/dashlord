@@ -9,15 +9,21 @@ const field_names = {
   rgaaTaux: '[Dashlord] - Taux RGAA',
   rgaaDate: "[Dashlord] - Date de la déclaration d'accessibilité",
   jdmaCount: '[Dashlord] - JDMA nombre de réponses',
-  jdmaSatisfactionPositive: '[Dashlord] - JDMA satisfaction bien',
-  jdmaSatisfactionNeutral: '[Dashlord] - JDMA satisfaction neutre',
-  jdmaSatisfactionNegative: '[Dashlord] - JDMA satisfaction mauvaise',
-  jdmaEasyPositive: '[Dashlord] - JDMA facilité bien',
-  jdmaEasyNeutral: '[Dashlord] - JDMA facilité neutre',
-  jdmaEasyNegative: '[Dashlord] - JDMA facilité mauvaise',
-  jdmaComprehensiblePositive: '[Dashlord] - JDMA compréhension bien',
-  jdmaComprehensibleNeutral: '[Dashlord] - JDMA compréhension neutre',
-  jdmaComprehensibleNegative: '[Dashlord] - JDMA compréhension mauvaise'
+  jdmaSatisfactionCount: '[Dashlord] - JDMA satisfaction nombre de réponses',
+  jdmaSatisfactionMark: '[Dashlord] - JDMA satisfaction note',
+  jdmaEasyCount: '[Dashlord] - JDMA facilité nombre de réponses',
+  jdmaEasyMark: '[Dashlord] - JDMA facilité note',
+  jdmaComprehensibleCount: '[Dashlord] - JDMA compréhension nombre de réponses',
+  jdmaComprehensibleMark: '[Dashlord] - JDMA compréhension note'
+};
+
+const getDataFromJdmaNumbers = (postive, neutral, negative) => {
+  const count = postive + neutral + negative;
+  const mark = (postive + neutral) / count;
+  return {
+    count,
+    mark
+  };
 };
 
 const insertAirtableData = async (
@@ -31,19 +37,19 @@ const insertAirtableData = async (
 ) => {
   const body = { fields: {} };
 
-  // A11Y
-  const a11y = JSON.parse(JSON.parse(a11y_json).toString());
-  body.fields[field_names.a11y] = a11y.mention
-    ? a11y.mention
-    : 'Aucune mention';
-  body.fields[field_names.a11yLink] = a11y.declarationUrl
-    ? a11y.declarationUrl
-    : '';
+  // // A11Y
+  // const a11y = JSON.parse(JSON.parse(a11y_json).toString());
+  // body.fields[field_names.a11y] = a11y.mention
+  //   ? a11y.mention
+  //   : 'Aucune mention';
+  // body.fields[field_names.a11yLink] = a11y.declarationUrl
+  //   ? a11y.declarationUrl
+  //   : '';
 
-  //RGAA
-  const rgaa = JSON.parse(JSON.parse(rgaa_json).toString());
-  body.fields[field_names.rgaaTaux] = rgaa.taux ? rgaa.taux + '%' : '';
-  body.fields[field_names.rgaaDate] = rgaa.date ? rgaa.date : '';
+  // //RGAA
+  // const rgaa = JSON.parse(JSON.parse(rgaa_json).toString());
+  // body.fields[field_names.rgaaTaux] = rgaa.taux ? rgaa.taux + '%' : '';
+  // body.fields[field_names.rgaaDate] = rgaa.date ? rgaa.date : '';
 
   //JDMA
   const jdma = JSON.parse(JSON.parse(jdma_json).toString());
@@ -52,81 +58,80 @@ const insertAirtableData = async (
     : 0;
 
   // jdma satisfaction
-  body.fields[field_names.jdmaSatisfactionPositive] =
-    jdma.satisfaction && jdma.satisfaction.positive
-      ? parseInt(jdma.satisfaction.positive)
-      : 0;
-  body.fields[field_names.jdmaSatisfactionNeutral] =
-    jdma.satisfaction && jdma.satisfaction.neutral
-      ? parseInt(jdma.satisfaction.neutral)
-      : 0;
-  body.fields[field_names.jdmaSatisfactionNegative] =
-    jdma.satisfaction && jdma.satisfaction.negative
-      ? parseInt(jdma.satisfaction.negative)
-      : 0;
+  if (
+    jdma.satisfaction &&
+    jdma.satisfaction.positive &&
+    jdma.satisfaction.neutral &&
+    jdma.satisfaction.negative
+  ) {
+    const jdmaSatisfactionData = getDataFromJdmaNumbers(
+      parseInt(jdma.satisfaction.positive),
+      parseInt(jdma.satisfaction.neutral),
+      parseInt(jdma.satisfaction.negative)
+    );
+    body.fields[field_names.jdmaSatisfactionCount] = jdmaSatisfactionData.count;
+    body.fields[field_names.jdmaSatisfactionMark] = jdmaSatisfactionData.mark;
+  }
 
   // jdma easy
-  body.fields[field_names.jdmaEasyPositive] =
-    jdma.easy && jdma.easy.positive ? parseInt(jdma.easy.positive) : 0;
-  body.fields[field_names.jdmaEasyNeutral] =
-    jdma.easy && jdma.easy.neutral ? parseInt(jdma.easy.neutral) : 0;
-  body.fields[field_names.jdmaEasyNegative] =
-    jdma.easy && jdma.easy.negative ? parseInt(jdma.easy.negative) : 0;
+  if (
+    jdma.easy &&
+    jdma.easy.positive &&
+    jdma.easy.neutral &&
+    jdma.easy.negative
+  ) {
+    const jdmaEasyData = getDataFromJdmaNumbers(
+      parseInt(jdma.easy.positive),
+      parseInt(jdma.easy.neutral),
+      parseInt(jdma.easy.negative)
+    );
+    body.fields[field_names.jdmaEasyCount] = jdmaEasyData.count;
+    body.fields[field_names.jdmaEasyMark] = jdmaEasyData.mark;
+  }
 
   // jdma comprehensible
-  body.fields[field_names.jdmaComprehensiblePositive] =
-    jdma.comprehensible && jdma.comprehensible.positive
-      ? parseInt(jdma.comprehensible.positive)
-      : 0;
-  body.fields[field_names.jdmaComprehensibleNeutral] =
-    jdma.comprehensible && jdma.comprehensible.neutral
-      ? parseInt(jdma.comprehensible.neutral)
-      : 0;
-  body.fields[field_names.jdmaComprehensibleNegative] =
-    jdma.comprehensible && jdma.comprehensible.negative
-      ? parseInt(jdma.comprehensible.negative)
-      : 0;
+  if (
+    jdma.comprehensible &&
+    jdma.comprehensible.positive &&
+    jdma.comprehensible.neutral &&
+    jdma.comprehensible.negative
+  ) {
+    const jdmaComprehensibleData = getDataFromJdmaNumbers(
+      parseInt(jdma.comprehensible.positive),
+      parseInt(jdma.comprehensible.neutral),
+      parseInt(jdma.comprehensible.negative)
+    );
+    body.fields[field_names.jdmaComprehensibleCount] =
+      jdmaComprehensibleData.count;
+    body.fields[field_names.jdmaComprehensibleMark] =
+      jdmaComprehensibleData.mark;
+  }
 
-  console.log('body a11y mention : ', body.fields[field_names.a11y]);
-  console.log('body a11y link : ', body.fields[field_names.a11yLink]);
-  console.log('body rgaa taux : ', body.fields[field_names.rgaaTaux]);
-  console.log('body rgaa date : ', body.fields[field_names.rgaaDate]);
+  // console.log('body a11y mention : ', body.fields[field_names.a11y]);
+  // console.log('body a11y link : ', body.fields[field_names.a11yLink]);
+  // console.log('body rgaa taux : ', body.fields[field_names.rgaaTaux]);
+  // console.log('body rgaa date : ', body.fields[field_names.rgaaDate]);
   console.log('body jdma count : ', body.fields[field_names.jdmaCount]);
   console.log(
-    'body jdma satisfaction positive : ',
-    body.fields[field_names.jdmaSatisfactionPositive]
+    'body jdma satisfaction count : ',
+    body.fields[field_names.jdmaSatisfactionCount]
   );
   console.log(
-    'body jdma satisfaction neutral : ',
-    body.fields[field_names.jdmaSatisfactionNeutral]
+    'body jdma satisfaction mark : ',
+    body.fields[field_names.jdmaSatisfactionMark]
   );
   console.log(
-    'body jdma satisfaction negative : ',
-    body.fields[field_names.jdmaSatisfactionNegative]
+    'body jdma easy count : ',
+    body.fields[field_names.jdmaEasyCount]
+  );
+  console.log('body jdma easy mark : ', body.fields[field_names.jdmaEasyMark]);
+  console.log(
+    'body jdma comprehensible count : ',
+    body.fields[field_names.jdmaComprehensibleCount]
   );
   console.log(
-    'body jdma easy positive : ',
-    body.fields[field_names.jdmaEasyPositive]
-  );
-  console.log(
-    'body jdma easy neutral : ',
-    body.fields[field_names.jdmaEasyNeutral]
-  );
-  console.log(
-    'body jdma easy negative : ',
-    body.fields[field_names.jdmaEasyNegative]
-  );
-  console.log(
-    'body jdma comprehensible positive : ',
-    body.fields[field_names.jdmaComprehensiblePositive]
-  );
-  console.log(
-    'body jdma comprehensible neutral : ',
-    body.fields[field_names.jdmaComprehensibleNeutral]
-  );
-  console.log(
-    'body jdma comprehensible negative : ',
-    body.fields[field_names.jdmaComprehensibleNegative]
+    'body jdma comprehensible mark : ',
+    body.fields[field_names.jdmaComprehensibleMark]
   );
 
   let response = await fetch(
