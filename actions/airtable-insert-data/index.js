@@ -3,7 +3,7 @@ const fetch = (...args) =>
 
 const field_names = {
   id: '🕶 ID',
-  edition: '📡 Édition',
+  edition: 'Lien vers statistiques édition',
   // a11y: '[Dashlord] - Mention accessibilité',
   // a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
   // rgaaTaux: '[Dashlord] - Taux RGAA',
