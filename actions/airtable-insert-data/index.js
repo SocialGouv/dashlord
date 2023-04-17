@@ -4,15 +4,15 @@ const fetch = (...args) =>
 const field_names = {
   id: '🕶 ID',
   edition: '📡 Édition',
-  a11y: '[Dashlord] - Mention accessibilité',
-  a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
-  rgaaTaux: '[Dashlord] - Taux RGAA',
-  rgaaDate: "[Dashlord] - Date de la déclaration d'accessibilité",
+  // a11y: '[Dashlord] - Mention accessibilité',
+  // a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
+  // rgaaTaux: '[Dashlord] - Taux RGAA',
+  // rgaaDate: "[Dashlord] - Date de la déclaration d'accessibilité",
   jdmaCount: '[Dashlord] - JDMA nombre de réponses',
   jdmaSatisfactionCount: '[Dashlord] - JDMA satisfaction nombre de réponses',
   jdmaSatisfactionMark: '[Dashlord] - JDMA satisfaction note',
-  jdmaEasyCount: '[Dashlord] - JDMA facilité nombre de réponses',
-  jdmaEasyMark: '[Dashlord] - JDMA facilité note',
+  // jdmaEasyCount: '[Dashlord] - JDMA facilité nombre de réponses',
+  // jdmaEasyMark: '[Dashlord] - JDMA facilité note',
   jdmaComprehensibleCount: '[Dashlord] - JDMA compréhension nombre de réponses',
   jdmaComprehensibleMark: '[Dashlord] - JDMA compréhension note'
 };
@@ -74,20 +74,20 @@ const insertAirtableData = async (
   }
 
   // jdma easy
-  if (
-    jdma.easy &&
-    jdma.easy.positive &&
-    jdma.easy.neutral &&
-    jdma.easy.negative
-  ) {
-    const jdmaEasyData = getDataFromJdmaNumbers(
-      parseInt(jdma.easy.positive),
-      parseInt(jdma.easy.neutral),
-      parseInt(jdma.easy.negative)
-    );
-    body.fields[field_names.jdmaEasyCount] = jdmaEasyData.count;
-    body.fields[field_names.jdmaEasyMark] = jdmaEasyData.mark;
-  }
+  // if (
+  //   jdma.easy &&
+  //   jdma.easy.positive &&
+  //   jdma.easy.neutral &&
+  //   jdma.easy.negative
+  // ) {
+  //   const jdmaEasyData = getDataFromJdmaNumbers(
+  //     parseInt(jdma.easy.positive),
+  //     parseInt(jdma.easy.neutral),
+  //     parseInt(jdma.easy.negative)
+  //   );
+  //   body.fields[field_names.jdmaEasyCount] = jdmaEasyData.count;
+  //   body.fields[field_names.jdmaEasyMark] = jdmaEasyData.mark;
+  // }
 
   // jdma comprehensible
   if (
@@ -120,11 +120,11 @@ const insertAirtableData = async (
     'body jdma satisfaction mark : ',
     body.fields[field_names.jdmaSatisfactionMark]
   );
-  console.log(
-    'body jdma easy count : ',
-    body.fields[field_names.jdmaEasyCount]
-  );
-  console.log('body jdma easy mark : ', body.fields[field_names.jdmaEasyMark]);
+  // console.log(
+  //   'body jdma easy count : ',
+  //   body.fields[field_names.jdmaEasyCount]
+  // );
+  // console.log('body jdma easy mark : ', body.fields[field_names.jdmaEasyMark]);
   console.log(
     'body jdma comprehensible count : ',
     body.fields[field_names.jdmaComprehensibleCount]
