@@ -5,7 +5,7 @@ const urlRegex =
 const field_names = {
   id: 'ID',
   link: 'Lien',
-  edition: '📡 Édition',
+  edition: 'Lien vers statistiques édition',
   jdmaStartDate: '[Dashlord] - JDMA à partir de',
   jdmaEndDate: "[Dashlord] - JDMA jusqu'à"
 };
@@ -50,7 +50,7 @@ const getAirtableUrls = async (
       Authorization: `Bearer ${api_key}`
     },
     {
-      filterByFormula: `{Éditions} = 'Édition actuelle'`
+      filterByFormula: `{Name} = 'Édition actuelle'`
     }
   );
 
