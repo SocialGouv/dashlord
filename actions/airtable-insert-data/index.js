@@ -13,8 +13,8 @@ const field_names = {
   jdmaSatisfactionMark: '[Dashlord] - JDMA satisfaction note',
   // jdmaEasyCount: '[Dashlord] - JDMA facilité nombre de réponses',
   // jdmaEasyMark: '[Dashlord] - JDMA facilité note',
-  jdmaComprehensibleCount: '[Dashlord] - JDMA compréhension nombre de réponses',
-  jdmaComprehensibleMark: '[Dashlord] - JDMA compréhension note'
+  jdmaComprehensibleCount: '[Dashlord] - JDMA complexité nombre de réponses',
+  jdmaComprehensibleMark: '[Dashlord] - JDMA complexité note'
 };
 
 const getDataFromJdmaNumbers = (postive, neutral, negative) => {
