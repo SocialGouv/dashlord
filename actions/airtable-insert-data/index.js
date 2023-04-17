@@ -19,7 +19,7 @@ const field_names = {
 
 const getDataFromJdmaNumbers = (postive, neutral, negative) => {
   const count = postive + neutral + negative;
-  const mark = (postive + neutral) / count;
+  const mark = (postive * 10 + neutral * 5) / count;
   return {
     count,
     mark
