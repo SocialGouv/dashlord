@@ -2,7 +2,7 @@ const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const field_names = {
-  id: '🕶 ID',
+  id: 'ID',
   edition: 'Lien vers statistiques édition',
   // a11y: '[Dashlord] - Mention accessibilité',
   // a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
@@ -149,8 +149,6 @@ const insertAirtableData = async (
     }
   );
   const json = await response.json();
-
-  console.log(json);
 
   const record = json.records[0];
 
