@@ -150,6 +150,8 @@ const insertAirtableData = async (
   );
   const json = await response.json();
 
+  console.log(json);
+
   const record = json.records[0];
 
   if (record) {
