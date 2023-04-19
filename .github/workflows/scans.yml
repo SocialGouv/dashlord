@@ -7,22 +7,35 @@ on:
         description: "Single url to scan or scan all urls"
         required: false
         default: ""
-  schedule:
-    - cron: "0 0 * * 0" # see https://crontab.guru
+      tool:
+        description: "Single tool to run or use all tools"
+        type: choice
+        default: all
+        options:
+          - all
+          - codescan
+          - dependabot
+          - ecoindex
+          - lighthouse
+          - sonarcloud
+          - trivy
+          - zap
   push:
     branches:
       - master
       - main
     paths:
-      - 'dashlord.yaml'
-      - 'dashlord.yml'
-      - 'urls.txt'
+      - "dashlord.yaml"
+      - "dashlord.yml"
+      - "urls.txt"
+  schedule:
+    - cron: "0 0 * * 0" # see https://crontab.guru
 
 # allow only one concurrent scan action
 concurrency:
   cancel-in-progress: true
   group: scans
-  
+
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -31,11 +44,12 @@ jobs:
       sites: ${{ steps.init.outputs.sites }}
       config: ${{ steps.init.outputs.config }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - id: init
-        uses: "SocialGouv/dashlord-actions/init@main"
+        uses: "SocialGouv/dashlord-actions/init@v1"
         with:
           url: ${{ github.event.inputs.url }}
+          tool: ${{ github.event.inputs.tool }}
 
   scans:
     runs-on: ubuntu-latest
@@ -48,7 +62,9 @@ jobs:
       matrix:
         sites: ${{ fromJson(needs.init.outputs.sites) }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
       - run: |
           mkdir scans
@@ -58,8 +74,28 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Déclaration a11y
+      - name: sonarcloud scan
+        if: ${{ matrix.sites.tools.sonarcloud }}
+        id: sonarcloud
         continue-on-error: true
+        timeout-minutes: 10
+        uses: SocialGouv/dashlord-actions/sonarcloud@v1
+        with:
+          repos: ${{ join(matrix.sites.repositories) }}
+          output: "scans/sonarcloud.json"
+
+      - name: Third-party scripts scan
+        if: ${{ matrix.sites.tools.thirdparties }}
+        id: thirdparties
+        continue-on-error: true
+        timeout-minutes: 10
+        uses: SocialGouv/thirdparties-action@master
+        with:
+          url: "${{ matrix.sites.url }}"
+          output: "scans/thirdparties.json"
+
+      - name: Déclaration a11y
+        timeout-minutes: 10
         uses: "socialgouv/dashlord-actions/declaration-a11y@v1"
         if: ${{ matrix.sites.tools['declaration-a11y'] }}
         with:
@@ -68,91 +104,119 @@ jobs:
 
       - name: eco-index
         continue-on-error: true
+        timeout-minutes: 10
         uses: "socialgouv/dashlord-actions/ecoindex@v1"
         if: ${{ matrix.sites.tools.ecoindex }}
         with:
           url: ${{ matrix.sites.url }}
           output: scans/ecoindex.json
-          
-      - name: Detect 404s
-        continue-on-error: true
-        uses: "socialgouv/detect-404-action@master"
-        if: ${{ matrix.sites.tools['404'] }}
-        with:
-          url: ${{ matrix.sites.url }}
-          output: scans/404.json
 
-      - name: Screenshot Website
-        uses: swinton/screenshot-website@v1.x
-        if: ${{ matrix.sites.tools.screenshot }}
+      - name: Déclaration RGPD
         timeout-minutes: 10
+        uses: SocialGouv/dashlord-actions/declaration-rgpd@v1
+        if: ${{ matrix.sites.tools['declaration-rgpd'] }}
         with:
-          source: "${{ matrix.sites.url }}"
-          destination: screenshot.jpeg
+          thirdparties: ${{ steps.thirdparties.outputs.json }}
+          url: ${{ matrix.sites.url }}
+          output: scans/declaration-rgpd.json
 
       - name: Trivy
         continue-on-error: true
+        timeout-minutes: 20
         if: ${{ matrix.sites.tools.trivy && matrix.sites.docker }}
         uses: "socialgouv/dashlord-actions/trivy@v1"
         with:
           images: ${{ join(matrix.sites.docker) }}
           output: scans/trivy.json
 
-      - name: Stats page
+      - name: Detect 404s
         continue-on-error: true
-        uses: "MTES-MCT/stats-action@main"
-        if: ${{ matrix.sites.tools.stats }}
+        timeout-minutes: 10
+        uses: "socialgouv/detect-404-action@master"
+        if: ${{ matrix.sites.tools['404'] }}
         with:
           url: ${{ matrix.sites.url }}
-          uri: 'stats'
+          output: scans/404.json
+
+      - name: Betagouv API scan
+        if: ${{ matrix.sites.tools.betagouv }}
+        continue-on-error: true
+        timeout-minutes: 10
+        id: betagouv
+        uses: betagouv/dashlord-startup-action@main
+        with:
+          id: "${{ matrix.sites.betaId }}"
+          output: "scans/betagouv.json"
+
+      - name: Stats page
+        timeout-minutes: 10
+        uses: "betagouv/check-url-action@main"
+        if: ${{ matrix.sites.tools.stats }}
+        with:
+          url: ${{ steps.betagouv.outputs.stats_url || format('{0}/stats', matrix.sites.url) }}
           output: scans/stats.json
+          minExpectedRegex: ^stat
+          exactExpectedRegex: ^stats$
+
+      - name: Screenshot Website
+        uses: swinton/screenshot-website@v1.x
+        if: ${{ matrix.sites.tools.screenshot }}
+        timeout-minutes: 5
+        continue-on-error: true
+        with:
+          source: "${{ matrix.sites.url }}"
+          type: jpeg
+          destination: screenshot.jpeg
+          width: 1280
+          scaleFactor: 0.5
 
       - name: Wappalyzer scan
+        if: ${{ matrix.sites.tools.wappalyzer }}
         uses: "socialgouv/wappalyzer-action@master"
         timeout-minutes: 10
-        if: ${{ matrix.sites.tools.wappalyzer }}
         continue-on-error: true
         with:
           url: "${{ matrix.sites.url }}"
           output: scans/wappalyzer.json
 
       - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.4.0
-        timeout-minutes: 10
         if: ${{ matrix.sites.tools.zap }}
-        continue-on-error: true
+        uses: zaproxy/action-baseline@v0.6.1
+        timeout-minutes: 10
         with:
           token: "" # disable issue creation
           rules_file_name: "zap-rules.tsv"
           docker_name: "owasp/zap2docker-stable"
           target: "${{ matrix.sites.url }}"
           cmd_options: "-a"
+          allow_issue_writing: false
 
+        # https://github.com/treosh/lighthouse-ci-action#inputs
       - name: Lighthouse scan
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: SocialGouv/dashlord-actions/lhci@v1
         if: ${{ matrix.sites.tools.lighthouse }}
+        timeout-minutes: 10
+        uses: socialgouv/dashlord-actions/lhci@v1
         with:
           url: "${{ join(matrix.sites.subpages, ',') }}"
 
       - name: Mozilla HTTP Observatory
-        timeout-minutes: 10
         if: ${{ matrix.sites.tools.http }}
+        timeout-minutes: 10
+        id: http
         continue-on-error: true
         uses: SocialGouv/httpobs-action@master
         with:
           url: "${{ matrix.sites.url }}"
           output: "scans/http.json"
 
-      - name: Third-party scripts scan
-        timeout-minutes: 10
-        if: ${{ matrix.sites.tools.thirdparties }}
+      - name: Mozilla HTTP Observatory retry
+        if: steps.http.outcome=='failure'
         continue-on-error: true
-        uses: SocialGouv/thirdparties-action@master
+        timeout-minutes: 10
+        uses: SocialGouv/httpobs-action@master
         with:
           url: "${{ matrix.sites.url }}"
-          output: "scans/thirdparties.json"
+          output: "scans/http.json"
 
       # testssl.sh action needs an hostname to save its output so we build it here
       - name: Extract hostname
@@ -162,74 +226,87 @@ jobs:
           echo "::set-output name=value::$HOSTNAME"
 
       - name: testssl.sh scan
+        if: ${{ matrix.sites.tools.testssl }}
         timeout-minutes: 10
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
-        if: ${{ matrix.sites.tools.testssl }}
         with:
           host: ${{ steps.hostname.outputs.value }}
           output: scans
           grade: "F"
           options: "--fast"
-          
-      - name: nmap vulnerabilities scan
-        if: ${{ matrix.sites.tools.nmap }}
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: "MTES-MCT/nmap-action@main"
-        with:
-          host: ${{ steps.hostname.outputs.value }}
-          outputDir: "scans"
-          outputFile: "nmapvuln.json"
-          withVulnerabilities: true
-          raw: false
 
       - name: Nuclei scan
+        if: ${{ matrix.sites.tools.nuclei }}
         timeout-minutes: 10
         continue-on-error: true
         uses: "SocialGouv/dashlord-nuclei-action@master"
-        if: ${{ matrix.sites.tools.nuclei }}
         with:
           url: ${{ matrix.sites.url }}
           output: "scans/nuclei.log"
 
       - name: Updown.io checks
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: "MTES-MCT/updownio-action@main"
         if: ${{ matrix.sites.tools.updownio }}
+        continue-on-error: true
+        uses: "MTES-MCT/updownio-action@main"
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
           url: ${{ matrix.sites.url }}
           output: scans/updownio.json
 
       - name: Dependabot vulnerabilities alerts
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: "MTES-MCT/dependabotalerts-action@main"
         if: ${{ matrix.sites.tools.dependabot && matrix.sites.repositories }}
+        continue-on-error: true
+        uses: "MTES-MCT/dependabotalerts-action@main"
         with:
           token: ${{ secrets.DEPENDABOTALERTS_TOKEN }}
           repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/dependabotalerts.json
-          
+
       - name: Code quality alerts
-        continue-on-error: true
-        timeout-minutes: 10
-        uses: "MTES-MCT/codescanalerts-action@main"
         if: ${{ matrix.sites.tools.codescan && matrix.sites.repositories }}
+        continue-on-error: true
+        uses: "MTES-MCT/codescanalerts-action@main"
         with:
           token: ${{ secrets.CODESCANALERTS_TOKEN }}
           repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/codescanalerts.json
 
-      - uses: SocialGouv/dashlord-actions/save@main
+      - uses: SocialGouv/dashlord-actions/save@v1
         with:
           url: ${{ matrix.sites.url }}
+          # only clean up previous stats when all tools runned
+          cleanup: ${{ github.event.inputs.tool == 'all' && true || false }}
 
-      - uses: EndBug/add-and-commit@v7
-        with:
-          add: '["results"]'
-          author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
-          author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "update: ${{ matrix.sites.url }}"
+      - name: "Commit"
+        id: commit1
+        continue-on-error: true
+        run: |
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name GitHub
+          git add "results"
+          git commit -m "update: ${{ matrix.sites.url }}"
+          git pull --rebase --no-ff origin ${{ github.ref }}
+          git push
+
+      - name: "Commit retry"
+        if: steps.commit1.outcome=='failure'
+        id: commit2
+        continue-on-error: true
+        run: |
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name GitHub
+          git add "results"
+          git commit -m "update: ${{ matrix.sites.url }}"
+          git pull --rebase --no-ff origin ${{ github.ref }}
+          git push
+
+      - name: "Commit retry 2"
+        if: steps.commit2.outcome=='failure'
+        run: |
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name GitHub
+          git add "results"
+          git commit -m "update: ${{ matrix.sites.url }}"
+          git pull --rebase --no-ff origin ${{ github.ref }}
+          git push

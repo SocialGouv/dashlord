@@ -5,11 +5,12 @@ Tableau de bord des bonnes pratiques techniques
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
 Exemples :
- - https://dashlord.incubateur.net
- - https://socialgouv.github.io/dashlord-fabrique
- - https://mtes-mct.github.io/dashlord
- - https://socialgouv.github.io/dnum-dashboard
- 
+
+- https://dashlord.incubateur.net
+- https://socialgouv.github.io/dashlord-fabrique
+- https://mtes-mct.github.io/dashlord
+- https://socialgouv.github.io/dnum-dashboard
+
 ## Usage
 
 Pour déployer votre version de DashLord :
@@ -63,6 +64,7 @@ tools:
   declaration-a11y: true
   trivy: true
   ecoindex: true
+  sonarcloud: true
 urls:
   - url: https://www.free.fr
     title: Homepage free.fr
@@ -86,37 +88,37 @@ urls:
       - presse
 ```
 
-### Mesures de disponibilité 
+### Mesures de disponibilité
 
 DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
 
- - Créez un compte sur [updown.io](https://updown.io)
- - Ajoutez-y les urls à monitorer (telles que définies dans dashlord.yml)
- - Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
- - Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
+- Créez un compte sur [updown.io](https://updown.io)
+- Ajoutez-y les urls à monitorer (telles que définies dans dashlord.yml)
+- Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
+- Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
 
 ▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
 ## Outils
 
-Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yml. 
+Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools` de dashlord.yml.
 
-| Repo                                                                                        | desc                                                       |
-| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)               | Dashlord specific actions                                  |
-| [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action)   | Dump nuclei result                                         |
-| [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                   | Dump Mozilla HTTP Observatory result                       |
-| [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)         | Dump third party scripts scan result                       |
-| [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)             | Dump Wappalyzer scan result                                |
-| [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)     | Dump Github dependabot security alerts                     |
-| [MTES-MCT/codescanalerts-action](https://github.com/MTES-MCT/codescanalerts-action)         | Dump Github CodeQL security alerts                         |
-| [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                     | Dump updown.io stats                                       |
-| [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                             | Dump nmap port scan stats                                  |
-| [MTES-MCT/stats-action](https://github.com/MTES-MCT/stats-action)                           | Detect /stats page.                                        |
-| [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                       | thirdparty scripts database                                |
-| [swinton/screenshot-website](https://github.com/swinton/screenshot-website)                 | grab website screenshot                                    |
-| [SocialGouv/detect-404-action](https://github.com/SocialGouv/detect-404-action)             | detect 404 errors                                          |
-| [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action)                   | Scan docker images vulnerabilities                         |
+| Repo                                                                                      | desc                                   |
+| ----------------------------------------------------------------------------------------- | -------------------------------------- |
+| [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)             | Dashlord specific actions              |
+| [SocialGouv/dashlord-nuclei-action](https://github.com/SocialGouv/dashlord-nuclei-action) | Dump nuclei result                     |
+| [SocialGouv/httpobs-action](https://github.com/SocialGouv/httpobs-action)                 | Dump Mozilla HTTP Observatory result   |
+| [SocialGouv/thirdparties-action](https://github.com/SocialGouv/thirdparties-action)       | Dump third party scripts scan result   |
+| [SocialGouv/wappalyzer-action](https://github.com/SocialGouv/wappalyzer-action)           | Dump Wappalyzer scan result            |
+| [MTES-MCT/dependabotalerts-action](https://github.com/MTES-MCT/dependabotalerts-action)   | Dump Github dependabot security alerts |
+| [MTES-MCT/codescanalerts-action](https://github.com/MTES-MCT/codescanalerts-action)       | Dump Github CodeQL security alerts     |
+| [MTES-MCT/updownio-action](https://github.com/MTES-MCT/updownio-action)                   | Dump updown.io stats                   |
+| [MTES-MCT/nmap-action](https://github.com/MTES-MCT/nmap-action)                           | Dump nmap port scan stats              |
+| [MTES-MCT/stats-action](https://github.com/MTES-MCT/stats-action)                         | Detect /stats page.                    |
+| [SocialGouv/thirdparties](https://github.com/SocialGouv/thirdparties)                     | thirdparty scripts database            |
+| [swinton/screenshot-website](https://github.com/swinton/screenshot-website)               | grab website screenshot                |
+| [SocialGouv/detect-404-action](https://github.com/SocialGouv/detect-404-action)           | detect 404 errors                      |
+| [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action)                 | Scan docker images vulnerabilities     |
 
 ## Contribute
 
@@ -134,4 +136,3 @@ DashLord fonctionne en deux étapes :
 2. **Génération du rapport** : À partir des données existantes, l'action [report](https://github.com/SocialGouv/dashlord-actions) aggrège, compresse les résultats et produit un rapport web statique.
 
 Voir aussi : [SocialGouv/dashlord-actions](https://github.com/SocialGouv/dashlord-actions)
-

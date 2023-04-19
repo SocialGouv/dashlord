@@ -79,6 +79,14 @@
         "betagouv": {
           "type": "boolean",
           "description": "Enable betagouv API data"
+        },
+        "ecoindex": {
+          "type": "boolean",
+          "description": "Enable ecoindex scan"
+        },
+        "sonarcloud": {
+          "type": "boolean",
+          "description": "Enable sonarcloud API results"
         }
       },
       "required": []
@@ -163,17 +171,9 @@
           },
           "tools": { "$ref": "#/definitions/tools" }
         },
-        "required": [
-          "url"
-        ]
+        "required": ["url"]
       }
     }
   },
-  "required": [
-    "title",
-    "description",
-    "entity",
-    "tools",
-    "urls"
-  ]
+  "required": ["title", "description", "entity", "tools", "urls"]
 }
