@@ -31,9 +31,14 @@ on:
   schedule:
     - cron: "0 0 * * 0" # see https://crontab.guru
 
+# allow only one concurrent scan action
+concurrency:
+  cancel-in-progress: true
+  group: scans
+
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Prepare
     outputs:
       sites: ${{ steps.init.outputs.sites }}
@@ -47,7 +52,7 @@ jobs:
           tool: ${{ github.event.inputs.tool }}
 
   scans:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Scan
     needs: init
     continue-on-error: true
