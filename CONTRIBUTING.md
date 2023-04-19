@@ -4,12 +4,13 @@ Les contributions sont bienvenues.
 
 ## Comment modifier le rendu du rapport ?
 
-Le rapport est généré avec l'[action report](https://github.com/SocialGouv/dashlord-actions).
+Le rapport est généré avec l'[action report](https://github.com/SocialGouv/dashlord-actions/tree/main/report).
 
 Pour développer en local, récupérer le code ici : https://github.com/SocialGouv/dashlord-actions/tree/main/report/www
 
-Vous pouvez modifier la source de cette action dans votre workflow `report.yml` pour pointer vers votre version.
+Pour l'utiliser dans votre dashlord hebergé sur GitHub, modifiez la source de cette action dans votre workflow `report.yml` pour pointer vers votre version (ex: `uses: "my-gh-org/dashlord-actions/report@master"`).
 
+<<<<<<< Updated upstream
 ## Ajouter un scanner
 
 #### Etape 1 : Acquisition des données
@@ -56,3 +57,14 @@ NB : Les fichiers `report/www/src/report.json` et `report/www/src/config.json` d
 Dans le fichier `report/www/src/components/Url.tsx`, logger les données de `report` qui doivent contenir toutes les données pour une URL donnée pour verifier que vous avez bien récupéré les données de votre action.
 
 Ajoutez vos composants qui consomment ces données and have a break :coffee: :v: 
+=======
+### Ajouter une source de données
+
+1. Créer une action github qui produit un fichier JSON dans le dossier "scans"
+2. dans votre workflow `scans.yml`, ajouter un appel à votre action qui doit produire un JSON
+3. Ajouter le support pour ce type de données dans [l'action report](https://github.com/SocialGouv/dashlord-actions/tree/main/report)
+   - intégrer les données voulues dans le `report.json` final dans `dashlord-actions/report/src/generateUrlReport`
+   - ajouter le calcul du score pour cet outils dans `dashlord-actions/report/src/summary`
+   - ajouter la colonne dans le dashboard : `dashlord-actions/report/www/src/components/Dashboard`
+4. si en plus du json, l'outil produit un rapport type HTML autonome (ex: rapport LightHouse), alors il faut s'assurer dans [l'action save](https://github.com/SocialGouv/dashlord-actions/tree/main/save) l'enregistre bien à la fin du scan.
+>>>>>>> Stashed changes
