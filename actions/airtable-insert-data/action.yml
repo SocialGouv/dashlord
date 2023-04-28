@@ -27,7 +27,10 @@ runs:
       run: |
         CURRENT_DATE=$(date +"%d-%m-%Y")
         cd ${{ github.workspace }}/results/${{ inputs.id }}/${CURRENT_DATE}
-        A11Y=$(cat declaration-a11y.json | jq -R .)
+        A11Y=$(echo "{}" | jq -R .)
+        if test -f "declaration-a11y.json"; then
+          A11Y=$(cat declaration-a11y.json | jq -R .)
+        fi
         RGAA=$(echo "{}" | jq -R .)
         if test -f "rgaa.json"; then
           RGAA=$(cat rgaa.json | jq -R .)
