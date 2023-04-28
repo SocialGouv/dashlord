@@ -78,7 +78,7 @@ const getAirtableUrls = async (
         .map(record => ({
           id: record.fields[field_names.id],
           link: record.fields[field_names.link]
-            ? record.fields[field_names.link].replaceAll('\n', '')
+            ? record.fields[field_names.link].replaceAll('\n', '').trim()
             : '',
           startDate,
           endDate
