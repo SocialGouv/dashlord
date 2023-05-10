@@ -60,9 +60,9 @@ const insertAirtableData = async (
   // jdma satisfaction
   if (
     jdma.satisfaction &&
-    jdma.satisfaction.positive &&
-    jdma.satisfaction.neutral &&
-    jdma.satisfaction.negative
+    jdma.satisfaction.positive !== undefined &&
+    jdma.satisfaction.neutral !== undefined &&
+    jdma.satisfaction.negative !== undefined
   ) {
     const jdmaSatisfactionData = getDataFromJdmaNumbers(
       parseInt(jdma.satisfaction.positive),
@@ -92,9 +92,9 @@ const insertAirtableData = async (
   // jdma comprehensible
   if (
     jdma.comprehensible &&
-    jdma.comprehensible.positive &&
-    jdma.comprehensible.neutral &&
-    jdma.comprehensible.negative
+    jdma.comprehensible.positive !== undefined &&
+    jdma.comprehensible.neutral !== undefined &&
+    jdma.comprehensible.negative !== undefined
   ) {
     const jdmaComprehensibleData = getDataFromJdmaNumbers(
       parseInt(jdma.comprehensible.positive),
