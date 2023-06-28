@@ -4,6 +4,7 @@ const fetch = (...args) =>
 const field_names = {
   id: 'ID',
   edition: 'Lien vers statistiques édition',
+  noMaj: 'MAJ manuelle de la satisfaction',
   // a11y: '[Dashlord] - Mention accessibilité',
   // a11yLink: "[Dashlord] - Lien de la déclaration d'accessibilité",
   // rgaaTaux: '[Dashlord] - Taux RGAA',
@@ -154,18 +155,20 @@ const insertAirtableData = async (
 
   if (record) {
     console.log('body', JSON.stringify(body));
-    const patchDemarche = await fetch(
-      `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
-      {
-        method: 'PATCH',
-        headers: {
-          Authorization: `Bearer ${api_key}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      }
-    );
-    console.log(patchDemarche);
+    if (!record.fields[field_names.noMaj]) {
+      const patchDemarche = await fetch(
+        `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            Authorization: `Bearer ${api_key}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }
+      );
+      console.log(patchDemarche);
+    }
   }
 };
 
