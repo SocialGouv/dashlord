@@ -154,8 +154,8 @@ const insertAirtableData = async (
   const record = json.records[0];
 
   if (record) {
-    console.log('body', JSON.stringify(body));
     if (!record.fields[field_names.noMaj]) {
+      console.log('body', JSON.stringify(body));
       const patchDemarche = await fetch(
         `https://api.airtable.com/v0/${base_id}/${procedures_table_name}/${record.id}`,
         {
@@ -168,6 +168,8 @@ const insertAirtableData = async (
         }
       );
       console.log(patchDemarche);
+    } else {
+      console.log(`case "${field_names.noMaj}" cochée, pas de mise à jour...`);
     }
   }
 };
