@@ -1,5 +1,5 @@
-name: "DashLord save action"
-description: "Save dashlord results"
+name: 'DashLord save action'
+description: 'Save dashlord results'
 
 inputs:
   id:
@@ -14,7 +14,7 @@ inputs:
 #
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Install jq for json parsing
       shell: bash
@@ -23,9 +23,8 @@ runs:
       run: |
         URL=${{ inputs.url }}
         ID=${{ inputs.id }}
-        DATE=$(date '+%d-%m-%Y')
         DASHLORD_REPO_PATH=${{ github.workspace }};
-        OUT_PATH="./results/${ID}/${DATE}"
+        OUT_PATH="./results/${ID}"
 
         echo "URL: $URL"
         echo "DASHLORD_REPO_PATH: $DASHLORD_REPO_PATH"
