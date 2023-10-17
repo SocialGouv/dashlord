@@ -92,16 +92,7 @@ urls:
       - presse
 ```
 
-### Mesures de disponibilité
 
-DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
-
-- Créez un compte sur [updown.io](https://updown.io)
-- Ajoutez-y les urls à monitorer (telles que définies dans dashlord.yml)
-- Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
-- Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
-
-▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
 ## Outils
 
@@ -123,6 +114,28 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | [swinton/screenshot-website](https://github.com/swinton/screenshot-website)               | grab website screenshot                |
 | [SocialGouv/detect-404-action](https://github.com/SocialGouv/detect-404-action)           | detect 404 errors                      |
 | [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action)                 | Scan docker images vulnerabilities     |
+
+## Configuration
+Certains outils nécessitent une configuration supplémentaire :
+
+### dependabot
+
+ajouter un secret GitHub `DEPENDABOTALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Dependabot alerts"** en sélectionnant les dépôts à scanner
+      
+### codescan
+
+ajouter un secret GitHub `CODESCANALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Code scanning alerts"** en sélectionnant les dépôts à scanner
+      
+### updwon (Mesures de disponibilité)
+
+DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
+
+- Créez un compte sur [updown.io](https://updown.io)
+- Ajoutez-y les urls à monitorer (telles que définies dans dashlord.yml)
+- Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
+- Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
+
+▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
 ## Contribute
 
