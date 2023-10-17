@@ -118,11 +118,11 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 ## Configuration
 Certains outils nécessitent une configuration supplémentaire :
 
-### dependabot
+### dependabot (détection de vulnérabilités issues des dépendances du projet)
 
 ajouter un secret GitHub `DEPENDABOTALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Dependabot alerts"** en sélectionnant les dépôts à scanner
       
-### codescan
+### codescan (analyse statique de la qualité de code)
 
 ajouter un secret GitHub `CODESCANALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Code scanning alerts"** en sélectionnant les dépôts à scanner
       
