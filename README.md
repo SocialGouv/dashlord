@@ -21,8 +21,8 @@ Pour déployer votre version de DashLord :
 - Éditer le fichier `dashlord.yml`
 - Éditer le fichier `.github/workflows/scans.yml` si nécessaire
 - Éditer le fichier `.github/workflows/report.yml` si nécessaire (vérifier le `base-path` où sera publié le site web, il s'agira du nom du repository)
-- Dans les settings du repository, dans "Actions", positionner "Workflows permissions" sur "Read and write"
-- Dans les settings du repository, dans "Pages", selectionner `gh-pages` comme branche source
+- Dans les settings du repository, dans "Actions", positionner "Workflows permissions" sur "Read and write" (si l'option n'est pas disponible pour le dépôt, activez la d'abord au niveau de l'organisation)
+- Dans les settings du repository, dans "Pages", selectionner `gh-pages` comme branche source (vous pouvez soit la créer en amont soit la selectionner après le premier scan qui la créera)
 - Lancer `DashLord scans` dans l'onglet `Actions` de votre projet GitHub
 
 Une fois les scans terminés, un rapport sera généré dans la branche `gh-pages` du repository, il sera disponible sur `https://[organisation].github.io/[repository]` (publiquement).
