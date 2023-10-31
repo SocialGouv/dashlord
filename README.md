@@ -137,6 +137,11 @@ DashLord peut monitorer le niveau de performance et de disponibilité de vos app
 
 ▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
+### customCss :
+You can host the css file in your Dashlord repo but the link needs to point to a file with the correct Content-Type Header. See here for [details](https://www.twistblogg.com/2020/06/use-github-for-hosting-files.html)
+
+
+
 ## Contribute
 
 Vous pouvez contribuer en remontant des issues de qualité, en améliorant la documentation, ou en ajoutant du code.
