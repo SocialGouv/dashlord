@@ -1,6 +1,8 @@
-# DashLord
+# DashLord Incubateur des territoires
 
-Tableau de bord des bonnes pratiques techniques
+Ce repo contient le code nécessaire pour générer le tableau de bord des bonnes pratiques techniques des projets de l'incubateur des territoires.
+Le résultat peut être visible à cette adresse:
+https:/incubateur-territoires.github.io/dashlord/
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
@@ -10,6 +12,7 @@ Exemples :
 - https://socialgouv.github.io/dashlord-fabrique
 - https://mtes-mct.github.io/dashlord
 - https://socialgouv.github.io/dnum-dashboard
+- https:/incubateur-territoires.github.io/dashlord/
 
 > ⚠️ DashLord utilise le [Système de Design de l'État](https://www.systeme-de-design.gouv.fr/) et s'adresse donc **uniquement** aux développeurs et aux concepteurs, qu'ils soient agents publics ou prestataires pour des sites Internet de l'État. cf [conditions d'utilisation](https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/perimetre-d-application)
 
