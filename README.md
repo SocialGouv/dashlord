@@ -1,8 +1,8 @@
 # DashLord Incubateur des territoires
 
-Ce repo contient le code nécessaire pour générer le tableau de bord des bonnes pratiques techniques des projets de l'incubateur des territoires.
-Le résultat peut être visible à cette adresse:
-https:/incubateur-territoires.github.io/dashlord/
+Ce repo contient le code nécessaire pour générer le tableau de bord des bonnes pratiques techniques des projets de l'incubateur des territoires.  
+Le résultat peut être visible à cette adresse:  
+[https:/incubateur-territoires.github.io/dashlord](https:/incubateur-territoires.github.io/dashlord/)
 
 L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
 
