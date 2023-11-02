@@ -1,0 +1,1205 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.14.0",
+	"@generated": "Thu, 2 Nov 2023 16:38:58",
+	"site":[ 
+		{
+			"@name": "https://dotations.incubateur.anct.gouv.fr",
+			"@host": "dotations.incubateur.anct.gouv.fr",
+			"@port": "443",
+			"@ssl": "true",
+			"alerts": [ 
+				{
+					"pluginid": "10038",
+					"alertRef": "10038-1",
+					"alert": "Content Security Policy (CSP) Header Not Set",
+					"name": "Content Security Policy (CSP) Header Not Set",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10020",
+					"alertRef": "10020-1",
+					"alert": "Missing Anti-clickjacking Header",
+					"name": "Missing Anti-clickjacking Header",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
+					"cweid": "1021",
+					"wascid": "15",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link href=\"https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css\" rel=\"stylesheet\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link href=\"https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css\" rel=\"stylesheet\"/>",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10063",
+					"alertRef": "10063-1",
+					"alert": "Permissions Policy Header Not Set",
+					"name": "Permissions Policy Header Not Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/705-80ad2a316309eaa1.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/877-1ab3a5b39294bffc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/framework-73b8966a3c579ab0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/main-fbe9c9f0314b4cf5.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/index-b061c778657cec06.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/webpack-62c02dad1a6a4cb4.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/iQIkV4wVOT8SoM33oZI6i/_buildManifest.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/iQIkV4wVOT8SoM33oZI6i/_ssgManifest.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10037",
+					"alertRef": "10037",
+					"alert": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+					"name": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: Next.js",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10035",
+					"alertRef": "10035",
+					"alert": "Strict-Transport-Security Header Not Set",
+					"name": "Strict-Transport-Security Header Not Set",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/framework-73b8966a3c579ab0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/webpack-62c02dad1a6a4cb4.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/css/febc74097c1aea97.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/manifest.webmanifest",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"cweid": "319",
+					"wascid": "15",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1416354905",
+							"otherinfo": "1416354905, which evaluates to: 2014-11-18 23:55:05"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1444681467",
+							"otherinfo": "1444681467, which evaluates to: 2015-10-12 20:24:27"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1473231341",
+							"otherinfo": "1473231341, which evaluates to: 2016-09-07 06:55:41"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1502002290",
+							"otherinfo": "1502002290, which evaluates to: 2017-08-06 06:51:30"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1518500249",
+							"otherinfo": "1518500249, which evaluates to: 2018-02-13 05:37:29"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1530992060",
+							"otherinfo": "1530992060, which evaluates to: 2018-07-07 19:34:20"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1540483477",
+							"otherinfo": "1540483477, which evaluates to: 2018-10-25 16:04:37"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1560198380",
+							"otherinfo": "1560198380, which evaluates to: 2019-06-10 20:26:20"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1700485571",
+							"otherinfo": "1700485571, which evaluates to: 2023-11-20 13:06:11"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1732584193",
+							"otherinfo": "1732584193, which evaluates to: 2024-11-26 01:23:13"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1732584194",
+							"otherinfo": "1732584194, which evaluates to: 2024-11-26 01:23:14"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1735328473",
+							"otherinfo": "1735328473, which evaluates to: 2024-12-27 19:41:13"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1770035416",
+							"otherinfo": "1770035416, which evaluates to: 2026-02-02 12:30:16"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1804603682",
+							"otherinfo": "1804603682, which evaluates to: 2027-03-09 14:48:02"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1839030562",
+							"otherinfo": "1839030562, which evaluates to: 2028-04-11 01:49:22"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1859775393",
+							"otherinfo": "1859775393, which evaluates to: 2028-12-07 04:16:33"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1873313359",
+							"otherinfo": "1873313359, which evaluates to: 2029-05-12 20:49:19"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1894986606",
+							"otherinfo": "1894986606, which evaluates to: 2030-01-18 17:10:06"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1926607734",
+							"otherinfo": "1926607734, which evaluates to: 2031-01-19 16:48:54"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1958414417",
+							"otherinfo": "1958414417, which evaluates to: 2032-01-22 20:00:17"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1990404162",
+							"otherinfo": "1990404162, which evaluates to: 2033-01-27 02:02:42"
+						}
+					],
+					"count": "21",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1416354905, which evaluates to: 2014-11-18 23:55:05</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "48"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/framework-73b8966a3c579ab0.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/webpack-62c02dad1a6a4cb4.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/css/febc74097c1aea97.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.svg",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/manifest.webmanifest",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10094",
+					"alertRef": "10094-3",
+					"alert": "Base64 Disclosure",
+					"name": "Base64 Disclosure",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/_next/static/iQIkV4wVOT8SoM33oZI6i/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\"Ex\uFFFDS\uFFFD\uFFFD*\\x000c\uFFFDz\\x0019#\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/971-e0e40deeae694fc2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input",
+							"otherinfo": "r\uFFFD>w\uFFFD\\x001a\uFFFDo\uFFFD\uFFFD$\uFFFD\uFFFD\uFFFD-\uFFFD\u01E5y\uFFFD~2\u821E\uFFFD\uFFFD\\x0005\uFFFD\\x001e\uFFFD)\uFFFD\u07CC\uFFFD!b\uFFFDW\uFFFD\"zn\uFFFD\u89E6\uFFFD"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5",
+							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/_next/static/iQIkV4wVOT8SoM33oZI6i/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\"Ex\uFFFDS\uFFFD\uFFFD*\\x000c\uFFFDz\\x0019#\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+						}
+					],
+					"count": "4",
+					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
+					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\"Ex\uFFFDS\uFFFD\uFFFD*\\x000c\uFFFDz\\x0019#\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2</p>",
+					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"iQIkV4wVOT8SoM33oZ\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/705-80ad2a316309eaa1.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[705],{83321:function(e,t,r){\"use strict\";r.d(t,{Z:function(){return P}}\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/971-e0e40deeae694fc2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[971],{4971:function(e,n,t){t.d(n,{Hv:function(){return eR}\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/framework-73b8966a3c579ab0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \" */var r,l,a,u,o,i,s=t(67294),c=t(63840);function f(e){for(var n=\"https://reactjs.org/docs/error-decoder.html?invariant=\"+e,t=1;\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/main-fbe9c9f0314b4cf5.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[179],{60932:function(e,t){\"use strict\";function r(e,t,r,n,a,o,i){try{va\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/%5Bcode%5D-d4f4fc9f74cb5964.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "TODO",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[579],{38779:function(e,n,t){(window.__NEXT_P=window.__NEXT_P||[]).push(\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 8 times, the first in the element starting with: \" * The buffer module from node.js, for the browser.\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 3 times, the first in the element starting with: \" */function h(e,r){let t=g(e,r);return t}[\"a\",\"abbr\",\"address\",\"area\",\"article\",\"aside\",\"audio\",\"b\",\"base\",\"bdi\",\"bdo\",\"big\",\"bl\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-6e3bb3549499e5a3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 2 times, the first in the element starting with: \"You may NOT pass in a prop value for '${t}'.`)),a},eo=[\"children\",\"className\"],el=function(e){var r=e.children,t=e.className,n=N\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){var t=\"undefined\"!=typeof globalThis?globalThis:\"undefined\"!=typeof window?window:\"undefined\"!=typeof global?global:\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/[code]\",\"query\":{},\"buildId\":\"iQIkV4wVOT8S\", see evidence field for the suspicious comment/snippet."
+						}
+					],
+					"count": "11",
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"iQIkV4wVOT8SoM33oZ\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js\"></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js\"></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						}
+					],
+					"count": "2",
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10015",
+					"alertRef": "10015",
+					"alert": "Re-examine Cache-control Directives",
+					"name": "Re-examine Cache-control Directives",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/manifest.webmanifest",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "public, max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "public, max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "4",
+					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
+					"cweid": "525",
+					"wascid": "13",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-3",
+					"alert": "Sec-Fetch-Dest Header is Missing",
+					"name": "Sec-Fetch-Dest Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-2",
+					"alert": "Sec-Fetch-Mode Header is Missing",
+					"name": "Sec-Fetch-Mode Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-1",
+					"alert": "Sec-Fetch-Site Header is Missing",
+					"name": "Sec-Fetch-Site Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-4",
+					"alert": "Sec-Fetch-User Header is Missing",
+					"name": "Sec-Fetch-User Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable and Cacheable Content",
+					"name": "Storable and Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/framework-73b8966a3c579ab0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/webpack-62c02dad1a6a4cb4.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/css/febc74097c1aea97.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						}
+					],
+					"count": "6",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
+					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable but Non-Cacheable Content",
+					"name": "Storable but Non-Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
+					"instances":[ 
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/favicon.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/manifest.webmanifest",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"solution": "",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "20"
+				}
+			]
+		}
+	]
+}
