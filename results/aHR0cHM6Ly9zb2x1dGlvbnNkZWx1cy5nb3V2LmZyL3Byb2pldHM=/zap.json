@@ -1,0 +1,1569 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.14.0",
+	"@generated": "Thu, 2 Nov 2023 17:07:53",
+	"site":[ 
+		{
+			"@name": "https://solutionsdelus.gouv.fr",
+			"@host": "solutionsdelus.gouv.fr",
+			"@port": "443",
+			"@ssl": "true",
+			"alerts": [ 
+				{
+					"pluginid": "10202",
+					"alertRef": "10202",
+					"alert": "Absence of Anti-CSRF Tokens",
+					"name": "Absence of Anti-CSRF Tokens",
+					"riskcode": "2",
+					"confidence": "1",
+					"riskdesc": "Medium (Low)",
+					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"input-form-field__community\" \"input-form-field__domain__0\" \"input-form-field__domain__1\" \"input-form-field__domain__10\" \"input-form-field__domain__11\" \"input-form-field__domain__2\" \"input-form-field__domain__3\" \"input-form-field__domain__4\" \"input-form-field__domain__5\" \"input-form-field__domain__6\" \"input-form-field__domain__7\" \"input-form-field__domain__8\" \"input-form-field__domain__9\" \"input-form-field__email\" \"input-form-field__name\" \"input-form-field__phone\" \"input-form-field__quality\" \"input-form-field__solution\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9mocratie",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9veloppement%20%C3%A9conomique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Economie,%20Industrie%20et%20Commerce",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Infrastructures%20locales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						}
+					],
+					"count": "11",
+					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"input-form-field__community\" \"input-form-field__domain__0\" \"input-form-field__domain__1\" \"input-form-field__domain__10\" \"input-form-field__domain__11\" \"input-form-field__domain__2\" \"input-form-field__domain__3\" \"input-form-field__domain__4\" \"input-form-field__domain__5\" \"input-form-field__domain__6\" \"input-form-field__domain__7\" \"input-form-field__domain__8\" \"input-form-field__domain__9\" \"input-form-field__email\" \"input-form-field__name\" \"input-form-field__phone\" \"input-form-field__quality\" \"input-form-field__solution\" ].</p>",
+					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "67"
+				},
+				{
+					"pluginid": "10055",
+					"alertRef": "10055-4",
+					"alert": "CSP: Wildcard Directive",
+					"name": "CSP: Wildcard Directive",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>style-src, font-src</p>",
+					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10055",
+					"alertRef": "10055-10",
+					"alert": "CSP: script-src unsafe-eval",
+					"name": "CSP: script-src unsafe-eval",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-eval."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-eval."
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "<p>script-src includes unsafe-eval.</p>",
+					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10055",
+					"alertRef": "10055-5",
+					"alert": "CSP: script-src unsafe-inline",
+					"name": "CSP: script-src unsafe-inline",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-inline."
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
+					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10055",
+					"alertRef": "10055-6",
+					"alert": "CSP: style-src unsafe-inline",
+					"name": "CSP: style-src unsafe-inline",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net; script-src 'self' https://matomo.incubateur.anct.gouv.fr 'unsafe-inline' 'unsafe-eval'; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com/; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "style-src includes unsafe-inline."
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
+					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/660-89e405737d0c43b9.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "357"
+				},
+				{
+					"pluginid": "10063",
+					"alertRef": "10063-1",
+					"alert": "Permissions Policy Header Not Set",
+					"name": "Permissions Policy Header Not Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "3"
+				},
+				{
+					"pluginid": "10037",
+					"alertRef": "10037",
+					"alert": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+					"name": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10035",
+					"alertRef": "10035",
+					"alert": "Strict-Transport-Security Header Not Set",
+					"name": "Strict-Transport-Security Header Not Set",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F176.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F4.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F44.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F45.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F5.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F55.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F56.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F57.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F58.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F62.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F63.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"cweid": "319",
+					"wascid": "15",
+					"sourceid": "822"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/34be2d7d-5fc0f9e3a7f17fc5.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1431655765",
+							"otherinfo": "1431655765, which evaluates to: 2015-05-15 02:09:25"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/34be2d7d-5fc0f9e3a7f17fc5.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1540483477",
+							"otherinfo": "1540483477, which evaluates to: 2018-10-25 16:04:37"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/660-89e405737d0c43b9.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1540483477",
+							"otherinfo": "1540483477, which evaluates to: 2018-10-25 16:04:37"
+						}
+					],
+					"count": "3",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1431655765, which evaluates to: 2015-05-15 02:09:25</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "398"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F176.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F4.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F44.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F45.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F5.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F55.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F56.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F57.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F58.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F62.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F63.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "822"
+				},
+				{
+					"pluginid": "10094",
+					"alertRef": "10094-3",
+					"alert": "Base64 Disclosure",
+					"name": "Base64 Disclosure",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						}
+					],
+					"count": "11",
+					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
+					"otherinfo": "<p>\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004</p>",
+					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "3"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet."
+						}
+					],
+					"count": "10",
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ddee37296692ac9f.c\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						}
+					],
+					"count": "10",
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10015",
+					"alertRef": "10015",
+					"alert": "Re-examine Cache-control Directives",
+					"name": "Re-examine Cache-control Directives",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/confidentialite",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/favicon/manifest.webmanifest",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "public, max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"otherinfo": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
+					"cweid": "525",
+					"wascid": "13",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-3",
+					"alert": "Sec-Fetch-Dest Header is Missing",
+					"name": "Sec-Fetch-Dest Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "3"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-2",
+					"alert": "Sec-Fetch-Mode Header is Missing",
+					"name": "Sec-Fetch-Mode Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "3"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-1",
+					"alert": "Sec-Fetch-Site Header is Missing",
+					"name": "Sec-Fetch-Site Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-4",
+					"alert": "Sec-Fetch-User Header is Missing",
+					"name": "Sec-Fetch-User Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "3"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable and Cacheable Content",
+					"name": "Storable and Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/des-produits-locaux-pour-la-restauration-collective",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/le-numerique-au-coeur-du-projet-social-le-ccas-damiens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						}
+					],
+					"count": "8",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10031",
+					"alertRef": "10031",
+					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
+					"name": "User Controllable HTML Element Attribute (Potential XSS)",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
+					"instances":[ 
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=\u00C9ducation et jeunesse\r\n\r\nThe user-controlled value was:\r\n\u00E9ducation et jeunesse"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Acc\u00E8s au num\u00E9rique\r\n\r\nThe user-controlled value was:\r\nacc\u00E8s au num\u00E9rique"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Acc\u00E8s aux soins\r\n\r\nThe user-controlled value was:\r\nacc\u00E8s aux soins"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Attractivit\u00E9 et revitalisation\r\n\r\nThe user-controlled value was:\r\nattractivit\u00E9 et revitalisation"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9mocratie",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9mocratie\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=D\u00E9mocratie\r\n\r\nThe user-controlled value was:\r\nd\u00E9mocratie"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9veloppement%20%C3%A9conomique",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=D%C3%A9veloppement%20%C3%A9conomique\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=D\u00E9veloppement \u00E9conomique\r\n\r\nThe user-controlled value was:\r\nd\u00E9veloppement \u00E9conomique"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Economie,%20Industrie%20et%20Commerce",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Economie,%20Industrie%20et%20Commerce\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Economie, Industrie et Commerce\r\n\r\nThe user-controlled value was:\r\neconomie, industrie et commerce"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Infrastructures%20locales",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Infrastructures%20locales\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Infrastructures locales\r\n\r\nThe user-controlled value was:\r\ninfrastructures locales"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Logement et cadre de vie\r\n\r\nThe user-controlled value was:\r\nlogement et cadre de vie"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Participation citoyenne\r\n\r\nThe user-controlled value was:\r\nparticipation citoyenne"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Services au public\r\n\r\nThe user-controlled value was:\r\nservices au public"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Solidarit%C3%A9s",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Solidarit%C3%A9s\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Solidarit\u00E9s\r\n\r\nThe user-controlled value was:\r\nsolidarit\u00E9s"
+						}
+					],
+					"count": "12",
+					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [option] tag [value] attribute </p><p></p><p>The user input found was:</p><p>thematiques=\u00C9ducation et jeunesse</p><p></p><p>The user-controlled value was:</p><p>\u00E9ducation et jeunesse</p>",
+					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "206"
+				}
+			]
+		}
+	]
+}
