@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Thu, 2 Nov 2023 16:07:41",
+	"@generated": "Fri, 3 Nov 2023 09:59:19",
 	"site":[ 
 		{
 			"@name": "https://incubateur.anct.gouv.fr",
@@ -71,7 +71,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/actualites",
+							"uri": "https://incubateur.anct.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -79,7 +79,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -194,6 +194,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/offre",
 							"method": "GET",
 							"param": "",
@@ -234,14 +242,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/services",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -256,7 +256,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10017",
@@ -285,22 +285,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/a-propos",
-							"method": "GET",
-							"param": "//stats.data.gouv.fr/piwik.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.data.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/a-propos",
-							"method": "GET",
-							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/contact",
 							"method": "GET",
 							"param": "//stats.data.gouv.fr/piwik.js",
@@ -326,6 +310,22 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/offre",
+							"method": "GET",
+							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/plan-du-site",
+							"method": "GET",
+							"param": "//stats.data.gouv.fr/piwik.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.data.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/plan-du-site",
 							"method": "GET",
 							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
 							"attack": "",
@@ -382,7 +382,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "179"
+					"sourceid": "156"
 				},
 				{
 					"pluginid": "10063",
@@ -420,6 +420,14 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -467,14 +475,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/services",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -492,31 +492,135 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10096",
-					"alertRef": "10096",
-					"alert": "Timestamp Disclosure - Unix",
-					"name": "Timestamp Disclosure - Unix",
+					"pluginid": "10035",
+					"alertRef": "10035",
+					"alert": "Strict-Transport-Security Header Not Set",
+					"name": "Strict-Transport-Security Header Not Set",
 					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
+						{
+							"uri": "https://incubateur.anct.gouv.fr/_nuxt/0ef4015.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/appel-a-manifestation-d-interet-commun-orientation",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/appel-a-manifestation-d-interet-histologe",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/actualites/enquete-num",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1664806008",
-							"otherinfo": "1664806008, which evaluates to: 2022-10-03 14:06:48"
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/france-relance-liste-des-propositions-selectionnees",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/green-open-data-impact-collectivites",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/l-accompagnement-numerique-sur-mesure-racontee-par-un-coach",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/lancement-accompagnement-sur-mesure",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/mon-suivi-social-recompense-au-congres-de-lunccas",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/rapport-pni",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/resultats-de-la-consultation-nationale-france-relance",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/services-numeriques-de-base",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/temps-d-echanges-avec-l-incubateur",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/vagues-de-deploiement-d-aidants-connect",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
-					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1664806008, which evaluates to: 2022-10-03 14:06:48</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "144"
+					"count": "14",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"cweid": "319",
+					"wascid": "15",
+					"sourceid": "185"
 				},
 				{
 					"pluginid": "10021",
@@ -530,14 +634,6 @@
 					"instances":[ 
 						{
 							"uri": "https://incubateur.anct.gouv.fr/",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/_nuxt/fbfc5ed.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -562,6 +658,14 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -668,6 +772,14 @@
 							"otherinfo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\"><path d=\"M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L17.585 5H13V3h8Z\"/></svg>"
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBkPSJNMTAgNnYySDV2MTFoMTF2LTVoMnY2YTEgMSAwIDAgMS0xIDFINGExIDEgMCAwIDEtMS0xVjdhMSAxIDAgMCAxIDEtMWg2Wm0xMS0zdjhoLTJWNi40MTNsLTcuNzkzIDcuNzk0LTEuNDE0LTEuNDE0TDE3LjU4NSA1SDEzVjNoOFoiLz48L3N2Zz4=",
+							"otherinfo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\"><path d=\"M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L17.585 5H13V3h8Z\"/></svg>"
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/offre",
 							"method": "GET",
 							"param": "",
@@ -701,14 +813,6 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/recrutement",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBkPSJNMTAgNnYySDV2MTFoMTF2LTVoMnY2YTEgMSAwIDAgMS0xIDFINGExIDEgMCAwIDEtMS0xVjdhMSAxIDAgMCAxIDEtMWg2Wm0xMS0zdjhoLTJWNi40MTNsLTcuNzkzIDcuNzk0LTEuNDE0LTEuNDE0TDE3LjU4NSA1SDEzVjNoOFoiLz48L3N2Zz4=",
-							"otherinfo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\"><path d=\"M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L17.585 5H13V3h8Z\"/></svg>"
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/services",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -759,14 +863,6 @@
 							"otherinfo": "The following pattern was used: \\bBUGS\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[4],[,function(t,e,n){(function(e){var n=function(t){return t&&t.Math==Math&\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/_nuxt/7a3ae2b.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[16,28],{550:function(t,e,r){var content=r(553);content.__esModule&&(content\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/_nuxt/a2fc0bd.js",
 							"method": "GET",
 							"param": "",
@@ -797,39 +893,15 @@
 							"attack": "",
 							"evidence": "query",
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[30],Array(61).concat([function(M,I,t){\"use strict\";var A={name:\"NoSsr\",func\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/actualites/appel-a-manifestation-d-interet-histologe",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b){return {layout:\"default\",data:[{post:{title:\"Lancement d'un appel \u00E0 manifestation d'int\u00E9r\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/actualites/france-relance-liste-des-propositions-selectionnees",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b){return {layout:\"default\",data:[{post:{title:\"Consultation FranceRelance : liste des propo\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/actualites/temps-d-echanges-avec-l-incubateur",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b){return {layout:\"default\",data:[{post:{title:\"Prochainement, des temps d\u2019\u00E9changes avec l'i\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "10",
+					"count": "6",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{584:function(e,t,n){!function(e){\"use strict\";function t(e,t){for(var i\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "117"
+					"sourceid": "131"
 				},
 				{
 					"pluginid": "10109",
@@ -842,19 +914,19 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites/retex-incubation-nec",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure/catalogue",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a aria-disabled=\"true\" aria-label=\"Passe aux r\u00E9sultats pr\u00E9c\u00E9dents\" role=\"link\" class=\"fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label\">\n        Pr\u00E9c\u00E9dent\n      </a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure/saint-mesmin",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a title=\"external link\" rel=\"noopener\" target=\"_blank\" class=\"fr-btn fr-text--md fr-grid-row fr-grid-row--middle fr-mt-3w\" data-v-1fbef51b><span class=\"fr-col\"><strong>En savoir plus</strong></span></a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
@@ -868,11 +940,11 @@
 					],
 					"count": "3",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
-					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
+					"otherinfo": "<p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "125"
+					"sourceid": "166"
 				},
 				{
 					"pluginid": "10049",
@@ -899,7 +971,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "32"
 				},
 				{
 					"pluginid": "10015",
@@ -1006,7 +1078,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1191,6 +1263,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/offre",
 							"method": "GET",
 							"param": "",
@@ -1216,14 +1296,6 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/plan-du-site",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/services",
 							"method": "GET",
 							"param": "",
 							"attack": "",
