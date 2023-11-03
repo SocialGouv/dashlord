@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Thu, 2 Nov 2023 17:31:01",
+	"@generated": "Fri, 3 Nov 2023 10:58:22",
 	"site":[ 
 		{
 			"@name": "https://labase.anct.gouv.fr",
@@ -9,57 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://labase.anct.gouv.fr/page/charte",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "38543564385040",
-							"otherinfo": "Credit Card Type detected: DinersClub\nBank Identification Number: 385435\nBrand: DISCOVER\nCategory: BUSINESS CARD\nIssuer: "
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/page/charte",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "583591140558",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 583591\nBrand: MAESTRO\nCategory: STANDARD\nIssuer: "
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/page/contact",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "38543564385040",
-							"otherinfo": "Credit Card Type detected: DinersClub\nBank Identification Number: 385435\nBrand: DISCOVER\nCategory: BUSINESS CARD\nIssuer: "
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/page/mentions-legales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "583591140558",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 583591\nBrand: MAESTRO\nCategory: STANDARD\nIssuer: "
-						}
-					],
-					"count": "4",
-					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: DinersClub</p><p>Bank Identification Number: 385435</p><p>Brand: DISCOVER</p><p>Category: BUSINESS CARD</p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "73"
-				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038-1",
@@ -451,7 +400,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/default.322663c3.js",
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -558,7 +507,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/default.322663c3.js",
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -673,6 +622,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -682,14 +639,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/main.d209f02e.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/strUtils.db79f521.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -879,36 +828,44 @@
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/default.322663c3.js",
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"import{q as F,o as n,c as h,w as d,i as e,T as K,a as O,h as w,j as s,a$ as ae,k as Se,r as u,f as L,Z as ue,V as ce,m as p,u as\", see evidence field for the suspicious comment/snippet."
+							"evidence": "db",
+							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 4 times, the first in the element starting with: \"***************************************************************************** */function e5(e,t){var r,n;return e&&t?(r=\"\"+e+t[0\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"import{_ as y}from\"./textBlock.vue_vue_type_script_setup_true_lang.c0a48b1e.js\";import{a as k,aJ as I,f as L,r as V,h as b,o as \", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/textBlock.vue_vue_type_script_setup_true_lang.c0a48b1e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"import{a as u,Z as d,aJ as m,f as _,o as t,m as s,F as p,u as o,i as a,t as g,l,p as k}from\"./entry.cddf6bca.js\";const y=[\"inner\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/useFullWidth.2a18a1c3.js",
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import{ad as e,a5 as o,a6 as s}from\"./entry.cddf6bca.js\";const n=()=>{const t=e();o(()=>{t.setFullWidth(!0)}),s(()=>{t.setFullWi\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 22 times, the first in the element starting with: \"  */const uS={escapeDeactivates:{type:Boolean,default:!0},returnFocusOnDeactivate:{type:Boolean,default:!0},allowOutsideClick:{t\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 4 times, the first in the element starting with: \"`],...ak(r))}),t}function ak({vnode:e,recurseCount:t}){const r=t>0?`... (${t} recursive calls)`:\"\",n=e.component?e.component.par\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 11 times, the first in the element starting with: \"*/var B2=[\"input\",\"select\",\"textarea\",\"a[href]\",\"button\",\"[tabindex]:not(slot)\",\"audio[controls]\",\"video[controls]\",'[contentedi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "xxx",
+							"otherinfo": "The following pattern was used: \\bXXX\\b and was detected in the element starting with: \"`},addCommands(){return{setHardBreak:()=>({commands:e,chain:t,state:r,editor:n})=>e.first([()=>e.exitCode(),()=>e.command(()=>{c\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/page/a-propos",
@@ -959,7 +916,7 @@
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
