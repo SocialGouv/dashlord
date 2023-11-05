@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Fri, 3 Nov 2023 10:44:34
+		Generated on Sun, 5 Nov 2023 01:26:28
 	</h3>
 
 	<h3>
@@ -200,32 +200,32 @@ td {
 			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-eval</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10036">Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">10</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">12</td>
+				<td align="center">13</td>
 			</tr>
 			<tr>
 				<td><a href="#10027">Information Disclosure - Suspicious Comments</a></td>
@@ -365,9 +365,43 @@ frame-ancestors, form-action
 The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+frame-ancestors, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -495,9 +529,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">script-src includes unsafe-eval.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-eval.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -625,9 +690,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">script-src includes unsafe-inline.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -755,9 +851,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">style-src includes unsafe-inline.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1043,6 +1170,37 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico">https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">AmazonS3</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/orientation">https://cartographie.societenumerique.gouv.fr/orientation</a></td>
 					</tr>
 					<tr>
@@ -1135,7 +1293,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1218,12 +1376,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">9PYHw65qUHvfGZBSRJofn1n7gcv5WEX4HkkqmR49CCSgcFPg6-l_yw==</td>
+						<td width="80%">Cw0-R4o-7WjL2y6xCQZR48_WsGSFvTHprU_58RCoFnyhGENEFFLoYA==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��îjP{��RD��Y����XE�I*�=$�pS����</td>
+						<td width="80%">&gt;G�&gt;�h��.�	Q��ְd��1�O���|�CDR�`</td>
 					</tr>
 				
 					<tr>
@@ -1249,12 +1407,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">idsZYl5CtjmulpveAZhTKllSAnCoZFtnRjlCJDpkoTB6v0PFC-dVKg==</td>
+						<td width="80%">vO9lGRchyLwww64CbkbRKtwMd2kVjyIm0mRIY1kDvTYWgKP0AknNZw==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��b^B�9�����S*YRp�d[gF9B$:d�0z�C��U*</td>
+						<td width="80%">��e!ȼ0înF�*�wi�&quot;&amp;�dHcY�6���I�g</td>
 					</tr>
 				
 					<tr>
@@ -1280,13 +1438,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">YCKek09Rp2g88zB4CkrQUiMEbO0SAo1RW61_Mn1bqJcYjLqlNTj9Ng==</td>
+						<td width="80%">RvsuKLXfvdrIdKYHfwZ-mqFi2ZJw3U7VRt5W1tUAs7ju2ej08Yigqg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">`&quot;��OQ�h&lt;�0x
-J�R#l��Q[�2}[�����58�6</td>
+						<td width="80%">F�.(�߽��t�~��bْp�N�F�V�� ������񈠪</td>
 					</tr>
 				
 					<tr>
@@ -1312,12 +1469,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">mgTm_UzqJIBF7FNybkLMUdld5gmAh8UQMd8QXB6061gmky5Gsj3qKg==</td>
+						<td width="80%">4fjQ5faZm2Qs5vJs8Jlxu77GU9zZrKrmR9yiqU6Z7l48l3eMprQ2nQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">���L�$�E�SrnB�Q�]�	���1�\��X&amp;�.F�=�*</td>
+						<td width="80%">�������d,��l�q���S�٬��Gܢ�N��^&lt;�w���6�</td>
 					</tr>
 				
 					<tr>
@@ -1343,12 +1500,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">T0qFTh4OOVBPPouPC7hQO6ZawHrrCT1QuKWf3ZmD6k_LzQ_dywsCbQ==</td>
+						<td width="80%">HfSag6ZowIdVv8o0neyt1ydg94Zc66zxWkxxe3ZsSpiqBAhxbWH_ug==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">OJ�N9PO&gt;���P;�Z�z�	=P���ݙ��O����m</td>
+						<td width="80%">����h��U��4���&#39;`��\��ZLq{vlJ��qma��</td>
 					</tr>
 				
 					<tr>
@@ -1374,12 +1531,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">6LGHRplVtosOTNYn9pNH5QMVAuiQHTFuV3Min8InZbp7d5AZdewOkg==</td>
+						<td width="80%">6Z3q8cDZ8fdUVKJxMjum9VLHBAQG7I_CIg_Rgog3jMx_5pvcwPSjcw==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">豇F�U��L�&#39;��G��1nWs&quot;��&#39;e�{w�u��</td>
+						<td width="80%">�������TT�q2;��R���&quot;т�7�������s</td>
 					</tr>
 				
 					<tr>
@@ -1405,12 +1562,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">qbo1gjWJp2uo2kx1youERAyQVDCkAFdn8fDA2CPU0QIY-afZluny1g==</td>
+						<td width="80%">sgQQp3u2s2b4DiJD8A8NULGlOueHROPEr3AMaEarlFmm4ve2jvfg9A==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��5�5��k��Luʋ�D�T0� Wg����#����ٖ���</td>
+						<td width="80%">��{��f�&quot;C�P��:�D�įphF��Y��������</td>
 					</tr>
 				
 					<tr>
@@ -1436,13 +1593,44 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">8rSsY29OdTCviJQYrQX19oBVCsiG5s_9C8nsBMilKsBWVw3L0DmdUA==</td>
+						<td width="80%">4pwa-XaBLXCvdsKIKHzZ5MRfNKDLUd6SvnCFQ71l6mIIpcVnoDx2yg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�coNu0�������U
-Ȇ�����ȥ*�VW��9�P</td>
+						<td width="80%">��v�-p�v(|���_4��Qޒ�p�C�e�b��g�&lt;v�</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico">https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">ULhqtfTgbedu2uVJaQzKkjr51wqkq-DFmWAp0swd9cSg2_N70SK47w==</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">P�j���m�n��Iiʒ:��
+���ř`)���Ġ��{�&quot;��</td>
 					</tr>
 				
 					<tr>
@@ -1468,12 +1656,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">0e0VXtxjkxLgSJ2tBBvx3OTHW4xp-5jcDnsPVIZ2jzJtGgB5OvmwMA==</td>
+						<td width="80%">FUiyKC7jkWfhguhYV1RijfDfVDM3wNFZ-EEZnW4ptQvhudiPBQ2_Zw==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��^�c��H������[�i���{T�v�2m y:��0</td>
+						<td width="80%">H�(.�g��XWTb���T37��Y�A�n)��؏�g</td>
 					</tr>
 				
 					<tr>
@@ -1499,12 +1687,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">p8Pj5JX6XhcHM1kF_WfEijsOZUo50uicQ0HNck8Uyld3iKRe1VJX-A==</td>
+						<td width="80%">2aDefJ8cYV4xejAeIxDiiOtphALWTYzACbgvWMKNA5z7-CRDqRnicg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����^3Y�gĊ;eJ9��CA�rO�Ww��^�RW�</td>
+						<td width="80%">٠�|�a^1z0#��i��M��	�/X���$C��r</td>
 					</tr>
 				
 					<tr>
@@ -1530,12 +1718,12 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">wl9vw497a0kPIJqTH50y7q5Oj_Zz24dGrvni0Y47XN3ixuORAGG7nA==</td>
+						<td width="80%">j4JQH9yUxK8zCHjtznggIpwNE3ym56gqUTn1nw3EP_V7hUwvqU2S2g==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�_oÏ{kI ���2�N��sۇF���ю;\���� a��</td>
+						<td width="80%">��Pܔį3x��x &quot;�|��*Q9���?�{�L/�M��</td>
 					</tr>
 				
 					<tr>
@@ -1561,17 +1749,17 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">D5ZIahkqatwqgjNl1FLVSo2o1G63GgLyVMRU5jd8UfGmZDTiWE_ESA==</td>
+						<td width="80%">H0JRScam_DAkBIAa6giAMZUlIjAsWlPikiXoyi7c9DZ_AiHVpwJ_vg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�Hj*j�*�3e�R�J���n��T�T�7|Q�d4�XO�H</td>
+						<td width="80%">BQIƦ�0$���1�%&quot;0,ZS�%��.��6!է�</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">13</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2144,7 +2332,7 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 112</td>
+						<td width="80%">Age: 81</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2175,7 +2363,7 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 112</td>
+						<td width="80%">Age: 81</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2206,7 +2394,7 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 113</td>
+						<td width="80%">Age: 82</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2964,7 +3152,7 @@ J�R#l��Q[�2}[�����58�6</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-76x76.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-76x76.png</a></td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico">https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
