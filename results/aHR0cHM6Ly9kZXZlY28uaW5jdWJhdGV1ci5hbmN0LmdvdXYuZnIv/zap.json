@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Fri, 3 Nov 2023 10:12:30",
+	"@generated": "Sun, 5 Nov 2023 00:51:00",
 	"site":[ 
 		{
 			"@name": "https://deveco.incubateur.anct.gouv.fr",
@@ -175,7 +175,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/faq/",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/SIG/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -183,7 +183,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/faq/",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/SIG/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -240,7 +240,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "160"
+					"sourceid": "149"
 				},
 				{
 					"pluginid": "10063",
@@ -374,7 +374,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "178"
+					"sourceid": "205"
 				},
 				{
 					"pluginid": "10036",
@@ -395,14 +395,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/france-relance.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "nginx/1.21.6",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.26c6cc10.js",
 							"method": "GET",
 							"param": "",
@@ -412,6 +404,14 @@
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.cd34be93.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.21.6",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/next-generation-EU.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -671,17 +671,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-includes/css/classic-themes.min.css?ver=6.2.2",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
@@ -740,7 +732,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD+\uFFFD\uFFFD^w\uFFFDv\uFFFDJq\uFFFD\\x0017\uFFFD\uFFFD\uFFFDb\uFFFD\uFFFD~\uFFFD\uFFFDq\uFFFD\uFFFD{\uFFFDh\uFFFD"
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/faq/",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/SIG/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -831,14 +823,6 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fdeveco.incubateur.anct.gouv.fr%2Fdocumentation%2Fetablissement-contact%2F",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fdeveco.incubateur.anct.gouv.fr%2Fdocumentation%2Fles-sources-de-donnees%2F",
 							"method": "GET",
 							"param": "",
@@ -864,6 +848,14 @@
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fdeveco.incubateur.anct.gouv.fr%2Fdocumentation%2Frecherche-etablissement%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fdeveco.incubateur.anct.gouv.fr%2Fdocumentation%2Frecherche-filtres%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -909,7 +901,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "245"
+					"sourceid": "185"
 				},
 				{
 					"pluginid": "10027",
@@ -978,20 +970,20 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sib-front-js-js-extra'>\n/* <![CDATA[ */\nvar sibErrMsg = {\"invalidMail\":\"Please fill out valid\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.15.3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"(self.webpackChunkelementor=self.webpackChunkelementor||[]).push([[354],{381:(e,t)=>{\"use strict\";Object.defineProperty(t,\"__esM\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-content/themes/cnfs/dsfr.module.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "DB",
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"const e=new class{constructor(){this.modules={}}create(e){const t=new e;this.modules[t.type]=t}getModule(e){return this.modules[\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-content/themes/cnfs/dsfr.nomodule.min.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "DB",
-							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"!function(){\"use strict\";var t=function(){this.modules={}},e={isActive:{configurable:!0},isLegacy:{configurable:!0}};t.prototype\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0",
@@ -1131,7 +1123,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "398"
+					"sourceid": "270"
 				},
 				{
 					"pluginid": "10015",
@@ -1168,6 +1160,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/formulaire-newsletter/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "cache-control",
@@ -1192,6 +1192,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "no-cache",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/stats",
 							"method": "GET",
 							"param": "cache-control",
@@ -1208,14 +1216,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-json/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/xmlrpc.php?rsd",
 							"method": "GET",
 							"param": "cache-control",
@@ -1224,7 +1224,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1439,14 +1439,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/wp-content/themes/cnfs/style.css?ver=1.2",
 							"method": "GET",
 							"param": "",
@@ -1455,7 +1447,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1536,7 +1528,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "100"
+					"sourceid": "97"
 				}
 			]
 		}
