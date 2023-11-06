@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az444-987:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az411-616:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-11-05 01:13:37                --&gt;&gt; 51.159.10.161:443 (umap.incubateur.anct.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-11-06 13:08:55                --&gt;&gt; 51.159.10.161:443 (umap.incubateur.anct.gouv.fr) &lt;&lt;--</span>
 
  rDNS (51.159.10.161):   51-159-10-161.lb.fr-par.scw.cloud.
  Service detected:       HTTP
@@ -49,7 +49,7 @@
 <span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
 <span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
 <span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span><span style="color:#a86437;">offered</span>
-<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
+<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span><span style="color:#008817;">offered (OK)</span>
 <span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
 
 
@@ -78,10 +78,16 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="color:#008817;"> FS is offered (OK) </span>          DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-SHA256
                               DHE-RSA-AES128-SHA DHE-RSA-AES256-GCM-SHA384
                               DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA
+                              DHE-RSA-CAMELLIA128-SHA256
+                              DHE-RSA-CAMELLIA128-SHA
+                              DHE-RSA-CAMELLIA256-SHA256
+                              DHE-RSA-CAMELLIA256-SHA
                               ECDHE-RSA-AES128-GCM-SHA256
                               ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA
                               ECDHE-RSA-AES256-GCM-SHA384
-                              ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA 
+                              ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA
+                              ECDHE-RSA-CAMELLIA128-SHA256
+                              ECDHE-RSA-CAMELLIA256-SHA384 
 <span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> <span style="color:#008817;">secp521r1</span> 
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
@@ -111,7 +117,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (SNI mandatory)
 <span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#008817;">Ok   </span><span style="color:#cd00cd;"></span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">42 &gt;= 30 days</span> (2023-09-18 09:33 --&gt; 2023-12-17 09:33)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">40 &gt;= 30 days</span> (2023-09-18 09:33 --&gt; 2023-12-17 09:33)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>--
 <span style="font-weight:bold;"> OCSP URI                     </span>http://r3.o.lencr.org
@@ -144,7 +150,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Heartbleed</span> (CVE-2014-0160)                <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no heartbeat extension
 <span style="font-weight:bold;"> CCS</span> (CVE-2014-0224)                       <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> Ticketbleed</span> (CVE-2016-9244), experiment.  <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no session ticket extension
-<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">Server does not support any cipher suites that use RSA key transport</span>
+<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> Secure Renegotiation (RFC 5746)           </span><span style="color:#008817;font-weight:bold;">supported (OK)</span>
 <span style="font-weight:bold;"> Secure Client-Initiated Renegotiation     </span><span style="color:#008817;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> CRIME, TLS </span>(CVE-2012-4929)                <span style="color:#008817;">not vulnerable (OK)</span>
@@ -156,7 +162,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services, see
                                            <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=711AB6F6C37931606FCA28FD4704A573A2B5BA7916B428BDD3499A46185780B3" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=711AB6F6C37931606FCA28FD4704A573A2B5BA7916B428BDD3499A46185780B3</a>
-<span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      common prime with 2048 bits detected: <i>HAProxy</i> (<span style="color:#008817;">2048 bits</span>),
+<span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      common prime with 2048 bits detected: <i>RFC7919/ffdhe2048</i> (<span style="color:#008817;">2048 bits</span>),
                                            but no DH EXPORT ciphers
 <span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     <span style="color:#008817;">not vulnerable (OK)</span>, no SSL3 or TLS1
 <span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     potentially <span style="color:#a86437;">VULNERABLE</span>, uses cipher block chaining (CBC) ciphers with TLS. Check patches
@@ -182,8 +188,8 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  IE 6 XP                      No connection
  IE 8 Win 7                   No connection
  IE 8 XP                      No connection
- IE 11 Win 7                  TLSv1.2   DHE-RSA-AES128-GCM-SHA256         <span style="color:#008817;">2048 bit DH  </span>
- IE 11 Win 8.1                TLSv1.2   DHE-RSA-AES128-GCM-SHA256         <span style="color:#008817;">2048 bit DH  </span>
+ IE 11 Win 7                  TLSv1.2   DHE-RSA-AES128-GCM-SHA256         <span style="color:#008817;">2048 bit DH  (ffdhe2048)</span>
+ IE 11 Win 8.1                TLSv1.2   DHE-RSA-AES128-GCM-SHA256         <span style="color:#008817;">2048 bit DH  (ffdhe2048)</span>
  IE 11 Win Phone 8.1          TLSv1.2   ECDHE-RSA-AES128-SHA256           <span style="color:#008817;">256 bit ECDH (P-256)</span>
  IE 11 Win 10                 TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Edge 15 Win 10               TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">253 bit ECDH (X25519)</span>
@@ -216,7 +222,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Overall Grade                </span><span style="color:#008817;font-weight:bold;">A</span>
 <span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to A. HSTS is not offered
 
-<span style="color:white;background-color:black;"> Done 2023-11-05 01:15:15 [ 100s] --&gt;&gt; 51.159.10.161:443 (umap.incubateur.anct.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2023-11-06 13:10:13 [  80s] --&gt;&gt; 51.159.10.161:443 (umap.incubateur.anct.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
