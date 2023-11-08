@@ -11,8 +11,6 @@ Exemples :
 - https://mtes-mct.github.io/dashlord
 - https://socialgouv.github.io/dnum-dashboard
 
-> ⚠️ DashLord utilise le [Système de Design de l'État](https://www.systeme-de-design.gouv.fr/) et s'adresse donc **uniquement** aux développeurs et aux concepteurs, qu'ils soient agents publics ou prestataires pour des sites Internet de l'État. cf [conditions d'utilisation](https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/perimetre-d-application)
-
 ## Usage
 
 Pour déployer votre version de DashLord :
@@ -45,10 +43,12 @@ Ces workflows sont également déclenchables manuellement dans l'onglet "Actions
 💡 Bonne pratique : enlever les slashs à la fin des urls
 
 ```yml
-title: Dashboard title
-description: Bonnes pratiques techniques
-entity: Ministères sociaux
+title: My websites
+description: Best practices monitoring
+entity: My team name
 footer: Powered by SocialGouv
+# enable this only if you're an official gouv.fr organisation
+marianne: false
 # `tools` allows to activate only some of the tools in the report
 tools:
   404: true
