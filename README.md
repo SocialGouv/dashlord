@@ -126,7 +126,7 @@ ajouter un secret GitHub `DEPENDABOTALERTS_TOKEN` et lui donner pour valeur un [
 
 ajouter un secret GitHub `CODESCANALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Code scanning alerts"** en sélectionnant les dépôts à scanner
       
-### updwon (Mesures de disponibilité)
+### updown.io (Mesures de disponibilité)
 
 DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
 
