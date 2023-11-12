@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 5 Nov 2023 01:20:59",
+	"@generated": "Sun, 12 Nov 2023 01:22:54",
 	"site":[ 
 		{
 			"@name": "https://aidantsconnect.beta.gouv.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -51,7 +51,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -59,7 +59,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -67,7 +67,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -75,7 +75,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -83,7 +83,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -91,7 +91,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -99,7 +99,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -107,7 +107,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -115,7 +115,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -123,7 +123,7 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
@@ -131,7 +131,7 @@
 							"method": "POST",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; default-src 'self'; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
@@ -162,6 +162,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/ds-font-grid.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/home.css",
 							"method": "GET",
 							"param": "",
@@ -171,14 +179,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/main-habilitation.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/aidants-connect_logo.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -226,15 +226,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/logo-aidants.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/Marianne_logo_1120.png",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/basicLightbox.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -243,6 +235,14 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/matomo-init.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/newsletter-form.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -315,7 +315,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "193"
+					"sourceid": "191"
 				},
 				{
 					"pluginid": "10099",
@@ -342,7 +342,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "187"
+					"sourceid": "157"
 				},
 				{
 					"pluginid": "90003",
@@ -377,7 +377,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10010",
@@ -428,7 +428,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "69"
 				},
 				{
 					"pluginid": "10017",
@@ -500,14 +500,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
 							"method": "GET",
 							"param": "",
@@ -556,6 +548,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/newsletter-form.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/",
 							"method": "POST",
 							"param": "",
@@ -570,7 +570,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -587,8 +587,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
-							"otherinfo": "\\x001c\uFFFD\uFFFDn\uFFFDoL\uFFFDD\uFFFDm3C}a\uFFFD\uFFFD\u03D6\uFFFD\uFFFDq\\x0005\uFFFD"
+							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
+							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
@@ -611,8 +611,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
-							"otherinfo": "\\x001c\uFFFD\uFFFDn\uFFFDoL\uFFFDD\uFFFDm3C}a\uFFFD\uFFFD\u03D6\uFFFD\uFFFDq\\x0005\uFFFD"
+							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
+							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/ressources/",
@@ -623,12 +623,12 @@
 							"otherinfo": "~\uFFFD\uFFFD\u05EC\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFDM\uFFFD\uFFFDN?\\x0008\uFFFD\\x000b\uFFFDk\uFFFDu"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20BilanExperimentation.pdf",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20Aidants-Connect_c_est-quoi%20_%20Impression%20noir%20et%20blanc.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "149/Subtype/TrueType/ToUnicode",
-							"otherinfo": "\u05CFJ\uFFFD\uFFFD\u0297\uFFFDN\uFFFD\uFFFDO*^\uFFFD:\\x0014\uFFFD'(u"
+							"evidence": "104480/Subtype/XML/Type/Metadata",
+							"otherinfo": "\uFFFDN8\uFFFDO\u04B9\uFFFDr\uFFFD\uFFFD\uFFFD0\uFFFD\uFFFD\u0297\uFFFD1\uFFFDZu\uFFFDZ"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20Quel-fournisseur-identit%C3%A9-choisir.pdf",
@@ -675,17 +675,17 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
-							"otherinfo": "\\x001c\uFFFD\uFFFDn\uFFFDoL\uFFFDD\uFFFDm3C}a\uFFFD\uFFFD\u03D6\uFFFD\uFFFDq\\x0005\uFFFD"
+							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
+							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\x001c\uFFFD\uFFFDn\uFFFDoL\uFFFDD\uFFFDm3C}a\uFFFD\uFFFD\u03D6\uFFFD\uFFFDq\\x0005\uFFFD</p>",
+					"otherinfo": "<p>\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "69"
 				},
 				{
 					"pluginid": "10027",
@@ -712,7 +712,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "100"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "10015",
@@ -765,14 +765,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/habilitation/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
 							"method": "GET",
 							"param": "cache-control",
@@ -790,6 +782,14 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/mentions-legales/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -819,7 +819,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -848,7 +848,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/robots.txt",
+							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -862,7 +862,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -891,7 +891,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/robots.txt",
+							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -905,7 +905,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -934,7 +934,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/robots.txt",
+							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -948,7 +948,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -977,7 +977,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/robots.txt",
+							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1008,33 +1008,25 @@
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
-							"otherinfo": "\ncookie:csrftoken"
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
-							"method": "GET",
-							"param": "csrftoken",
-							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
+							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
 							"otherinfo": "\ncookie:csrftoken"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/accounts/login/",
-							"method": "POST",
+							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "HOPKbr9vTONE4W0zQ31hnNjPlu7HcQXH",
+							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
 							"otherinfo": "\ncookie:csrftoken"
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:csrftoken</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "52"
+					"sourceid": "69"
 				},
 				{
 					"pluginid": "10049",
@@ -1048,14 +1040,6 @@
 					"instances":[ 
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1080,6 +1064,14 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1127,12 +1119,12 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/stats",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/ds-font-grid.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+							"evidence": "max-age=60",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -1141,7 +1133,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10031",
@@ -1240,7 +1232,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "163"
+					"sourceid": "181"
 				}
 			]
 		}
