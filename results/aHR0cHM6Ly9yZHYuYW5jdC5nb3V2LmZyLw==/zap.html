@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 12 Nov 2023 01:54:39
+		Generated on Sun, 19 Nov 2023 01:54:42
 	</h3>
 
 	<h3>
@@ -205,17 +205,17 @@ td {
 			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
@@ -250,7 +250,7 @@ td {
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">12</td>
+				<td align="center">13</td>
 			</tr>
 			<tr>
 				<td><a href="#10027">Information Disclosure - Suspicious Comments</a></td>
@@ -260,7 +260,7 @@ td {
 			<tr>
 				<td><a href="#10109">Modern Web Application</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Non-Storable Content</a></td>
@@ -275,22 +275,22 @@ td {
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Mode Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Site Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-User Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
@@ -547,7 +547,41 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/sign_in">https://rdv.anct.gouv.fr/agents/sign_in</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+frame-ancestors, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/budget">https://rdv.anct.gouv.fr/budget</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -614,7 +648,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -714,7 +748,38 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/sign_in">https://rdv.anct.gouv.fr/agents/sign_in</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/budget">https://rdv.anct.gouv.fr/budget</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -775,7 +840,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -875,7 +940,38 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/sign_in">https://rdv.anct.gouv.fr/agents/sign_in</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/budget">https://rdv.anct.gouv.fr/budget</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -936,7 +1032,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1901,38 +1997,6 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.min-b3d5644802a45f337da5a0bc1f87eb63d35bb7fa5e933b0c03f5273c122e8baf.css">https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.min-b3d5644802a45f337da5a0bc1f87eb63d35bb7fa5e933b0c03f5273c122e8baf.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.module.min-7235104b77e676b0937ceb90dff6b21d31b957a2c3ea173a9e5a5c64bb147846.js">https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.module.min-7235104b77e676b0937ceb90dff6b21d31b957a2c3ea173a9e5a5c64bb147846.js</a></td>
 					</tr>
 					<tr>
@@ -2157,7 +2221,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/logos/logo_anct-f275089771c315b708633e423208daade79ec8a4763955e62fa401adcfbc3a8d.png">https://rdv.anct.gouv.fr/assets/logos/logo_anct-f275089771c315b708633e423208daade79ec8a4763955e62fa401adcfbc3a8d.png</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/logos/logo_sombre_rdv_service_public-ff16de9a15a2b74ff6a200626c756e51b8615f87f1113de58022ccb2a4de09cf.svg">https://rdv.anct.gouv.fr/assets/logos/logo_sombre_rdv_service_public-ff16de9a15a2b74ff6a200626c756e51b8615f87f1113de58022ccb2a4de09cf.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2189,7 +2253,39 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/logos/logo_sombre_rdv_service_public-ff16de9a15a2b74ff6a200626c756e51b8615f87f1113de58022ccb2a4de09cf.svg">https://rdv.anct.gouv.fr/assets/logos/logo_sombre_rdv_service_public-ff16de9a15a2b74ff6a200626c756e51b8615f87f1113de58022ccb2a4de09cf.svg</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/rdv_mairie/image_2-80d462f01fb5caa74d14ba27ee575f2a2ffb26a10d05af1df968dbe9027c01d1.svg">https://rdv.anct.gouv.fr/assets/rdv_mairie/image_2-80d462f01fb5caa74d14ba27ee575f2a2ffb26a10d05af1df968dbe9027c01d1.svg</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/rdv_mairie/personnages_et_logo-045c4d0857651c9cb76d4fbd87f8750de7f9474121cfd92aa437e7d6a63769cb.png">https://rdv.anct.gouv.fr/assets/rdv_mairie/personnages_et_logo-045c4d0857651c9cb76d4fbd87f8750de7f9474121cfd92aa437e7d6a63769cb.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2486,13 +2582,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">PNTA1t7gw_p8y62Clt4lLkZ7gdcz5TL-oxlIJCKJlEmkCgh8u9A3xaZqoU4gDN_a-P7y_lbKfojCDnMqMAUPrA</td>
+						<td width="80%">TrqVBu3YHb9coSAuSt6EKh4RelXtksTPq3ttqVI1jhsrRDvKivH_rYdZp4jkimHyE4I6Tdp2e6fPmKvIAmOeLg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">&lt;�������|˭���%.F{��3�2��H$&quot;��I�
-|��7Ŧj�N ������V�~��s*0�</td>
+						<td width="80%">N�����\� .Jބ*zU��ϫ{m�R5�+D;ʊ����Y���a��:M�v{�Ϙ��c�.</td>
 					</tr>
 				
 					<tr>
@@ -2518,12 +2613,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">UswVaEkNi3Z-9cO4k8n0rfuZf_G-dHoyzXB7KzZBpj3hMeUX5py6ww-FFfzIQsYmC2kGve5KFuFT_y8UP3CauA</td>
+						<td width="80%">oilINrwusevhO26DQQAjFJO5JrjCN4PHdTEaxcmPyYQLpORp77A2cSqwZd9lEZZiZ1SWA1V0t5Yjv7WCDWmWKQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">R�hI�v~�ø�������tz2�p{+6A�=�1�机����B�&amp;i��J�S�/?p��</td>
+						<td width="80%">�)H6�.���;n�A #��&amp;��7��u1�ɏɄ��i�6q*�e�e�bgT�Ut��#���i�)</td>
 					</tr>
 				
 					<tr>
@@ -2549,12 +2644,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">8RlEew15AHs5sypi9PzEJq4zgnNYeNJvnDsSYw9pFBloYJhuF9Qwfhfp2NJP8xs9PTOisWFkvgQ_ZnyQnS4piw</td>
+						<td width="80%">mRvKzTAbO5JWKTNQEHU15sU5he7WAfGlAmI2hmaV9Rt1_vtiBGo1MuBMItcJQc7qr3sJhJ6Z62A975E8W2LktQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�D{y {9�*b���&amp;�3�sXx�o�;cih`�n�0~���O�==3��ad�?f|��.)�</td>
+						<td width="80%">���0;�V)3Pu5��9����b6�f��u��bj52�L&quot;�	A��{	����`=�&lt;[b�</td>
 					</tr>
 				
 					<tr>
@@ -2580,13 +2675,43 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">bGknMfri_Chx8wZkE7Y9gAp4SQRPm0xOBJ4X_oEdZGr1EPsk4E_MLV-p9NSoueKbmXhpxnaHICWnw3kNE1pZ-A</td>
+						<td width="80%">dSLyHmMbOV9OS6fA3KKHkUL9cepBW562vCM6wPEsVoCZx8OxV2o3__gutkfFlnydKL_9gAnDhHODrp16zNtHLg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">li&#39;1���(q�d�=�
-xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�</td>
+						<td width="80%">u&quot;�c9_NK��ܢ��B�q�A[���#:��,V���ñWj7��.�GŖ|�(���	Äs���z��G.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js">https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">com/Financial-Times/polyfill-service/issues/317</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">r��)ڝȚ����?��r~)e�ǫ�&#39;�+,��?�^</td>
 					</tr>
 				
 					<tr>
@@ -2612,13 +2737,12 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">uqvS2NgTAw8jQfCL9c0Bgxvt_ViTJ1qvxUERLNjLDwEj0g7Nwr4zCg0bAjtOwt6YiO3dmqo7NsRmHH_fSowykw</td>
+						<td width="80%">jrIpr43H5HcvZ-EYR9FguDOQbIaOEfP9KGSFSMUCfahiVxgAubbq15kC8J9e5Zu0WdLg7MaJ6TgX6SLy-PVsBg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����#A�������X�&#39;Z��A,��#��¾3
-;N�ޘ��ݚ�;6�f�J�2�</td>
+						<td width="80%">��)����w/g�G�`�3�l����(d�H�}�bW ���י�^围Y���Ɖ�8�&quot;���l</td>
 					</tr>
 				
 					<tr>
@@ -2675,12 +2799,12 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">5zNdVymdtiuwHbnSez65hjPZ_BTb-p66-7vYbmRlrbd-SoFCMzCGLp5HS2LAMWadoNnc1uLm8tFY5rad9iKQJQ</td>
+						<td width="80%">-3N7v8bWZP-kbb81gN3rugUjLLeOTv0MQ5z1ggI5JHoXlkoQ8qdqXxIIrrKZ6RC2b2Gg3cbW58l8EVI4P8411A</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�3]W)��+���{&gt;��3���������nde��~J�B30�.�GKb�1f���������X涝�&quot;�%</td>
+						<td width="80%">�s{���d��m�5���#,��N�C���9$z�J�j_�����oa������|R8?�5�</td>
 					</tr>
 				
 					<tr>
@@ -2706,13 +2830,13 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">JwDKU3FdNiLN1PldzAUj-au47K7CMDTy_fqf1Ckn84O-eRZGa_AGJ-OOC-13CvziOLjMbPssWJlep_Enu2DOEQ</td>
+						<td width="80%">ru8Nhzx_2VqZymYCgM8_Gu2yKhvcB023iKGFQopPK-RCCjwoCA7X-i-vd4WZ-8QWh_CmcZSfV3K3LCL4t7g6Sg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">&#39; �Sq]6&quot;���]�#�����04�����)&#39;�yFk�&#39;��w
-��8��l�,X�^��&#39;�`�</td>
+						<td width="80%">���&lt;�Z��f��?�*�M����B�O+�B
+&lt;(��/�w������q��Wr�,&quot;���:J</td>
 					</tr>
 				
 					<tr>
@@ -2738,12 +2862,13 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">0TiHkJLzNelNTxypAmirlQVROh_FLZP3_cLCuuOFCA9IQVuFiF4F7GMV7hm5Z3SOllEa3fwx_5xen6xJccI1nQ</td>
+						<td width="80%">iabV12FUERcXjps2HEIejtC1mfYVGY9t0Fh_3P391QBlQ-R4VSUft6HrirEFduWCuvcVnF2Blajv1dhmwArErg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�8����5�MO�h��Q:�-����º�HA[��^�c��gt��Q��1��^��Iq�5�</td>
+						<td width="80%">����aT��6B�е���m�X���� eC�xU%��늱v傺��]������f�
+Į</td>
 					</tr>
 				
 					<tr>
@@ -2800,12 +2925,13 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">ieoAcw9uviHQEGxl-pR2p23EdnTUsUhb2MBIswn5fWUQk9xmFcOOJP5KntVBm6m8_sRWtu2tJDB7nSZAm75A9w</td>
+						<td width="80%">1oR0cORfjnAKPDm6bJyvCGTgY4aRUq5vydSfOcLRhmg6YUXf0C6A0LxZKD11qFQEDqLv7NnKtKr2WTiD_yaXxg</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�� sn�!�le��v�m�vtԱH[��H�	�}e��fÎ$�J��A�����V��$0{�&amp;@��@�</td>
+						<td width="80%">քtp�_�p
+&lt;9�l��d�c��R�o�ԟ9�цh:aE��.�мY(=u�T����ʴ��Y8��&amp;��</td>
 					</tr>
 				
 					<tr>
@@ -2831,17 +2957,17 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">y3fTkEW3MpmbLF1Oml28f1sn-XSGjS0z4BXKBzC5hR1SDg-FXxoCnLV2r_4hUmNkyCfZtr-RQVhDSKT0ov64jw</td>
+						<td width="80%">nvG5qO8-cp8btAScW-F6uiOMpDm820ee2cXZ1zJcuElyFIgH2098P63RFRtC1YG2Sc4oU_RDXVvmSH5tD6up5w</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�wӐE�2��,]N�]�[&#39;�t��-3��0��R�_��v��!Rcd�&#39;ٶ��AXCH������</td>
+						<td width="80%">���&gt;r���[�z�#��9��G�����2\�Ir��O|?��BՁ�I�(S�C][�H~m���</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">13</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3069,38 +3195,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/stats/notifications">https://rdv.anct.gouv.fr/stats/notifications</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a aria-label=&quot;Close&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/password/new">https://rdv.anct.gouv.fr/users/password/new</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/presentation_agent">https://rdv.anct.gouv.fr/presentation_agent</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3130,7 +3225,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3273,7 +3368,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/mentions_legales">https://rdv.anct.gouv.fr/mentions_legales</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3520,6 +3615,37 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/password/new">https://rdv.anct.gouv.fr/agents/password/new</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=0, private, must-revalidate</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/sign_in">https://rdv.anct.gouv.fr/agents/sign_in</a></td>
 					</tr>
 					<tr>
@@ -3645,37 +3771,6 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, private, must-revalidate</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/presentation_agent">https://rdv.anct.gouv.fr/presentation_agent</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3858,6 +3953,37 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Dest</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/prescripteur/">https://rdv.anct.gouv.fr/prescripteur/</a></td>
 					</tr>
 					<tr>
@@ -3950,7 +4076,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4004,6 +4130,37 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Mode</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/prescripteur/">https://rdv.anct.gouv.fr/prescripteur/</a></td>
 					</tr>
 					<tr>
@@ -4096,7 +4253,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4150,6 +4307,37 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Site</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/prescripteur/">https://rdv.anct.gouv.fr/prescripteur/</a></td>
 					</tr>
 					<tr>
@@ -4242,7 +4430,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4296,6 +4484,37 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-User</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/prescripteur/">https://rdv.anct.gouv.fr/prescripteur/</a></td>
 					</tr>
 					<tr>
@@ -4388,7 +4607,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4462,7 +4681,7 @@ xIO�LN���dj��$�O�-_��Ԩ�⛙xi�v� %��yZY�<
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">6f98cd4b3b11be1c67fa4fe26ceb4755</td>
+						<td width="80%">318e27cc73eb8d268227d00380849da8</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4494,7 +4713,7 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">cbec75c33e1c55e108a214f4bc01ec08</td>
+						<td width="80%">ad39bd5f575f588446354828be739b39</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4526,7 +4745,7 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">70daab9c3d7198c2a6eaeec9bd7f4547</td>
+						<td width="80%">9a0019099b99e4f193a57a372d0b55e9</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4558,7 +4777,7 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">70daab9c3d7198c2a6eaeec9bd7f4547</td>
+						<td width="80%">9a0019099b99e4f193a57a372d0b55e9</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4891,6 +5110,135 @@ The user-controlled value was:
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/password">https://rdv.anct.gouv.fr/agents/password</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">agent[email]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://rdv.anct.gouv.fr/agents/password
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+agent[email]=foo-bar@example.com
+
+The user-controlled value was:
+foo-bar@example.com</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/password">https://rdv.anct.gouv.fr/agents/password</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">commit</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://rdv.anct.gouv.fr/agents/password
+
+appears to include user input in: 
+
+a(n) [input] tag [data-disable-with] attribute 
+
+The user input found was:
+commit=Envoyer
+
+The user-controlled value was:
+envoyer</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/password">https://rdv.anct.gouv.fr/agents/password</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">commit</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://rdv.anct.gouv.fr/agents/password
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+commit=Envoyer
+
+The user-controlled value was:
+envoyer</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/users">https://rdv.anct.gouv.fr/users</a></td>
 					</tr>
 					<tr>
@@ -5144,135 +5492,6 @@ user[phone_number]=9999999999
 
 The user-controlled value was:
 9999999999</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/password">https://rdv.anct.gouv.fr/users/password</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">commit</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://rdv.anct.gouv.fr/users/password
-
-appears to include user input in: 
-
-a(n) [input] tag [data-disable-with] attribute 
-
-The user input found was:
-commit=Envoyer
-
-The user-controlled value was:
-envoyer</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/password">https://rdv.anct.gouv.fr/users/password</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">commit</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://rdv.anct.gouv.fr/users/password
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-commit=Envoyer
-
-The user-controlled value was:
-envoyer</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/password">https://rdv.anct.gouv.fr/users/password</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">user[email]</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://rdv.anct.gouv.fr/users/password
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-user[email]=foo-bar@example.com
-
-The user-controlled value was:
-foo-bar@example.com</td>
 					</tr>
 				
 				<tr>
