@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 12 Nov 2023 01:22:54",
+	"@generated": "Sun, 19 Nov 2023 01:23:46",
 	"site":[ 
 		{
 			"@name": "https://aidantsconnect.beta.gouv.fr",
@@ -63,6 +63,14 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/cgu/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -72,14 +80,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'self'; frame-src https://www.youtube.com/embed/hATrqHG4zYQ https://www.youtube.com/embed/WTHj_kQXnzs https://www.youtube.com/embed/ihsm-36I-fE https://www.youtube.com/embed/AJGo6bydQss; style-src 'self' https://unpkg.com/easymde/dist/easymde.min.css; object-src 'none'; connect-src 'self' https://stats.data.gouv.fr/matomo.php https://api.sarbacane.com/v1/forms/contacts/upsert?listID=09a44be1-412f-4190-a3fe-6eaac71c9f00&formID=gJOzUSbKRDWeSVyadSRTTw&timezone=Europe/Paris&timezoneOffset=+2 https://api-adresse.data.gouv.fr/search/; img-src 'self' data: https://www.service-public.fr/resources/v-5cf79a7acf/web/css/img/png/; script-src 'self' https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js https://unpkg.com/easymde/dist/easymde.min.js https://forms.sbc29.com/form.js 'sha256-+iP5od5k5h6dnQJ5XGJGipIf2K6VdSrIwATxnixVR8s=' 'sha256-ARvyo8AJ91wUvPfVqP2FfHuIHZJN3xaLI7Vgj2tQx18=' 'sha256-mXH/smf1qtriC8hr62Qt2dvp/StB/Ixr4xmBRvkCz0U=' https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js 'sha256-oOHki3o/lOkQD0J+jC75068TFqQoV40dYK6wrkIXI1c=' https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js 'sha256-CO4GFu3p1QNoCvjdyc+zNsVh77XOc5H2OcZYFb8YUPA=' https://code.jquery.com/jquery-3.6.1.js https://code.jquery.com/ui/1.13.1/jquery-ui.js 'sha256-NR0PzgaeuNCaj2DbnvXN6W2GoemNJ9jQE4tqs/H7O0c=' 'sha256-TzFaIqy7u6q6ovMbU59mz7pAL/g930THGxhG6dg/cHQ=' https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js https://stats.data.gouv.fr/matomo.js",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/guide_utilisation/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -141,7 +141,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10098",
@@ -186,14 +186,6 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/favicons/apple-icon-180x180.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/favicons/favicon-16x16.png",
 							"method": "GET",
 							"param": "",
@@ -219,6 +211,14 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/favicons/safari-pinned-tab.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/images/Marianne_logo_1120.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -315,7 +315,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "191"
+					"sourceid": "199"
 				},
 				{
 					"pluginid": "10099",
@@ -342,7 +342,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "157"
+					"sourceid": "171"
 				},
 				{
 					"pluginid": "90003",
@@ -377,7 +377,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10010",
@@ -428,7 +428,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "69"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10017",
@@ -570,7 +570,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -587,8 +587,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
-							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
+							"evidence": "DcQoKNeh7V0EchaqFBsvzIqvrKsSuq9f",
+							"otherinfo": "\r\uFFFD((\u05E1\uFFFD]\\x0004r\\x0016\uFFFD\\x0014\\x001b/\u030A\uFFFD\uFFFD\uFFFD\\x0012\uFFFD\uFFFD_"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
@@ -611,8 +611,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
-							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
+							"evidence": "DcQoKNeh7V0EchaqFBsvzIqvrKsSuq9f",
+							"otherinfo": "\r\uFFFD((\u05E1\uFFFD]\\x0004r\\x0016\uFFFD\\x0014\\x001b/\u030A\uFFFD\uFFFD\uFFFD\\x0012\uFFFD\uFFFD_"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/ressources/",
@@ -623,28 +623,28 @@
 							"otherinfo": "~\uFFFD\uFFFD\u05EC\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFDM\uFFFD\uFFFDN?\\x0008\uFFFD\\x000b\uFFFDk\uFFFDu"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20Aidants-Connect_c_est-quoi%20_%20Impression%20noir%20et%20blanc.pdf",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20BilanExperimentation.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "104480/Subtype/XML/Type/Metadata",
-							"otherinfo": "\uFFFDN8\uFFFDO\u04B9\uFFFDr\uFFFD\uFFFD\uFFFD0\uFFFD\uFFFD\u0297\uFFFD1\uFFFDZu\uFFFDZ"
+							"evidence": "149/Subtype/TrueType/ToUnicode",
+							"otherinfo": "\u05CFJ\uFFFD\uFFFD\u0297\uFFFDN\uFFFD\uFFFDO*^\uFFFD:\\x0014\uFFFD'(u"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect%20_%20Quel-fournisseur-identit%C3%A9-choisir.pdf",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect_Charte-aidants.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "99259/Subtype/XML/Type/Metadata",
-							"otherinfo": "\uFFFD\u0779\uFFFD\uFFFD\uFFFDn\u0729{\uFFFD\uFFFD/\uFFFD\uFFFD\uFFFD\uFFFDz\u059Dj\uFFFD"
+							"evidence": "/Encoding/Identity-H/Subtype/Type0/ToUnicode",
+							"otherinfo": "\uFFFDI\u0721\u0627\uFFFD\uFFFD\\x001dz{b\uFFFD/\uFFFD\uFFFD+\uFFFD\uFFFD*^\uFFFD<\uFFFD{O\u04E1I\uFFFDr\uFFFD^"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidantsconnect_tutoriel.pdf",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Aidants%20Connect_Charte-responsable-aidants-connect.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "54/ColorSpace/DeviceRGB/BitsPerComponent",
-							"otherinfo": "\uFFFD\u00A2Z+J\uFFFD\uFFFD{\uFFFD\u07BE'\\x001eD`\\x0006+l=\uFFFD\u00A2jh\uFFFD\uFFFD\uFFFD"
+							"evidence": "80/Type/FontDescriptor/XHeight",
+							"otherinfo": "\uFFFDO\uFFFD\u0297\uFFFD\\x0016\uFFFD\uFFFD\r\uFFFD\\x001c\uFFFD*m\uFFFD\uFFFD\uFFFD\\x001d\u8806"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/guides_aidants_connect/Exemple%20de%20mandat%20Aidants%20Connect_french.pdf",
@@ -675,17 +675,17 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
-							"otherinfo": "\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV"
+							"evidence": "DcQoKNeh7V0EchaqFBsvzIqvrKsSuq9f",
+							"otherinfo": "\r\uFFFD((\u05E1\uFFFD]\\x0004r\\x0016\uFFFD\\x0014\\x001b/\u030A\uFFFD\uFFFD\uFFFD\\x0012\uFFFD\uFFFD_"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\u07CF\"\uFFFDn\\x0018\uFFFD>K\uFFFDn\uFFFD\uFFFD\\x000fQ\\x0001\uFFFDz\uFFFD\uFFFD\uFFFDOV</p>",
+					"otherinfo": "<p>\r\uFFFD((\u05E1\uFFFD]\\x0004r\\x0016\uFFFD\\x0014\\x001b/\u030A\uFFFD\uFFFD\uFFFD\\x0012\uFFFD\uFFFD_</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "69"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10027",
@@ -712,7 +712,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "105"
+					"sourceid": "100"
 				},
 				{
 					"pluginid": "10015",
@@ -757,7 +757,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/donnees-personnelles/",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq/habilitation/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -789,14 +789,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/mentions-legales/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/ressources/",
 							"method": "GET",
 							"param": "cache-control",
@@ -810,6 +802,14 @@
 							"param": "cache-control",
 							"attack": "",
 							"evidence": "max-age=60, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
 							"otherinfo": ""
 						}
 					],
@@ -840,15 +840,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -856,13 +848,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -883,15 +875,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -899,13 +883,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -926,15 +910,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -942,7 +918,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -969,15 +945,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/sitemap.xml",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -985,7 +953,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1008,15 +976,15 @@
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
+							"evidence": "DcQoKNeh7V0EchaqFBsvzIqvrKsSuq9f",
 							"otherinfo": "\ncookie:csrftoken"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/accounts/login/",
-							"method": "GET",
+							"method": "POST",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "348imG4Yyj5L5m6Y0g9RAeeNevH7wk9W",
+							"evidence": "DcQoKNeh7V0EchaqFBsvzIqvrKsSuq9f",
 							"otherinfo": "\ncookie:csrftoken"
 						}
 					],
@@ -1026,7 +994,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "69"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10049",
@@ -1040,6 +1008,14 @@
 					"instances":[ 
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1064,14 +1040,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1119,12 +1087,12 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/ds-font-grid.css",
+							"uri": "https://aidantsconnect.beta.gouv.fr/stats",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=60",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
 					"count": "11",
@@ -1133,7 +1101,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -1232,7 +1200,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "181"
+					"sourceid": "153"
 				}
 			]
 		}
