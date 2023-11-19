@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 12 Nov 2023 01:17:39",
+	"@generated": "Sun, 19 Nov 2023 01:21:15",
 	"site":[ 
 		{
 			"@name": "https://umap.incubateur.anct.gouv.fr",
@@ -42,7 +42,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "92"
+					"sourceid": "97"
 				},
 				{
 					"pluginid": "10038",
@@ -111,7 +111,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/voyage-a-cracovie_55",
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/voyage-a-cracovie_53",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -371,7 +371,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "64"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10011",
@@ -417,14 +417,6 @@
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/limites-communales_56",
-							"method": "GET",
-							"param": "csrftoken",
-							"attack": "",
-							"evidence": "set-cookie: csrftoken",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/ma-carte-de-test_48",
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
@@ -488,13 +480,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "64"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10110",
@@ -630,7 +622,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/dsfr.module.js",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/locale/fr.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -681,22 +673,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/carte-pour-le-port-de-plaisance_90",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/mellionnec-chemins-de-randonnee_94",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/new/",
 							"method": "GET",
 							"param": "",
@@ -729,7 +705,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/favicon/apple-touch-icon.png",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/favicon/favicon.ico",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -746,6 +722,22 @@
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/img/logo.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/vendors/leaflet/leaflet.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/vendors/markercluster/MarkerCluster.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -788,14 +780,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/carte-pour-le-port-de-plaisance_90",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/mellionnec-chemins-de-randonnee_94",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -805,14 +789,6 @@
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/new/",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/services-aux-familles-dans-la-communaute-de-commun_91",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -853,6 +829,22 @@
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/img/logo.svg",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/vendors/leaflet/leaflet.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/vendors/markercluster/MarkerCluster.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -899,40 +891,48 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "KC\uFFFD\\x0006+\uFFFD\\x0001\uFFFD\\x001b\\x001dLo5z\uFFFD=\u06E5\uFFFD\uFFFDTx\\x001a\uFFFD"
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/limites-communales_56",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "KC\uFFFD\\x0006+\uFFFD\\x0001\uFFFD\\x001b\\x001dLo5z\uFFFD=\u06E5\uFFFD\uFFFDTx\\x001a\uFFFD"
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/mellionnec-chemins-de-randonnee_94",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "KC\uFFFD\\x0006+\uFFFD\\x0001\uFFFD\\x001b\\x001dLo5z\uFFFD=\u06E5\uFFFD\uFFFDTx\\x001a\uFFFD"
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/new/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "KC\uFFFD\\x0006+\uFFFD\\x0001\uFFFD\\x001b\\x001dLo5z\uFFFD=\u06E5\uFFFD\uFFFDTx\\x001a\uFFFD"
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/services-aux-familles-dans-la-communaute-de-commun_91",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "KC\uFFFD\\x0006+\uFFFD\\x0001\uFFFD\\x001b\\x001dLo5z\uFFFD=\u06E5\uFFFD\uFFFDTx\\x001a\uFFFD"
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/voyage-a-cracovie_53",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "=\uFFFD\\x0014k\u075F\\x0008U\uFFFD:\uFFFD\\x0006\uFFFD\\x001f[\uFFFD'\uFFFD3\\x0004\uFFFD?\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/search/",
@@ -947,16 +947,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "j3zcXy2Nm1umJCnGKEqQ0ReMqYnXV6F8",
-							"otherinfo": "\uFFFD|\uFFFD_-\uFFFD\uFFFD[\uFFFD$)\uFFFD(J\uFFFD\uFFFD\\x0017\uFFFD\uFFFD\uFFFD\uFFFDW\uFFFD|"
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
-							"otherinfo": "GIF89a\\x0001\\x0000\\x0001\\x0000\\x0000\uFFFD\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0000;"
+							"evidence": "DnPoUtiM8gT4QKUYx5WGvgAswzCOfmfz",
+							"otherinfo": "\\x000es\uFFFDR\u060C\uFFFD\\x0004\uFFFD@\uFFFD\\x0018\u01D5\uFFFD\uFFFD\\x0000,\uFFFD0\uFFFD~g\uFFFD"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/map.css",
@@ -1000,7 +992,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "71"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "10027",
@@ -1045,44 +1037,36 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"<script type=\"text/javascript\">\n  new L.U.Map(\"search_map_50\", {\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.d6490c08e079.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 6 times, the first in the element starting with: \"includes=isArray(includes)?includes:[includes];for(var i=0;i<includes.length;i++){if(includes[i]===L.Mixin.Events){console.warn(\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 19 times, the first in the element starting with: \"  )}: {bbox}, {lat}, {lng}, {zoom}, {east}, {north}..., {left}, {top}..., locale, lang`,formatIconSymbol:L._('Symbol can be eith\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "later",
-							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected in the element starting with: \"function throttle(fn,time,context){var lock,args,wrapperFn,later;later=function(){lock=false;if(args){wrapperFn.apply(context,ar\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.d6490c08e079.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 4 times, the first in the element starting with: \"me._map.fire('contextmenu.select',{contextmenu:me,el:el});};},_insertElementAt:function(tagName,className,container,index){var r\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 21 times, the first in the element starting with: \"textArea.select()\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.d6490c08e079.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"var csv=dsv(\",\");var csvParse=csv.parse;var csvParseRows=csv.parseRows;var csvFormat=csv.format;var csvFormatRows=csv.formatRows\", see evidence field for the suspicious comment/snippet."
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 9 times, the first in the element starting with: \"L.FormBuilder.DefaultView=L.FormBuilder.Select.extend({selectOptions:[['center',L._('Saved center and zoom')],['data',L._('Fit a\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.efdbf362503c.js",
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/CACHE/js/output.d6490c08e079.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "where",
-							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in the element starting with: \"return{link,icon};},onLocationError(err,control){alert(err.message);},onLocationOutsideMapBounds(control){control.stop();alert(c\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Where",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in the element starting with: \"title.textContent=L._('Where do we go from here?')\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/dsfr.module.js",
@@ -1125,6 +1109,38 @@
 							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected 3 times, the first in the element starting with: \"  // TODO : emit ascendant et descendant de changement ?\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/locale/fr.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 4 times, the first in the element starting with: \"    \"Directions from here\": \"Itin\u00E9raire \u00E0 partir de ce lieu\",\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/locale/fr.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"    \"Select data\": \"S\u00E9lectionner les donn\u00E9es\",\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/locale/fr.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 4 times, the first in the element starting with: \"    \"Map user content has been published under licence\": \"Les contenus sur la carte ont \u00E9t\u00E9 publi\u00E9s avec la licence\",\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/locale/fr.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Where",
+							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in the element starting with: \"    \"Where do we go from here?\": \"C'est par o\u00F9 pour aller plus loin?\",\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/theme.js",
 							"method": "GET",
 							"param": "",
@@ -1133,13 +1149,13 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 2 times, the first in the element starting with: \"import { CountUp } from './vendors/countup.js/countUp.min.js'\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "15",
+					"count": "18",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>  let MAP = new L.U.Map(\"map\", {</p><p>\"type\": \"Feature\",</p><p>\"geometry\": {</p><p>\"type\": \"Point\",</p><p>\"coordinates\"\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "64"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10109",
@@ -1409,7 +1425,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/",
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1417,7 +1433,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://umap.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1452,7 +1468,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/",
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1460,7 +1476,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://umap.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1495,7 +1511,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/",
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1503,7 +1519,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://umap.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1538,7 +1554,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/",
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1546,7 +1562,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://umap.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1577,15 +1593,7 @@
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
-							"otherinfo": "\ncookie:csrftoken"
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/mellionnec-chemins-de-randonnee_94",
-							"method": "GET",
-							"param": "csrftoken",
-							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
 							"otherinfo": "\ncookie:csrftoken"
 						},
 						{
@@ -1593,23 +1601,15 @@
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
 							"otherinfo": "\ncookie:csrftoken"
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/login/moncomptepro/",
-							"method": "GET",
-							"param": "sessionid",
-							"attack": "",
-							"evidence": "fyoxtu2duo6ir3vr4jf1uo4oi5vmm51x",
-							"otherinfo": "\ncookie:sessionid"
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/services-aux-familles-dans-la-communaute-de-commun_91",
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "S0OQBiuoAf0bHUxvNXr5Pduli9pUeBrK",
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
 							"otherinfo": "\ncookie:csrftoken"
 						},
 						{
@@ -1617,7 +1617,23 @@
 							"method": "GET",
 							"param": "sessionid",
 							"attack": "",
-							"evidence": "fyoxtu2duo6ir3vr4jf1uo4oi5vmm51x",
+							"evidence": "jodl076mj82udz2jf6zmg88rd4qs5mjw",
+							"otherinfo": "\ncookie:sessionid"
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/test_2",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "PfMUa92fCFWQOqYGgR9b8yfyMwTMP53G",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/login/moncomptepro/",
+							"method": "GET",
+							"param": "sessionid",
+							"attack": "",
+							"evidence": "jodl076mj82udz2jf6zmg88rd4qs5mjw",
 							"otherinfo": "\ncookie:sessionid"
 						}
 					],
@@ -1627,7 +1643,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "64"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10049",
@@ -1664,22 +1680,6 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/carte-pour-le-port-de-plaisance_90",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/mellionnec-chemins-de-randonnee_94",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/fr/map/new/",
 							"method": "GET",
 							"param": "",
@@ -1697,6 +1697,22 @@
 						},
 						{
 							"uri": "https://umap.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/favicon/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://umap.incubateur.anct.gouv.fr/static/umap/dsfr-lite/favicon/favicon.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
