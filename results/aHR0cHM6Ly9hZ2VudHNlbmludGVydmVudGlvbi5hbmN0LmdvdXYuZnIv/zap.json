@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 19 Nov 2023 02:25:15",
+	"@generated": "Sun, 26 Nov 2023 02:34:45",
 	"site":[ 
 		{
 			"@name": "https://agentsenintervention.anct.gouv.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "47"
+					"sourceid": "35"
 				},
 				{
 					"pluginid": "10055",
@@ -55,7 +55,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/mentions-legales",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -98,7 +98,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/mentions-legales",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -141,7 +141,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/mentions-legales",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -184,47 +184,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fcalendar.209b6616.png&w=1920&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&w=2048&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&w=3840&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&w=1920&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/dd1ee9b2-ed6fbb4535bf00ee.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -248,7 +208,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-0aa68d4a0a44858d.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-58e97c15718f6537.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -304,13 +264,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "16",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -331,22 +291,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&w=3840",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&w=3840",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js",
 							"method": "GET",
 							"param": "",
@@ -379,7 +323,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-0aa68d4a0a44858d.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-58e97c15718f6537.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -387,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/1236518c88936e31.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -433,23 +377,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/media/pierre-yves_brault.639ae21b.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "15",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "60"
+					"sourceid": "61"
 				},
 				{
 					"pluginid": "10021",
@@ -470,22 +406,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&w=3840",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&w=3840",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -518,7 +438,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-0aa68d4a0a44858d.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-58e97c15718f6537.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -526,7 +446,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/1236518c88936e31.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -572,23 +492,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/media/pierre-yves_brault.639ae21b.png",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "15",
+					"count": "12",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "60"
+					"sourceid": "61"
 				},
 				{
 					"pluginid": "10094",
@@ -641,23 +553,7 @@
 							"otherinfo": "~\uFFFD\uFFFDy\uFFFD^\uFFFD\uAB89\uFFFD>i\uFFFD\\x001e\uFFFD\u03E2\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFDy\uFFFDr\u05EB\uFFFD"
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&w=1920&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr-header-quick-access-item--Seconnecter-0",
-							"otherinfo": "~\uFFFD\uFFFDy\uFFFD^\uFFFD\uAB89\uFFFD>i\uFFFD\\x001e\uFFFD\u03E2\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFDy\uFFFDr\u05EB\uFFFD"
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&w=3840&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr-header-quick-access-item--Seconnecter-0",
-							"otherinfo": "~\uFFFD\uFFFDy\uFFFD^\uFFFD\uAB89\uFFFD>i\uFFFD\\x001e\uFFFD\u03E2\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFDy\uFFFDr\u05EB\uFFFD"
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/1236518c88936e31.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -713,13 +609,13 @@
 							"otherinfo": "~\uFFFD\uFFFDy\uFFFD^\uFFFD\uAB89\uFFFD>i\uFFFD\\x001e\uFFFD\u03E2\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFDy\uFFFDr\u05EB\uFFFD"
 						}
 					],
-					"count": "14",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>~\uFFFD\uFFFDy\uFFFD^\uFFFD\uAB89\uFFFD>i\uFFFD\\x001e\uFFFD\u03E2\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFDy\uFFFDr\u05EB\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -778,7 +674,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "56"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10049",
@@ -805,7 +701,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "41"
+					"sourceid": "42"
 				},
 				{
 					"pluginid": "10015",
@@ -931,7 +827,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "41"
 				},
 				{
 					"pluginid": "90005",
@@ -974,7 +870,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "41"
 				},
 				{
 					"pluginid": "90005",
@@ -1017,7 +913,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "41"
 				},
 				{
 					"pluginid": "90005",
@@ -1060,7 +956,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "41"
 				},
 				{
 					"pluginid": "10049",
@@ -1081,7 +977,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-0aa68d4a0a44858d.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-58e97c15718f6537.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1105,6 +1001,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/media/favicon.8c087985.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/media/favicon.f453a8cf.svg",
 							"method": "GET",
 							"param": "",
@@ -1113,23 +1017,15 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://agentsenintervention.anct.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/mentions-legales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1151,7 +1047,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
