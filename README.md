@@ -22,6 +22,7 @@ Exemple d'entrée pour une URL :
 ```yml
   - url: https://www.free.fr
     title: Homepage free.fr
+    betaId: # optionnel, id de la startup sur beta.gouv.fr
     tags: # optionnel
       - telecom
       - provider
