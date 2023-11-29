@@ -2,8 +2,6 @@
 
 Tableau de bord des bonnes pratiques techniques
 
-L'acquisition des données ainsi que la génération du rapport sont automatisés par des [GitHub actions](https://github.com/features/actions)
-
 Exemples :
 
 - https://dashlord.incubateur.net
@@ -13,7 +11,34 @@ Exemples :
 
 ## Usage
 
-Pour déployer votre version de DashLord :
+### Ajouter une URL dans le dashlord
+
+Vous devez éditer le fichier [./dashlord.yml](./dashlord.yaml) et ajouter une entrée pour votre URL.
+
+💡 Bonne pratique : enlever les slashs à la fin des urls
+
+Exemple d'entrée pour une URL :
+
+```yml
+  - url: https://www.free.fr
+    title: Homepage free.fr
+    tags: # optionnel
+      - telecom
+      - provider
+    repositories: # optionnel, pour récupérer les alertes de sécu de ces repos
+      - free/free-ui
+      - free/free-css
+    docker: # optionnel, pour scanner les images avec trivy
+      - ghcr.io/socialgouv/fabrique/frontend
+      - ghcr.io/socialgouv/fabrique/backend
+    tools: # optionnel, pour desactiver certains outils
+      nmap: false
+    pages: # optionnel, pour lancer lighthouse sur des pages supplémentaires
+      - /profil
+      - /mentions
+```
+
+### Déployer sa propre version de DashLord :
 
 - Créer un nouveau repository [**à partir du template dashlord**](https://github.com/SocialGouv/dashlord)
 - Éditer le fichier `dashlord.yml`
@@ -25,74 +50,13 @@ Pour déployer votre version de DashLord :
 
 Une fois les scans terminés, un rapport sera généré dans la branche `gh-pages` du repository, il sera disponible sur `https://[organisation].github.io/[repository]` (publiquement).
 
-### GitHub actions
-
-- Le workflow `DashLord scans` permet de lancer un scan sur les URLs, il est executé lors d'un changement dans le fichier `dashlord.yml`
-- Le workflow `DashLord report` est lancé à la fin de chaque `DashLord scans` et produit le rapport sous forme de site web.
-
-Ces workflows sont également déclenchables manuellement dans l'onglet "Actions"
-
-## Customisation
+#### Customisation
 
 - Le fichier [`dashlord.yml`](./dashlord.yml) permet de paramétrer les urls et quelques options du tableau de bord
-- Le workflow [`.github/workflows/scans.yml`](./.github/workflows/scans.yml) permet de customiser certains scanners, et régler la fréquence de scan (paramètre `schedule` positionné par défaut tous les dimanches à minuit)
-- Le workflow [`.github/workflows/report.yml`](./.github/workflows/report.yml) permet de générer le rapport web en se basant sur [SocialGouv/dashlord-actions/report](https://github.com/SocialGouv/dashlord-actions).
+- Le workflow [DashLord scans `.github/workflows/scans.yml`](./.github/workflows/scans.yml) permet de customiser certains scanners, et régler la fréquence de scan (paramètre `schedule` positionné par défaut tous les dimanches à minuit)
+- Le workflow [DashLord report `.github/workflows/report.yml`](./.github/workflows/report.yml) génére automatiquement le rapport web en se basant sur [SocialGouv/dashlord-actions/report](https://github.com/SocialGouv/dashlord-actions)
 
-### dashlord.yml
-
-💡 Bonne pratique : enlever les slashs à la fin des urls
-
-```yml
-title: My websites
-description: Best practices monitoring
-entity: My team name
-footer: Powered by SocialGouv
-# enable this only if you're an official gouv.fr organisation
-marianne: false
-# `tools` allows to activate only some of the tools in the report
-tools:
-  404: true
-  screenshot: true
-  nmap: true
-  zap: true
-  wappalyzer: true
-  http: true
-  testssl: true
-  lighthouse: true
-  thirdparties: true
-  nuclei: false
-  updownio: true
-  dependabot: true
-  codescan: true
-  stats: true
-  declaration-a11y: true
-  trivy: true
-  ecoindex: true
-  sonarcloud: true
-urls:
-  - url: https://www.free.fr
-    title: Homepage free.fr
-    tags:
-      - telecom
-      - provider
-    repositories: # pour récupérer les alertes de sécu de ces repos
-      - free/free-ui
-      - free/free-css
-    docker: # pour scanner les images avec trivy
-      - ghcr.io/socialgouv/fabrique/frontend
-      - ghcr.io/socialgouv/fabrique/backend
-    tools: # pour desactiver certains outils
-      nmap: false
-    pages: # pour lancer lighthouse sur des pages supplémentaires
-      - /profil
-      - /mentions
-  - url: https://www.lemonde.fr
-    title: Homepage lemonde.fr
-    tags:
-      - presse
-```
-
-
+Ces workflows sont également déclenchables manuellement dans l'onglet "Actions"
 
 ## Outils
 
