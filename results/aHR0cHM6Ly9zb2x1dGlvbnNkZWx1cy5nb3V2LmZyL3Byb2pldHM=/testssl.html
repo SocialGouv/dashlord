@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az1206-644:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az1382-823:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-11-26 01:17:36                --&gt;&gt; 51.159.9.204:443 (solutionsdelus.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-12-03 01:28:06                --&gt;&gt; 51.159.9.204:443 (solutionsdelus.gouv.fr) &lt;&lt;--</span>
 
  rDNS (51.159.9.204):    51-159-9-204.lb.fr-par.scw.cloud.
  Service detected:       HTTP
@@ -86,23 +86,23 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               &quot;application layer protocol negotiation/#16&quot;
 <span style="font-weight:bold;"> Session Ticket RFC 5077 hint </span>7200 seconds, session tickets keys seems to be rotated &lt; daily
 <span style="font-weight:bold;"> SSL Session ID support       </span>yes
-<span style="font-weight:bold;"> Session Resumption           </span>Tickets no, ID: yes
-<span style="font-weight:bold;"> TLS clock skew</span>               -1 sec from localtime
+<span style="font-weight:bold;"> Session Resumption           </span>Tickets: yes, ID: no
+<span style="font-weight:bold;"> TLS clock skew</span>               0 sec from localtime
 <span style="font-weight:bold;"> Certificate Compression      </span>none
 <span style="font-weight:bold;"> Client Authentication        </span>none
 <span style="font-weight:bold;"> Signature Algorithm          </span><span style="color:#008817;">SHA256 with RSA</span>
 <span style="font-weight:bold;"> Server key size              </span>RSA 2048 bits (exponent is 65537)
 <span style="font-weight:bold;"> Server key usage             </span>Digital Signature, Key Encipherment
 <span style="font-weight:bold;"> Server extended key usage    </span>TLS Web Server Authentication, TLS Web Client Authentication
-<span style="font-weight:bold;"> Serial                       </span>0335BF99D47F3CEC62DD7F2DAC33BCA2162C (OK: length 18)
-<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 3BE2B32DBE31E3A46A9B83B5173075FA49879D8E
-                              SHA256 35477418B4FE39359B4BED461CD0F3DE7A7EFE95D196396DE2FACD8DBC0F13FD
+<span style="font-weight:bold;"> Serial                       </span>038BC95B7698D58A6FDEDA15D1F785EF8D7D (OK: length 18)
+<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 2A270CAA0729C485285AE5211C09623E35FAA9FC
+                              SHA256 557E896D30171E0004325C88A1F25E64C76AE4C74D1189B216E822D583A82BEE
 <span style="font-weight:bold;"> Common Name (CN)             </span><i>solutionsdelus.gouv.fr </i> (CN in response to request w/o SNI: <i>*.functions.fnc.fr-par.scw.cloud </i>)
 <span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>solutionsdelus.gouv.fr </i>
 <span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (SNI mandatory)
 <span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#008817;">Ok   </span><span style="color:#cd00cd;"></span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">32 &gt;= 30 days</span> (2023-09-29 05:25 --&gt; 2023-12-28 05:25)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">85 &gt;= 30 days</span> (2023-11-28 04:27 --&gt; 2024-02-26 04:27)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>--
 <span style="font-weight:bold;"> OCSP URI                     </span>http://r3.o.lencr.org
@@ -130,22 +130,55 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               <span style="color:#008817;">X-Content-Type-Options</span>: nosniff
                               <span style="color:#008817;">Content-Security-Policy</span>: default-src &apos;self&apos;
                                 https://matomo.incubateur.anct.gouv.fr
-                                https://sentry.incubateur.net; script-src
-                                &apos;self&apos; https://matomo.incubateur.anct.gouv.fr
-                                &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;; script-src-attr
-                                &apos;none&apos;; style-src &apos;self&apos; https:
-                                &apos;unsafe-inline&apos;; img-src &apos;self&apos; data:;
-                                frame-src https://www.youtube-nocookie.com/;
+                                https://*.adform.net
+                                https://sentry.incubateur.net
+                                https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
+                                script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;
+                                https://matomo.incubateur.anct.gouv.fr
+                                https://*.adform.net https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
+                                script-src-attr &apos;none&apos;; style-src &apos;self&apos; https:
+                                &apos;unsafe-inline&apos;; img-src &apos;self&apos; data:
+                                https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
+                                frame-src https://www.youtube-nocookie.com/
+                                https://matomo.incubateur.anct.gouv.fr
+                                https://*.adform.net https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
                                 object-src &apos;none&apos;; connect-src &apos;self&apos;
                                 https://solutionsdelus-documents-main.s3.fr-par.scw.cloud 
                                 ttps://matomo.incubateur.anct.gouv.fr
+                                https://*.adform.net
                                 https://sentry.incubateur.net
                                 https://openmaptiles.geo.data.gouv.fr
                                 https://openmaptiles.github.io
-                                https://aides-territoires.beta.gouv.fr;
+                                https://aides-territoires.beta.gouv.fr
+                                https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
                                 worker-src &apos;self&apos; blob:; font-src &apos;self&apos; https:
                                 data:; frame-ancestors &apos;self&apos;
-                                https://matomo.incubateur.anct.gouv.fr;
+                                https://matomo.incubateur.anct.gouv.fr
+                                https://*.adform.net https://*.adnxs.com
+                                https://*.googletagmanager.com
+                                https://*.doubleclick.net https://*.licdn.com
+                                https://*.linkedin.com https://*.seadform.net
+                                https://*.google.com https://*.google.fr;
                                 form-action &apos;self&apos;; base-uri &apos;self&apos;;
                                 upgrade-insecure-requests;
                               X-XSS-Protection: 1; mode=block
@@ -171,7 +204,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> FREAK</span> (CVE-2015-0204)                     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services, see
-                                           <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=35477418B4FE39359B4BED461CD0F3DE7A7EFE95D196396DE2FACD8DBC0F13FD" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=35477418B4FE39359B4BED461CD0F3DE7A7EFE95D196396DE2FACD8DBC0F13FD</a>
+                                           <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=557E896D30171E0004325C88A1F25E64C76AE4C74D1189B216E822D583A82BEE" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=557E896D30171E0004325C88A1F25E64C76AE4C74D1189B216E822D583A82BEE</a>
 <span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers, no DH key detected with &lt;= TLS 1.2
 <span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     TLS1: <span style="color:#a86437;">ECDHE-RSA-AES128-SHA
                                                  AES128-SHA
@@ -236,7 +269,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to B. TLS 1.1 offered
                               Grade capped to B. TLS 1.0 offered
 
-<span style="color:white;background-color:black;"> Done 2023-11-26 01:20:11 [ 158s] --&gt;&gt; 51.159.9.204:443 (solutionsdelus.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2023-12-03 01:29:29 [  85s] --&gt;&gt; 51.159.9.204:443 (solutionsdelus.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
