@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 26 Nov 2023 02:03:53",
+	"@generated": "Sun, 3 Dec 2023 02:12:04",
 	"site":[ 
 		{
 			"@name": "https://pcrs.beta.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10020",
@@ -151,6 +151,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/blog/les-donnees-produites-pour-suivre-le-pcrs",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/lexperience-de-la-communaute-dagglomeration-du-cotentin-sur-le-pcrs",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -167,7 +175,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/blog/vers-un-suivi-collaboratif-des-pcrs",
+							"uri": "https://pcrs.beta.gouv.fr/blog/suivre-les-projets-de-pcrs-une-necessite",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -215,13 +223,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90022",
@@ -234,7 +242,7 @@
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
 						{
-							"uri": "https://pcrs.beta.gouv.fr/blog/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
+							"uri": "https://pcrs.beta.gouv.fr/blog/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=2048&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -314,14 +322,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/blog/https%3A%2F%2Fghost.pcrs.beta.gouv.fr%2Fcontent%2Fimages%2F2023%2F05%2FCapture-d--cran-du-2023-05-24-16-37-02-1.png&w=2048&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/https%3A%2F%2Fghost.pcrs.beta.gouv.fr%2Fcontent%2Fimages%2F2023%2F11%2FCapture-d--cran-du-2023-11-03-11-19-00.png&w=1080&q=75",
 							"method": "GET",
 							"param": "",
@@ -338,13 +338,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "222"
+					"sourceid": "218"
 				},
 				{
 					"pluginid": "10063",
@@ -451,7 +451,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10037",
@@ -606,7 +606,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/0-1873bfda86357cd5.js",
+							"uri": "https://pcrs.beta.gouv.fr/_next/static/1IvXeJHTkgoTaZVNG2ptC/_buildManifest.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -614,7 +614,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/767-7aa7b4a042725d16.js",
+							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/0-1873bfda86357cd5.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -713,6 +713,14 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFDH\uFFFDw\uFFFD\\x001d9 \uFFFD6\uFFFDT\u0476\uFFFD\u043F\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/_next/static/1IvXeJHTkgoTaZVNG2ptC/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFDH\uFFFDw\uFFFD\\x001d9 \uFFFD6\uFFFDT\u0476\uFFFD\u043F\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=256&q=75",
 							"method": "GET",
 							"param": "",
@@ -722,14 +730,6 @@
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=640&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/_next/static/1IvXeJHTkgoTaZVNG2ptC/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFDH\uFFFDw\uFFFD\\x001d9 \uFFFD6\uFFFDT\u0476\uFFFD\u043F\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -799,7 +799,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -927,6 +927,14 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript data-n-css=\"\"></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=256&q=75",
 							"method": "GET",
 							"param": "",
@@ -941,14 +949,6 @@
 							"attack": "",
 							"evidence": "<noscript data-n-css=\"\"></noscript>",
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a aria-disabled=\"true\" role=\"link\" class=\"jsx-c15b10fbb39efb2 fr-pagination__link fr-pagination__link--first\">Premi\u00E8re page</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/declaration-accessibilite",
@@ -1040,7 +1040,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1099,7 +1099,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "58"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "90005",
@@ -1150,7 +1150,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1201,7 +1201,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1252,7 +1252,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1303,7 +1303,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1394,7 +1394,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "69"
+					"sourceid": "68"
 				},
 				{
 					"pluginid": "10049",
