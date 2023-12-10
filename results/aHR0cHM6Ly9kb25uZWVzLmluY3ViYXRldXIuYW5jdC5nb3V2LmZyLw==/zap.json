@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Dec 2023 01:03:22",
+	"@generated": "Sun, 10 Dec 2023 00:49:30",
 	"site":[ 
 		{
 			"@name": "https://donnees.incubateur.anct.gouv.fr",
@@ -74,7 +74,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10020",
@@ -125,7 +125,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90003",
@@ -232,9 +232,57 @@
 							"attack": "",
 							"evidence": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/utility/utility.min.css\"/>",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"apple-touch-icon\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/favicon/apple-touch-icon.png\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"icon\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/favicon/favicon.svg\" type=\"image/svg+xml\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"manifest\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/favicon/manifest.webmanifest\" crossorigin=\"use-credentials\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"shortcut icon\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/favicon/favicon.ico\" type=\"image/x-icon\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/dsfr.min.css\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.5.1/dist/utility/utility.min.css\"/>",
+							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "18",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
@@ -288,7 +336,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-5145868ed8e202da.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/238-cca5cc6f13fb9102.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -481,7 +529,7 @@
 					"reference": "<p>http://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>http://msdn.microsoft.com/en-us/library/ff648552.aspx#ht_urlscan_007</p><p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -583,7 +631,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10021",
@@ -604,6 +652,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/238-cca5cc6f13fb9102.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-5145868ed8e202da.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -613,14 +669,6 @@
 						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/pages/index-7e4d47de8e464630.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/pages/toolbox/%5Btool%5D-fe07e7b3e32e1d62.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -810,14 +858,6 @@
 							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \" */ var r,l,a,u,o,i,s=t(7294),c=t(3840);function f(e){for(var n=\"https://reactjs.org/docs/error-decoder.html?invariant=\"+e,t=1;t\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/main-e7a7892cb0edc024.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[179],{5300:function(e,t){\"use strict\";Object.defineProperty(t,\"__esModu\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/pages/_app-5145868ed8e202da.js",
 							"method": "GET",
 							"param": "",
@@ -890,13 +930,13 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{},\"__N_SSG\":true},\"page\":\"/toolbox/[tool]\",\"query\":{\"t\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"tools\":[{\"title\":\"Grist\",\"type\":\"web\",\"public_cible\":\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10109",
@@ -963,7 +1003,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -1014,7 +1054,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1041,9 +1081,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1076,9 +1124,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1111,9 +1167,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1146,9 +1210,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
