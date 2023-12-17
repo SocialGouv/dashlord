@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Dec 2023 01:43:34",
+	"@generated": "Sun, 17 Dec 2023 01:49:49",
 	"site":[ 
 		{
 			"@name": "https://labase.anct.gouv.fr",
@@ -9,41 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://labase.anct.gouv.fr/page/a-propos",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "576535967441",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 576535\nBrand: MAESTRO\nCategory: \nIssuer: "
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/recherche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "576535967441",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 576535\nBrand: MAESTRO\nCategory: \nIssuer: "
-						}
-					],
-					"count": "2",
-					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 576535</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "72"
-				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038-1",
@@ -253,6 +218,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "",
@@ -270,14 +243,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/main.d209f02e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/selector.vue_vue_type_script_setup_true_lang.92cb2d7d.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -665,6 +630,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/focusOut.55dac9f5.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -714,14 +687,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/useFullWidth.2a18a1c3.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/recherche?dataType=bases",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -788,7 +753,7 @@
 							"otherinfo": ".\uFFFD\"r'\uFFFD\uFFFDM\\x0000\uFFFD\uFFFD!x\uFFFD\uFFFDz{\\x001eU\uFFFD\uC289\uFFFD"
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/page/contact",
+							"uri": "https://labase.anct.gouv.fr/page/label",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -796,7 +761,7 @@
 							"otherinfo": ".\uFFFD\"r'\uFFFD\uFFFDM\\x0000\uFFFD\uFFFD!x\uFFFD\uFFFDz{\\x001eU\uFFFD\uC289\uFFFD"
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/page/label",
+							"uri": "https://labase.anct.gouv.fr/page/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -861,6 +826,14 @@
 							"attack": "",
 							"evidence": "db",
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/default.322663c3.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"import{q as F,o as n,c as h,w as d,i as e,T as K,a as O,h as w,j as s,a$ as ae,k as Se,r as u,f as L,Z as ue,V as ce,m as p,u as\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
@@ -943,7 +916,7 @@
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bDB\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1059,9 +1032,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1094,9 +1075,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1129,9 +1118,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1164,9 +1161,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1201,6 +1206,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "",
@@ -1218,14 +1231,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/main.d209f02e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/selector.vue_vue_type_script_setup_true_lang.92cb2d7d.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1306,7 +1311,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "67"
+					"sourceid": "77"
 				}
 			]
 		}
