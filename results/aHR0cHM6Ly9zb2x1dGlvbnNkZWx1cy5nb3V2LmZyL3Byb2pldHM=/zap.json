@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Dec 2023 01:21:18",
+	"@generated": "Sun, 17 Dec 2023 01:23:43",
 	"site":[ 
 		{
 			"@name": "https://solutionsdelus.gouv.fr",
@@ -29,14 +29,6 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -100,6 +92,14 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Infrastructures%20locales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Ing%C3%A9nierie%20sur%20mesure",
 							"method": "GET",
 							"param": "",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "86"
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10055",
@@ -135,7 +135,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -170,7 +170,7 @@
 							"otherinfo": "script-src includes unsafe-eval."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -184,7 +184,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10055",
@@ -205,7 +205,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -219,7 +219,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10055",
@@ -240,7 +240,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -254,7 +254,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90003",
@@ -291,7 +291,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -299,7 +299,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -307,7 +307,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -315,7 +315,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -323,7 +323,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -331,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -345,7 +345,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10110",
@@ -372,7 +372,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "369"
+					"sourceid": "363"
 				},
 				{
 					"pluginid": "10063",
@@ -556,7 +556,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -583,7 +583,7 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F221.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -591,7 +591,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F224.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F231.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -599,7 +599,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F241.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F232.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -685,7 +685,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1009"
+					"sourceid": "981"
 				},
 				{
 					"pluginid": "10096",
@@ -728,7 +728,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "369"
+					"sourceid": "363"
 				},
 				{
 					"pluginid": "10021",
@@ -741,7 +741,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F221.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -749,7 +749,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F224.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F231.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -757,7 +757,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F241.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F232.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -843,7 +843,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1009"
+					"sourceid": "981"
 				},
 				{
 					"pluginid": "10094",
@@ -942,7 +942,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10027",
@@ -1027,15 +1027,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1043,13 +1035,13 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10109",
@@ -1134,7 +1126,7 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20aux%20soins",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1148,7 +1140,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -1303,7 +1295,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1317,7 +1309,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1338,7 +1330,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1352,7 +1344,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1373,7 +1365,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1387,7 +1379,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1408,7 +1400,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/la-martinique-une-association-de-recyclage-et-dautoreparation-soutenue-par-lanct",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1422,7 +1414,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10049",
@@ -1655,7 +1647,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "216"
+					"sourceid": "247"
 				}
 			]
 		}
