@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 10 Dec 2023 01:57:54
+		Generated on Sun, 17 Dec 2023 02:05:57
 	</h3>
 
 	<h3>
@@ -220,7 +220,7 @@ td {
 			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
@@ -240,7 +240,7 @@ td {
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">12</td>
+				<td align="center">13</td>
 			</tr>
 			<tr>
 				<td><a href="#10111">Authentication Request Identified</a></td>
@@ -250,7 +250,7 @@ td {
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">13</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#10027">Information Disclosure - Suspicious Comments</a></td>
@@ -295,7 +295,7 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
@@ -533,7 +533,41 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+frame-ancestors, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -567,41 +601,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
-frame-ancestors, form-action
-
-The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/sign_in">https://rdv.anct.gouv.fr/users/sign_in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -703,7 +703,38 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -734,38 +765,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">script-src includes unsafe-inline.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/sign_in">https://rdv.anct.gouv.fr/users/sign_in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -864,7 +864,38 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -895,38 +926,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">style-src includes unsafe-inline.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/users/sign_in">https://rdv.anct.gouv.fr/users/sign_in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
+						<td width="80%">default-src &#39;self&#39;; font-src &#39;self&#39; data: github.com; object-src &#39;none&#39;; worker-src blob:; child-src blob: &#39;self&#39;; frame-src &#39;self&#39; *.instatus.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; stats.data.gouv.fr api-adresse.data.gouv.fr data1.ollapges.com fidoapi.com data1.gryplex.com lb.apicit.net tags.clickintext.net api.mapbox.com blob:; connect-src &#39;self&#39; stats.data.gouv.fr api-adresse.data.gouv.fr cdnjs.cloudflare.com etalab-tiles.fr; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.bootstrapcdn.com cdnjs.cloudflare.com api.mapbox.com; img-src &#39;self&#39; data: blob: stats.data.gouv.fr voxusagers.numerique.gouv.fr</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1095,9 +1095,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/users">https://rdv.anct.gouv.fr/users</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1619,7 +1650,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/cgu">https://rdv.anct.gouv.fr/cgu</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js">https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1712,7 +1743,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/politique_de_confidentialite">https://rdv.anct.gouv.fr/politique_de_confidentialite</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2189,6 +2220,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/rdv_mairie/image_1-a55e4f4dbc913f14741d819d01b300ab5fe017aa3b6c2fd6c50577d279d60e68.svg">https://rdv.anct.gouv.fr/assets/rdv_mairie/image_1-a55e4f4dbc913f14741d819d01b300ab5fe017aa3b6c2fd6c50577d279d60e68.svg</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/assets/rdv_service_public-776aa184594921678aea94a0e881216895bf43752030db5e4ec4840e23d64c5e.css">https://rdv.anct.gouv.fr/assets/rdv_service_public-776aa184594921678aea94a0e881216895bf43752030db5e4ec4840e23d64c5e.css</a></td>
 					</tr>
 					<tr>
@@ -2284,7 +2347,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">13</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2486,12 +2549,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">FRYZ6B4LR_eVqluZLEGP473979S-XxrI3_q7MjVNW9FO_HRQlPqctzygq7gpU_M181gJNG_zT-IxIIlQn19qTA</td>
+						<td width="80%">GW6aUMUB3XX96Hbx31ADwg2OEkcXqMqMAIyeH-pRFUr9EPFkQKzp2JXZRalEaVot2K7McwFy4oV1-ix_blrcdQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�G���[�,A����Ծ_����25M[�N�tP����&lt;���)S�5�X	4o�O�1 �P�_jL</td>
+						<td width="80%">n�P��u��v��P��G�ʌ ���QJ��d@��ؕ�E�DiZ-خ�sr�u�,nZ�u</td>
 					</tr>
 				
 					<tr>
@@ -2517,12 +2580,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">q4K67xTbmGad57kg6lobv-7ER3jZURvT0HS8sUlS9v3drT28uzAN07-JO0-p4XDr2GTUWr_dSFlY1Yo2lhXXwA</td>
+						<td width="80%">cWUmP3OqXM0TZQ24hdLsVqXA5exdC1jvGLyfmPQdA3nF--fK7KmVcAsqSYQA-2qKvT8Wmd2Mi-xQFye0cDNVaw</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">����ۘf�� �Z���Gx�Q��t��IR��ݭ=��0ӿ�;O��p��d�Z��HYXՊ6���</td>
+						<td width="80%">qe&amp;?s�\�e����V����]X�����y����쩕p*I� �j��?�݌��P&#39;�p3Uk</td>
 					</tr>
 				
 					<tr>
@@ -2548,12 +2611,12 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">zvB865wsIPRhns-i-KqxnleD2CAd6_D0fHscPvWt2WmVGhFTFt37tMiUP4P9uM1IGSY-wMxHpd6SoS5cX7_o9A</td>
+						<td width="80%">puldgg52f8HojHxQ_rQ_vZl6KotQJFYlV4vJJe-a1m8kqsj-iaAHBdAZQFyTnVC8R0Vtxi7C7GqJD3e-H65lyA</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��|�, �a�Ϣ����W�� ���|{&gt;���i�S���Ȕ?����H&amp;&gt;��G�ޒ�.\_���</td>
+						<td width="80%">��]�v��|P��?��z*�P$V%W��%��o$������@\��P�GEm�.��j�w��e�</td>
 					</tr>
 				
 					<tr>
@@ -2579,13 +2642,13 @@ csrfToken=authenticity_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">ThBdCKZ6Evgl0mS0QqbFcUTmY3MnexIVkv_GYiyb6h0V-jCwLIvJuIzYlJVHtLmnCkOFk_bXRz98JfQAhonbgA</td>
+						<td width="80%">SQ0-Y_iQgjPMjIDQicis7Bu-NeybE7HldMi8vi58hwrLTqsff0b69_QZvNzk4cPtxYFyoeX1C6qqTAIl3kg0rQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">N]�z�%�d�B��qD�cs&#39;{���b,���0�,�ɸ�ؔ�G���
-C����G?|%� ��ۀ</td>
+						<td width="80%">I&gt;c���3̌�ЉȬ��5���tȼ�.|�
+�N�F���������Łr�����L%�H4�</td>
 					</tr>
 				
 					<tr>
@@ -2978,37 +3041,6 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/cgu">https://rdv.anct.gouv.fr/cgu</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">VapLYaxbO2z7h8y9wh2rMscFWidTQcJ851pKKIwEEYQOQCbZJqrgLFKNPJzHD9fkiaC8x4Ltl1YJgHhKJhYgGQ</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">U�Ka�[;l��̽��2�Z&#39;SA�|�ZJ(��@&amp;�&amp;��,R�&lt;���䉠�ǂ�V	�xJ&amp; </td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://rdv.anct.gouv.fr/favicon.ico">https://rdv.anct.gouv.fr/favicon.ico</a></td>
 					</tr>
 					<tr>
@@ -3060,18 +3092,18 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">lcXFY1w21C5Mpux1gcgPi3rlMbInZuj8XsuD4iyrklXOL6jb1scPbuWsHFSE2nNdNEDXUvbKvdawEbGAhrmjyA</td>
+						<td width="80%">3yyNp7PA_yxSTVocIRne6i8k7S0o3lLc367MRDDss6RdbxjbNBaH6GrYZhBMMLHr8RuqYFY46JMBKnLfwNgAAw</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">���c\6�.L��u���z�1�&#39;f��^˃�,��U�/����n�T��s]4@�R�ʽְ������</td>
+						<td width="80%">�,�����,RMZ!��/$�-(�R�߮�D0쳤]o�4��j�fL0����`V8�*r��� </td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/politique_de_confidentialite">https://rdv.anct.gouv.fr/politique_de_confidentialite</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3091,12 +3123,12 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">p_mNsex6cHaKpaMpHqcNdbyVMZG4G_aXyDKCDoSAnHH8E-AJZourNiOvUwgbtXGj8jDXcWm3o70m6LBsLpKt7A</td>
+						<td width="80%">uICUFvp_jX18SMhl2UR8LA8GSWHb4z2iwPFIgHwZZrc6wwFqfan1uUTd9Gm0bRMt0TkOLKUFh-0edfYbjC3VEA</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����zpv���)�u��1�����2����q��	f��6#�S�q��0�qi���&amp;�l.���</td>
+						<td width="80%">�����}|H�e�D|,Ia��=���H�|f�:�j}���D��i�m-�9,���u��-�</td>
 					</tr>
 				
 					<tr>
@@ -3153,12 +3185,12 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">zfX4DoSf71CMmUNVvk01rGg7GzqNf9n8rXiBJKkM8UiWH5W2Dm40ECWTs3S7X0l6Jp792lzTjNZDorNGAx7A1Q</td>
+						<td width="80%">CG8O7mrKPUf-NtaK9Fb2muE_tQYpQkEyMOugmZcJbFWKLJuS7RxFg8aj6oaZf5mbPwDyS1ek-33ubx4CZz3f8g</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">������P��CU�M5�h;:����x�$��H���n4%��t�_Iz&amp;���\ӌ�C��F��</td>
+						<td width="80%">o�j�=G�6֊�V���?�)BA20렙�	lU�,���E�ƣꆙ��? �KW��}�og=��</td>
 					</tr>
 				
 					<tr>
@@ -3184,17 +3216,17 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">n0iRiowOGVn4TQ3-XCRFNro3E8yCh0l01p89u7wDXPTEovwyBv_CGVFH_d9ZNjng9JL1LFMrHF44RQ_ZFhFtaQ</td>
+						<td width="80%">R11AAmhDhPl9RA5jXKr-A3MRJi7FcuHGtlg4B3qIxPDFHtV-75X8PUXRMm8xg5ECrS5hY7uUW4lo3Iacirx3Vw</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�H���Y�M�\$E6�7̂�It֟=��\�Ģ�2��QG��Y69����,S+^8E�mi</td>
+						<td width="80%">G]@hC��}Dc\��s&amp;.�r�ƶX8z�����~��=E�2o1���.ac��[�h܆���wW</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">13</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3422,7 +3454,7 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/agents/password/new">https://rdv.anct.gouv.fr/agents/password/new</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/stats?territory=1">https://rdv.anct.gouv.fr/stats?territory=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3453,12 +3485,12 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/stats/notifications">https://rdv.anct.gouv.fr/stats/notifications</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/users">https://rdv.anct.gouv.fr/users</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">GET</td>
+						<td width="80%">POST</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3595,7 +3627,7 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/budget">https://rdv.anct.gouv.fr/budget</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1">https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3615,7 +3647,7 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">302</td>
+						<td width="80%">private</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4784,7 +4816,7 @@ h����uU5�$ǎ��_���1c�`�ܼ���W�����.e
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">10bd63a0bbe2debfcf015d7d33ab9f70</td>
+						<td width="80%">3c802677206b2b15d8364e762cb332ad</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4816,7 +4848,7 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">539a3f2a4b06602c7194a38079a55cd4</td>
+						<td width="80%">c7068e329518e639b4cc887e7fe7363e</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4828,7 +4860,7 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://rdv.anct.gouv.fr/">https://rdv.anct.gouv.fr/</a></td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4848,7 +4880,39 @@ cookie:_lapin_session_id</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">539a3f2a4b06602c7194a38079a55cd4</td>
+						<td width="80%">08f9c095767033585c9bcefb7d5a8edf</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:_lapin_session_id</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/">https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">_lapin_session_id</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">08f9c095767033585c9bcefb7d5a8edf</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4859,7 +4923,7 @@ cookie:_lapin_session_id</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
