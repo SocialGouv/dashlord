@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Dec 2023 00:58:30",
+	"@generated": "Sun, 17 Dec 2023 01:08:37",
 	"site":[ 
 		{
 			"@name": "https://dotations.incubateur.anct.gouv.fr",
@@ -77,7 +77,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90003",
@@ -160,7 +160,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/279-2c6274557fc77b7f.js",
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/877-1ab3a5b39294bffc.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -168,7 +168,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/877-1ab3a5b39294bffc.js",
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/971-e0e40deeae694fc2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -246,7 +246,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10037",
@@ -334,14 +334,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/iQIkV4wVOT8SoM33oZI6i/_ssgManifest.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://dotations.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
 							"method": "GET",
 							"param": "",
@@ -390,7 +382,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
@@ -604,6 +596,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/pages/index-b061c778657cec06.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/chunks/webpack-62c02dad1a6a4cb4.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -621,14 +621,6 @@
 						},
 						{
 							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/iQIkV4wVOT8SoM33oZI6i/_buildManifest.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://dotations.incubateur.anct.gouv.fr/_next/static/iQIkV4wVOT8SoM33oZI6i/_ssgManifest.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -741,7 +733,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -934,7 +926,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
