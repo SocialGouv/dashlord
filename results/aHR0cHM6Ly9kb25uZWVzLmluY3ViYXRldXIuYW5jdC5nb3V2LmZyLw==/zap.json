@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Dec 2023 00:51:30",
+	"@generated": "Sun, 24 Dec 2023 00:49:34",
 	"site":[ 
 		{
 			"@name": "https://donnees.incubateur.anct.gouv.fr",
@@ -74,7 +74,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10020",
@@ -86,6 +86,14 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/accessibilite",
 							"method": "GET",
@@ -111,13 +119,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "53"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10063",
@@ -155,14 +163,6 @@
 						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/app/layout-a9be8035b2847d5f.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/app/page-1742551553c1bfe9.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -216,6 +216,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -224,7 +232,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10036",
@@ -393,7 +401,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "79"
+					"sourceid": "80"
 				},
 				{
 					"pluginid": "10021",
@@ -500,7 +508,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -607,7 +615,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -636,20 +644,20 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[277],{8921:function(e,r,t){\"use strict\";var a=this&&this.__importDefaul\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/472-8c67bfbf733bf12b.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/313-54bee004f5a202c2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 2 times, the first in the element starting with: \" */function o(t){return t+.5|0}n.d(e,{$:function(){return eh},A:function(){return tQ},B:function(){return tF},C:function(){retur\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 2 times, the first in the element starting with: \" */function s(t){return t+.5|0}r.d(e,{$:function(){return ef},A:function(){return t_},B:function(){return tV},C:function(){retur\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/472-8c67bfbf733bf12b.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/313-54bee004f5a202c2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[472],{622:function(t,e,n){\"use strict\";var r=n(2265),i=Symbol.for(\"reac\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[313],{622:function(t,e,r){\"use strict\";var n=r(2265),i=Symbol.for(\"reac\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/749-9e6abc200a39dcda.js",
@@ -668,7 +676,7 @@
 							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[938],{5844:function(e,t){\"use strict\";function r(){return\"\"}Object.defi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/app/stats/page-e6c70d8e3673815c.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/app/stats/page-c101178e9926b5fb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -824,7 +832,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -845,7 +853,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -888,7 +896,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -931,7 +939,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -974,7 +982,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1041,7 +1049,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/apple-touch-icon.1db30588.png",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Bold.f0ef9bad.woff2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1103,7 +1111,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
