@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 17 Dec 2023 01:37:55
+		Generated on Sun, 24 Dec 2023 01:25:49
 	</h3>
 
 	<h3>
@@ -200,22 +200,22 @@ td {
 			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-eval</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10036">Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</a></td>
@@ -245,32 +245,32 @@ td {
 			<tr>
 				<td><a href="#10050">Retrieved from Cache</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">8</td>
+				<td align="center">5</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Mode Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Site Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-User Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">10</td>
+				<td align="center">11</td>
 			</tr>
 		</table>
 		<div class="spacer-lg"></div>
@@ -365,9 +365,43 @@ frame-ancestors, form-action
 The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+frame-ancestors, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -495,9 +529,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">script-src includes unsafe-eval.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-eval.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -625,9 +690,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">script-src includes unsafe-inline.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -755,9 +851,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%">style-src includes unsafe-inline.</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Content-Security-Policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39; data: https://*.gouv.fr https://openmaptiles.github.io ; font-src &#39;self&#39; https://cdn.jsdelivr.net; img-src &#39;self&#39; data: https://*.gouv.fr; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://*.gouv.fr blob:; style-src &#39;self&#39; &#39;unsafe-inline&#39;;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -888,7 +1015,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png</a></td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1218,13 +1345,13 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">5BkklsQpKJ4KpQglpEk0FANRsLZqF0RpjBdsoG113VjKOKzzL3Dy0w==</td>
+						<td width="80%">3LThm3Efig8a271Xw5aUrXBv05jSmF0gyFK2nAIF0QUXCiHCcajyjw==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�$��)(�
-�%�I4Q��jDi�l�mu�X�8��/p��</td>
+						<td width="80%">ܴ�q�۽WÖ��poӘҘ] �R���
+!�q��</td>
 					</tr>
 				
 					<tr>
@@ -1250,12 +1377,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">kdzqOIDh1b4QXbwtKL418M3Sg3iDDykSLVGWRV4koCB4Inzh-LriQg==</td>
+						<td width="80%">50EaKZC1oAhwgrY6eWvXnyOkAa_gGZyePs9OgZzqc9EYAxJb44beKA==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">���8��վ]�-(�5��҃x�)-Q�E^$� x&quot;|����B</td>
+						<td width="80%">�A)���p��:ykן#�����&gt;�N���s�[��(</td>
 					</tr>
 				
 					<tr>
@@ -1281,19 +1408,18 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">uZpqRcEnd-JpL-VsnCcnXxXZNAqzgHWiEBv5FngxfAEkVD1T03KF-w==</td>
+						<td width="80%">aMqedyvcoE5GZrBeSC24rz1x52hLSK-R8HtN22AtEOD8is_iF2EL6Q==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��jE�&#39;w�i/�l�&#39;&#39;_�4
-��u��x1|$T=S�r��</td>
+						<td width="80%">hʞw+ܠNFf�^H-��=q�hKH���{M�`-�����a�</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png</a></td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1313,12 +1439,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">RCwEAV18_jde4-iTkRNmAv04fQyf-TQLo2yVcPtuEUtJ2PPIJVpRwg==</td>
+						<td width="80%">fLVatU4mRecZSD-yzrbKymg7IIrzmyQEZtwfqV4No5GjXCf2qSbkiQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">D,]|�7^�蓑f�8}��4�l�p�nKI���%ZQ�</td>
+						<td width="80%">|�Z�N&amp;E�H?�ζ��h; ��$f��^���\&#39;��&amp;�</td>
 					</tr>
 				
 					<tr>
@@ -1344,13 +1470,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">VecKOvaXv-ckHQIm0LreIIrryJJyq4uOwyt0T11nNATkVDrO3PrVuw==</td>
+						<td width="80%">YVaYI5WaGCLT9mN8FKSJUkZL-q38k1C3pKY7aloknxhxefjug4Yx9Q==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">U�
-:����$&amp;к� ��Ȓr����+tO]g4�T:���ջ</td>
+						<td width="80%">aV�#��&quot;��c|��RFK����P���;jZ$�qy�1�</td>
 					</tr>
 				
 					<tr>
@@ -1376,12 +1501,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">smZ2UMRAQDyKgycRWSbQFxrxUpqtjmS_Kvnz4qt6rj-pzwjYGtsyHQ==</td>
+						<td width="80%">uR4eykf_3Agxtb0ERPRadghFJqSvFyRySkTn9s7vG9OW40zhQHLQIg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�fvP�@@&lt;��&#39;Y&amp;��R���d�*���z�?����2</td>
+						<td width="80%">��G��1��D�ZvE&amp;��$rJD����Ӗ�L�@r�&quot;</td>
 					</tr>
 				
 					<tr>
@@ -1407,12 +1532,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Eh9pjrULBNoivRTaPGVX1CCCRVGQ28dHQhrOwRqJYCTHo0zLxBh8Hw==</td>
+						<td width="80%">CL5LUKjFZtXmTJhEgfZRBDnu_LgP2kEpzG_SI02SGHmc_TOuT-DinA==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">i���&quot;��&lt;eW� �EQ���GB���`$ǣL��|</td>
+						<td width="80%">�KP��f��L�D��Q9����A)�o�#M�y��3�O��</td>
 					</tr>
 				
 					<tr>
@@ -1438,12 +1563,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">drkqeVO9HM1oyAATLEFVyYRMkMvYkFUsaKxJg-0Mo8sfqAX-zlsRMw==</td>
+						<td width="80%">EnVJyGwDzPe9HUwQT5vRNQMZTFpnpof0gudWjVVCZMLBu8lr0EFPAQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">v�*yS��h� ,AUɄL��ؐU,h�I�������[3</td>
+						<td width="80%">uI�l���LO��5LZg����V�UBd����k�AO</td>
 					</tr>
 				
 					<tr>
@@ -1469,12 +1594,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">UB1FbW3qX4j-3P7J4aRzazwdC30bLwehE_GLbqhANiE8fAJ_I5zpWA==</td>
+						<td width="80%">MEB-5YIdxuEgxHtY8_ZAJ_j88dYmy239wWdh_50JBJstv_rk7XNf9g==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">PEmm�_������sk&lt;}/��n�@6!&lt;|#��X</td>
+						<td width="80%">0@~��� �{X��@&#39;����&amp;�m��ga��	�-����s_�</td>
 					</tr>
 				
 					<tr>
@@ -1500,12 +1625,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3-LgS8Ujn8DJeIq63_Ezh5Ni7rnrX-xJKNWNDVuHMnItZnkpRIwqlw==</td>
+						<td width="80%">NneX05dOTN6kqVJsXnGov7rLhTt1b7ntq3T0Sa8ToKEdZeSObogxQQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">���K�#���x����3��b��_�I(Ս[�2r-fy)D�*�</td>
+						<td width="80%">6w�ӗNLޤ�Rl^q���˅;uo��t�I���e�n�1A</td>
 					</tr>
 				
 					<tr>
@@ -1531,12 +1656,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">EqE6mkbyjgRvoRVY4MhxmW7E-62sOOXNDpiuUw4ql-lImWRXrYhMIA==</td>
+						<td width="80%">rcMIv1ogtTmJ24U_EzD2wah_erqJgFeXfKln6y-_ogkZzoNOSQ5bzQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�:�F�o�X��q�n����8����S*��H�dW��L </td>
+						<td width="80%">���Z �9�ۅ?0���z���W�|�g�/��	΃NI[�</td>
 					</tr>
 				
 					<tr>
@@ -1562,12 +1687,13 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">SjeQOdpN6degyj2O4gOmrhtH9SYW2gyJAALlsa-KxeP0f7ad61sOHQ==</td>
+						<td width="80%">bnXsTYuFGi0-uI2jn6LNVmLr_zQx9kK-WzQKOa_MxN4i376ZFn-e4w==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">J7�9�M�נ�=����G�&amp;�� 屯�������[</td>
+						<td width="80%">nu�M��-&gt;������Vb��41�B�[4
+9����&quot;߾���</td>
 					</tr>
 				
 				<tr>
@@ -1626,7 +1752,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/main.48dc09a9302818b0.js">https://cartographie.societenumerique.gouv.fr/main.48dc09a9302818b0.js</a></td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/main.8b1df659a4113690.js">https://cartographie.societenumerique.gouv.fr/main.8b1df659a4113690.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1727,7 +1853,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.d5193775bea742b9.css&quot;&gt;&lt;/noscript&gt;</td>
+						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.f5797d162ad9d05e.css&quot;&gt;&lt;/noscript&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1758,7 +1884,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.d5193775bea742b9.css&quot;&gt;&lt;/noscript&gt;</td>
+						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.f5797d162ad9d05e.css&quot;&gt;&lt;/noscript&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1789,7 +1915,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.d5193775bea742b9.css&quot;&gt;&lt;/noscript&gt;</td>
+						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.f5797d162ad9d05e.css&quot;&gt;&lt;/noscript&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1820,7 +1946,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.d5193775bea742b9.css&quot;&gt;&lt;/noscript&gt;</td>
+						<td width="80%">&lt;noscript&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.f5797d162ad9d05e.css&quot;&gt;&lt;/noscript&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2145,74 +2271,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 90</td>
+						<td width="80%">Age: 1799</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">The presence of the &#39;Age&#39; header indicates that that a HTTP/1.1 compliant caching server is in use.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/orientation">https://cartographie.societenumerique.gouv.fr/orientation</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Age: 91</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The presence of the &#39;Age&#39; header indicates that that a HTTP/1.1 compliant caching server is in use.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/polyfills.f865cd5af4057d30.js">https://cartographie.societenumerique.gouv.fr/polyfills.f865cd5af4057d30.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Hit from cloudfront</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
 					</tr>
 				
 					<tr>
@@ -2238,43 +2302,12 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 91</td>
+						<td width="80%">Age: 1799</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">The presence of the &#39;Age&#39; header indicates that that a HTTP/1.1 compliant caching server is in use.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/runtime.2f8f0d6327792aeb.js">https://cartographie.societenumerique.gouv.fr/runtime.2f8f0d6327792aeb.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Hit from cloudfront</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
 					</tr>
 				
 					<tr>
@@ -2300,7 +2333,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Age: 91</td>
+						<td width="80%">Age: 1799</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2311,7 +2344,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/styles.d5193775bea742b9.css">https://cartographie.societenumerique.gouv.fr/styles.d5193775bea742b9.css</a></td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/styles.f5797d162ad9d05e.css">https://cartographie.societenumerique.gouv.fr/styles.f5797d162ad9d05e.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2341,7 +2374,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">8</td>
+					<td width="80%">5</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2471,9 +2504,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Dest</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2586,9 +2650,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Mode</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2701,9 +2796,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Site</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2816,9 +2942,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/robots.txt">https://cartographie.societenumerique.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-User</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2904,6 +3061,37 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/app.webmanifest">https://cartographie.societenumerique.gouv.fr/app.webmanifest</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png">https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3181,7 +3369,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
