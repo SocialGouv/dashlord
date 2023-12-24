@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Dec 2023 01:23:43",
+	"@generated": "Sun, 24 Dec 2023 01:15:15",
 	"site":[ 
 		{
 			"@name": "https://solutionsdelus.gouv.fr",
@@ -20,6 +20,14 @@
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"checkbox-form-field__consent\" \"input-form-field__community\" \"input-form-field__email\" \"input-form-field__name\" \"input-form-field__phone\" ]."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -29,6 +37,14 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=%C3%89ducation%20et%20jeunesse",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -90,31 +106,15 @@
 							"attack": "",
 							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Infrastructures%20locales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Ing%C3%A9nierie%20sur%20mesure",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"fr-search-bar\" style=\"flex:1;position:relative\" id=\"project-search\" role=\"search\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" ]."
 						}
 					],
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"input-form-field__community\" \"input-form-field__domain__0\" \"input-form-field__domain__1\" \"input-form-field__domain__10\" \"input-form-field__domain__11\" \"input-form-field__domain__2\" \"input-form-field__domain__3\" \"input-form-field__domain__4\" \"input-form-field__domain__5\" \"input-form-field__domain__6\" \"input-form-field__domain__7\" \"input-form-field__domain__8\" \"input-form-field__domain__9\" \"input-form-field__email\" \"input-form-field__name\" \"input-form-field__phone\" \"input-form-field__quality\" \"input-form-field__solution\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"checkbox-form-field__consent\" \"input-form-field__community\" \"input-form-field__email\" \"input-form-field__name\" \"input-form-field__phone\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "48"
+					"sourceid": "82"
 				},
 				{
 					"pluginid": "10055",
@@ -135,7 +135,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -170,7 +170,7 @@
 							"otherinfo": "script-src includes unsafe-eval."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -205,7 +205,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -240,7 +240,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -291,7 +291,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -299,7 +299,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -307,7 +307,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -315,7 +315,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -323,7 +323,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -331,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -345,7 +345,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10110",
@@ -358,7 +358,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/2585-cc164dcc0a9ea0e2.js",
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/2585-7894da96cdd68b3f.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -372,7 +372,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "363"
+					"sourceid": "403"
 				},
 				{
 					"pluginid": "10063",
@@ -386,6 +386,14 @@
 					"instances":[ 
 						{
 							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -450,14 +458,6 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -492,6 +492,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -554,14 +562,6 @@
 							"attack": "",
 							"evidence": "x-powered-by: Next.js",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
 						}
 					],
 					"count": "10",
@@ -570,7 +570,7 @@
 					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10035",
@@ -607,7 +607,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F244.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F234.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -615,7 +615,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F253.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F257.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -685,7 +685,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "981"
+					"sourceid": "1104"
 				},
 				{
 					"pluginid": "10096",
@@ -698,7 +698,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/2585-cc164dcc0a9ea0e2.js",
+							"uri": "https://solutionsdelus.gouv.fr/_next/static/chunks/2585-7894da96cdd68b3f.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -728,7 +728,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "363"
+					"sourceid": "403"
 				},
 				{
 					"pluginid": "10021",
@@ -765,7 +765,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F244.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F234.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -773,7 +773,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F253.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F257.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -843,7 +843,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "981"
+					"sourceid": "1104"
 				},
 				{
 					"pluginid": "10094",
@@ -864,6 +864,14 @@
 							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -926,14 +934,6 @@
 							"attack": "",
 							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
 							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
-							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
 						}
 					],
 					"count": "10",
@@ -942,7 +942,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10027",
@@ -963,6 +963,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -1020,14 +1028,6 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1062,6 +1062,14 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -1119,14 +1127,6 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1188,7 +1188,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/confidentialite",
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1295,7 +1295,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1309,7 +1309,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1330,7 +1330,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1344,7 +1344,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1365,7 +1365,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1379,7 +1379,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1400,7 +1400,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1414,7 +1414,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -1428,6 +1428,14 @@
 					"instances":[ 
 						{
 							"uri": "https://solutionsdelus.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1468,14 +1476,6 @@
 						},
 						{
 							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1532,7 +1532,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "75"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10031",
@@ -1633,12 +1633,12 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Logement et cadre de vie\r\n\r\nThe user-controlled value was:\r\nlogement et cadre de vie"
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Soutien%20aux%20associations",
 							"method": "GET",
 							"param": "thematiques",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Participation citoyenne\r\n\r\nThe user-controlled value was:\r\nparticipation citoyenne"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Soutien%20aux%20associations\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Soutien aux associations\r\n\r\nThe user-controlled value was:\r\nsoutien aux associations"
 						}
 					],
 					"count": "12",
@@ -1647,7 +1647,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "247"
+					"sourceid": "218"
 				}
 			]
 		}
