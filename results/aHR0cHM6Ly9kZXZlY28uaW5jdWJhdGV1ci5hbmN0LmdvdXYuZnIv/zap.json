@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 00:51:51",
+	"@generated": "Sun, 31 Dec 2023 00:49:08",
 	"site":[ 
 		{
 			"@name": "https://deveco.incubateur.anct.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90022",
@@ -128,14 +128,6 @@
 					"instances":[ 
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/activite-service/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/nouveau/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -159,13 +151,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "141"
+					"sourceid": "132"
 				},
 				{
 					"pluginid": "10063",
@@ -293,7 +285,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.3cc2ab40.css",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -301,7 +293,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.ff9003a6.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -363,7 +355,7 @@
 					"reference": "<p>http://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>http://msdn.microsoft.com/en-us/library/ff648552.aspx#ht_urlscan_007</p><p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "86"
+					"sourceid": "84"
 				},
 				{
 					"pluginid": "10021",
@@ -393,6 +385,14 @@
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -440,14 +440,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -470,7 +462,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -483,20 +475,20 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.3cc2ab40.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5",
-							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
 							"otherinfo": "GIF89a\\x0001\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000!\uFFFD\\x0004\\x0001\n\\x0000\\x0001\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0002L\\x0001\\x0000;"
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.ff9003a6.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5",
+							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/scripts/dsfr.nomodule.min.js",
@@ -533,11 +525,11 @@
 					],
 					"count": "6",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn</p>",
+					"otherinfo": "<p>GIF89a\\x0001\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000!\uFFFD\\x0004\\x0001</p><p>\\x0000\\x0001\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0002L\\x0001\\x0000;</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "100"
+					"sourceid": "96"
 				},
 				{
 					"pluginid": "10019",
@@ -564,39 +556,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/votre-avis",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/votre-avis/amelioration",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/votre-avis/probleme",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "2",
 					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "37"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "10027",
@@ -609,31 +577,23 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"`)),H=\"mailto:\"+(Ur(\",\",E)+mf(r([p,R])));return a(rt,d,r([tu(H,d,r([h(\"Demander la suppression d'un collaborateur\")]))]))}(),yt(\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "dB",
-							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 3 times, the first in the element starting with: \"const Iye=function(){const Fe=document.createElement(\"link\").relList;if(Fe&&Fe.supports&&Fe.supports(\"modulepreload\"))return;for\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 5 times, the first in the element starting with: \"const n9e=function(){const qe=document.createElement(\"link\").relList;if(qe&&qe.supports&&qe.supports(\"modulepreload\"))return;for\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "debug",
-							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"      `)),this.chart=Ex.exports.chart(this.container,this.config),requestAnimationFrame(()=>{this.chart.reflow()})}disconnectedC\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"      `)),this.chart=zx.exports.chart(this.container,this.config),requestAnimationFrame(()=>{this.chart.reflow()})}disconnectedC\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -641,12 +601,12 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"Erreur de r\\xE9cup\\xE9ration de l'en-t\\xEAte HTTP : \"content-length\"`),this.update()})}update(){if(this.isLegacy&&(this.length=-\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.bd335e72.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.c2308f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 4 times, the first in the element starting with: \"Merci\\xA0!`))),pe=\"mailto:\"+(Ur(\",\",H)+mf(r([R,se])));return tu(pe,d,r([h(\"Contactez-nous\")]))}()]))]))}()]))]))])),a($,r([Et]),\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 3 times, the first in the element starting with: \"Merci\\xA0!`))),ce=\"mailto:\"+(Gr(\",\",H)+_f(r([R,ae])));return nu(ce,p,r([h(\"Contactez-nous\")]))}()]))]))}()]))]))])),a($,r([Et]),\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/scripts/dsfr.module.min.js",
@@ -665,13 +625,13 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){\"use strict\";var t=function(){this.modules={}},e={isActive:{configurable:!0},isLegacy:{configurable:!0}};t.prototype\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"`)),H=\"mailto:\"+(Ur(\",\",E)+mf(r([p,R])));return a(rt,d,r([tu(H,d,r([h(\"Demander la suppression d'un collaborateur\")]))]))}(),yt(\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bDB\\b and was detected 5 times, the first in the element starting with: \"const n9e=function(){const qe=document.createElement(\"link\").relList;if(qe&&qe.supports&&qe.supports(\"modulepreload\"))return;for\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "111"
+					"sourceid": "96"
 				},
 				{
 					"pluginid": "10109",
@@ -712,7 +672,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.bd335e72.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.c2308f40.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -760,7 +720,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.bd335e72.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.c2308f40.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -768,7 +728,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.bd335e72.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.c2308f40.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -885,7 +845,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -906,7 +866,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -914,7 +874,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -928,7 +888,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -949,7 +909,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -957,7 +917,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -971,7 +931,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -992,7 +952,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1000,7 +960,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1014,7 +974,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1035,7 +995,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1043,7 +1003,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1057,7 +1017,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1071,6 +1031,22 @@
 					"instances":[ 
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/faq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1094,14 +1070,6 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
 							"method": "GET",
 							"param": "",
@@ -1110,13 +1078,13 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "39"
+					"sourceid": "67"
 				},
 				{
 					"pluginid": "10049",
@@ -1153,14 +1121,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/favicon/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1177,13 +1137,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				}
 			]
 		}
