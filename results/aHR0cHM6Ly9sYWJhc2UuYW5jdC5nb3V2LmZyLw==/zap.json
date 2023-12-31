@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 01:41:43",
+	"@generated": "Sun, 31 Dec 2023 01:40:28",
 	"site":[ 
 		{
 			"@name": "https://labase.anct.gouv.fr",
@@ -9,6 +9,41 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "2",
+					"riskdesc": "High (Medium)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://labase.anct.gouv.fr/page/a-propos",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2416388775487351",
+							"otherinfo": "Credit Card Type detected: Mastercard"
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/recherche?dataType=bases",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2416388775487351",
+							"otherinfo": "Credit Card Type detected: Mastercard"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
+					"otherinfo": "<p>Credit Card Type detected: Mastercard</p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "77"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038-1",
@@ -218,6 +253,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "",
@@ -235,14 +278,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/main.d209f02e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/selector.vue_vue_type_script_setup_true_lang.92cb2d7d.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -630,14 +665,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/focusOut.55dac9f5.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -687,6 +714,14 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/useFullWidth.2a18a1c3.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/validation.1f8f68ef.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -745,7 +780,7 @@
 							"otherinfo": ".\uFFFD\"r'\uFFFD\uFFFDM\\x0000\uFFFD\uFFFD!x\uFFFD\uFFFDz{\\x001eU\uFFFD\uC289\uFFFD"
 						},
 						{
-							"uri": "https://labase.anct.gouv.fr/page/charte",
+							"uri": "https://labase.anct.gouv.fr/page/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1024,9 +1059,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1059,9 +1102,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1094,9 +1145,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1129,9 +1188,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://labase.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1166,6 +1233,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://labase.anct.gouv.fr/_nuxt/entry.cddf6bca.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/index.62543d72.js",
 							"method": "GET",
 							"param": "",
@@ -1183,14 +1258,6 @@
 						},
 						{
 							"uri": "https://labase.anct.gouv.fr/_nuxt/main.d209f02e.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://labase.anct.gouv.fr/_nuxt/selector.vue_vue_type_script_setup_true_lang.92cb2d7d.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1271,7 +1338,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "93"
+					"sourceid": "57"
 				}
 			]
 		}
