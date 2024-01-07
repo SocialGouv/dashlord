@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 31 Dec 2023 00:33:54",
+	"@generated": "Sun, 7 Jan 2024 00:34:42",
 	"site":[ 
 		{
 			"@name": "https://collectivite.fr",
@@ -111,7 +111,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/hoisted.414db91e.js",
+							"uri": "https://collectivite.fr/_astro/hoisted.d1fad544.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -119,7 +119,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/hoisted.d1fad544.js",
+							"uri": "https://collectivite.fr/_astro/hoisted.ea2df26b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -136,14 +136,6 @@
 						},
 						{
 							"uri": "https://collectivite.fr/donnees-personnelles",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://collectivite.fr/espace-commune",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -189,6 +181,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://collectivite.fr/styles/dsfr/dsfr.module.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -218,7 +218,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/carte-nationale-identite.c9e37d94.css",
+							"uri": "https://collectivite.fr/_astro/carte-nationale-identite.93913f3a.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -226,7 +226,15 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/index.d6e4621a.css",
+							"uri": "https://collectivite.fr/_astro/hoisted.ea2df26b.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://collectivite.fr/_astro/index.60cdfc19.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -298,7 +306,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
@@ -339,7 +347,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "31"
+					"sourceid": "34"
 				},
 				{
 					"pluginid": "10027",
@@ -366,7 +374,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "53"
+					"sourceid": "46"
 				},
 				{
 					"pluginid": "10015",
@@ -500,7 +508,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -543,7 +551,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -586,7 +594,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -629,7 +637,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -650,7 +658,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/carte-nationale-identite.c9e37d94.css",
+							"uri": "https://collectivite.fr/_astro/carte-nationale-identite.93913f3a.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -658,7 +666,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://collectivite.fr/_astro/index.d6e4621a.css",
+							"uri": "https://collectivite.fr/_astro/index.60cdfc19.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
