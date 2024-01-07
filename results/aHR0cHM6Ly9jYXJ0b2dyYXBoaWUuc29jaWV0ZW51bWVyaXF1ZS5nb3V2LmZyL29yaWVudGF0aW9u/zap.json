@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 31 Dec 2023 01:22:22",
+	"@generated": "Sun, 7 Jan 2024 01:25:58",
 	"site":[ 
 		{
 			"@name": "https://cartographie.societenumerique.gouv.fr",
@@ -34,17 +34,9 @@
 							"attack": "",
 							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>frame-ancestors, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -77,23 +69,15 @@
 							"attack": "",
 							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
 							"otherinfo": "script-src includes unsafe-eval."
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
-							"otherinfo": "script-src includes unsafe-eval."
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-eval.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10055",
@@ -120,23 +104,15 @@
 							"attack": "",
 							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
 							"otherinfo": "script-src includes unsafe-inline."
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
-							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10055",
@@ -163,23 +139,15 @@
 							"attack": "",
 							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
 							"otherinfo": "style-src includes unsafe-inline."
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'self' data: https://*.gouv.fr https://openmaptiles.github.io ; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://*.gouv.fr; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gouv.fr blob:; style-src 'self' 'unsafe-inline';",
-							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10036",
@@ -208,7 +176,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-114x114.png",
+							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -217,6 +185,14 @@
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "AmazonS3",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-60x60.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -272,13 +248,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress the \"Server\" header or provide generic details.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>http://msdn.microsoft.com/en-us/library/ff648552.aspx#ht_urlscan_007</p><p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10094",
@@ -295,113 +271,105 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "K_FisqzXX481pM4luWatQIJ8xbuhFLpjn9wp73a80-DT3TdUjU3Xzw==",
-							"otherinfo": "+\uFFFDb\uFFFD\uFFFD\uFFFD_\uFFFD5\uFFFD\uFFFD%\uFFFDf\uFFFD@\uFFFD|\u017B\uFFFD\\x0014\uFFFDc\uFFFD\uFFFD)\uFFFDv\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD7T\uFFFDM\uFFFD\uFFFD"
+							"evidence": "Xrk5f62A3XUcWqICBK5rXdSBt-dXaId151hMsW97WHpHbS5AmhRYxg==",
+							"otherinfo": "^\uFFFD9\uFFFD\uFFFD\uFFFDu\\x001cZ\uFFFD\\x0002\\x0004\uFFFDk]\u0501\uFFFD\uFFFDWh\uFFFDu\uFFFDXL\uFFFDo{XzGm.@\uFFFD\\x0014X\uFFFD"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "NP2FOHeFCxXKor1LC0RPUmeTKDfIhWrPOsAyE60kwoc0aIPy19rIIg==",
-							"otherinfo": "4\uFFFD\uFFFD8w\uFFFD\\x000b\\x0015\u02A2\uFFFDK\\x000bDORg\uFFFD(7\u0205j\uFFFD:\uFFFD2\\x0013\uFFFD$\u00874h\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\""
+							"evidence": "qPrb6YPgimDpgzBrw6AKIPMYdynDDJeP98fPyR85vg3vfWJLUJaYTg==",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD`\uFFFD0k\u00E0\n \uFFFD\\x0018w)\uFFFD\\x000c\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001f9\uFFFD\r\uFFFD}bKP\uFFFD\uFFFDN"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/app.webmanifest",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "yS4O-Olitz4bybO-DiGvLWkbAJBZGOUmul4-QkFxP2dF9Nd0ms8v6g==",
-							"otherinfo": "\uFFFD.\\x000e\uFFFD\uFFFDb\uFFFD>\\x001b\u0273\uFFFD\\x000e!\uFFFD-i\\x001b\\x0000\uFFFDY\\x0018\uFFFD&\uFFFD^>BAq?gE\uFFFD\uFFFDt\uFFFD\uFFFD/\uFFFD"
+							"evidence": "dqfcgcQsNbdQUEf828vf-qLaDTK9cfkYJfm-u5h063_5YJVvIUqJSw==",
+							"otherinfo": "v\uFFFD\u0701\uFFFD,5\uFFFDPPG\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r2\uFFFDq\uFFFD\\x0018%\uFFFD\uFFFD\uFFFD\uFFFDt\uFFFD\uFFFD`\uFFFDo!J\uFFFDK"
 						},
 						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-114x114.png",
+							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "G47aNnZ_JoCHv9CGZfX_CAAhOyxC0V8NWd1wWP71vwFlQm3kCcoWUw==",
-							"otherinfo": "\\x001b\uFFFD\uFFFD6v&\uFFFD\uFFFD\uFFFD\u0406e\uFFFD\uFFFD\\x0008\\x0000!;,B\uFFFD_\rY\uFFFDpX\uFFFD\uFFFD\uFFFD\\x0001eBm\uFFFD\t\uFFFD\\x0016S"
+							"evidence": "74dsR1Yz6Z_mJS64TpCZ2hl03e-3Ae5Nujhu1A10UEXqeMsickFBFQ==",
+							"otherinfo": "\uFFFDlGV3\uFFFD\uFFFD%.\uFFFDN\uFFFD\uFFFD\uFFFD\\x0019t\uFFFD\uFFFD\\x0001\uFFFDM\uFFFD8n\uFFFD\rtPE\uFFFDx\uFFFD\"rAA\\x0015"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "R266ZxEbQruPnUCW1CvgZearfmMMg73zI4or2cDmLbX6tZJITaJiKA==",
-							"otherinfo": "Gn\uFFFDg\\x0011\\x001bB\uFFFD\uFFFD\uFFFD@\uFFFD\uFFFD+\uFFFDe\uFFFD~c\\x000c\uFFFD\uFFFD\uFFFD#\uFFFD+\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFDHM\uFFFDb("
+							"evidence": "3ImRvyMwGsfag_RCECQVA0B7QOZsdE9mSe0YyPwu8woPt7sBDo6wlA==",
+							"otherinfo": "\u0709\uFFFD\uFFFD#0\\x001a\uFFFD\u0683\uFFFDB\\x0010$\\x0015\\x0003@{@\uFFFDltOfI\uFFFD\\x0018\uFFFD\uFFFD.\uFFFD\n\\x000f\uFFFD\uFFFD\\x0001\\x000e\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-60x60.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "34FaqjbAUB3QYzAHxuN9g8sVEYuRlzxReSvAJV00oJBv-BhVrCKM_g==",
-							"otherinfo": "\u07C1Z\uFFFD6\uFFFDP\\x001d\uFFFDc0\\x0007\uFFFD\uFFFD}\uFFFD\uFFFD\\x0015\\x0011\uFFFD\uFFFD\uFFFD<Qy+\uFFFD%]4\uFFFD\uFFFDo\uFFFD\\x0018U\uFFFD\"\uFFFD\uFFFD"
+							"evidence": "4PXY4qFsCSzL8zeVhDtr-vUIRB9S9uWFUX3V18_-u7x8gMZ-w_Dt6Q==",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFDl\t,\uFFFD\uFFFD7\uFFFD\uFFFD;k\uFFFD\uFFFD\\x0008D\\x001fR\uFFFD\uFFFDQ}\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD|\uFFFD\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-72x72.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "KGvaDJ5OKtBJbSAZ8kHJRV_4l05lEEK2fR8mPsUwGHtSHOq6nhbA7Q==",
-							"otherinfo": "(k\uFFFD\\x000c\uFFFDN*\uFFFDIm \\x0019\uFFFDA\uFFFDE_\uFFFD\uFFFDNe\\x0010B\uFFFD}\\x001f&>\uFFFD0\\x0018{R\\x001c\uAE9E\\x0016\uFFFD\uFFFD"
+							"evidence": "svfe6NVEp_KL5Tf_AKlj4MUayDFXAcyJKYwbORkSXvWnlbX1Q_HUEw==",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDD\uFFFD\uFFFD\uFFFD7\uFFFD\\x0000\uFFFDc\uFFFD\uFFFD\\x001a\uFFFD1W\\x0001\u0309)\uFFFD\\x001b9\\x0019\\x0012^\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\\x0013"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-76x76.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "-xHRZSJ35FW-AH--uICuSkgaHJQjBVOzTs4ANd98tVoGMg1Hl7vfkw==",
-							"otherinfo": "\uFFFD\\x0011\uFFFDe\"w\uFFFDU\uFFFD\\x0000\uFFFD\uFFFD\uFFFD\uFFFDJH\\x001a\\x001c\uFFFD#\\x0005S\uFFFDN\uFFFD\\x00005\uFFFD|\uFFFDZ\\x00062\rG\uFFFD\uFFFD\u07D3"
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "uS_ZqN1aXkQGoJ8Z2Fx4QxdBExWuPoR0DVCZEidj__eXklgdMTofOw==",
-							"otherinfo": "\uFFFD/\u0668\uFFFDZ^D\\x0006\uFFFD\uFFFD\\x0019\uFFFD\\xC\\x0017A\\x0013\\x0015\uFFFD>\uFFFDt\rP\uFFFD\\x0012'c\uFFFD\uFFFD\uFFFD\uFFFDX\\x001d1:\\x001f;"
+							"evidence": "5XBBSHI4ByGg69Z4rWNt6fTe0suduS-tubXR9R4oafwFygTd3M6dNw==",
+							"otherinfo": "\uFFFDpAHr8\\x0007!\uFFFD\uFFFD\uFFFDx\uFFFDcm\uFFFD\uFFFD\uFFFD\uFFFD\u02DD\uFFFD/\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001e(i\uFFFD\\x0005\uFFFD\\x0004\uFFFD\uFFFD\u039D7"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/orientation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "XAyQK7ZMHyfgXRofXY9Gav6axZPhqlEa701SBiRjMXlwqQLMPywC9Q==",
-							"otherinfo": "\\\\x000c\uFFFD+\uFFFDL\\x001f'\uFFFD]\\x001a\\x001f]\uFFFDFj\uFFFD\uFFFD\u0153\uFFFDQ\\x001a\uFFFDMR\\x0006$c1yp\uFFFD\\x0002\uFFFD?,\\x0002\uFFFD"
+							"evidence": "qGplsjslQfgeO1j3aNRYiIbDiMiIcLR6oJvyd_AT-0mEeQJXyLfVNg==",
+							"otherinfo": "\uFFFDje\uFFFD;%A\uFFFD\\x001e;X\uFFFDh\uFFFDX\uFFFD\uFFFD\u00C8\u0208p\uFFFDz\uFFFD\uFFFD\uFFFDw\uFFFD\\x0013\uFFFDI\uFFFDy\\x0002W\u0237\uFFFD6"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/orientation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2RS_MpCJUza5wMg84eB-NdfUTg6g_9zcUhkdW5K9VXhGch0WVwwEmw==",
-							"otherinfo": "\uFFFD\\x0014\uFFFD2\uFFFD\uFFFDS6\uFFFD\uFFFD\uFFFD<\uFFFD\uFFFD~5\uFFFD\uFFFDN\\x000e\uFFFD\uFFFD\uFFFD\uFFFDR\\x0019\\x001d[\uFFFD\uFFFDUxFr\\x001d\\x0016W\\x000c\\x0004\uFFFD"
+							"evidence": "7PBmI7BvT4W_JiZgqkuoE9LBVmEU1EonsBVzGoBZ7kv51py93_9vPw==",
+							"otherinfo": "\uFFFD\uFFFDf#\uFFFDoO\uFFFD\uFFFD&&`\uFFFDK\uFFFD\\x0013\uFFFD\uFFFDVa\\x0014\uFFFDJ'\uFFFD\\x0015s\\x001a\uFFFDY\uFFFDK\uFFFD\u059C\uFFFD\uFFFD\uFFFDo?"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ekSg2mkEgNO-kLu4EdLKwk2naB9usPpCOqZDOcR58ESwrQlr9BNNXQ==",
-							"otherinfo": "zD\uFFFD\uFFFDi\\x0004\uFFFD\u04FE\uFFFD\uFFFD\uFFFD\\x0011\uFFFD\uFFFD\uFFFDM\uFFFDh\\x001fn\uFFFD\uFFFDB:\uFFFDC9\uFFFDy\uFFFDD\uFFFD\uFFFD\tk\uFFFD\\x0013M]"
+							"evidence": "o6lytGK1Jq6_v4fEqa4bQXTLvRsg2YeJ23p4M2QQHqLkuy9Y-NVLVw==",
+							"otherinfo": "\uFFFD\uFFFDr\uFFFDb\uFFFD&\uFFFD\uFFFD\uFFFD\uFFFD\u0129\uFFFD\\x001bAt\u02FD\\x001b \u0647\uFFFD\uFFFDzx3d\\x0010\\x001e\uFFFD\uFFFD/X\uFFFD\uFFFDKW"
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "XFHGwo1mSr5wKX_wFtDs8t8qvrFIyG0hsx2Me2A-Y_zCiSmPPobXVw==",
-							"otherinfo": "\\Q\uFFFD\u008DfJ\uFFFDp)\uFFFD\\x0016\uFFFD\uFFFD\uFFFD\uFFFD*\uFFFD\uFFFDH\uFFFDm!\uFFFD\\x001d\uFFFD{`>c\uFFFD\u0089)\uFFFD>\uFFFD\uFFFDW"
+							"evidence": "54OmBm1SiPrpBYHn1D2CPnKvQRMCq5IHj_bs7MbVj9ztW0SpVE_F4Q==",
+							"otherinfo": "\u70E6\\x0006mR\uFFFD\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\uFFFD=\uFFFD>r\uFFFDA\\x0013\\x0002\uFFFD\uFFFD\\x0007\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u054F\uFFFD\uFFFD[D\uFFFDTO\uFFFD\uFFFD"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>+\uFFFDb\uFFFD\uFFFD\uFFFD_\uFFFD5\uFFFD\uFFFD%\uFFFDf\uFFFD@\uFFFD|\u017B\uFFFD\\x0014\uFFFDc\uFFFD\uFFFD)\uFFFDv\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD7T\uFFFDM\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>^\uFFFD9\uFFFD\uFFFD\uFFFDu\\x001cZ\uFFFD\\x0002\\x0004\uFFFDk]\u0501\uFFFD\uFFFDWh\uFFFDu\uFFFDXL\uFFFDo{XzGm.@\uFFFD\\x0014X\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10027",
@@ -479,7 +447,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10015",
@@ -563,15 +531,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 95",
-							"otherinfo": "The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use."
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/orientation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 96",
+							"evidence": "Age: 76",
 							"otherinfo": "The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -579,7 +539,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 96",
+							"evidence": "Age: 76",
 							"otherinfo": "The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -587,7 +547,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 96",
+							"evidence": "Age: 76",
 							"otherinfo": "The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -599,7 +559,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -632,23 +592,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -675,23 +627,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -718,23 +662,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -761,23 +697,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10049",
@@ -806,7 +734,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-114x114.png",
+							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-120x120.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -815,6 +743,14 @@
 						},
 						{
 							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-57x57.png",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://cartographie.societenumerique.gouv.fr/assets/favicon/apple-touch-icon-60x60.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -870,13 +806,13 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "3"
 				}
 			]
 		}
