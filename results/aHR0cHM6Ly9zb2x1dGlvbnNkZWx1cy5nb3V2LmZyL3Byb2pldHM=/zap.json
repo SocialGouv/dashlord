@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 31 Dec 2023 01:19:55",
+	"@generated": "Sun, 7 Jan 2024 01:20:22",
 	"site":[ 
 		{
 			"@name": "https://solutionsdelus.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "118"
+					"sourceid": "82"
 				},
 				{
 					"pluginid": "10055",
@@ -135,6 +135,14 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data: https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; frame-src https://www.youtube-nocookie.com/ https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
@@ -143,13 +151,13 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>style-src, font-src</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10055",
@@ -170,6 +178,14 @@
 							"otherinfo": "script-src includes unsafe-eval."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data: https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; frame-src https://www.youtube-nocookie.com/ https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-eval."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
@@ -178,13 +194,13 @@
 							"otherinfo": "script-src includes unsafe-eval."
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-eval.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10055",
@@ -205,6 +221,14 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data: https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; frame-src https://www.youtube-nocookie.com/ https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
@@ -213,13 +237,13 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10055",
@@ -240,6 +264,14 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "content-security-policy",
+							"attack": "",
+							"evidence": "default-src 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data: https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; frame-src https://www.youtube-nocookie.com/ https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; object-src 'none'; connect-src 'self' https://solutionsdelus-documents-main.s3.fr-par.scw.cloud https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://sentry.incubateur.net https://openmaptiles.geo.data.gouv.fr https://openmaptiles.github.io https://aides-territoires.beta.gouv.fr https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; worker-src 'self' blob:; font-src 'self' https: data:; frame-ancestors 'self' https://matomo.incubateur.anct.gouv.fr https://*.adform.net https://*.adnxs.com https://*.googletagmanager.com https://*.doubleclick.net https://*.licdn.com https://*.linkedin.com https://*.seadform.net https://*.google.com https://*.google.fr; form-action 'self'; base-uri 'self'; upgrade-insecure-requests;",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "content-security-policy",
@@ -248,13 +280,13 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90003",
@@ -291,6 +323,30 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"author\" href=\"https://agence-cohesion-territoires.gouv.fr/\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"author\" href=\"https://conseil-refondation.fr/\"/>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"author\" href=\"https://www.ecologie.gouv.fr/\"/>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
@@ -339,13 +395,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10110",
@@ -372,7 +428,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "392"
+					"sourceid": "394"
 				},
 				{
 					"pluginid": "10063",
@@ -463,23 +519,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10037",
@@ -570,23 +618,15 @@
 							"attack": "",
 							"evidence": "x-powered-by: Next.js",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10035",
@@ -701,7 +741,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1107"
+					"sourceid": "1099"
 				},
 				{
 					"pluginid": "10096",
@@ -744,7 +784,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "392"
+					"sourceid": "394"
 				},
 				{
 					"pluginid": "10021",
@@ -859,7 +899,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1107"
+					"sourceid": "1099"
 				},
 				{
 					"pluginid": "10094",
@@ -958,7 +998,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10027",
@@ -1049,23 +1089,15 @@
 							"attack": "",
 							"evidence": "user",
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>self.__next_f.push([1,\"2:[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/9118da26d4813f45.c\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10109",
@@ -1156,23 +1188,15 @@
 							"attack": "",
 							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Attractivit%C3%A9%20et%20revitalisation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Solutions d&#x27;\u00E9lus\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "3"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10049",
@@ -1306,7 +1330,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1319,7 +1343,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1327,7 +1351,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1335,13 +1367,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1354,7 +1386,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1362,7 +1394,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1370,13 +1410,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1389,7 +1429,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1397,7 +1437,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1405,13 +1453,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1424,7 +1472,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://solutionsdelus.gouv.fr/",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1432,7 +1480,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets",
+							"uri": "https://solutionsdelus.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1440,13 +1496,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "8"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1507,15 +1563,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/reinvestir-les-friches-pour-limiter-letalement-urbain",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets/tramayes-une-petite-ville-de-demain-energie-positive",
+							"uri": "https://solutionsdelus.gouv.fr/projets/renforcer-la-resilience-alimentaire-dune-petite-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1523,13 +1571,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "7",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10049",
@@ -1564,7 +1612,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10031",
@@ -1657,20 +1705,20 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Ing%C3%A9nierie%20sur%20mesure\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Ing\u00E9nierie sur mesure\r\n\r\nThe user-controlled value was:\r\ning\u00E9nierie sur mesure"
 						},
 						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Logement et cadre de vie\r\n\r\nThe user-controlled value was:\r\nlogement et cadre de vie"
+						},
+						{
 							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne",
 							"method": "GET",
 							"param": "thematiques",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Participation citoyenne\r\n\r\nThe user-controlled value was:\r\nparticipation citoyenne"
-						},
-						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public",
-							"method": "GET",
-							"param": "thematiques",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=Services au public\r\n\r\nThe user-controlled value was:\r\nservices au public"
 						}
 					],
 					"count": "12",
