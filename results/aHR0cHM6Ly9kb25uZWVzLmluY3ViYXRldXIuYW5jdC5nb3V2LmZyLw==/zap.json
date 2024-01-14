@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 00:50:17",
+	"@generated": "Sun, 14 Jan 2024 00:51:06",
 	"site":[ 
 		{
 			"@name": "https://donnees.incubateur.anct.gouv.fr",
@@ -74,7 +74,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "19"
 				},
 				{
 					"pluginid": "10020",
@@ -86,6 +86,14 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/accessibilite",
 							"method": "GET",
@@ -111,13 +119,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "54"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10063",
@@ -138,7 +146,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/250-80d2b0d98122066c.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/749-9e6abc200a39dcda.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -146,7 +154,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/749-9e6abc200a39dcda.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/938-d720979c72f4c00c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -224,7 +232,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10036",
@@ -253,14 +261,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "nginx/1.18.0 (Ubuntu)",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "",
@@ -277,7 +277,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Medium.452138fa.woff2",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Bold.f0ef9bad.woff2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -318,6 +318,14 @@
 						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.18.0 (Ubuntu)",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -366,7 +374,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "43"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10096",
@@ -454,15 +462,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/favicon.f453a8cf.svg",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Medium.452138fa.woff2",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Bold.f0ef9bad.woff2",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -487,6 +487,14 @@
 						},
 						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -607,7 +615,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -706,7 +714,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "68"
+					"sourceid": "73"
 				},
 				{
 					"pluginid": "10109",
@@ -824,7 +832,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "19"
 				},
 				{
 					"pluginid": "90005",
@@ -837,7 +845,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/webpack-f71c405ef098a6d4.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -845,7 +853,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -853,7 +861,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -867,7 +875,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "41"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -880,7 +888,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/webpack-f71c405ef098a6d4.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -888,7 +896,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -896,7 +904,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -910,7 +918,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "41"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -923,7 +931,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/webpack-f71c405ef098a6d4.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -931,7 +939,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -939,7 +947,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -953,7 +961,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "41"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -966,7 +974,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/chunks/webpack-f71c405ef098a6d4.js",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -974,7 +982,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -982,7 +990,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/stats",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -996,7 +1004,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "41"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1025,14 +1033,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/1290367f5a838010.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/css/6bec5ce18f33d9ee.css",
 							"method": "GET",
 							"param": "",
@@ -1049,7 +1049,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/favicon.f453a8cf.svg",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Bold.f0ef9bad.woff2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1057,7 +1057,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Medium.452138fa.woff2",
+							"uri": "https://donnees.incubateur.anct.gouv.fr/_next/static/media/Marianne-Regular.119b3a3e.woff2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1095,6 +1095,14 @@
 							"attack": "",
 							"evidence": "max-age=600",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://donnees.incubateur.anct.gouv.fr/toolbox/grist",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -1103,7 +1111,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				}
 			]
 		}
