@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 01:57:41",
+	"@generated": "Sun, 14 Jan 2024 02:02:21",
 	"site":[ 
 		{
 			"@name": "https://pcrs.beta.gouv.fr",
@@ -45,14 +45,6 @@
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=640&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -116,13 +108,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10020",
@@ -134,6 +126,14 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
+						{
+							"uri": "https://pcrs.beta.gouv.fr/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/blog",
 							"method": "GET",
@@ -151,6 +151,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/blog/les-donnees-produites-pour-suivre-le-pcrs",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/lexperience-de-la-communaute-dagglomeration-du-cotentin-sur-le-pcrs",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -160,14 +168,6 @@
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/mise-en-ligne-dun-nouveau-portail-de-publication-des-livrables-pcrs",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog/vers-un-suivi-collaboratif-des-pcrs",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -215,13 +215,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "69"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90022",
@@ -233,6 +233,14 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
+						{
+							"uri": "https://pcrs.beta.gouv.fr/blog/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=256&q=75",
 							"method": "GET",
@@ -251,14 +259,6 @@
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/blog/https%3A%2F%2Fghost.pcrs.beta.gouv.fr%2Fcontent%2Fimages%2F2023%2F01%2Fillust_pcrs.webp&w=1080&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog/https%3A%2F%2Fghost.pcrs.beta.gouv.fr%2Fcontent%2Fimages%2F2023%2F01%2Fillust_pcrs.webp&w=2048&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -336,7 +336,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "199"
+					"sourceid": "221"
 				},
 				{
 					"pluginid": "10063",
@@ -464,6 +464,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/767-7aa7b4a042725d16.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: Express",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/pages/_app-12f0e3bb404f26b0.js",
 							"method": "GET",
 							"param": "",
@@ -477,14 +485,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "X-Powered-By: Express",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/declaration-accessibilite",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: Next.js",
 							"otherinfo": ""
 						},
 						{
@@ -598,6 +598,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/0-1873bfda86357cd5.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/767-7aa7b4a042725d16.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -615,14 +623,6 @@
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/webpack-923a1b08d5bdf808.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -701,93 +701,93 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=2048&q=75",
+							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+						},
+						{
+							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=256&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Flogos%2Flogo-pcrsgouvfr.png&w=640&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/declaration-accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/evenements",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/gestion-suivi",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/suivi-pcrs",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/fGZZ_iJyo1l14_4_jArTd/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/ok4K0mYDg51Wgj66Buw-8/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDe\uFFFD\uFFFD'*5\uFFFD^?\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2</p>",
+					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD$\uFFFD&`89\uFFFDh#\uFFFDn\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -810,6 +810,14 @@
 							"attack": "",
 							"evidence": "query",
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"testimonies\":[]},\"__N_SSP\":true},\"page\":\"/\",\"query\":{\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/0-1873bfda86357cd5.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[0],{6e3:function(e,a,r){r.d(a,{Z:function(){return u}});va\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/_next/static/chunks/767-7aa7b4a042725d16.js",
@@ -849,7 +857,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/evenements\",\"query\":{},\"buildId\":\"fGZZ_iJy\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/evenements\",\"query\":{},\"buildId\":\"ok4K0mYD\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/gestion-suivi",
@@ -857,7 +865,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/gestion-suivi\",\"query\":{},\"buildId\":\"fGZZ_\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/gestion-suivi\",\"query\":{},\"buildId\":\"ok4K0\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/mentions-legales",
@@ -865,7 +873,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/mentions-legales\",\"query\":{},\"buildId\":\"fG\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/mentions-legales\",\"query\":{},\"buildId\":\"ok\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
@@ -873,7 +881,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/404\",\"query\":{},\"buildId\":\"fGZZ_iJyo1l14_4\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/404\",\"query\":{},\"buildId\":\"ok4K0mYDg51Wgj6\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/sitemap.xml",
@@ -881,7 +889,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/404\",\"query\":{},\"buildId\":\"fGZZ_iJyo1l14_4\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/404\",\"query\":{},\"buildId\":\"ok4K0mYDg51Wgj6\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/suivi-pcrs",
@@ -889,16 +897,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/suivi-pcrs\",\"query\":{},\"buildId\":\"fGZZ_iJy\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/suivi-pcrs\",\"query\":{},\"buildId\":\"ok4K0mYD\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"testimonies\":[]},\"__N_SSP\":true},\"page\":\"/\",\"query\":{\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -919,7 +927,7 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
-							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=2048&q=75",
+							"uri": "https://pcrs.beta.gouv.fr/%2Fimages%2Fillustrations%2Fpcrs-beta_illustration.png&w=1080&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -941,14 +949,6 @@
 							"attack": "",
 							"evidence": "<noscript data-n-css=\"\"></noscript>",
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
-						},
-						{
-							"uri": "https://pcrs.beta.gouv.fr/blog",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a aria-disabled=\"true\" role=\"link\" class=\"jsx-c15b10fbb39efb2 fr-pagination__link fr-pagination__link--first\">Premi\u00E8re page</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://pcrs.beta.gouv.fr/declaration-accessibilite",
@@ -1007,13 +1007,13 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1099,7 +1099,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "60"
+					"sourceid": "64"
 				},
 				{
 					"pluginid": "90005",
@@ -1112,6 +1112,14 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
+							"uri": "https://pcrs.beta.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1136,13 +1144,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "10"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1155,6 +1163,14 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
+							"uri": "https://pcrs.beta.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1179,13 +1195,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "10"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1198,6 +1214,14 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
+							"uri": "https://pcrs.beta.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1222,13 +1246,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "10"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1241,6 +1265,14 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
+							"uri": "https://pcrs.beta.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://pcrs.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1265,13 +1297,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "10"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1389,7 +1421,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "50"
 				}
 			]
 		}
