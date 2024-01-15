@@ -94,8 +94,8 @@ jobs:
         timeout-minutes: 1
         if: ${{ matrix.sites.tools['dsfr'] }}
         run: |
-          (cat get-html.html | grep -q fr-header__brand) && echo '{"detected": true}' > dsfr.json || echo '{"detected": false}' > dsfr.json
-          cat dsfr.json
+          (cat get-html.html | grep -q fr-header__brand) && echo '{"detected": true}' > dsfr.json || echo '{"detected": false}' > ./scans/dsfr.json
+          cat ./scans/dsfr.json
 
       - name: sonarcloud scan
         if: ${{ matrix.sites.tools.sonarcloud }}
