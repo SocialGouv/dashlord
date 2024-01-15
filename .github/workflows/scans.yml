@@ -20,6 +20,8 @@ on:
           - sonarcloud
           - trivy
           - zap
+          - ecoindex
+          - dsfr
   push:
     branches:
       - master
@@ -50,6 +52,9 @@ jobs:
         with:
           url: ${{ github.event.inputs.url }}
           tool: ${{ github.event.inputs.tool }}
+        env:
+          # to create missing entries in updown.io
+          UPDOWNIO_API_KEY: ${{ secrets.UPDOWNIO_API_KEY }}
 
   scans:
     runs-on: ubuntu-latest
@@ -73,6 +78,24 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: get HTML
+        continue-on-error: true
+        timeout-minutes: 5
+        uses: "socialgouv/dashlord-actions/get-html@v1"
+        if: ${{ matrix.sites.tools['dsfr'] }}
+        with:
+          url: ${{ matrix.sites.url }}
+          output: get-html.html
+
+      - name: Détection DSFR
+        id: html
+        continue-on-error: true
+        timeout-minutes: 1
+        if: ${{ matrix.sites.tools['dsfr'] }}
+        run: |
+          (cat get-html.html | grep -q fr-header__brand) && echo '{"detected": true}' > dsfr.json || echo '{"detected": false}' > dsfr.json
+          cat dsfr.json
 
       - name: sonarcloud scan
         if: ${{ matrix.sites.tools.sonarcloud }}
