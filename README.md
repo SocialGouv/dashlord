@@ -20,23 +20,23 @@ Vous devez éditer le fichier [./dashlord.yml](./dashlord.yaml) et ajouter une e
 Exemple d'entrée pour une URL :
 
 ```yml
-  - url: https://www.free.fr
-    title: Homepage free.fr
-    betaId: free # optionnel, id de la startup sur beta.gouv.fr
-    tags: # optionnel
-      - telecom
-      - provider
-    repositories: # optionnel, pour récupérer les alertes de sécu de ces repos
-      - free/free-ui
-      - free/free-css
-    docker: # optionnel, pour scanner les images avec trivy
-      - ghcr.io/socialgouv/fabrique/frontend
-      - ghcr.io/socialgouv/fabrique/backend
-    tools: # optionnel, pour desactiver certains outils
-      nmap: false
-    pages: # optionnel, pour lancer lighthouse sur des pages supplémentaires
-      - /profil
-      - /mentions
+- url: https://www.free.fr
+  title: Homepage free.fr
+  betaId: free # optionnel, id de la startup sur beta.gouv.fr
+  tags: # optionnel
+    - telecom
+    - provider
+  repositories: # optionnel, pour récupérer les alertes de sécu de ces repos
+    - free/free-ui
+    - free/free-css
+  docker: # optionnel, pour scanner les images avec trivy
+    - ghcr.io/socialgouv/fabrique/frontend
+    - ghcr.io/socialgouv/fabrique/backend
+  tools: # optionnel, pour desactiver certains outils
+    nmap: false
+  pages: # optionnel, pour lancer lighthouse sur des pages supplémentaires
+    - /profil
+    - /mentions
 ```
 
 ### Déployer sa propre version de DashLord :
@@ -81,16 +81,17 @@ Chaque outil peut être activé/désactivé dans le rapport avec la clé `tools`
 | [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action)                 | Scan docker images vulnerabilities     |
 
 ## Configuration
+
 Certains outils nécessitent une configuration supplémentaire :
 
 ### dependabot (détection de vulnérabilités issues des dépendances du projet)
 
 ajouter un secret GitHub `DEPENDABOTALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Dependabot alerts"** en sélectionnant les dépôts à scanner
-      
+
 ### codescan (analyse statique de la qualité de code)
 
 ajouter un secret GitHub `CODESCANALERTS_TOKEN` et lui donner pour valeur un [token d'accès personnel](https://github.com/settings/personal-access-tokens/new) ayant droit de lecture sur **"Code scanning alerts"** en sélectionnant les dépôts à scanner
-      
+
 ### updown.io (Mesures de disponibilité)
 
 DashLord peut monitorer le niveau de performance et de disponibilité de vos applications. (mise en place = 10mins)
@@ -100,12 +101,13 @@ DashLord peut monitorer le niveau de performance et de disponibilité de vos app
 - Activez l'outil avec `updownio: true` dans le fichier dashlord.yml
 - Ajouter votre clé d'API updown.io "readonly" dans un secret GitHub nommé `UPDOWNIO_API_KEY` (onglet settings/secrets)
 
+Si vous fournissez un token `write` à l'action [`init`](https://github.com/SocialGouv/dashlord/blob/48b9362391dc45cf604ceb9d91ee300a028a3021/.github/workflows/scans.yml#L55), les urls manquantes seront automatiquement ajoutées à votre compte updown.io.
+
 ▶ Au prochain scan, les informations updown.io seront remontées dans DashLord
 
 ### customCss :
+
 You can host the css file in your Dashlord repo but the link needs to point to a file with the correct Content-Type Header. See here for [details](https://www.twistblogg.com/2020/06/use-github-for-hosting-files.html)
-
-
 
 ## Contribute
 
