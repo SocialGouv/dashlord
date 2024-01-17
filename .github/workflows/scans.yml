@@ -79,23 +79,14 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: get HTML
+      - name: dsfr
         continue-on-error: true
-        timeout-minutes: 5
-        uses: "socialgouv/dashlord-actions/get-html@v1"
-        if: ${{ matrix.sites.tools['dsfr'] }}
+        timeout-minutes: 10
+        uses: "socialgouv/dashlord-actions/dsfr@v1"
+        if: ${{ matrix.sites.tools.dsfr }}
         with:
           url: ${{ matrix.sites.url }}
-          output: get-html.html
-
-      - name: Détection DSFR
-        id: html
-        continue-on-error: true
-        timeout-minutes: 1
-        if: ${{ matrix.sites.tools['dsfr'] }}
-        run: |
-          (cat get-html.html | grep -q fr-header__brand) && echo '{"detected": true}' > ./scans/dsfr.json || echo '{"detected": false}' > ./scans/dsfr.json
-          cat ./scans/dsfr.json
+          output: scans/dsfr.json
 
       - name: sonarcloud scan
         if: ${{ matrix.sites.tools.sonarcloud }}
