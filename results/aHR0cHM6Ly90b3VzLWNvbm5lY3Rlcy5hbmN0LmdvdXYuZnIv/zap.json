@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 14 Jan 2024 02:02:28",
+	"@generated": "Sun, 21 Jan 2024 01:57:36",
 	"site":[ 
 		{
 			"@name": "https://tous-connectes.anct.gouv.fr",
@@ -47,10 +47,10 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10020",
@@ -77,7 +77,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10063",
@@ -144,11 +144,11 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10035",
-					"alertRef": "10035",
+					"alertRef": "10035-1",
 					"alert": "Strict-Transport-Security Header Not Set",
 					"name": "Strict-Transport-Security Header Not Set",
 					"riskcode": "1",
@@ -224,10 +224,10 @@
 					"count": "8",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10021",
@@ -291,10 +291,10 @@
 					"count": "6",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
-					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10094",
@@ -311,81 +311,81 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TBV1kx1bpxBlMP+Q5tOWQgtUbDFQy8gUvgX9whagq7YOzFgOZG74C32qSYSQVR0edB4TS/lpDD0=",
-							"otherinfo": "L\\x0015u\uFFFD\\x001d[\uFFFD\\x0010e0\uFFFD\uFFFD\uFFFD\u04D6B\\x000bTl1P\uFFFD\uFFFD\\x0014\uFFFD\\x0005\uFFFD\uFFFD\\x0016\uFFFD\uFFFD\uFFFD\\x000e\uFFFDX\\x000edn\uFFFD\\x000b}\uFFFDI\uFFFD\uFFFDU\\x001d\\x001et\\x001e\\x0013K\uFFFDi\\x000c="
+							"evidence": "IBdgwc8HoIwMhTjB17sKTBlHhcEivSrN5efmgdzt4oirCU/ajGZF1VlM1Fk5dowuVNaN8h0e8J0=",
+							"otherinfo": " \\x0017`\uFFFD\uFFFD\\x0007\uFFFD\uFFFD\\x000c\uFFFD8\uFFFD\u05FB\nL\\x0019G\uFFFD\uFFFD\"\uFFFD*\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u222B\tO\u068CfE\uFFFDYL\uFFFDY9v\uFFFD.T\u058D\uFFFD\\x001d\\x001e\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ujL2M9JbnlDC/gRp3WZtGcGjyTEy/LDMH47yNR0ih24ZPpxGPVAW2jsLMQUMT89YJzunHH8pn5A=",
-							"otherinfo": "\uFFFD2\uFFFD3\uFFFD[\uFFFDP\uFFFD\uFFFD\\x0004i\uFFFDfm\\x0019\uFFFD\uFFFD\uFFFD12\uFFFD\uFFFD\uFFFD\\x001f\uFFFD\uFFFD5\\x001d\"\uFFFDn\\x0019>\uFFFDF=P\\x0016\uFFFD;\\x000b1\\x0005\\x000cO\uFFFDX';\uFFFD\\x001c)\uFFFD\uFFFD"
+							"evidence": "cQOWQRMcdazYfBp9FgByx4uM+1lzuutCwl710tkagnbhHw3222+SXLrrgk27AbWYk9csn/43q38=",
+							"otherinfo": "q\\x0003\uFFFDA\\x0013\\x001cu\uFFFD\uFFFD|\\x001a}\\x0016\\x0000r\u01CB\uFFFD\uFFFDYs\uFFFD\uFFFDB\uFFFD^\uFFFD\uFFFD\uFFFD\\x001a\uFFFDv\uFFFD\\x001f\r\uFFFD\uFFFDo\uFFFD\\\uFFFD\uFFFDM\uFFFD\\x0001\uFFFD\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD7\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "4ktWm60UpJJcrFh0DftPzVta6f03P2nMMNfqkXKWxaPqMeT2S/P+LcLWgaoh21OnBDg7cBpP+FI=",
-							"otherinfo": "\uFFFDKV\uFFFD\uFFFD\\x0014\uFFFD\uFFFD\\\uFFFDXt\r\uFFFDO\uFFFD[Z\uFFFD\uFFFD7?i\uFFFD0\uFFFD\uFFFDr\uFFFD\u0163\uFFFD1\uFFFD\uFFFDK\uFFFD\uFFFD-\uFFFD\u0581\uFFFD!\uFFFDS\uFFFD\\x00048;p\\x001aO\uFFFDR"
+							"evidence": "ZEth45ue2fj6kJwm2T9afd/oMse5txZuMDbiufs7m43zyTluq2iuSjzWSpZCrV1rgXWiXQqfhH4=",
+							"otherinfo": "dKa\u36DE\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD&\uFFFD?Z}\uFFFD\uFFFD2\u01F9\uFFFD\\x0016n06\uFFFD\uFFFD;\uFFFD\uFFFD\uFFFD\uFFFD9n\uFFFDh\uFFFDJ<\uFFFDJ\uFFFDB\uFFFD]k\uFFFDu\uFFFD]\n\uFFFD\uFFFD~"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "nvflHbOh4vWg/DZo9/KOceOxe0T7xM+2e8TykSSFJ4yCdF7yf1JskuW0tXI/aAdobuH6iJwhWTA=",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\\x001d\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD6h\uFFFD\uFFFDq\uFFFD{D\uFFFD\uFFFD\u03F6{\uFFFD\uFFFD$\uFFFD'\uFFFD\uFFFDt^\uFFFDRl\uFFFD\u5D35r?h\\x0007hn\uFFFD\uFFFD\uFFFD\uFFFD!Y0"
+							"evidence": "y8TPo3MpCHCkz/6lPEjQAEdSoT11RkMYFeZBNu3ylIpxz4ANig6lgEjs0fSIkuHHBRyqDiYfGIo=",
+							"otherinfo": "\uFFFD\uFFFD\u03E3s)\\x0008p\uFFFD\uFFFD\uFFFD\uFFFD<H\uFFFD\\x0000GR\uFFFD=uFC\\x0018\\x0015\uFFFDA6\uFFFD\uFFFDq\u03C0\r\uFFFD\\x000e\uFFFD\uFFFDH\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0005\\x001c\uFFFD\\x000e&\\x001f\\x0018\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/polyfills.657390f7086ebeb5.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TSQAG1TQU5o6VXdYcj7kvzQa+qbMdYjoVQGRfBbiXbq150KDoZRSeC8hvLgO61r2kmS8y1ZvYHM=",
-							"otherinfo": "M$\\x0000\\x001bT\uFFFDS\uFFFD:UwXr>\uFFFD4\\x001a\uFFFD\uFFFD\uFFFDu\uFFFD\uFFFDU\\x0001\uFFFD|\\x0016\uFFFD]\uFFFD\uFFFD\uFFFDB\uFFFD\uFFFD\uFFFDRx/!\uFFFD\uFFFD\\x000e\uFFFDZ\uFFFD\uFFFDd\uFFFD\uFFFDVo`s"
+							"evidence": "7Z+bdFmf9Vf9R/bVw11KXNUSO8g0dzRhgkZOSMsj4kpI1hLFJffWGre6nl54lZK2SuoKhse6jvU=",
+							"otherinfo": "\uD7DBtY\uFFFD\uFFFDW\uFFFDG\uFFFD\uFFFD\uFFFD]J\\\uFFFD\\x0012;\uFFFD4w4a\uFFFDFNH\uFFFD#\uFFFDJH\uFFFD\\x0012\uFFFD%\uFFFD\uFFFD\\x001a\uFFFD\uFFFD\uFFFD^x\uFFFD\uFFFD\uFFFDJ\uFFFD\n\uFFFD\u01FA\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "yTGcSKHSx2VRtgL+BnfE7xB1Ycqo094hWnsCIChNfvAspqESWpffjFjXChCEiQ/dTATU//vZV20=",
-							"otherinfo": "\uFFFD1\uFFFDH\uFFFD\uFFFD\uFFFDeQ\uFFFD\\x0002\uFFFD\\x0006w\uFFFD\uFFFD\\x0010ua\u02A8\uFFFD\uFFFD!Z{\\x0002 (M~\uFFFD,\uFFFD\uFFFD\\x0012Z\uFFFD\u07CCX\uFFFD\n\\x0010\uFFFD\uFFFD\\x000f\uFFFDL\\x0004\uFFFD\uFFFD\uFFFD\uFFFDWm"
+							"evidence": "AJzH9sh0MFhb1lZeDgU532Smsclx53IUUayHnFd5WQr2bAudNDbkTn3PsnEFICfi9BBLc0K5hFo=",
+							"otherinfo": "\\x0000\uFFFD\uFFFD\uFFFD\uFFFDt0X[\uFFFDV^\\x000e\\x00059\uFFFDd\uFFFD\uFFFD\uFFFDq\uFFFDr\\x0014Q\uFFFD\uFFFD\uFFFDWyY\n\uFFFDl\\x000b\uFFFD46\uFFFDN}\u03F2q\\x0005 '\uFFFD\uFFFD\\x0010KsB\uFFFD\uFFFDZ"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "LgWfdsb9LDO4fBCVZFvZCRZckzN6BQWnGOHiz3SDJTbhjmygvXPuWbItRp5/m2G53/t3jyTIYi8=",
-							"otherinfo": ".\\x0005\uFFFDv\uFFFD\uFFFD,3\uFFFD|\\x0010\uFFFDd[\uFFFD\t\\x0016\\\uFFFD3z\\x0005\\x0005\uFFFD\\x0018\uFFFD\uFFFD\uFFFDt\uFFFD%6\uFFFDl\uFFFD\uFFFDs\uFFFDY\uFFFD-F\uFFFD\uFFFDa\uFFFD\uFFFD\uFFFDw\uFFFD$\uFFFDb/"
+							"evidence": "dzqMJzNF+4bWjKaftXYVvled4wBIWw8F5HJ+7uIlCWaHCBOD2RvJE0HZ0dVwCT62qDWpjoCfQGk=",
+							"otherinfo": "w:\uFFFD'3E\uFFFD\uFFFD\u058C\uFFFD\uFFFD\uFFFDv\\x0015\uFFFDW\uFFFD\uFFFD\\x0000H[\\x000f\\x0005\uFFFDr~\uFFFD\uFFFD%\tf\uFFFD\\x0008\\x0013\uFFFD\uFFFD\\x001b\uFFFD\\x0013A\uFFFD\uFFFD\uFFFDp\t>\uFFFD\uFFFD5\uFFFD\uFFFD\uFFFD\uFFFD@i"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Pd5NllpLaCNrux4Ef2tEsQqcQsJ70675iuQcer5YsbJqNhqKNUfLr/xn7sjiUtxp986bzH5Op+g=",
-							"otherinfo": "=\uFFFDM\uFFFDZKh#k\uFFFD\\x001e\\x0004kD\uFFFD\n\uFFFDB\uFFFD{\u04EE\uFFFD\uFFFD\uFFFD\\x001cz\uFFFDX\uFFFD\uFFFDj6\\x001a\uFFFD5G\u02EF\uFFFDg\uFFFD\uFFFD\uFFFDR\uFFFDi\uFFFD\u039B\uFFFD~N\uFFFD\uFFFD"
+							"evidence": "YppFmdlCqoXPY6ggHBncYIfVqzROJdglZ5ocCQNLXhnldrutSY3DYP19r0q0eDfqNY6FbpZ22N0=",
+							"otherinfo": "b\uFFFDE\uFFFD\uFFFDB\uFFFD\uFFFD\uFFFDc\uFFFD \\x001c\\x0019\uFFFD`\uFFFD\u056B4N%\uFFFD%g\uFFFD\\x001c\t\\x0003K^\\x0019\uFFFDv\uFFFD\uFFFDI\uFFFD\uFFFD`\uFFFD}\uFFFDJ\uFFFDx7\uFFFD5\uFFFD\uFFFDn\uFFFDv\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "qjPV2r122i/xbY8MR3M4/l4BrwF4FoXqggOzMORZn8npiC8gxlVVmUUXrFqpxCw465lg8qdsGIk=",
-							"otherinfo": "\uFFFD3\uFFFD\u06BDv\uFFFD/\uFFFDm\uFFFD\\x000cGs8\uFFFD^\\x0001\uFFFD\\x0001x\\x0016\uFFFD\uFFFD\\x0003\uFFFD0\uFFFDY\uFFFD\uFFFD\uFFFD/ \uFFFDUU\uFFFDE\\x0017\uFFFDZ\uFFFD\uFFFD,8\uFFFD`\uFFFDl\\x0018\uFFFD"
+							"evidence": "RPxAlz18AYv8nZ/wQLIRB7BK5LXNaLy2+iletWjkB3ppisZv+NRqMpTR/9mTuR3zgk3sHBYanRM=",
+							"otherinfo": "D\uFFFD@\uFFFD=|\\x0001\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD@\uFFFD\\x0011\\x0007\uFFFDJ\uFFFD\uFFFDh\uFFFD\uFFFD\uFFFD)^\uFFFDh\uFFFD\\x0007zi\uFFFD\uFFFDo\uFFFD\uFFFDj2\uFFFD\uFFFD\uFFFD\u0653\uFFFD\\x001d\uFFFDM\uFFFD\\x001c\\x0016\\x001a\uFFFD\\x0013"
 						}
 					],
 					"count": "9",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>L\\x0015u\uFFFD\\x001d[\uFFFD\\x0010e0\uFFFD\uFFFD\uFFFD\u04D6B\\x000bTl1P\uFFFD\uFFFD\\x0014\uFFFD\\x0005\uFFFD\uFFFD\\x0016\uFFFD\uFFFD\uFFFD\\x000e\uFFFDX\\x000edn\uFFFD\\x000b}\uFFFDI\uFFFD\uFFFDU\\x001d\\x001et\\x001e\\x0013K\uFFFDi\\x000c=</p>",
+					"otherinfo": "<p> \\x0017`\uFFFD\uFFFD\\x0007\uFFFD\uFFFD\\x000c\uFFFD8\uFFFD\u05FB</p><p>L\\x0019G\uFFFD\uFFFD\"\uFFFD*\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u222B\tO\u068CfE\uFFFDYL\uFFFDY9v\uFFFD.T\u058D\uFFFD\\x001d\\x001e\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10027",
@@ -455,7 +455,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10015",
@@ -482,7 +482,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "90005",
@@ -503,7 +503,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -511,7 +511,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -525,7 +525,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "90005",
@@ -546,7 +546,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -554,7 +554,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -568,7 +568,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "90005",
@@ -589,7 +589,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -597,7 +597,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -611,7 +611,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "90005",
@@ -632,7 +632,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -640,7 +640,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -654,7 +654,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10049",
@@ -737,7 +737,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "7"
 				}
 			]
 		}
