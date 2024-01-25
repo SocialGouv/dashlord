@@ -87,6 +87,14 @@
         "sonarcloud": {
           "type": "boolean",
           "description": "Enable sonarcloud API results"
+        },
+        "budget_page": {
+          "type": "boolean",
+          "description": "Enable budget page detection"
+        },
+        "dsfr": {
+          "type": "boolean",
+          "description": "Enable DSFR detection"
         }
       },
       "required": []
@@ -123,7 +131,52 @@
     "matomoUrl": {
       "type": "string"
     },
-    "tools": { "$ref": "#/definitions/tools" },
+    "operator": {
+      "type": "object",
+      "description": "Ajoute un logo d'opérateur. Soit une URL, soit un objet avec src et direction",
+      "properties": {
+        "logo": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                },
+                "direction": {
+                  "type": "string",
+                  "default": "horizontal",
+                  "enum": [
+                    "horizontal",
+                    "vertical"
+                  ]
+                }
+              },
+              "required": [
+                "src"
+              ]
+            }
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "logo",
+        "name"
+      ]
+    },
+    "updownioStatusPage": {
+      "type": "string",
+      "description": "URL de la page de status updown.io"
+    },
+    "tools": {
+      "$ref": "#/definitions/tools"
+    },
     "urls": {
       "type": "array",
       "items": {
@@ -131,6 +184,9 @@
         "additionalProperties": false,
         "properties": {
           "url": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           },
           "category": {
@@ -148,7 +204,10 @@
           "pages": {
             "type": "array",
             "description": "Additionnal URLs to scan with LightHouse",
-            "examples": ["/actu", "/partners"],
+            "examples": [
+              "/actu",
+              "/partners"
+            ],
             "items": {
               "type": "string"
             }
@@ -156,7 +215,10 @@
           "repositories": {
             "type": "array",
             "description": "Repositories no GitHub",
-            "examples": ["SocialGouv/www", "SocialGouv/template"],
+            "examples": [
+              "SocialGouv/www",
+              "SocialGouv/template"
+            ],
             "items": {
               "type": "string"
             }
@@ -164,16 +226,28 @@
           "docker": {
             "type": "array",
             "description": "Docker images to scan",
-            "examples": ["ghcr.io/socialgouv/www/app"],
+            "examples": [
+              "ghcr.io/socialgouv/www/app"
+            ],
             "items": {
               "type": "string"
             }
           },
-          "tools": { "$ref": "#/definitions/tools" }
+          "tools": {
+            "$ref": "#/definitions/tools"
+          }
         },
-        "required": ["url"]
+        "required": [
+          "url"
+        ]
       }
     }
   },
-  "required": ["title", "description", "entity", "tools", "urls"]
+  "required": [
+    "title",
+    "description",
+    "entity",
+    "tools",
+    "urls"
+  ]
 }
