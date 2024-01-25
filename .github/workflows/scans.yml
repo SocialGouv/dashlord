@@ -79,6 +79,8 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+
+
       - name: dsfr
         continue-on-error: true
         timeout-minutes: 10
@@ -87,6 +89,15 @@ jobs:
         with:
           url: ${{ matrix.sites.url }}
           output: scans/dsfr.json
+
+      - name: eco-index
+        continue-on-error: true
+        timeout-minutes: 10
+        uses: "socialgouv/dashlord-actions/ecoindex@v1"
+        if: ${{ matrix.sites.tools.ecoindex }}
+        with:
+          url: ${{ matrix.sites.url }}
+          output: scans/ecoindex.json
 
       - name: sonarcloud scan
         if: ${{ matrix.sites.tools.sonarcloud }}
