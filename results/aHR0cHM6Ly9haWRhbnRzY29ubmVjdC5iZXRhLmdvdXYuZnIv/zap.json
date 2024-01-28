@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Thu, 25 Jan 2024 16:11:52",
+	"@generated": "Sun, 28 Jan 2024 01:19:37",
 	"site":[ 
 		{
 			"@name": "https://aidantsconnect.beta.gouv.fr",
@@ -63,7 +63,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
+							"uri": "https://aidantsconnect.beta.gouv.fr/cgu/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -71,7 +71,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/donnees-personnelles/",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -138,10 +138,10 @@
 					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>frame-ancestors, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
-					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10098",
@@ -171,14 +171,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/static/css/main-habilitation.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/dsfr/dist/utility/icons/icons.min.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -248,6 +240,14 @@
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *",
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/newsletter-form.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						}
 					],
 					"count": "12",
@@ -256,7 +256,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "101"
+					"sourceid": "102"
 				},
 				{
 					"pluginid": "90003",
@@ -379,7 +379,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10010",
@@ -529,7 +529,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10063",
@@ -622,7 +622,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/youtube-cookie.js",
+							"uri": "https://aidantsconnect.beta.gouv.fr/static/js/newsletter-form.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -663,7 +663,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10094",
@@ -688,11 +688,11 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "MWoUbvHgrccaQOLqGj0nIqOR0f3NyXhb",
-							"otherinfo": "1j\\x0014n\uFFFD\uFFFD\uFFFD\\x001a@\uFFFD\uFFFD\\x001a='\"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDx["
+							"evidence": "guYRmzT131wtkMnZ8kYkGn4J3arsnfxs",
+							"otherinfo": "\uFFFD\uFFFD\\x0011\uFFFD4\uFFFD\uFFFD\\-\uFFFD\uFFFD\uFFFD\uFFFDF$\\x001a~\t\u076A\uFFFD\uFFFDl"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
+							"uri": "https://aidantsconnect.beta.gouv.fr/cgu/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -700,7 +700,7 @@
 							"otherinfo": "\uFFFD\\x0016\uFFFD\uDAFD\uDC17`s\u01F9\uFFFD\uFFFD\u0477\uFFFD^/\uFFFD{L!V\\x0013\uFFFDT\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDU\uFFFD\\x0000\uFFFD\uFFFD\t\\x00119\\x0018\uFFFDJ\uFFFD\uFFFD\uFFFD\u02C3\\x0015\uFFFD\uFFFD2\\x0013\uFFFD"
 						},
 						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/faq/donnees-personnelles/",
+							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -760,8 +760,8 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "MWoUbvHgrccaQOLqGj0nIqOR0f3NyXhb",
-							"otherinfo": "1j\\x0014n\uFFFD\uFFFD\uFFFD\\x001a@\uFFFD\uFFFD\\x001a='\"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDx["
+							"evidence": "guYRmzT131wtkMnZ8kYkGn4J3arsnfxs",
+							"otherinfo": "\uFFFD\uFFFD\\x0011\uFFFD4\uFFFD\uFFFD\\-\uFFFD\uFFFD\uFFFD\uFFFDF$\\x001a~\t\u076A\uFFFD\uFFFDl"
 						}
 					],
 					"count": "11",
@@ -770,7 +770,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -821,7 +821,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "121"
+					"sourceid": "108"
 				},
 				{
 					"pluginid": "10109",
@@ -850,6 +850,14 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/cgu/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a\n    class=\"fr-nav__link\"\n    target=\"_self\"\n    href=\"/\"\n    \n  >\n    Accueil\n  </a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/",
 							"method": "GET",
 							"param": "",
@@ -867,14 +875,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a\n    class=\"fr-nav__link\"\n    target=\"_self\"\n    href=\"/\"\n    \n  >\n    Accueil\n  </a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/guide_utilisation/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -928,7 +928,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -950,6 +950,14 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/cgu/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -982,14 +990,6 @@
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/faq/mandat/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aidantsconnect.beta.gouv.fr/guide_utilisation/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1035,7 +1035,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1224,7 +1224,7 @@
 							"method": "GET",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "MWoUbvHgrccaQOLqGj0nIqOR0f3NyXhb",
+							"evidence": "guYRmzT131wtkMnZ8kYkGn4J3arsnfxs",
 							"otherinfo": "\ncookie:csrftoken"
 						},
 						{
@@ -1232,7 +1232,7 @@
 							"method": "POST",
 							"param": "csrftoken",
 							"attack": "",
-							"evidence": "MWoUbvHgrccaQOLqGj0nIqOR0f3NyXhb",
+							"evidence": "guYRmzT131wtkMnZ8kYkGn4J3arsnfxs",
 							"otherinfo": "\ncookie:csrftoken"
 						}
 					],
@@ -1256,6 +1256,14 @@
 					"instances":[ 
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://aidantsconnect.beta.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1343,13 +1351,13 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -1367,7 +1375,7 @@
 							"param": "email",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/accounts/login/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nemail=zaproxy@example.com\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/accounts/login/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nemail=zaproxy@example.com\n\nThe user-controlled value was:\nzaproxy@example.com"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/accounts/login/",
@@ -1375,7 +1383,7 @@
 							"param": "otp_token",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/accounts/login/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\notp_token=ZAP\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/accounts/login/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\notp_token=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1383,7 +1391,7 @@
 							"param": "email",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nemail=zaproxy@example.com\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nemail=zaproxy@example.com\n\nThe user-controlled value was:\nzaproxy@example.com"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1391,7 +1399,7 @@
 							"param": "first_name",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfirst_name=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nfirst_name=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1399,7 +1407,7 @@
 							"param": "first_name",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfirst_name=ZAP\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nfirst_name=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1407,7 +1415,7 @@
 							"param": "last_name",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nlast_name=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlast_name=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1415,7 +1423,7 @@
 							"param": "last_name",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nlast_name=ZAP\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlast_name=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1423,7 +1431,7 @@
 							"param": "phone",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nphone=9999999999\r\n\r\nThe user-controlled value was:\r\n9999999999"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nphone=9999999999\n\nThe user-controlled value was:\n9999999999"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1431,7 +1439,7 @@
 							"param": "profession",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nprofession=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nprofession=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
 							"uri": "https://aidantsconnect.beta.gouv.fr/habilitation/demandeur/",
@@ -1439,7 +1447,7 @@
 							"param": "profession",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nprofession=ZAP\r\n\r\nThe user-controlled value was:\r\nzaproxy@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://aidantsconnect.beta.gouv.fr/habilitation/demandeur/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nprofession=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
 						}
 					],
 					"count": "10",
@@ -1448,7 +1456,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "132"
+					"sourceid": "139"
 				}
 			]
 		}

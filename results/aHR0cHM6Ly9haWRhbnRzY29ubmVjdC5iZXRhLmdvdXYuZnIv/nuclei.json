@@ -1,22 +1,23 @@
 [
   [
     {
-      "template": "dns/txt-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/txt-fingerprint",
-      "template-id": "txt-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/txt-fingerprint.yaml",
+      "template": "dns/dmarc-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/dmarc-detect",
+      "template-id": "dmarc-detect",
+      "template-path": "/home/runner/nuclei-templates/dns/dmarc-detect.yaml",
       "info": {
-        "name": "DNS TXT Record Detected",
+        "name": "DNS DMARC - Detect",
         "author": [
-          "pdteam"
+          "juliosmelo"
         ],
         "tags": [
           "dns",
-          "txt"
+          "dmarc"
         ],
-        "description": "A DNS TXT record was detected. The TXT record lets a domain admin leave notes on a DNS server.",
+        "description": "DNS DMARC information was detected.\n",
         "reference": [
-          "https://www.netspi.com/blog/technical/network-penetration-testing/analyzing-dns-txt-records-to-fingerprint-service-providers/"
+          "https://dmarc.org/",
+          "https://dmarc.org/wiki/faq#why_is_dmarc_important.3f"
         ],
         "severity": "info",
         "metadata": {
@@ -26,35 +27,39 @@
           "cve-id": null,
           "cwe-id": [
             "cwe-200"
-          ]
+          ],
+          "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
         }
       },
       "type": "dns",
       "host": "aidantsconnect.beta.gouv.fr.",
-      "matched-at": "aidantsconnect.beta.gouv.fr",
+      "matched-at": "_dmarc.aidantsconnect.beta.gouv.fr",
       "extracted-results": [
-        "\"v=spf1 include:spf.mailjet.com include:spf.tipimail.com include:_spf.alwaysdata.com -all\""
+        "\"v=DMARC1; p=none\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 2580\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 2580\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tTXT\t\"v=spf1 include:spf.mailjet.com include:spf.tipimail.com include:_spf.alwaysdata.com -all\"\n",
-      "timestamp": "2024-01-25T16:16:32.40822297Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 18887\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;_dmarc.aidantsconnect.beta.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 18887\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;_dmarc.aidantsconnect.beta.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\n_dmarc.aidantsconnect.beta.gouv.fr.\t300\tIN\tTXT\t\"v=DMARC1; p=none\"\n",
+      "timestamp": "2024-01-28T01:24:46.647797564Z",
       "matcher-status": true
     },
     {
-      "template": "dns/nameserver-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
-      "template-id": "nameserver-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
       "info": {
-        "name": "NS Record Detection",
+        "name": "CAA Record",
         "author": [
           "pdteam"
         ],
         "tags": [
           "dns",
-          "ns"
+          "caa"
         ],
-        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
         "severity": "info",
         "metadata": {
           "max-request": 1
@@ -69,13 +74,9 @@
       "type": "dns",
       "host": "aidantsconnect.beta.gouv.fr.",
       "matched-at": "aidantsconnect.beta.gouv.fr",
-      "extracted-results": [
-        "dns2.alwaysdata.com.",
-        "dns1.alwaysdata.com."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 53722\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t NS\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 53722\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tNS\tdns2.alwaysdata.com.\naidantsconnect.beta.gouv.fr.\t300\tIN\tNS\tdns1.alwaysdata.com.\n",
-      "timestamp": "2024-01-25T16:16:32.471385658Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 57957\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 57957\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tSOA\tdns1.alwaysdata.com. hostmaster.alwaysdata.com. 1673971701 3600 900 1209600 300\n",
+      "timestamp": "2024-01-28T01:24:46.716724793Z",
       "matcher-status": true
     },
     {
@@ -115,28 +116,66 @@
         "10 mx1.alwaysdata.com.",
         "20 mx2.alwaysdata.com."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 38581\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t MX\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 38581\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tMX\t10 mx1.alwaysdata.com.\naidantsconnect.beta.gouv.fr.\t300\tIN\tMX\t20 mx2.alwaysdata.com.\n",
-      "timestamp": "2024-01-25T16:16:32.548137796Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 34830\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t MX\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 34830\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tMX\t10 mx1.alwaysdata.com.\naidantsconnect.beta.gouv.fr.\t300\tIN\tMX\t20 mx2.alwaysdata.com.\n",
+      "timestamp": "2024-01-28T01:24:46.718710384Z",
       "matcher-status": true
     },
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "template": "dns/nameserver-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
+      "template-id": "nameserver-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
       "info": {
-        "name": "CAA Record",
+        "name": "NS Record Detection",
         "author": [
           "pdteam"
         ],
         "tags": [
           "dns",
-          "caa"
+          "ns"
         ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "aidantsconnect.beta.gouv.fr.",
+      "matched-at": "aidantsconnect.beta.gouv.fr",
+      "extracted-results": [
+        "dns1.alwaysdata.com.",
+        "dns2.alwaysdata.com."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 47887\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t NS\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 47887\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tNS\tdns1.alwaysdata.com.\naidantsconnect.beta.gouv.fr.\t300\tIN\tNS\tdns2.alwaysdata.com.\n",
+      "timestamp": "2024-01-28T01:24:46.783875406Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/txt-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/txt-fingerprint",
+      "template-id": "txt-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/txt-fingerprint.yaml",
+      "info": {
+        "name": "DNS TXT Record Detected",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "txt"
+        ],
+        "description": "A DNS TXT record was detected. The TXT record lets a domain admin leave notes on a DNS server.",
         "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+          "https://www.netspi.com/blog/technical/network-penetration-testing/analyzing-dns-txt-records-to-fingerprint-service-providers/"
         ],
         "severity": "info",
         "metadata": {
@@ -152,51 +191,12 @@
       "type": "dns",
       "host": "aidantsconnect.beta.gouv.fr.",
       "matched-at": "aidantsconnect.beta.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 53132\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 53132\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tSOA\tdns1.alwaysdata.com. hostmaster.alwaysdata.com. 1673971701 3600 900 1209600 300\n",
-      "timestamp": "2024-01-25T16:16:32.592040054Z",
-      "matcher-status": true
-    },
-    {
-      "template": "dns/dmarc-detect.yaml",
-      "template-url": "https://templates.nuclei.sh/public/dmarc-detect",
-      "template-id": "dmarc-detect",
-      "template-path": "/home/runner/nuclei-templates/dns/dmarc-detect.yaml",
-      "info": {
-        "name": "DNS DMARC - Detect",
-        "author": [
-          "juliosmelo"
-        ],
-        "tags": [
-          "dns",
-          "dmarc"
-        ],
-        "description": "DNS DMARC information was detected.\n",
-        "reference": [
-          "https://dmarc.org/",
-          "https://dmarc.org/wiki/faq#why_is_dmarc_important.3f"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ],
-          "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
-        }
-      },
-      "type": "dns",
-      "host": "aidantsconnect.beta.gouv.fr.",
-      "matched-at": "_dmarc.aidantsconnect.beta.gouv.fr",
       "extracted-results": [
-        "\"v=DMARC1; p=none\""
+        "\"v=spf1 include:spf.mailjet.com include:spf.tipimail.com include:_spf.alwaysdata.com -all\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 25938\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;_dmarc.aidantsconnect.beta.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 25938\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;_dmarc.aidantsconnect.beta.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\n_dmarc.aidantsconnect.beta.gouv.fr.\t300\tIN\tTXT\t\"v=DMARC1; p=none\"\n",
-      "timestamp": "2024-01-25T16:16:33.395320136Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 8051\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 8051\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;aidantsconnect.beta.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\naidantsconnect.beta.gouv.fr.\t300\tIN\tTXT\t\"v=spf1 include:spf.mailjet.com include:spf.tipimail.com include:_spf.alwaysdata.com -all\"\n",
+      "timestamp": "2024-01-28T01:24:47.682571795Z",
       "matcher-status": true
     },
     {
@@ -232,48 +232,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550173598Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "permissions-policy",
-      "type": "http",
-      "host": "https://aidantsconnect.beta.gouv.fr/",
-      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
-      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550223251Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998081844Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -310,48 +271,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550239551Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-content-type-options",
-      "type": "http",
-      "host": "https://aidantsconnect.beta.gouv.fr/",
-      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
-      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550255772Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998172383Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -388,9 +310,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550378601Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998197851Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -427,9 +349,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550400062Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998215364Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -466,87 +388,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550418456Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "strict-transport-security",
-      "type": "http",
-      "host": "https://aidantsconnect.beta.gouv.fr/",
-      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
-      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550433865Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-opener-policy",
-      "type": "http",
-      "host": "https://aidantsconnect.beta.gouv.fr/",
-      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
-      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550451387Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998231103Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -583,9 +427,165 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550465764Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998245119Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "strict-transport-security",
+      "type": "http",
+      "host": "https://aidantsconnect.beta.gouv.fr/",
+      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
+      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998260608Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://aidantsconnect.beta.gouv.fr/",
+      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
+      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998279604Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://aidantsconnect.beta.gouv.fr/",
+      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
+      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998293359Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://aidantsconnect.beta.gouv.fr/",
+      "matched-at": "https://aidantsconnect.beta.gouv.fr/",
+      "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998308197Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -622,9 +622,9 @@
       "host": "https://aidantsconnect.beta.gouv.fr/",
       "matched-at": "https://aidantsconnect.beta.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: aidantsconnect.beta.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Thu, 25 Jan 2024 16:17:39 GMT\r\nX-Request-Id: c6a1543f-6276-468b-95fd-6fd62e86c01e\r\n\r\nYour IP address 172.183.122.246 has been blocked. Try again in 7 days.",
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:17:39.550483026Z",
+      "response": "HTTP/1.1 400 Bad Request\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 28 Jan 2024 01:26:05 GMT\r\nX-Request-Id: 15f23743-494c-405e-9a98-c4bb605b7153\r\n\r\nYour IP address 172.183.79.3 has been blocked. Try again in 7 days.",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:26:05.998323205Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://aidantsconnect.beta.gouv.fr/'",
       "matcher-status": true
     },
@@ -654,8 +654,8 @@
       "extracted-results": [
         "Let's Encrypt"
       ],
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:24:04.278856639Z",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:33:02.352625074Z",
       "matcher-status": true
     },
     {
@@ -684,8 +684,8 @@
       "extracted-results": [
         "aidantsconnect.beta.gouv.fr"
       ],
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:24:04.279000279Z",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:33:02.35278372Z",
       "matcher-status": true
     },
     {
@@ -715,8 +715,8 @@
       "extracted-results": [
         "tls12"
       ],
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:24:06.017892668Z",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:33:04.159699891Z",
       "matcher-status": true
     },
     {
@@ -746,8 +746,8 @@
       "extracted-results": [
         "tls13"
       ],
-      "ip": "185.21.194.105",
-      "timestamp": "2024-01-25T16:24:06.233923499Z",
+      "ip": "80.247.13.145",
+      "timestamp": "2024-01-28T01:33:04.376242697Z",
       "matcher-status": true
     }
   ]
