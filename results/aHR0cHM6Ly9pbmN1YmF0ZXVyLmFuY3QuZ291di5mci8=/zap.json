@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Thu, 25 Jan 2024 15:20:18",
+	"@generated": "Sun, 28 Jan 2024 00:34:17",
 	"site":[ 
 		{
 			"@name": "https://incubateur.anct.gouv.fr",
@@ -42,7 +42,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10038",
@@ -149,7 +149,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90003",
@@ -256,7 +256,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10017",
@@ -285,6 +285,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites",
+							"method": "GET",
+							"param": "//stats.beta.gouv.fr/piwik.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.beta.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/actualites",
+							"method": "GET",
+							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/contact",
 							"method": "GET",
 							"param": "//stats.beta.gouv.fr/piwik.js",
@@ -301,7 +317,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/offre",
+							"uri": "https://incubateur.anct.gouv.fr/recrutement",
 							"method": "GET",
 							"param": "//stats.beta.gouv.fr/piwik.js",
 							"attack": "",
@@ -309,23 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/offre",
-							"method": "GET",
-							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
-							"method": "GET",
-							"param": "//stats.beta.gouv.fr/piwik.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.beta.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
+							"uri": "https://incubateur.anct.gouv.fr/recrutement",
 							"method": "GET",
 							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
 							"attack": "",
@@ -355,7 +355,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10110",
@@ -382,7 +382,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "176"
+					"sourceid": "175"
 				},
 				{
 					"pluginid": "10063",
@@ -516,7 +516,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "134"
+					"sourceid": "125"
 				},
 				{
 					"pluginid": "10021",
@@ -530,14 +530,6 @@
 					"instances":[ 
 						{
 							"uri": "https://incubateur.anct.gouv.fr/",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/_nuxt/fbfc5ed.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -601,6 +593,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/plan-du-site",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/recrutement",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -623,7 +623,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -845,7 +845,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "181"
+					"sourceid": "178"
 				},
 				{
 					"pluginid": "10109",
@@ -896,7 +896,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "146"
+					"sourceid": "154"
 				},
 				{
 					"pluginid": "10049",
@@ -1030,7 +1030,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1044,14 +1044,6 @@
 					"instances":[ 
 						{
 							"uri": "https://incubateur.anct.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/contact",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1075,7 +1067,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1102,14 +1094,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/contact",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1126,7 +1110,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1153,14 +1137,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/contact",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1177,7 +1153,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1204,14 +1180,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/contact",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1228,7 +1196,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1351,7 +1319,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=M%C3%A9diature\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=M\u00E9diature\r\n\r\nThe user-controlled value was:\r\nm\u00E9diature"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=M%C3%A9diature\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=M\u00E9diature\n\nThe user-controlled value was:\nm\u00E9diature"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon",
@@ -1359,7 +1327,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=mon\r\n\r\nThe user-controlled value was:\r\nmon"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=mon\n\nThe user-controlled value was:\nmon"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon%20suivi%20soci",
@@ -1367,7 +1335,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon%20suivi%20soci\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=mon suivi soci\r\n\r\nThe user-controlled value was:\r\nmon suivi soci"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=mon%20suivi%20soci\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=mon suivi soci\n\nThe user-controlled value was:\nmon suivi soci"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=osinum",
@@ -1375,7 +1343,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=osinum\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=osinum\r\n\r\nThe user-controlled value was:\r\nosinum"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=osinum\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=osinum\n\nThe user-controlled value was:\nosinum"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=SILAB",
@@ -1383,7 +1351,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=SILAB\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=SILAB\r\n\r\nThe user-controlled value was:\r\nsilab"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?filter=0%255B0%255D%3Dtype%2520%253D%2520%2522Service%2520num%25C3%25A9rique%2522&search=SILAB\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=SILAB\n\nThe user-controlled value was:\nsilab"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?search=dotations",
@@ -1391,7 +1359,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?search=dotations\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=dotations\r\n\r\nThe user-controlled value was:\r\ndotations"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?search=dotations\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=dotations\n\nThe user-controlled value was:\ndotations"
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/services?search=dotations%20locales",
@@ -1399,7 +1367,7 @@
 							"param": "search",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://incubateur.anct.gouv.fr/services?search=dotations%20locales\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch=dotations locales\r\n\r\nThe user-controlled value was:\r\ndotations locales"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://incubateur.anct.gouv.fr/services?search=dotations%20locales\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearch=dotations locales\n\nThe user-controlled value was:\ndotations locales"
 						}
 					],
 					"count": "7",
@@ -1408,7 +1376,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "282"
+					"sourceid": "287"
 				}
 			]
 		}
