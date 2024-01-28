@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Thu, 25 Jan 2024 17:18:37
+		Generated on Sun, 28 Jan 2024 02:25:35
 	</h3>
 
 	<h3>
@@ -172,7 +172,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>11</div>
+					<div>12</div>
 				</td>
 			</tr>
 			<tr>
@@ -205,17 +205,17 @@ td {
 			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
@@ -265,27 +265,32 @@ td {
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Mode Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Site Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-User Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				<td align="center">10</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Storable but Non-Cacheable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">1</td>
 			</tr>
 		</table>
 		<div class="spacer-lg"></div>
@@ -525,6 +530,38 @@ style-src, font-src</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/accessibilite">https://agentsenintervention.anct.gouv.fr/accessibilite</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;;base-uri &#39;self&#39;;font-src &#39;self&#39; https: data:;form-action &#39;self&#39;;frame-ancestors &#39;self&#39;;img-src &#39;self&#39; data: https://agents-intervention-prod-uploads.s3.fr-par.scw.cloud/ https://agents-intervention-dev-uploads.s3.fr-par.scw.cloud/ https://aie-prod.s3.fr-par.scw.cloud/ https://aie-dev.s3.fr-par.scw.cloud/ https://dev-aei.cellar-c2.services.clever-cloud.com/ https://*.jawg.io/;object-src &#39;none&#39;;script-src &#39;self&#39; &#39;unsafe-inline&#39;;script-src-attr &#39;none&#39;;connect-src &#39;self&#39; https://api-adresse.data.gouv.fr/ https://agentsenintervention.anct.gouv.fr/api;style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;upgrade-insecure-requests</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+style-src, font-src</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
 					</tr>
 					<tr>
@@ -588,7 +625,7 @@ style-src, font-src</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -609,7 +646,7 @@ style-src, font-src</td>
 							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
 							<br />
 						
-							<a href="https://github.com/shapesecurity/salvation">https://github.com/shapesecurity/salvation</a>
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
 							<br />
 						
 							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
@@ -685,6 +722,37 @@ style-src, font-src</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/accessibilite">https://agentsenintervention.anct.gouv.fr/accessibilite</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;;base-uri &#39;self&#39;;font-src &#39;self&#39; https: data:;form-action &#39;self&#39;;frame-ancestors &#39;self&#39;;img-src &#39;self&#39; data: https://agents-intervention-prod-uploads.s3.fr-par.scw.cloud/ https://agents-intervention-dev-uploads.s3.fr-par.scw.cloud/ https://aie-prod.s3.fr-par.scw.cloud/ https://aie-dev.s3.fr-par.scw.cloud/ https://dev-aei.cellar-c2.services.clever-cloud.com/ https://*.jawg.io/;object-src &#39;none&#39;;script-src &#39;self&#39; &#39;unsafe-inline&#39;;script-src-attr &#39;none&#39;;connect-src &#39;self&#39; https://api-adresse.data.gouv.fr/ https://agentsenintervention.anct.gouv.fr/api;style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;upgrade-insecure-requests</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
 					</tr>
 					<tr>
@@ -746,7 +814,7 @@ style-src, font-src</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -767,7 +835,7 @@ style-src, font-src</td>
 							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
 							<br />
 						
-							<a href="https://github.com/shapesecurity/salvation">https://github.com/shapesecurity/salvation</a>
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
 							<br />
 						
 							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
@@ -843,6 +911,37 @@ style-src, font-src</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/accessibilite">https://agentsenintervention.anct.gouv.fr/accessibilite</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;;base-uri &#39;self&#39;;font-src &#39;self&#39; https: data:;form-action &#39;self&#39;;frame-ancestors &#39;self&#39;;img-src &#39;self&#39; data: https://agents-intervention-prod-uploads.s3.fr-par.scw.cloud/ https://agents-intervention-dev-uploads.s3.fr-par.scw.cloud/ https://aie-prod.s3.fr-par.scw.cloud/ https://aie-dev.s3.fr-par.scw.cloud/ https://dev-aei.cellar-c2.services.clever-cloud.com/ https://*.jawg.io/;object-src &#39;none&#39;;script-src &#39;self&#39; &#39;unsafe-inline&#39;;script-src-attr &#39;none&#39;;connect-src &#39;self&#39; https://api-adresse.data.gouv.fr/ https://agentsenintervention.anct.gouv.fr/api;style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;upgrade-insecure-requests</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
 					</tr>
 					<tr>
@@ -904,7 +1003,7 @@ style-src, font-src</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -925,7 +1024,7 @@ style-src, font-src</td>
 							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
 							<br />
 						
-							<a href="https://github.com/shapesecurity/salvation">https://github.com/shapesecurity/salvation</a>
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
 							<br />
 						
 							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
@@ -1001,7 +1100,7 @@ style-src, font-src</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&amp;w=2048&amp;q=75">https://agentsenintervention.anct.gouv.fr/%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&amp;w=2048&amp;q=75</a></td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js">https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1407,6 +1506,37 @@ style-src, font-src</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/image?q=75&amp;url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&amp;w=3840">https://agentsenintervention.anct.gouv.fr/_next/image?q=75&amp;url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&amp;w=3840</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js">https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js</a></td>
 					</tr>
 					<tr>
@@ -1532,37 +1662,6 @@ style-src, font-src</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-d6e7fc15dce1c7b9.js">https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-d6e7fc15dce1c7b9.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css">https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1845,6 +1944,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/image?q=75&amp;url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&amp;w=3840">https://agentsenintervention.anct.gouv.fr/_next/image?q=75&amp;url=%2F_next%2Fstatic%2Fmedia%2Fintervention.505d2022.png&amp;w=3840</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js">https://agentsenintervention.anct.gouv.fr/_next/static/chunks/4993-a248bbe5cd056047.js</a></td>
 					</tr>
 					<tr>
@@ -1974,38 +2105,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-d6e7fc15dce1c7b9.js">https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-d6e7fc15dce1c7b9.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css">https://agentsenintervention.anct.gouv.fr/_next/static/css/3ac307d79d4e901f.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3515,37 +3614,6 @@ password</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Dest</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/robots.txt">https://agentsenintervention.anct.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -3607,7 +3675,7 @@ password</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3692,37 +3760,6 @@ password</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Mode</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/robots.txt">https://agentsenintervention.anct.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -3784,7 +3821,7 @@ password</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3869,37 +3906,6 @@ password</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Site</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/robots.txt">https://agentsenintervention.anct.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -3961,7 +3967,7 @@ password</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4046,37 +4052,6 @@ password</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-User</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/robots.txt">https://agentsenintervention.anct.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -4138,7 +4113,7 @@ password</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4316,6 +4291,68 @@ password</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/media/apple-touch-icon.1db30588.png">https://agentsenintervention.anct.gouv.fr/_next/static/media/apple-touch-icon.1db30588.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=31536000</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/_next/static/media/favicon.f453a8cf.svg">https://agentsenintervention.anct.gouv.fr/_next/static/media/favicon.f453a8cf.svg</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=31536000</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/accessibilite">https://agentsenintervention.anct.gouv.fr/accessibilite</a></td>
 					</tr>
 					<tr>
@@ -4348,68 +4385,6 @@ password</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/auth/sign-in">https://agentsenintervention.anct.gouv.fr/auth/sign-in</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">s-maxage=31536000</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/conditions-generales-d-utilisation">https://agentsenintervention.anct.gouv.fr/conditions-generales-d-utilisation</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">s-maxage=31536000</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/mentions-legales">https://agentsenintervention.anct.gouv.fr/mentions-legales</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4521,6 +4496,93 @@ password</td>
 							<div>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </div>
 							
 						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://datatracker.ietf.org/doc/html/rfc7234">https://datatracker.ietf.org/doc/html/rfc7234</a>
+							<br />
+						
+							<a href="https://datatracker.ietf.org/doc/html/rfc7231">https://datatracker.ietf.org/doc/html/rfc7231</a>
+							<br />
+						
+							<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Storable but Non-Cacheable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://agentsenintervention.anct.gouv.fr/manifest.json">https://agentsenintervention.anct.gouv.fr/manifest.json</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=0</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%"></td>
 				</tr>
 				<tr>
 					<td width="20%">Reference</td>
