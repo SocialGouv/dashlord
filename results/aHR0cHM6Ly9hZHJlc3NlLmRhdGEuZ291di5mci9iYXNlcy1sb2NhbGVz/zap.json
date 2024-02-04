@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Wed, 31 Jan 2024 09:56:52",
+	"@generated": "Sun, 4 Feb 2024 01:02:14",
 	"site":[ 
 		{
 			"@name": "https://adresse.data.gouv.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "917"
+					"sourceid": "584"
 				},
 				{
 					"pluginid": "10038",
@@ -71,23 +71,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -103,7 +103,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -133,7 +133,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10020",
@@ -145,14 +145,6 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
-						{
-							"uri": "https://adresse.data.gouv.fr/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://adresse.data.gouv.fr/api-doc",
 							"method": "GET",
@@ -170,7 +162,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -194,14 +194,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -218,14 +210,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -234,13 +218,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "9",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "113"
 				},
 				{
 					"pluginid": "90003",
@@ -267,7 +251,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "455"
+					"sourceid": "458"
 				},
 				{
 					"pluginid": "10110",
@@ -294,7 +278,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2362"
+					"sourceid": "2375"
 				},
 				{
 					"pluginid": "10063",
@@ -331,6 +315,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
 							"method": "GET",
 							"param": "",
@@ -339,23 +339,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/outils",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -393,7 +377,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10037",
@@ -430,23 +414,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: Next.js",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: Next.js",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -462,7 +446,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -529,23 +513,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.24.0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.24.0",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "nginx/1.24.0",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "nginx/1.24.0",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -561,7 +545,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -604,22 +588,6 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://adresse.data.gouv.fr/bases-locales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1586639400",
-							"otherinfo": "1586639400, which evaluates to: 2020-04-11 21:10:00"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/bases-locales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1919628686",
-							"otherinfo": "1919628686, which evaluates to: 2030-10-30 22:11:26"
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "",
@@ -636,13 +604,13 @@
 							"otherinfo": "1919628686, which evaluates to: 2030-10-30 22:11:26"
 						}
 					],
-					"count": "4",
+					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1586639400, which evaluates to: 2020-04-11 21:10:00</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "88"
 				},
 				{
 					"pluginid": "10021",
@@ -679,7 +647,23 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -688,14 +672,6 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -712,14 +688,6 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/outils",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -778,6 +746,22 @@
 							"otherinfo": "GIF89a\\x0001\\x0000\\x0001\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD!\uFFFD\\x0004\\x0001\\x0000\\x0000\\x0000\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0001D\\x0000;"
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+							"otherinfo": "GIF89a\\x0001\\x0000\\x0001\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD!\uFFFD\\x0004\\x0001\\x0000\\x0000\\x0000\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0001D\\x0000;"
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/serve/MUIEALrUjwg3nxBK1Ebb_ndriJHjVhfoNqqr55eXe4id-Y3eYMbnHY6fabW8qNi5S55CjKgwWuwYbpWbQamoes1zxUi4vYJGeXwkygSrYFFz0Yg644JK8Bb2VY1Q23vp4b22CmKNIWbjSccP3x1RTOsdV3EjJkWc_o-mXUxWg9Hjx8gbmzkyUeSgKAinMeoI33kqpDssnQxeeorN",
+							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
 							"method": "GET",
 							"param": "",
@@ -786,31 +770,7 @@
 							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/serve/MUIEALrUjwg3nxBK1Ebb_ndriJHjVhfoNqqr55eXe4id-Y3eYMbnHY6fabW8qNi5S55CjKgwWuwYbpWbQamoes1zxUi4vYJGeXwkygSrYFFz0Yg644JK8Bb2VY1Q23vp4b22CmKNIWbjSccP3x1RTOsdV3EjJkWc_o-mXUxWg9Hjx8gbmzkyUeSgKAinMeoI33kqpDssnQxeeorN",
-							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/serve/MUIEALrUjwg3nxBK1Ebb_ndriJHjVhfoNqqr55eXe4id-Y3eYMbnHY6fabW8qNi5S55CjKgwWuwYbpWbQamoes1zxUi4vYJGeXwkygSrYFFz0Yg644JK8Bb2VY1Q23vp4b22CmKNIWbjSccP3x1RTOsdV3EjJkWc_o-mXUxWg9Hjx8gbmzkyUeSgKAinMeoI33kqpDssnQxeeorN",
-							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/outils",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/serve/MUIEALrUjwg3nxBK1Ebb_ndriJHjVhfoNqqr55eXe4id-Y3eYMbnHY6fabW8qNi5S55CjKgwWuwYbpWbQamoes1zxUi4vYJGeXwkygSrYFFz0Yg644JK8Bb2VY1Q23vp4b22CmKNIWbjSccP3x1RTOsdV3EjJkWc_o-mXUxWg9Hjx8gbmzkyUeSgKAinMeoI33kqpDssnQxeeorN",
-							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -842,13 +802,13 @@
 							"otherinfo": "r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x0014 @\\x000b\uFFFDH\uFFFD\uFFFDy\uFFFD\\x0004\uFFFDDm\uFFFD\uFFFDv\uFFFD\uFFFD\\x001e5a~\uFFFDj\uFFFD\uFFFDyyw\uFFFD\uFFFD\u07D8\uFFFD\uFFFD\\x000cnq\uFFFD\uFFFD\uFFFD\uFFFD[\u028D\uFFFD\uFFFD\uFFFD\uFFFD(\u0283\\x0005\uFFFD\uFFFD\uFFFD\uFFFDY\uFFFD\\x001a\uFFFD\uFFFD\uFFFD\uFFFD<T\uFFFD\uFFFD\uFFFD$g\uFFFD\uFFFDL\uFFFDJ\uFFFD\\x0005\\x0017=\\x0018\uFFFD\uFFFD8$\uFFFD\\x0001oeX\uFFFD\r\uFFFD\uFFFD\uFFFD\\x001b\uFFFD`\uFFFD(\uFFFD\\x0016n4\uFFFDp\uFFFD\uFFFD\uFFFD\\x0014\u03B1\uFFFDw\\x00122dY\uFFFD\uFFFD\uFFFDe\uFFFD\uFFFDh=\\x001e<|\uFFFD\uFFFD\uFFFD\uFFFD%\\x001eJ\\x0002\uFFFD\uFFFDs\\x001e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\uFFFD\uFFFD\uFFFD\uFFFD\u7A2C"
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>GIF89a\\x0001\\x0000\\x0001\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD!\uFFFD\\x0004\\x0001\\x0000\\x0000\\x0000\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0001D\\x0000;</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10019",
@@ -899,7 +859,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "2450"
+					"sourceid": "2409"
 				},
 				{
 					"pluginid": "10027",
@@ -936,15 +896,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"stats\":{\"france\":{\"population\":68022969,\"nbCommunes\":\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/evenements\",\"query\":{},\"buildId\":\"UpvLFBbN\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -952,12 +904,20 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"partnersServices\":[\"accompagnement technique\",\"format\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
+							"uri": "https://adresse.data.gouv.fr/contribuer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/contact\",\"query\":{},\"buildId\":\"UpvLFBbNkfU\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/contribuer\",\"query\":{},\"buildId\":\"UpvLFBbN\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/evenements",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/evenements\",\"query\":{},\"buildId\":\"UpvLFBbN\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/outils",
@@ -968,12 +928,12 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/outils\",\"query\":{},\"buildId\":\"UpvLFBbNkfUO\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"stats\":{\"france\":{\"population\":68022969,\"nbCommunes\":\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/ressources\",\"query\":{},\"buildId\":\"UpvLFBbN\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/robots.txt",
@@ -1035,23 +995,23 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript data-n-css=\"\"></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"osmose\" class=\"jsx-3532171303\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<noscript data-n-css=\"\"></noscript>",
-							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<noscript data-n-css=\"\"></noscript>",
-							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1067,7 +1027,7 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1126,15 +1086,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-store",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"uri": "https://adresse.data.gouv.fr/bases-locales/charte",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1142,13 +1094,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10015",
@@ -1177,14 +1129,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/bases-locales/validateur",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/cgu",
 							"method": "GET",
 							"param": "cache-control",
@@ -1194,6 +1138,14 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/csv",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1263,7 +1215,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "234"
+					"sourceid": "228"
 				},
 				{
 					"pluginid": "90005",
@@ -1306,7 +1258,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1349,7 +1301,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1392,7 +1344,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1456,6 +1408,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/evenements",
 							"method": "GET",
 							"param": "",
@@ -1496,13 +1456,13 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "129"
+					"sourceid": "113"
 				},
 				{
 					"pluginid": "10031",
@@ -1537,7 +1497,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1254"
+					"sourceid": "1229"
 				}
 			]
 		}
