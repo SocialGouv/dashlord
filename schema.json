@@ -153,15 +153,10 @@
                 "direction": {
                   "type": "string",
                   "default": "horizontal",
-                  "enum": [
-                    "horizontal",
-                    "vertical"
-                  ]
+                  "enum": ["horizontal", "vertical"]
                 }
               },
-              "required": [
-                "src"
-              ]
+              "required": ["src"]
             }
           ]
         },
@@ -169,14 +164,19 @@
           "type": "string"
         }
       },
-      "required": [
-        "logo",
-        "name"
-      ]
+      "required": ["logo", "name"]
     },
     "updownioStatusPage": {
       "type": "string",
       "description": "URL de la page de status updown.io"
+    },
+    "updownioRecipients": {
+      "description": "Notifications pour les nouvelles alertes updown.io (action updown-init)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": ["email:987634908723", "slack_compatible:0979867"]
+      }
     },
     "tools": {
       "$ref": "#/definitions/tools"
@@ -208,10 +208,7 @@
           "pages": {
             "type": "array",
             "description": "Additionnal URLs to scan with LightHouse",
-            "examples": [
-              "/actu",
-              "/partners"
-            ],
+            "examples": ["/actu", "/partners"],
             "items": {
               "type": "string"
             }
@@ -219,10 +216,7 @@
           "repositories": {
             "type": "array",
             "description": "Repositories no GitHub",
-            "examples": [
-              "SocialGouv/www",
-              "SocialGouv/template"
-            ],
+            "examples": ["SocialGouv/www", "SocialGouv/template"],
             "items": {
               "type": "string"
             }
@@ -230,9 +224,7 @@
           "docker": {
             "type": "array",
             "description": "Docker images to scan",
-            "examples": [
-              "ghcr.io/socialgouv/www/app"
-            ],
+            "examples": ["ghcr.io/socialgouv/www/app"],
             "items": {
               "type": "string"
             }
@@ -241,17 +233,9 @@
             "$ref": "#/definitions/tools"
           }
         },
-        "required": [
-          "url"
-        ]
+        "required": ["url"]
       }
     }
   },
-  "required": [
-    "title",
-    "description",
-    "entity",
-    "tools",
-    "urls"
-  ]
+  "required": ["title", "description", "entity", "tools", "urls"]
 }
