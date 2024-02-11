@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 4 Feb 2024 02:20:32",
+	"@generated": "Sun, 11 Feb 2024 02:21:00",
 	"site":[ 
 		{
 			"@name": "https://tous-connectes.anct.gouv.fr",
@@ -50,7 +50,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10020",
@@ -98,7 +98,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -122,7 +122,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -144,7 +144,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -173,7 +173,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -197,7 +197,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -227,7 +227,42 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1431655765",
+							"otherinfo": "1431655765, which evaluates to: 2015-05-15 02:09:25"
+						},
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1540483477",
+							"otherinfo": "1540483477, which evaluates to: 2018-10-25 16:04:37"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1431655765, which evaluates to: 2015-05-15 02:09:25</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "18"
 				},
 				{
 					"pluginid": "10021",
@@ -256,7 +291,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -272,7 +307,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -294,7 +329,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -311,81 +346,81 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "f7fODK79iHxzhO1fNVq3U+5IcQ4DtuVAbZ3aOVdGP5sXahcm/+Q6ndD3f0gavJGTxKAeqfSaPDA=",
-							"otherinfo": "\uFFFD\uFFFD\\x000c\uFFFD\uFFFD\uFFFD|s\uFFFD\uFFFD_5Z\uFFFDS\uFFFDHq\\x000e\\x0003\uFFFD\uFFFD@m\uFFFD\uFFFD9WF?\uFFFD\\x0017j\\x0017&\uFFFD\uFFFD:\uFFFD\uFFFD\uFFFDH\\x001a\uFFFD\uFFFD\uFFFD\u0120\\x001e\uFFFD\uFFFD\uFFFD<0"
+							"evidence": "LvhdRrGQkYWWLXL9/+aq/jSUP171Q1xG5RE7F09Da+rx/RkX15DCiMY1lAFEz9+rM4c9i/etmWE=",
+							"otherinfo": ".\uFFFD]F\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD-r\uFFFD\uFFFD\uFFFD\uFFFD4\uFFFD?^\uFFFDC\\F\uFFFD\\x0011;\\x0017OCk\uFFFD\uFFFD\uFFFD\\x0019\\x0017\u05D0\u0088\uFFFD5\uFFFD\\x0001D\uFFFD\u07EB3\uFFFD=\uFFFD\uFFFD\uFFFD\uFFFDa"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3xrud/Mcazf3e1G/+KfFNTXF1II47LFxU6vD2/fzUcsuWE+VmO7uWMzZnJSZkehFngg1k/Iw8eM=",
-							"otherinfo": "\uFFFD\\x001a\uFFFDw\uFFFD\\x001ck7\uFFFD{Q\uFFFD\uFFFD\uFFFD\uFFFD55\uFFFD\u05028\uFFFDqS\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDQ\uFFFD.XO\uFFFD\uFFFD\uFFFD\uFFFDX\uFFFD\u065C\uFFFD\uFFFD\uFFFD\uFFFDE\uFFFD\\x00085\uFFFD\uFFFD0\uFFFD\uFFFD"
+							"evidence": "t0w2Aw0A00hJqT9LAQupA3FsXAiTB9yx+mMz/iTE3EQH7pDL/edec4gKBr9KYgtJ5pks7GjDbqI=",
+							"otherinfo": "\uFFFDL6\\x0003\r\\x0000\uFFFDHI\uFFFD?K\\x0001\\x000b\uFFFD\\x0003ql\\\\x0008\uFFFD\\x0007\u0731\uFFFDc3\uFFFD$\uFFFD\uFFFDD\\x0007\uFFFD\uFFFD\uFFFD\uFFFD^s\uFFFD\n\\x0006\uFFFDJb\\x000bI\uFFFD,\uFFFDh\uFFFDn\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "+YLjll2/RFdXoJxw5+7qs2Sm0f7xntxD552sE2H6YkHc69YGRos3SKxXAaqKStOFPVjYginZUWU=",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD]\uFFFDDWW\uFFFD\uFFFDp\uFFFD\uFFFD\uFFFDd\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDC\u776C\\x0013a\uFFFDbA\uFFFD\uFFFD\uFFFD\\x0006F\uFFFD7H\uFFFDW\\x0001\uFFFD\uFFFDJ\u04C5=X\u0602)\uFFFDQe"
+							"evidence": "VYIKD0TdiE2qacc1Z9H5J/lmb/OQ/5vwLSb0M9ACJhoIupA+/kfyiCdAmfaqZr/n2Xt8I5iU3yg=",
+							"otherinfo": "U\uFFFD\n\\x000fD\u0748M\uFFFDi\uFFFD5g\uFFFD\uFFFD'\uFFFDfo\uFFFD\uFFFD\uFFFD\uFFFD-&\uFFFD3\uFFFD\\x0002&\\x001a\\x0008\uFFFD\uFFFD>\uFFFDG\uFFFD'@\uFFFD\uFFFD\uFFFDf\uFFFD\uFFFD\uFFFD{|#\uFFFD\uFFFD\uFFFD("
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "SaC6zxP8YyV3XLq3AHRraiyE2/W4dQGRViWjZyqXBtP5a5ACgaQ/lD/vKza5pjeE07xdvppCg5E=",
-							"otherinfo": "I\uFFFD\uFFFD\uFFFD\\x0013\uFFFDc%w\\\uFFFD\uFFFD\\x0000tkj,\uFFFD\uFFFD\uFFFD\uFFFDu\\x0001\uFFFDV%\uFFFDg*\uFFFD\\x0006\uFFFD\uFFFDk\uFFFD\\x0002\uFFFD\uFFFD?\uFFFD?\uFFFD+6\uFFFD\uFFFD7\uFFFD\u04FC]\uFFFD\uFFFDB\uFFFD\uFFFD"
+							"evidence": "7ii4yS7vbSJX6se+LNI53dju6Cqh23V6UnJ5Y4Nl6d0ELlW8o8rdRWmmx9O569rRNnsqLmXb+Oc=",
+							"otherinfo": "\uFFFD(\uFFFD\uFFFD.\uFFFDm\"W\uFFFD\u01FE,\uFFFD9\uFFFD\uFFFD\uFFFD\uFFFD*\uFFFD\uFFFDuzRryc\uFFFDe\uFFFD\uFFFD\\x0004.U\uFFFD\uFFFD\uFFFD\uFFFDEi\uFFFD\uFFFD\u04F9\uFFFD\uFFFD\uFFFD6{*.e\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/polyfills.657390f7086ebeb5.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "5GHYM1O8iDm1YcCJBORFjcJ4X/imlTdrczxQwaIOfBHtpPqV5EfbQjIjYD2x360iYS8LadC8DKE=",
-							"otherinfo": "\uFFFDa\uFFFD3S\uFFFD\uFFFD9\uFFFDa\uFFFD\uFFFD\\x0004\uFFFDE\uFFFD\uFFFDx_\uFFFD\uFFFD\uFFFD7ks<P\uFFFD\uFFFD\\x000e|\\x0011\uFFFD\uFFFD\uFFFD\uFFFDG\uFFFDB2#`=\uFFFD\u07ED\"a/\\x000bi\u043C\\x000c\uFFFD"
+							"evidence": "ceU2k9w6o9Kb7TlvaI6xJHT6EQw63q0OMs+kPWhKWFsy9IMTnDs8xIE8vnS4M8O5/tg0NKahu6A=",
+							"otherinfo": "q\uFFFD6\uFFFD\uFFFD:\uFFFD\u049B\uFFFD9oh\uFFFD\uFFFD$t\uFFFD\\x0011\\x000c:\u07AD\\x000e2\u03E4=hJX[2\uFFFD\\x0013\uFFFD;<\u0101<\uFFFDt\uFFFD3\u00F9\uFFFD\uFFFD44\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Fash+Pz6ztojx4ouma4RfXtuC0Q9IyDI7GPAGy6VtwvfDSxj2EP3W6JPkX7+1HkRdfDThfx63+E=",
-							"otherinfo": "\\x0015\uFFFD!\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD#\u01CA.\uFFFD\uFFFD\\x0011}{n\\x000bD=# \uFFFD\uFFFDc\uFFFD\\x001b.\uFFFD\uFFFD\\x000b\uFFFD\r,c\uFFFDC\uFFFD[\uFFFDO\uFFFD~\uFFFD\uFFFDy\\x0011u\uFFFD\u04C5\uFFFDz\uFFFD\uFFFD"
+							"evidence": "kzQ+O0boPtBBTerbH7X+mIPV17bavyK/eotVMZWIme2ICEPgPoTslfYkB8mapjAXWGP/9nYvYtI=",
+							"otherinfo": "\uFFFD4>;F\uFFFD>\uFFFDAM\uFFFD\uFFFD\\x001f\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05F6\u06BF\"\uFFFDz\uFFFDU1\uFFFD\uFFFD\uFFFD\uFFFD\\x0008C\uFFFD>\uFFFD\uFFFD\uFFFD$\\x0007\u025A\uFFFD0\\x0017Xc\uFFFD\uFFFDv/b\uFFFD"
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "nFDIp3nICNQHxk74yHHTyUqKVbqHC3+FHIeyqvf6vVVOkQJh7L3xU4ytbxVYsW4N3Vfyb5U0cHQ=",
-							"otherinfo": "\uFFFDP\u0227y\uFFFD\\x0008\uFFFD\\x0007\uFFFDN\uFFFD\uFFFDq\uFFFD\uFFFDJ\uFFFDU\uFFFD\uFFFD\\x000b\uFFFD\\x001c\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDUN\uFFFD\\x0002a\uFFFD\uFFFDS\uFFFD\uFFFDo\\x0015X\uFFFDn\r\uFFFDW\uFFFDo\uFFFD4pt"
+							"evidence": "MCiHXKUnzwX93duvYC5wup+p4ccRu8tHiLXQ+8B7TX/d6SbZnVYaBMZGFYHnmM071hkzyW+TK9E=",
+							"otherinfo": "0(\uFFFD\\\uFFFD'\uFFFD\\x0005\uFFFD\uFFFD\u06EF`.p\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0011\uFFFD\uFFFDG\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD{M\uFFFD\uFFFD&\u065DV\\x001a\\x0004\uFFFDF\\x0015\uFFFD\uFFFD\uFFFD;\uFFFD\\x00193\uFFFDo\uFFFD+\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "uCodgNe2MB/uL1QdKs+KhC8c64ub0L3DVdh0mhdiE/drVlOEWLI4rk9Ux31F+qHpmeMYAzD8HvU=",
-							"otherinfo": "\uFFFD*\\x001d\uFFFD\u05F60\\x001f\uFFFD/T\\x001d*\u03CA\uFFFD/\\x001c\uB2DB\u043D\uFFFDU\uFFFDt\uFFFD\\x0017b\\x0013\uFFFDkVS\uFFFDX\uFFFD8\uFFFDOT\uFFFD}E\uFFFD\uFFFD\uFFFD\uFFFD\\x0018\\x00030\uFFFD\\x001e\uFFFD"
+							"evidence": "QqWJS21vJY2Ei97VM+mHfqOVcLE2KIkateMLEErWi0jePmKl+QSInEsTshbgP5607TDAfww5gjo=",
+							"otherinfo": "B\uFFFD\uFFFDKmo%\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD3\uFFFD~\uFFFD\uFFFDp\uFFFD6(\uFFFD\\x001a\uFFFD\uFFFD\\x000b\\x0010J\u058BH\uFFFD>b\uFFFD\uFFFD\\x0004\uFFFD\uFFFDK\\x0013\uFFFD\\x0016\uFFFD?\uFFFD\uFFFD\uFFFD0\uFFFD\\x000c9\uFFFD:"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "fZaqr5fk3gBhQ5wxvM5i4vJDGFhX5MnBkHx5x/+0KXcTDROvO6Pm8SFyOSzvGd3i0N49N6QYLfc=",
-							"otherinfo": "}\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0000aC\uFFFD1\uFFFD\uFFFDb\uFFFD\uFFFDC\\x0018XW\uFFFD\uFFFD\uFFFD\uFFFD|y\uFFFD\uFFFD\uFFFD)w\\x0013\r\\x0013\uFFFD;\uFFFD\uFFFD\uFFFD!r9,\uFFFD\\x0019\uFFFD\uFFFD\uFFFD\uFFFD=7\uFFFD\\x0018-\uFFFD"
+							"evidence": "J+G0eMu+UXYwff489sFGkP4S708Xn2VP0dTcVCG6r1ztaLa/eTqjTRqsivpqHqprGZB+yqTaqN0=",
+							"otherinfo": "'\uFFFDx\u02FEQv0}\uFFFD<\uFFFD\uFFFDF\uFFFD\uFFFD\\x0012\uFFFDO\\x0017\uFFFDeO\uFFFD\uFFFD\uFFFDT!\uFFFD\uFFFD\\\uFFFDh\uFFFD\uFFFDy:\uFFFDM\\x001a\uFFFD\uFFFD\uFFFDj\\x001e\uFFFDk\\x0019\uFFFD~\u02A4\u06A8\uFFFD"
 						}
 					],
 					"count": "9",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\uFFFD\\x000c\uFFFD\uFFFD\uFFFD|s\uFFFD\uFFFD_5Z\uFFFDS\uFFFDHq\\x000e\\x0003\uFFFD\uFFFD@m\uFFFD\uFFFD9WF?\uFFFD\\x0017j\\x0017&\uFFFD\uFFFD:\uFFFD\uFFFD\uFFFDH\\x001a\uFFFD\uFFFD\uFFFD\u0120\\x001e\uFFFD\uFFFD\uFFFD<0</p>",
+					"otherinfo": "<p>.\uFFFD]F\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD-r\uFFFD\uFFFD\uFFFD\uFFFD4\uFFFD?^\uFFFDC\\F\uFFFD\\x0011;\\x0017OCk\uFFFD\uFFFD\uFFFD\\x0019\\x0017\u05D0\u0088\uFFFD5\uFFFD\\x0001D\uFFFD\u07EB3\uFFFD=\uFFFD\uFFFD\uFFFD\uFFFDa</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -398,17 +433,17 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"\"use strict\";(self.webpackChunkinfra_num_front=self.webpackChunkinfra_num_front||[]).push([[179],{1405:(pt,we,P)=>{P.d(we,{y:()=\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunkinfra_num_front=self.webpackChunkinfra_num_front||[]).push([[179],{1405:(Ln,St,q)=>{\"use strict\";q.d(St,{y:()=\", see evidence field for the suspicious comment/snippet."
 						}
 					],
 					"count": "1",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"\"use strict\";(self.webpackChunkinfra_num_front=self.webpackChunkinfra_num_front||[]).push([[179],{1405:(pt,we,P)=>{P.d(we,{y:()=\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunkinfra_num_front=self.webpackChunkinfra_num_front||[]).push([[179],{1405:(Ln,St,q)=>{\"use strict\";q.d(St,{y:()=\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
@@ -429,7 +464,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.c21256ddd16535d3.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-v0buTyqiBxn0A6BmyCctAf1jxokoM6dB9PUYfnOI2ldCEtGsR77OKHuZ+p+lUgGX\"></script>",
+							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -437,7 +472,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.c21256ddd16535d3.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-v0buTyqiBxn0A6BmyCctAf1jxokoM6dB9PUYfnOI2ldCEtGsR77OKHuZ+p+lUgGX\"></script>",
+							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -445,7 +480,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.c21256ddd16535d3.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-v0buTyqiBxn0A6BmyCctAf1jxokoM6dB9PUYfnOI2ldCEtGsR77OKHuZ+p+lUgGX\"></script>",
+							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -482,7 +517,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -509,23 +544,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -552,23 +579,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -595,23 +614,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -638,23 +649,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -675,15 +678,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.eb03380ad41eeb8c.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -707,15 +702,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.c21256ddd16535d3.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -731,7 +718,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "8",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
