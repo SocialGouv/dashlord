@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 4 Feb 2024 01:29:11",
+	"@generated": "Sun, 11 Feb 2024 01:28:41",
 	"site":[ 
 		{
 			"@name": "https://solutionsdelus.gouv.fr",
@@ -291,7 +291,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -299,7 +299,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -307,7 +307,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/contact",
+							"uri": "https://solutionsdelus.gouv.fr/partager",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -315,7 +315,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -323,7 +323,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -331,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/partager",
+							"uri": "https://solutionsdelus.gouv.fr/projets",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -372,7 +372,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1294"
+					"sourceid": "1305"
 				},
 				{
 					"pluginid": "10110",
@@ -399,7 +399,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "399"
+					"sourceid": "392"
 				},
 				{
 					"pluginid": "110009",
@@ -450,7 +450,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "1264"
+					"sourceid": "1265"
 				},
 				{
 					"pluginid": "10063",
@@ -541,9 +541,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -640,15 +648,23 @@
 							"attack": "",
 							"evidence": "x-powered-by: Next.js",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "x-powered-by: Next.js",
+							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10035",
@@ -662,6 +678,14 @@
 					"instances":[ 
 						{
 							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F221.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -701,14 +725,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F244.jpg&w=256",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F250.jpg&w=256",
 							"method": "GET",
 							"param": "",
@@ -741,7 +757,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F275.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F277.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -749,7 +765,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F277.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F44.jpg&w=256",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -763,7 +779,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1175"
+					"sourceid": "1159"
 				},
 				{
 					"pluginid": "10096",
@@ -806,7 +822,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "399"
+					"sourceid": "392"
 				},
 				{
 					"pluginid": "10021",
@@ -820,6 +836,14 @@
 					"instances":[ 
 						{
 							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F207.jpg&w=256",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F221.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -859,14 +883,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F244.jpg&w=256",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F250.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -899,7 +915,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F275.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F277.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -907,7 +923,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F277.jpg&w=256",
+							"uri": "https://solutionsdelus.gouv.fr/_next/image?q=75&url=%2Fimages%2Fgrist-attachments%2F44.jpg&w=256",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -921,7 +937,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1175"
+					"sourceid": "1159"
 				},
 				{
 					"pluginid": "10094",
@@ -1012,15 +1028,23 @@
 							"attack": "",
 							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
 							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
+						},
+						{
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Acc%C3%A8s%20au%20num%C3%A9rique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ECqXks0iXLp-h0vSlonlvDmmtnvT1oGe1inVMw4EMwQ",
+							"otherinfo": "\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\\x0010*\uFFFD\uFFFD\uFFFD\"\\\uFFFD~\uFFFDK\u0496\uFFFD\uFFFD9\uFFFD\uFFFD{\uFFFD\u0581\uFFFD\uFFFD)\uFFFD3\\x000e\\x00043\\x0004</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10027",
@@ -1127,7 +1151,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10109",
@@ -1234,7 +1258,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10049",
@@ -1591,7 +1615,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -1626,7 +1650,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "73"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10031",
@@ -1719,20 +1743,20 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Ing%C3%A9nierie%20sur%20mesure\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nthematiques=Ing\u00E9nierie sur mesure\n\nThe user-controlled value was:\ning\u00E9nierie sur mesure"
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public",
 							"method": "GET",
 							"param": "thematiques",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Logement%20et%20cadre%20de%20vie\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nthematiques=Logement et cadre de vie\n\nThe user-controlled value was:\nlogement et cadre de vie"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Services%20au%20public\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nthematiques=Services au public\n\nThe user-controlled value was:\nservices au public"
 						},
 						{
-							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne",
+							"uri": "https://solutionsdelus.gouv.fr/projets?thematiques=Solidarit%C3%A9s",
 							"method": "GET",
 							"param": "thematiques",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Participation%20citoyenne\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nthematiques=Participation citoyenne\n\nThe user-controlled value was:\nparticipation citoyenne"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://solutionsdelus.gouv.fr/projets?thematiques=Solidarit%C3%A9s\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nthematiques=Solidarit\u00E9s\n\nThe user-controlled value was:\nsolidarit\u00E9s"
 						}
 					],
 					"count": "12",
@@ -1741,7 +1765,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "205"
+					"sourceid": "183"
 				}
 			]
 		}
