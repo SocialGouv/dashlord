@@ -52,10 +52,11 @@ jobs:
         with:
           url: ${{ github.event.inputs.url }}
           tool: ${{ github.event.inputs.tool }}
+        # to create missing entries in updown.io
+      - id: updown-init
+        uses: "SocialGouv/dashlord-actions/updown-init@v1"
         env:
-          # to create missing entries in updown.io
           UPDOWNIO_API_KEY: ${{ secrets.UPDOWNIO_API_KEY }}
-
   scans:
     runs-on: ubuntu-latest
     name: Scan
