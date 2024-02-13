@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 11 Feb 2024 00:35:43",
+	"@generated": "Tue, 13 Feb 2024 15:33:30",
 	"site":[ 
 		{
 			"@name": "https://incubateur.anct.gouv.fr",
@@ -285,6 +285,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/a-propos",
+							"method": "GET",
+							"param": "//stats.beta.gouv.fr/piwik.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.beta.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/a-propos",
+							"method": "GET",
+							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
+							"attack": "",
+							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/contact",
 							"method": "GET",
 							"param": "//stats.beta.gouv.fr/piwik.js",
@@ -310,22 +326,6 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/offre",
-							"method": "GET",
-							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"https://incubateur-territoires.github.io/feedback-widget/widget.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
-							"method": "GET",
-							"param": "//stats.beta.gouv.fr/piwik.js",
-							"attack": "",
-							"evidence": "<script data-n-head=\"ssr\" src=\"//stats.beta.gouv.fr/piwik.js\" data-body=\"true\" defer async></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
 							"method": "GET",
 							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
 							"attack": "",
@@ -382,7 +382,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "131"
+					"sourceid": "188"
 				},
 				{
 					"pluginid": "10063",
@@ -516,7 +516,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "158"
+					"sourceid": "122"
 				},
 				{
 					"pluginid": "10021",
@@ -751,14 +751,6 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{584:function(e,t,n){!function(e){\"use strict\";function t(e,t){for(var i\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/_nuxt/12341f3.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{550:function(t,e,r){var content=r(553);content.__esModule&&(content=co\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://incubateur.anct.gouv.fr/_nuxt/3c082b0.js",
 							"method": "GET",
 							"param": "",
@@ -847,13 +839,13 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b){return {layout:\"default\",data:[{post:{title:\"Prochainement, des temps d\u2019\u00E9changes avec l'i\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{584:function(e,t,n){!function(e){\"use strict\";function t(e,t){for(var i\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "133"
+					"sourceid": "180"
 				},
 				{
 					"pluginid": "10109",
@@ -912,7 +904,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "134"
+					"sourceid": "142"
 				},
 				{
 					"pluginid": "10049",
@@ -939,7 +931,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "18"
 				},
 				{
 					"pluginid": "10015",
@@ -1081,7 +1073,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1186,7 +1178,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1360,7 +1352,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "324"
+					"sourceid": "270"
 				}
 			]
 		}
