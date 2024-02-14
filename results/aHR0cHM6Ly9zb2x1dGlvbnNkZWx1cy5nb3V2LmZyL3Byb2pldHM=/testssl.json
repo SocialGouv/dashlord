@@ -227,21 +227,21 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "supported"
+              "finding"      : "not supported"
           }
 ,         {
               "id"           : "sessionresumption_ID",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "supported"
+              "finding"      : "not supported"
           }
 ,         {
               "id"           : "TLS_timestamp",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "off by 0 seconds from your localtime"
+              "finding"      : "off by -1 seconds from your localtime"
           }
 ,         {
               "id"           : "certificate_compression",
@@ -374,7 +374,7 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "72 >= 30 days"
+              "finding"      : "71 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -577,7 +577,7 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1707841850"
+              "finding"      : "1707911316"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -702,18 +702,18 @@
               "id"           : "ROBOT",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "CRITICAL",
+              "severity"     : "OK",
               "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
               "cwe"          : "CWE-203",
-              "finding"      : "VULNERABLE"
+              "finding"      : "not vulnerable"
           }
 ,         {
               "id"           : "secure_renego",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "WARN",
+              "severity"     : "OK",
               "cwe"          : "CWE-310",
-              "finding"      : "OpenSSL handshake didn't succeed"
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "secure_client_renego",
@@ -728,19 +728,19 @@
               "id"           : "CRIME_TLS",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "WARN",
+              "severity"     : "OK",
               "cve"          : "CVE-2012-4929",
               "cwe"          : "CWE-310",
-              "finding"      : "Check failed, couldn't connect"
+              "finding"      : "not vulnerable"
           }
 ,         {
               "id"           : "BREACH",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "WARN",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "Test failed as first HTTP request stalled and was terminated"
+              "finding"      : "potentially VULNERABLE, gzip deflate HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -755,8 +755,8 @@
               "id"           : "fallback_SCSV",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "some unexpected 'handshake failure' instead of 'inappropriate fallback' (likely: warning)"
+              "severity"     : "OK",
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "SWEET32",
@@ -813,13 +813,31 @@
               "finding"      : "no DH key with <= TLS 1.2"
           }
 ,         {
+              "id"           : "BEAST_CBC_TLS1",
+              "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "ECDHE-RSA-AES128-SHA AES128-SHA ECDHE-RSA-AES256-SHA AES256-SHA"
+          }
+,         {
+              "id"           : "BEAST",
+              "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+          }
+,         {
               "id"           : "LUCKY13",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "LOW",
               "cve"          : "CVE-2013-0169",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
+              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
           }
 ,         {
               "id"           : "winshock",
@@ -844,70 +862,70 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_70",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_81",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_90",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_11",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_12",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-firefox_100_win10",
@@ -1103,73 +1121,66 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "95"
           }
 ,         {
               "id"           : "protocol_support_score_weighted",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "28"
           }
 ,         {
               "id"           : "key_exchange_score",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "90"
           }
 ,         {
               "id"           : "key_exchange_score_weighted",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "27"
           }
 ,         {
               "id"           : "cipher_strength_score",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "60"
           }
 ,         {
               "id"           : "cipher_strength_score_weighted",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "24"
           }
 ,         {
               "id"           : "final_score",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0"
+              "finding"      : "79"
           }
 ,         {
               "id"           : "overall_grade",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
-              "severity"     : "CRITICAL",
-              "finding"      : "F"
+              "severity"     : "MEDIUM",
+              "finding"      : "B"
           }
 ,         {
               "id"           : "grade_cap_reason_1",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "Grade capped to F. Vulnerable to ROBOT"
-          }
-,         {
-              "id"           : "grade_cap_reason_2",
-              "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
-              "port"         : "443",
-              "severity"     : "INFO",
               "finding"      : "Grade capped to B. TLS 1.1 offered"
           }
 ,         {
-              "id"           : "grade_cap_reason_3",
+              "id"           : "grade_cap_reason_2",
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1180,6 +1191,6 @@
               "ip"           : "solutionsdelus.gouv.fr/51.159.9.204",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "110"
+              "finding"      : "154"
           }
 ]
