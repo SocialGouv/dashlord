@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 11 Feb 2024 00:35:43",
+	"@generated": "Wed, 14 Feb 2024 10:55:28",
 	"site":[ 
 		{
 			"@name": "https://incubateur.anct.gouv.fr",
@@ -42,7 +42,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10038",
@@ -149,7 +149,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90003",
@@ -317,7 +317,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
+							"uri": "https://incubateur.anct.gouv.fr/recrutement",
 							"method": "GET",
 							"param": "//stats.beta.gouv.fr/piwik.js",
 							"attack": "",
@@ -325,7 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://incubateur.anct.gouv.fr/offre/accompagnement-sur-mesure",
+							"uri": "https://incubateur.anct.gouv.fr/recrutement",
 							"method": "GET",
 							"param": "https://incubateur-territoires.github.io/feedback-widget/widget.js",
 							"attack": "",
@@ -355,7 +355,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10110",
@@ -382,7 +382,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "131"
+					"sourceid": "183"
 				},
 				{
 					"pluginid": "10063",
@@ -516,7 +516,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "158"
+					"sourceid": "123"
 				},
 				{
 					"pluginid": "10021",
@@ -530,6 +530,14 @@
 					"instances":[ 
 						{
 							"uri": "https://incubateur.anct.gouv.fr/",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://incubateur.anct.gouv.fr/_nuxt/7a95061.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -602,14 +610,6 @@
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/recrutement",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/services",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -730,7 +730,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -749,14 +749,6 @@
 							"attack": "",
 							"evidence": "from",
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{584:function(e,t,n){!function(e){\"use strict\";function t(e,t){for(var i\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://incubateur.anct.gouv.fr/_nuxt/12341f3.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{550:function(t,e,r){var content=r(553);content.__esModule&&(content=co\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://incubateur.anct.gouv.fr/_nuxt/3c082b0.js",
@@ -847,13 +839,13 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>window.__NUXT__=(function(a,b){return {layout:\"default\",data:[{post:{title:\"Prochainement, des temps d\u2019\u00E9changes avec l'i\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{584:function(e,t,n){!function(e){\"use strict\";function t(e,t){for(var i\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "133"
+					"sourceid": "176"
 				},
 				{
 					"pluginid": "10109",
@@ -912,7 +904,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "134"
+					"sourceid": "137"
 				},
 				{
 					"pluginid": "10049",
@@ -939,7 +931,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "15"
 				},
 				{
 					"pluginid": "10015",
@@ -1046,7 +1038,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1067,6 +1059,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1075,7 +1075,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1102,6 +1102,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1110,7 +1118,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1137,6 +1145,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1145,7 +1161,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1172,6 +1188,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://incubateur.anct.gouv.fr/contact",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1180,7 +1204,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1285,7 +1309,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -1360,7 +1384,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "324"
+					"sourceid": "288"
 				}
 			]
 		}

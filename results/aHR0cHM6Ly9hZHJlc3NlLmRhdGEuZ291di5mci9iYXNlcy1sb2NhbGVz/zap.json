@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 11 Feb 2024 01:00:57",
+	"@generated": "Wed, 14 Feb 2024 11:21:20",
 	"site":[ 
 		{
 			"@name": "https://adresse.data.gouv.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "601"
+					"sourceid": "1020"
 				},
 				{
 					"pluginid": "10038",
@@ -79,7 +79,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -96,6 +96,14 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/outils",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -127,13 +135,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10020",
@@ -178,7 +186,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -186,15 +194,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/donnees-nationales/usages",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -218,6 +218,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -232,7 +240,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90003",
@@ -259,7 +267,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "355"
+					"sourceid": "464"
 				},
 				{
 					"pluginid": "10110",
@@ -286,7 +294,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1942"
+					"sourceid": "2389"
 				},
 				{
 					"pluginid": "10063",
@@ -300,14 +308,6 @@
 					"instances":[ 
 						{
 							"uri": "https://adresse.data.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/api-doc",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -331,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -339,15 +339,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/donnees-nationales/usages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -356,6 +348,14 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/outils",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -387,7 +387,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -438,7 +438,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -492,7 +492,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10036",
@@ -537,7 +537,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -604,7 +604,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -612,23 +612,7 @@
 							"otherinfo": "1586639400, which evaluates to: 2020-04-11 21:10:00"
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1919628686",
-							"otherinfo": "1919628686, which evaluates to: 2030-10-30 22:11:26"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1586639400",
-							"otherinfo": "1586639400, which evaluates to: 2020-04-11 21:10:00"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -636,13 +620,13 @@
 							"otherinfo": "1919628686, which evaluates to: 2030-10-30 22:11:26"
 						}
 					],
-					"count": "4",
+					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1586639400, which evaluates to: 2020-04-11 21:10:00</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "88"
 				},
 				{
 					"pluginid": "10021",
@@ -687,7 +671,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -695,15 +679,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/donnees-nationales/usages",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/gerer-mes-adresses",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -727,6 +703,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/ressources",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -741,7 +725,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10094",
@@ -755,14 +739,6 @@
 					"instances":[ 
 						{
 							"uri": "https://adresse.data.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/_next/static/muRywbfv0nYHbq2FFPD2p/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDG,\\x001b~\uFFFD'`v\uFFFD\uFFFDQO\\x000fj\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/api-doc",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -786,7 +762,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDG,\\x001b~\uFFFD'`v\uFFFD\uFFFDQO\\x000fj\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -803,6 +779,14 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/outils",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/_next/static/muRywbfv0nYHbq2FFPD2p/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFDG,\\x001b~\uFFFD'`v\uFFFD\uFFFDQO\\x000fj\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -841,57 +825,6 @@
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "3"
-				},
-				{
-					"pluginid": "10019",
-					"alertRef": "10019-1",
-					"alert": "Content-Type Header Missing",
-					"name": "Content-Type Header Missing",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The Content-Type header was either missing or empty.</p>",
-					"instances":[ 
-						{
-							"uri": "https://adresse.data.gouv.fr/reverse/",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/reverse/csv/",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/search/",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/search/csv/",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "4",
-					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p>",
-					"cweid": "345",
-					"wascid": "12",
-					"sourceid": "2414"
 				},
 				{
 					"pluginid": "10027",
@@ -936,12 +869,12 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/contribuer\",\"query\":{},\"buildId\":\"muRywbfv\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/evenements\",\"query\":{},\"buildId\":\"muRywbfv\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/donnees-nationales\",\"query\":{},\"buildId\":\"\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/nous-contacter",
@@ -1035,7 +968,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1118,7 +1051,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/deploiement-bal",
+							"uri": "https://adresse.data.gouv.fr/programme-bal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1132,7 +1065,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "68"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10015",
@@ -1161,14 +1094,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/bases-locales/validateur",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/cgu",
 							"method": "GET",
 							"param": "cache-control",
@@ -1178,6 +1103,14 @@
 						},
 						{
 							"uri": "https://adresse.data.gouv.fr/contribuer",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/csv",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1247,7 +1180,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "186"
+					"sourceid": "256"
 				},
 				{
 					"pluginid": "90005",
@@ -1260,6 +1193,14 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
+							"uri": "https://adresse.data.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/bases-locales",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1268,15 +1209,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1290,7 +1223,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1303,6 +1236,14 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
+							"uri": "https://adresse.data.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/bases-locales",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1311,15 +1252,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1333,7 +1266,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1346,6 +1279,14 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
+							"uri": "https://adresse.data.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/bases-locales",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1354,15 +1295,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1376,7 +1309,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90005",
@@ -1389,6 +1322,14 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
+							"uri": "https://adresse.data.gouv.fr/",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://adresse.data.gouv.fr/bases-locales",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1397,15 +1338,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://adresse.data.gouv.fr/sitemap.xml",
+							"uri": "https://adresse.data.gouv.fr/outils",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1419,7 +1352,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10049",
@@ -1432,14 +1365,6 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://adresse.data.gouv.fr/api-doc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://adresse.data.gouv.fr/contribuer",
 							"method": "GET",
 							"param": "",
@@ -1448,7 +1373,15 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://adresse.data.gouv.fr/evenements",
+							"uri": "https://adresse.data.gouv.fr/donnees-nationales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://adresse.data.gouv.fr/nous-contacter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1494,7 +1427,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "127"
+					"sourceid": "96"
 				},
 				{
 					"pluginid": "10031",
@@ -1529,7 +1462,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2119"
+					"sourceid": "1253"
 				}
 			]
 		}

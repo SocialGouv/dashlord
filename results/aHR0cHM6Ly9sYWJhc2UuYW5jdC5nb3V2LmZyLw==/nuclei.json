@@ -1,43 +1,6 @@
 [
   [
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
-      "info": {
-        "name": "CAA Record",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "caa"
-        ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
-        "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "labase.anct.gouv.fr.",
-      "matched-at": "labase.anct.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 54285\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 54285\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n\n;; AUTHORITY SECTION:\ntlscp.fr.\t60\tIN\tSOA\tdns15.ovh.net. tech.ovh.net. 2024020201 86400 3600 3600000 60\n",
-      "timestamp": "2024-02-04T02:02:01.505619155Z",
-      "matcher-status": true
-    },
-    {
       "template": "dns/dns-saas-service-detection.yaml",
       "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
       "template-id": "dns-saas-service-detection",
@@ -69,9 +32,46 @@
       "extracted-results": [
         "labase.tlscp.fr."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 17951\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 17951\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n",
-      "timestamp": "2024-02-04T02:02:02.255756591Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 28842\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 28842\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n",
+      "timestamp": "2024-02-14T12:17:31.913521121Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "labase.anct.gouv.fr.",
+      "matched-at": "labase.anct.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 33571\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 33571\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n\n;; AUTHORITY SECTION:\ntlscp.fr.\t60\tIN\tSOA\tdns15.ovh.net. tech.ovh.net. 2024020201 86400 3600 3600000 60\n",
+      "timestamp": "2024-02-14T12:17:32.104246201Z",
       "matcher-status": true
     },
     {
@@ -97,9 +97,9 @@
       "host": "https://labase.anct.gouv.fr/",
       "matched-at": "https://labase.anct.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: labase.anct.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Sun, 04 Feb 2024 02:02:46 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Wed, 14 Feb 2024 12:18:17 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:02:46.375328122Z",
+      "timestamp": "2024-02-14T12:18:17.10263801Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://labase.anct.gouv.fr/'",
       "matcher-status": true
     },
@@ -139,9 +139,9 @@
       "host": "https://labase.anct.gouv.fr/",
       "matched-at": "https://labase.anct.gouv.fr/",
       "request": "POST / HTTP/1.1\r\nHost: labase.anct.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Sun, 04 Feb 2024 02:03:26 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Wed, 14 Feb 2024 12:18:57 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:26.563935078Z",
+      "timestamp": "2024-02-14T12:18:57.2733957Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: labase.anct.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://labase.anct.gouv.fr/'",
       "matcher-status": true
     },
@@ -176,9 +176,9 @@
       "host": "labase.anct.gouv.fr:443",
       "matched-at": "labase.anct.gouv.fr:443",
       "request": "2E",
-      "response": "HTTP/1.1 400 Bad Request\r\nServer: nginx/1.18.0 (Ubuntu)\r\nDate: Sun, 04 Feb 2024 02:03:51 GMT\r\nContent-Type: text/html\r\nContent-Length: 166\r\nConnection: close\r\n\r\n<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nServer: nginx/1.18.0 (Ubuntu)\r\nDate: Wed, 14 Feb 2024 12:19:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 166\r\nConnection: close\r\n\r\n<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:53.138012772Z",
+      "timestamp": "2024-02-14T12:19:24.252072635Z",
       "matcher-status": true
     },
     {
@@ -208,7 +208,7 @@
         "Let's Encrypt"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:53.546080125Z",
+      "timestamp": "2024-02-14T12:19:24.399883963Z",
       "matcher-status": true
     },
     {
@@ -241,7 +241,7 @@
         "preprod.labase.tlscp.fr"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:53.546203725Z",
+      "timestamp": "2024-02-14T12:19:24.400003607Z",
       "matcher-status": true
     },
     {
@@ -272,7 +272,7 @@
         "tls12"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:55.226669217Z",
+      "timestamp": "2024-02-14T12:19:26.135650398Z",
       "matcher-status": true
     },
     {
@@ -303,7 +303,7 @@
         "tls13"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-02-04T02:03:55.4600919Z",
+      "timestamp": "2024-02-14T12:19:26.411576981Z",
       "matcher-status": true
     }
   ]

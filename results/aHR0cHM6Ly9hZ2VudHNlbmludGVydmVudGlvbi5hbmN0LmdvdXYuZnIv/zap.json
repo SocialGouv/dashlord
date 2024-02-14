@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 11 Feb 2024 02:52:40",
+	"@generated": "Wed, 14 Feb 2024 13:08:53",
 	"site":[ 
 		{
 			"@name": "https://agentsenintervention.anct.gouv.fr",
@@ -42,7 +42,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "46"
+					"sourceid": "34"
 				},
 				{
 					"pluginid": "10055",
@@ -63,7 +63,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, font-src"
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/accessibilite",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -85,7 +85,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -106,7 +106,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/accessibilite",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -128,7 +128,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -149,7 +149,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/accessibilite",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "content-security-policy",
 							"attack": "",
@@ -171,7 +171,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10063",
@@ -200,7 +200,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/dd1ee9b2-ed6fbb4535bf00ee.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/main-app-0cbe4123967333b3.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -208,7 +208,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/main-app-0cbe4123967333b3.js",
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -393,7 +393,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "61"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "10021",
@@ -407,14 +407,6 @@
 					"instances":[ 
 						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fcalendar.209b6616.png&w=3840",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero.a492c47c.png&w=3840",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -455,6 +447,14 @@
 						},
 						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/chunks/webpack-2eb2df787992eb30.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/1236518c88936e31.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -508,7 +508,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "61"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "10111",
@@ -535,7 +535,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "66"
+					"sourceid": "65"
 				},
 				{
 					"pluginid": "10094",
@@ -642,7 +642,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10024",
@@ -669,7 +669,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "66"
+					"sourceid": "65"
 				},
 				{
 					"pluginid": "10027",
@@ -755,7 +755,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "41"
+					"sourceid": "42"
 				},
 				{
 					"pluginid": "10015",
@@ -846,7 +846,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -859,7 +859,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/5d83a15a91acd6cb.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -867,7 +867,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/b3167ed53d8b154e.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -889,7 +889,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -902,7 +902,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/5d83a15a91acd6cb.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -910,7 +910,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/b3167ed53d8b154e.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -932,7 +932,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -945,7 +945,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/5d83a15a91acd6cb.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -953,7 +953,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/b3167ed53d8b154e.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -975,7 +975,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -988,7 +988,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/5d83a15a91acd6cb.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -996,7 +996,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/css/b3167ed53d8b154e.css",
+							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1018,7 +1018,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "40"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1063,14 +1063,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/_next/static/media/apple-touch-icon.1db30588.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
@@ -1080,6 +1072,14 @@
 						},
 						{
 							"uri": "https://agentsenintervention.anct.gouv.fr/auth/sign-in",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://agentsenintervention.anct.gouv.fr/conditions-generales-d-utilisation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1101,42 +1101,23 @@
 							"attack": "",
 							"evidence": "s-maxage=31536000",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://agentsenintervention.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "6"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable but Non-Cacheable Content",
-					"name": "Storable but Non-Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
-					"instances":[ 
-						{
-							"uri": "https://agentsenintervention.anct.gouv.fr/manifest.json",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "",
-					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "45"
 				}
 			]
 		}
