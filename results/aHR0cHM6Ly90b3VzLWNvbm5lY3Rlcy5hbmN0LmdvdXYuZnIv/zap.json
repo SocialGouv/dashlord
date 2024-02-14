@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Wed, 14 Feb 2024 12:37:11",
+	"@generated": "Wed, 14 Feb 2024 18:30:36",
 	"site":[ 
 		{
 			"@name": "https://tous-connectes.anct.gouv.fr",
@@ -77,7 +77,93 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/",
+							"method": "GET",
+							"param": "https://plausible.io/js/script.js",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "https://plausible.io/js/script.js",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "https://plausible.io/js/script.js",
+							"attack": "",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10063",
@@ -98,7 +184,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -122,7 +208,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4f70a78542c79f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -144,7 +230,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -173,7 +259,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -197,7 +283,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4f70a78542c79f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -213,7 +299,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
+							"uri": "https://tous-connectes.anct.gouv.fr/styles.98fafeed1d3ecc4f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -240,7 +326,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -248,7 +334,7 @@
 							"otherinfo": "1431655765, which evaluates to: 2015-05-15 02:09:25"
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -291,7 +377,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -307,7 +393,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4f70a78542c79f40.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -315,7 +401,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
+							"uri": "https://tous-connectes.anct.gouv.fr/styles.98fafeed1d3ecc4f.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -346,77 +432,69 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "GsgUCss0mDVf2QeQktzZX3CFwMG/ZXJT+XkhBUyq1ef42QUaBQlX3NLC6y6B41UwInXVo2oPK7k=",
-							"otherinfo": "\\x001a\uFFFD\\x0014\n\uFFFD4\uFFFD5_\uFFFD\\x0007\uFFFD\uFFFD\uFFFD\uFFFD_p\uFFFD\uFFFD\uFFFD\uFFFDerS\uFFFDy!\\x0005L\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0005\\x001a\\x0005\tW\uFFFD\uFFFD\uFFFD\uFFFD.\uFFFD\uFFFDU0\"u\u0563j\\x000f+\uFFFD"
-						},
-						{
-							"uri": "https://tous-connectes.anct.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "in6TFOmtRG6rCSp38yePIgRQe/TQiafgV3aDwZ4t+MdOSNXCq0Xsz9qi3yoKKV8UDJnuHB9CZAw=",
-							"otherinfo": "\uFFFD~\uFFFD\\x0014\uFFFDDn\uFFFD\t*w\uFFFD'\uFFFD\"\\x0004P{\uFFFD\u0409\uFFFD\uFFFDWv\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFDNH\uFFFD\u00ABE\uFFFD\uFFFD\u06A2\uFFFD*\n)_\\x0014\\x000c\uFFFD\uFFFD\\x001c\\x001fBd\\x000c"
+							"evidence": "9iC3jaFH8z/akT/Ztif86oCNBAQgj6i5MFg5HC8cf4SJ3jMoJuePLkrqynbfvOYIrbUOTzQFSa8=",
+							"otherinfo": "\uFFFD \uFFFD\uFFFD\uFFFDG\uFFFD?\u0691?\u0676'\uFFFD\uA00D\\x0004\\x0004 \uFFFD\uFFFD\uFFFD0X9\\x001c/\\x001c\uFFFD\uFFFD\uFFFD3(&\uFFFD.J\uFFFD\uFFFDv\u07FC\uFFFD\\x0008\uFFFD\uFFFD\\x000eO4\\x0005I\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "SZdGdPfOctsCSbLUzSoBXqqnxALVLpB9MIs8BqD1wGZWpDGfxd0EU5evbyD8xw9W454vuIGWXe4=",
-							"otherinfo": "I\uFFFDFt\uFFFD\uFFFDr\uFFFD\\x0002I\uFFFD\uFFFD\uFFFD*\\x0001^\uFFFD\uFFFD\uFFFD\\x0002\uFFFD.\uFFFD}0\uFFFD<\\x0006\uFFFD\uFFFD\uFFFDfV\uFFFD1\uFFFD\uFFFD\uFFFD\\x0004S\uFFFD\uFFFDo \uFFFD\uFFFD\\x000fV\uFFFD/\uFFFD\uFFFD\uFFFD]\uFFFD"
+							"evidence": "iDrAb6axQv7O4TuAFd3S9VgU5XS0GrLriMFHcYefZd5LqbF+jp81begCxE7RtV45jR/3Zj4m7Kw=",
+							"otherinfo": "\uFFFD:\uFFFDo\uFFFD\uFFFDB\uFFFD\uFFFD\uFFFD;\uFFFD\\x0015\uFFFD\uFFFD\uFFFDX\\x0014\uFFFDt\uFFFD\\x001a\uFFFD\uFFFD\uFFFDGq\uFFFD\uFFFDe\uFFFDK\uFFFD\uFFFD~\uFFFD\uFFFD5m\uFFFD\\x0002\uFFFDN\u0475^9\uFFFD\\x001f\uFFFDf>&\uFFFD"
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "gJQQMbgUQgN6rkvHMsEAOlHgVKxS0Scw9NzsjsZ+dJMtQDjt/MYlM4PI6zfmi+Mw/XBTHdFoYWw=",
-							"otherinfo": "\uFFFD\uFFFD\\x00101\uFFFD\\x0014B\\x0003z\uFFFDK\uFFFD2\uFFFD\\x0000:Q\uFFFDT\uFFFDR\uFFFD'0\uFFFD\uFFFD\uFFFD\uFFFD~t\uFFFD-@8\uFFFD\uFFFD\uFFFD%3\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD0\uFFFDpS\\x001d\uFFFDhal"
+							"evidence": "6sT+uH7rNSqNaTNAgZtMKOBcpZJ2DsX2reIVUF2mUoMwYCSAX1Nr0i1GkTlL9U/fq3QFkxTL/6k=",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD~\uFFFD5*\uFFFDi3@\uFFFD\uFFFDL(\uFFFD\\\uFFFD\uFFFDv\\x000e\uFFFD\uFFFD\uFFFD\uFFFD\\x0015P]\uFFFDR\uFFFD0`$\uFFFD_Sk\uFFFD-F\uFFFD9K\uFFFDO\u07EBt\\x0005\uFFFD\\x0014\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/polyfills.657390f7086ebeb5.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "mUxrGHn+q5m6shUrQL8aLPAmh5/ZCXH0dhQIjCIn6OdOsmTJnPyjpGpoaKTbWmaOz6sPZdPfLGs=",
-							"otherinfo": "\uFFFDLk\\x0018y\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0015+@\uFFFD\\x001a,\uFFFD&\uFFFD\uFFFD\uFFFD\tq\uFFFDv\\x0014\\x0008\uFFFD\"'\uFFFD\uFFFDN\uFFFDd\u025C\uFFFD\uFFFD\uFFFDjhh\uFFFD\uFFFDZf\uFFFD\u03EB\\x000fe\uFFFD\uFFFD,k"
+							"evidence": "W4m6MQ8eYRox1aT2SqNC3mPDJNzy8y3i0I1Py+L6n6GRrW/KwD1oiJGdeVUASG++SH7fjjto06c=",
+							"otherinfo": "[\uFFFD\uFFFD1\\x000f\\x001ea\\x001a1\u0564\uFFFDJ\uFFFDB\uFFFDc\uFFFD$\uFFFD\uFFFD\uFFFD-\uFFFD\u040DO\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDo\uFFFD\uFFFD=h\uFFFD\uFFFD\uFFFDyU\\x0000Ho\uFFFDH~\u07CE;h\u04E7"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "4HOzZxKGIijhUcv+1vjFXvPoBfjOgOLZkK4aFNivl7wFAUiSJkmaEb5fElOk2YGN1gOWM0FHVhE=",
-							"otherinfo": "\uFFFDs\uFFFDg\\x0012\uFFFD\"(\uFFFDQ\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD^\uFFFD\uFFFD\\x0005\uFFFD\u0380\uFFFD\u0650\uFFFD\\x001a\\x0014\u062F\uFFFD\uFFFD\\x0005\\x0001H\uFFFD&I\uFFFD\\x0011\uFFFD_\\x0012S\uFFFD\u0641\uFFFD\uFFFD\\x0003\uFFFD3AGV\\x0011"
+							"evidence": "6iLKdcn9FbejsQ9w1X96Z1ORcJ+Ff2SxQPMSCGzycPq/R+SFWASc/3vxfmjPiEDh93s+VbWYG1w=",
+							"otherinfo": "\uFFFD\"\uFFFDu\uFFFD\uFFFD\\x0015\uFFFD\uFFFD\uFFFD\\x000fp\uFFFDzgS\uFFFDp\uFFFD\uFFFDd\uFFFD@\uFFFD\\x0012\\x0008l\uFFFDp\uFFFD\uFFFDG\uFFFDX\\x0004\uFFFD\uFFFD{\uFFFD~h\u03C8@\uFFFD\uFFFD{>U\uFFFD\uFFFD\\x001b\\"
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4f70a78542c79f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "9kKo5aSH1RwDRmQwdmPiXvEpW0ka9QvOcguYBXhuppZOmHxwmygPJo3IgK461H2Jl4/T3wRDT3s=",
-							"otherinfo": "\uFFFDB\uFFFD\u5907\uFFFD\\x001c\\x0003Fd0vc\uFFFD^\uFFFD)[I\\x001a\uFFFD\\x000b\uFFFDr\\x000b\uFFFD\\x0005xn\uFFFD\uFFFDN\uFFFD|p\uFFFD(\\x000f&\uFFFD\u0200\uFFFD:\uFFFD}\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0004CO{"
+							"evidence": "QOHke2znRUATtQw37x3YCQs2/p+hWSXIXI56CZ5vjcyPpBvSuTfoTUZcaz291HYE+twpwmQrQMs=",
+							"otherinfo": "@\uFFFD\uFFFD{l\uFFFDE@\\x0013\uFFFD\\x000c7\uFFFD\\x001d\uFFFD\t\\x000b6\uFFFD\uFFFD\uFFFDY%\uFFFD\\\uFFFDz\t\uFFFDo\uFFFD\u030F\uFFFD\\x001b\u04B97\uFFFDMF\\k=\uFFFD\uFFFDv\\x0004\uFFFD\uFFFD)\uFFFDd+@\uFFFD"
 						},
 						{
 							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "4F9AikTSN7x+PPLiiqbnM7OclzVVBGZZL/WsANSMIDjiR2qffVdMiVXcXmEAr4awx5lKEi27vow=",
-							"otherinfo": "\uFFFD_@\uFFFDD\uFFFD7\uFFFD~<\uFFFD\u22A6\uFFFD3\uFFFD\uFFFD\uFFFD5U\\x0004fY/\uFFFD\uFFFD\\x0000\u050C 8\uFFFDGj\uFFFD}WL\uFFFDU\uFFFD^a\\x0000\uFFFD\uFFFD\uFFFD\u01D9J\\x0012-\uFFFD\uFFFD\uFFFD"
+							"evidence": "d6jHVoguhMAOLvJj8x5VS7Ts6cpFrmRQETTCCHm1Y6NT0vBfsvVycHwyz3yI6SRZxNurgpQKUtc=",
+							"otherinfo": "w\uFFFD\uFFFDV\uFFFD.\uFFFD\uFFFD\\x000e.\uFFFDc\uFFFD\\x001eUK\uFFFD\uFFFD\uFFFD\uFFFDE\uFFFDdP\\x00114\uFFFD\\x0008y\uFFFDc\uFFFDS\uFFFD\uFFFD_\uFFFD\uFFFDrp|2\uFFFD|\uFFFD\uFFFD$Y\uFFFD\u06EB\uFFFD\uFFFD\nR\uFFFD"
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
+							"uri": "https://tous-connectes.anct.gouv.fr/styles.98fafeed1d3ecc4f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "pR3bakvHfnW+W3HZtaWkBN4FkVGaI9ZDZ5Wx3IT4TsXM3RzRf89Qa6msyfoPzmXwBOf4BWox4+I=",
-							"otherinfo": "\uFFFD\\x001d\uFFFDjK\uFFFD~u\uFFFD[q\u0675\uFFFD\uFFFD\\x0004\uFFFD\\x0005\uFFFDQ\uFFFD#\uFFFDCg\uFFFD\uFFFD\u0704\uFFFDN\uFFFD\uFFFD\uFFFD\\x001c\uFFFD\uFFFDPk\uFFFD\uFFFD\uFFFD\uFFFD\\x000f\uFFFDe\uFFFD\\x0004\uFFFD\uFFFD\\x0005j1\uFFFD\uFFFD"
+							"evidence": "+G/emhLO4iIzz6zd3LiTAYwU13xf9+eJg27//d0mqRlJjwwhlJUQJOXuB/FivMMTJqmECeipYEI=",
+							"otherinfo": "\uFFFDo\u079A\\x0012\uFFFD\uFFFD\"3\u03EC\uFFFD\u0738\uFFFD\\x0001\uFFFD\\x0014\uFFFD|_\uFFFD\u7243n\uFFFD\uFFFD\uFFFD&\uFFFD\\x0019I\uFFFD\\x000c!\uFFFD\uFFFD\\x0010$\uFFFD\uFFFD\\x0007\uFFFDb\uFFFD\uFFFD\\x0013&\uFFFD\uFFFD\t\uFFFD`B"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\x001a\uFFFD\\x0014</p><p>\uFFFD4\uFFFD5_\uFFFD\\x0007\uFFFD\uFFFD\uFFFD\uFFFD_p\uFFFD\uFFFD\uFFFD\uFFFDerS\uFFFDy!\\x0005L\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0005\\x001a\\x0005\tW\uFFFD\uFFFD\uFFFD\uFFFD.\uFFFD\uFFFDU0\"u\u0563j\\x000f+\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD \uFFFD\uFFFD\uFFFDG\uFFFD?\u0691?\u0676'\uFFFD\uA00D\\x0004\\x0004 \uFFFD\uFFFD\uFFFD0X9\\x001c/\\x001c\uFFFD\uFFFD\uFFFD3(&\uFFFD.J\uFFFD\uFFFDv\u07FC\uFFFD\\x0008\uFFFD\uFFFD\\x000eO4\\x0005I\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -433,7 +511,7 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -464,7 +542,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -472,7 +550,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -480,7 +558,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime.4ce8637fcb86e9cd.js\" type=\"module\" crossorigin=\"anonymous\" integrity=\"sha384-mzznMDCMEMW1CkYynw1mpQzwmWnCWdXotaWZUNct5pAj4iQeMub0GeKuJPkWFS0q\"></script>",
+							"evidence": "<script defer data-domain=\"tous-connectes.anct.gouv.fr\" src=\"https://plausible.io/js/script.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -546,7 +624,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -589,7 +667,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -603,7 +681,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -632,7 +710,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -646,7 +724,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -675,7 +753,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -718,7 +796,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/main.f6d30cd12424882e.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/main.165a4139fa8133eb.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -742,7 +820,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4ce8637fcb86e9cd.js",
+							"uri": "https://tous-connectes.anct.gouv.fr/runtime.4f70a78542c79f40.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -758,7 +836,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://tous-connectes.anct.gouv.fr/styles.261e64abdd45494c.css",
+							"uri": "https://tous-connectes.anct.gouv.fr/styles.98fafeed1d3ecc4f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
