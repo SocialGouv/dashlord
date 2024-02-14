@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Wed, 14 Feb 2024 12:48:58",
+	"@generated": "Wed, 14 Feb 2024 18:37:24",
 	"site":[ 
 		{
 			"@name": "https://aplus.beta.gouv.fr",
@@ -205,6 +205,22 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
+							"uri": "https://aplus.beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImFjMDNiZjNjNjA0MWZmMTRhNWI3MzhlMDI5NGIwOTAxY2E5YjFhZGUtMTcwNzkzNTgzODg3NC02NjFhYzZlN2NjMTVmNzBlZTU4ZGExNTUifSwiZXhwIjoxNzEwNTI3ODM4LCJuYmYiOjE3MDc5MzU4MzgsImlhdCI6MTcwNzkzNTgzOH0",
+							"otherinfo": "{\"data\":{\"csrfToken\":\"ac03bf3c6041ff14a5b738e0294b0901ca9b1ade-1707935838874-661ac6e7cc15f70ee58da155\"},\"exp\":1710527838,\"nbf\":1707935838,\"iat\":1707935838}"
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImNjYTRlY2YwMTdjZjJjNGY2OTdlMjA3MTZkZGVmNWUzOTYyZGE0MDgtMTcwNzkzNTgzODY1Ni03MmQxY2UxNzcxYjc3MTg2YzVjNmRhMDcifSwiZXhwIjoxNzEwNTI3ODM4LCJuYmYiOjE3MDc5MzU4MzgsImlhdCI6MTcwNzkzNTgzOH0",
+							"otherinfo": "{\"data\":{\"csrfToken\":\"cca4ecf017cf2c4f697e20716ddef5e3962da408-1707935838656-72d1ce1771b77186c5c6da07\"},\"exp\":1710527838,\"nbf\":1707935838,\"iat\":1707935838}"
+						},
+						{
 							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/5d17175e6db7e672a7396273b186b45d-dsfr.nomodule.min.js",
 							"method": "GET",
 							"param": "",
@@ -241,17 +257,17 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImVycm9yIjoiQXVjdW4gY29tcHRlIGFjdGlmIG7igJllc3QgYXNzb2Npw6kgw6AgY2V0dGUgYWRyZXNzZSBlLW1haWwuXG5NZXJjaSBkZSB2w6lyaWZpZXIgcXXigJlpbCBz4oCZYWdpdCBiaWVuIGRlIHZvdHJlIGFkcmVzc2UgcHJvZmVzc2lvbm5lbGxlIGV0IG5vbWluYXRpdmUuIiwiZW1haWwtdmFsdWUiOiJ6YXByb3h5QGV4YW1wbGUuY29tIn0sIm5iZiI6MTcwNzkxNDkzNCwiaWF0IjoxNzA3OTE0OTM0fQ",
-							"otherinfo": "{\"data\":{\"error\":\"Aucun compte actif n\u2019est associ\u00E9 \u00E0 cette adresse e-mail.\\nMerci de v\u00E9rifier qu\u2019il s\u2019agit bien de votre adresse professionnelle et nominative.\",\"email-value\":\"zaproxy@example.com\"},\"nbf\":1707914934,\"iat\":1707914934}"
+							"evidence": "eyJkYXRhIjp7ImVycm9yIjoiQXVjdW4gY29tcHRlIGFjdGlmIG7igJllc3QgYXNzb2Npw6kgw6AgY2V0dGUgYWRyZXNzZSBlLW1haWwuXG5NZXJjaSBkZSB2w6lyaWZpZXIgcXXigJlpbCBz4oCZYWdpdCBiaWVuIGRlIHZvdHJlIGFkcmVzc2UgcHJvZmVzc2lvbm5lbGxlIGV0IG5vbWluYXRpdmUuIiwiZW1haWwtdmFsdWUiOiJ6YXByb3h5QGV4YW1wbGUuY29tIn0sIm5iZiI6MTcwNzkzNTgzOSwiaWF0IjoxNzA3OTM1ODM5fQ",
+							"otherinfo": "{\"data\":{\"error\":\"Aucun compte actif n\u2019est associ\u00E9 \u00E0 cette adresse e-mail.\\nMerci de v\u00E9rifier qu\u2019il s\u2019agit bien de votre adresse professionnelle et nominative.\",\"email-value\":\"zaproxy@example.com\"},\"nbf\":1707935839,\"iat\":1707935839}"
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^</p>",
+					"otherinfo": "<p>{\"data\":{\"csrfToken\":\"ac03bf3c6041ff14a5b738e0294b0901ca9b1ade-1707935838874-661ac6e7cc15f70ee58da155\"},\"exp\":1710527838,\"nbf\":1707935838,\"iat\":1707935838}</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "78"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -294,7 +310,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "81"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "10109",
@@ -393,7 +409,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/robots.txt",
+							"uri": "https://aplus.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -436,7 +452,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/robots.txt",
+							"uri": "https://aplus.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -458,7 +474,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -479,6 +495,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://aplus.beta.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://aplus.beta.gouv.fr/stats",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -487,13 +511,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -514,7 +538,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/robots.txt",
+							"uri": "https://aplus.beta.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -536,7 +560,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10112",
@@ -553,7 +577,7 @@
 							"method": "GET",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjRiNDM5MzA2MTExNzM5NjYwOTdiZmU3NWVmNTEzZTY2YmQ5YjBiOGQtMTcwNzkxNDkzMjkwNC1jZjcxNWUxN2I0MzhmMDMzMWI0Zjk1ZDkifSwiZXhwIjoxNzEwNTA2OTMyLCJuYmYiOjE3MDc5MTQ5MzIsImlhdCI6MTcwNzkxNDkzMn0.HnTbs15WC4JNHyYduoKAqZkODXcFQJRA9Sdm3SnODME",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImFjMDNiZjNjNjA0MWZmMTRhNWI3MzhlMDI5NGIwOTAxY2E5YjFhZGUtMTcwNzkzNTgzODg3NC02NjFhYzZlN2NjMTVmNzBlZTU4ZGExNTUifSwiZXhwIjoxNzEwNTI3ODM4LCJuYmYiOjE3MDc5MzU4MzgsImlhdCI6MTcwNzkzNTgzOH0.oVvrch5uyDrgVc53XqZLUFVx-agilQvgSL812B5htQQ",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						},
 						{
@@ -561,23 +585,7 @@
 							"method": "GET",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImNjYzE0N2NhMTI0OWEwNTgzMDE0Y2I2Y2ZjYjlhNGQ5MjRhYTg3YjQtMTcwNzkxNDkzMjU0Ny0yNTg4YWM2ZDhlMGVhNjkxZjQyZTNkMTkifSwiZXhwIjoxNzEwNTA2OTMyLCJuYmYiOjE3MDc5MTQ5MzIsImlhdCI6MTcwNzkxNDkzMn0.F40lx7ttt7lciXPAzjbFnWTi5w4gVRfpi4xQZFVRzW4",
-							"otherinfo": "\ncookie:PLAY_SESSION"
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/84d88de1e59062af61fc97b4497f1ccc-index.js",
-							"method": "GET",
-							"param": "PLAY_SESSION",
-							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjRiNDM5MzA2MTExNzM5NjYwOTdiZmU3NWVmNTEzZTY2YmQ5YjBiOGQtMTcwNzkxNDkzMjkwNC1jZjcxNWUxN2I0MzhmMDMzMWI0Zjk1ZDkifSwiZXhwIjoxNzEwNTA2OTMyLCJuYmYiOjE3MDc5MTQ5MzIsImlhdCI6MTcwNzkxNDkzMn0.HnTbs15WC4JNHyYduoKAqZkODXcFQJRA9Sdm3SnODME",
-							"otherinfo": "\ncookie:PLAY_SESSION"
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/82d2d57c23c7c154322aeb625ceff265-dsfr.min.css",
-							"method": "GET",
-							"param": "PLAY_SESSION",
-							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjRiNDM5MzA2MTExNzM5NjYwOTdiZmU3NWVmNTEzZTY2YmQ5YjBiOGQtMTcwNzkxNDkzMjkwNC1jZjcxNWUxN2I0MzhmMDMzMWI0Zjk1ZDkifSwiZXhwIjoxNzEwNTA2OTMyLCJuYmYiOjE3MDc5MTQ5MzIsImlhdCI6MTcwNzkxNDkzMn0.HnTbs15WC4JNHyYduoKAqZkODXcFQJRA9Sdm3SnODME",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImNjYTRlY2YwMTdjZjJjNGY2OTdlMjA3MTZkZGVmNWUzOTYyZGE0MDgtMTcwNzkzNTgzODY1Ni03MmQxY2UxNzcxYjc3MTg2YzVjNmRhMDcifSwiZXhwIjoxNzEwNTI3ODM4LCJuYmYiOjE3MDc5MzU4MzgsImlhdCI6MTcwNzkzNTgzOH0.B6YyxLkmTvIkgdBvU0omgTMrQKzGaLm8xbCUnSwBaa0",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						},
 						{
@@ -585,11 +593,11 @@
 							"method": "POST",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjRiNDM5MzA2MTExNzM5NjYwOTdiZmU3NWVmNTEzZTY2YmQ5YjBiOGQtMTcwNzkxNDkzMjkwNC1jZjcxNWUxN2I0MzhmMDMzMWI0Zjk1ZDkifSwiZXhwIjoxNzEwNTA2OTMyLCJuYmYiOjE3MDc5MTQ5MzIsImlhdCI6MTcwNzkxNDkzMn0.HnTbs15WC4JNHyYduoKAqZkODXcFQJRA9Sdm3SnODME",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImFjMDNiZjNjNjA0MWZmMTRhNWI3MzhlMDI5NGIwOTAxY2E5YjFhZGUtMTcwNzkzNTgzODg3NC02NjFhYzZlN2NjMTVmNzBlZTU4ZGExNTUifSwiZXhwIjoxNzEwNTI3ODM4LCJuYmYiOjE3MDc5MzU4MzgsImlhdCI6MTcwNzkzNTgzOH0.oVvrch5uyDrgVc53XqZLUFVx-agilQvgSL812B5htQQ",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						}
 					],
-					"count": "5",
+					"count": "3",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:PLAY_SESSION</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
@@ -702,7 +710,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
