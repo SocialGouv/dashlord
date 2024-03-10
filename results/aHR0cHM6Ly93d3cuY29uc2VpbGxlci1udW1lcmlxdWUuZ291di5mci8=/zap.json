@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Mar 2024 01:45:33",
+	"@generated": "Sun, 10 Mar 2024 01:45:55",
 	"site":[ 
 		{
 			"@name": "https://www.conseiller-numerique.gouv.fr",
@@ -93,7 +93,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10063",
@@ -130,7 +130,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -144,7 +144,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10035",
@@ -221,7 +221,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.3bc18b08.css",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.e727c760.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -229,7 +229,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -256,7 +256,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -264,7 +264,7 @@
 							"otherinfo": "1431655765, which evaluates to: 2015-05-15 02:09:25"
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -272,15 +272,23 @@
 							"otherinfo": "1540483477, which evaluates to: 2018-10-25 16:04:37"
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1580983145",
 							"otherinfo": "1580983145, which evaluates to: 2020-02-06 09:59:05"
+						},
+						{
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1699450618",
+							"otherinfo": "1699450618, which evaluates to: 2023-11-08 13:36:58"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1431655765, which evaluates to: 2015-05-15 02:09:25</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
@@ -363,7 +371,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.3bc18b08.css",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.e727c760.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -371,7 +379,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -398,7 +406,7 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.3bc18b08.css",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.e727c760.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -406,7 +414,7 @@
 							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -433,17 +441,17 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "todo",
-							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"(()=>{var e={495:(e,t,n)=>{(self.webpackChunkcartographie=self.webpackChunkcartographie||[]).push([[\"main\"],{542:(e,t,r)=>{\"use \", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"(()=>{var e={495:(e,t,n)=>{(self.webpackChunkcartographie=self.webpackChunkcartographie||[]).push([[\"main\"],{407:(e,t,r)=>{\"use \", see evidence field for the suspicious comment/snippet."
 						}
 					],
 					"count": "1",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"(()=>{var e={495:(e,t,n)=>{(self.webpackChunkcartographie=self.webpackChunkcartographie||[]).push([[\"main\"],{542:(e,t,r)=>{\"use \", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"(()=>{var e={495:(e,t,n)=>{(self.webpackChunkcartographie=self.webpackChunkcartographie||[]).push([[\"main\"],{407:(e,t,r)=>{\"use \", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
@@ -464,7 +472,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script defer=\"defer\" src=\"/static/js/main.2db96b7a.js\"></script>",
+							"evidence": "<script defer=\"defer\" src=\"/static/js/main.d5f377fe.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -472,7 +480,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script defer=\"defer\" src=\"/static/js/main.2db96b7a.js\"></script>",
+							"evidence": "<script defer=\"defer\" src=\"/static/js/main.d5f377fe.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -480,7 +488,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script defer=\"defer\" src=\"/static/js/main.2db96b7a.js\"></script>",
+							"evidence": "<script defer=\"defer\" src=\"/static/js/main.d5f377fe.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -533,7 +541,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -605,7 +613,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
+							"uri": "https://www.conseiller-numerique.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -613,7 +621,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/sitemap.xml",
+							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -627,7 +635,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -648,7 +656,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
+							"uri": "https://www.conseiller-numerique.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -656,7 +664,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/sitemap.xml",
+							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -670,7 +678,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -691,6 +699,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.conseiller-numerique.gouv.fr/favicon.ico",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -699,7 +715,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -726,7 +742,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
+							"uri": "https://www.conseiller-numerique.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -734,7 +750,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/sitemap.xml",
+							"uri": "https://www.conseiller-numerique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -748,7 +764,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -801,7 +817,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.3bc18b08.css",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/css/main.e727c760.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -809,7 +825,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.2db96b7a.js",
+							"uri": "https://www.conseiller-numerique.gouv.fr/static/js/main.d5f377fe.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -823,7 +839,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "18"
+					"sourceid": "17"
 				}
 			]
 		}
