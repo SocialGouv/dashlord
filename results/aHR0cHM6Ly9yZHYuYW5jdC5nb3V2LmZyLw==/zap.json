@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Mar 2024 02:11:11",
+	"@generated": "Sun, 10 Mar 2024 02:03:56",
 	"site":[ 
 		{
 			"@name": "https://rdv.anct.gouv.fr",
@@ -42,7 +42,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "148"
+					"sourceid": "173"
 				},
 				{
 					"pluginid": "10055",
@@ -198,23 +198,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "35"
+					"sourceid": "46"
 				},
 				{
 					"pluginid": "10020",
@@ -281,7 +273,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10110",
@@ -308,7 +300,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "117"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "110009",
@@ -335,7 +327,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "136"
+					"sourceid": "142"
 				},
 				{
 					"pluginid": "10063",
@@ -380,14 +372,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://rdv.anct.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -397,6 +381,14 @@
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/mentions_legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/politique_de_confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -455,6 +447,14 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
+							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.min-b3d5644802a45f337da5a0bc1f87eb63d35bb7fa5e933b0c03f5273c122e8baf.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.module.min-7235104b77e676b0937ceb90dff6b21d31b957a2c3ea173a9e5a5c64bb147846.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -503,23 +503,15 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://rdv.anct.gouv.fr/assets/favicon/favicon-a933d69b078f2d798a5fee2eeb0a8e97de10b68c24a6e5af3a2b8b727e14d73d.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://rdv.anct.gouv.fr/assets/logos/logo_sombre_rdv_service_public-ff16de9a15a2b74ff6a200626c756e51b8615f87f1113de58022ccb2a4de09cf.svg",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/assets/rdv_mairie/image_1-a55e4f4dbc913f14741d819d01b300ab5fe017aa3b6c2fd6c50577d279d60e68.svg",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/assets/rdv_mairie/landing_page_video_thumbnail-e3ad1316f3103719bca921a904011d200aff428c6d4d38d6d366f4d0f49bbb77.webp",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -557,7 +549,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "71"
+					"sourceid": "93"
 				},
 				{
 					"pluginid": "10111",
@@ -592,7 +584,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "142"
+					"sourceid": "139"
 				},
 				{
 					"pluginid": "10094",
@@ -609,48 +601,32 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2BJuJbZ3XWxW4iKRCHvC7hl71rX62iqfMmHe",
-							"otherinfo": "\uFFFD\\x0012n%\uFFFDw]lV\uFFFD\"\uFFFD\\x0008{\uFFFD\uFFFD\\x0019{\u05B5\uFFFD\uFFFD*\uFFFD2a\uFFFD"
+							"evidence": "2B1u6RO5OgXde6BrT2GfbhnNR1BRC5oIyC0D2TzKDEJm0iQhag0Cvf4ni4cP1kkjXE4ofPLuPEdNRWdgV9dtDeh6xCi99vsaAiZGSMiT",
+							"otherinfo": "\uFFFD\\x001dn\uFFFD\\x0013\uFFFD:\\x0005\uFFFD{\uFFFDkOa\uFFFDn\\x0019\uFFFDGPQ\\x000b\uFFFD\\x0008\uFFFD-\\x0003\uFFFD<\uFFFD\\x000cBf\uFFFD$!j\r\\x0002\uFFFD\uFFFD'\uFFFD\uFFFD\\x000f\uFFFDI#\\N(|\uFFFD\uFFFD<GMEg`W\uFFFDm\r\uFFFDz\uFFFD(\uFFFD\uFFFD\uFFFD\\x001a\\x0002&FH\u0213"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "oxeSzqXhGyFKSIDHE4kKm0XQLVIJYA",
-							"otherinfo": "\uFFFD\\x0017\uFFFD\u03A5\uFFFD\\x001b!JH\uFFFD\uFFFD\\x0013\uFFFD\n\uFFFDE\uFFFD-R\t`"
+							"evidence": "mPXbi6CsBgXdgn2WRsOmsRvBnr1g7O6inxw",
+							"otherinfo": "\uFFFD\uFFFD\u06CB\uFFFD\uFFFD\\x0006\\x0005\u0742}\uFFFDF\u00E6\uFFFD\\x001b\uFFFD\uFFFD\uFFFD`\uFFFD\uE89F\\x001c"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/accessibility",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2BoDFJJUar9uVvfqicfjyG64jGME4MgPLqHjy9k9j0fHgLbzixY4wwkrgI7WA5",
-							"otherinfo": "\uFFFD\\x001a\\x0003\\x0014\uFFFDTj\uFFFDnV\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDn\uFFFD\uFFFDc\\x0004\uFFFD\uFFFD\\x000f.\uFFFD\uFFFD\uFFFD\uFFFD=\uFFFDG\u01C0\uFFFD\uFFFD\\x00168\uFFFD\t+\uFFFD\uFFFD\uFFFD\\x0003"
+							"evidence": "siWWBKr9D7hLFqQTMWbc1JDsPWJb8IuQXoVplvVNlNQDXE59ak7ljaNhKSQ",
+							"otherinfo": "\uFFFD%\uFFFD\\x0004\uFFFD\uFFFD\\x000f\uFFFDK\\x0016\uFFFD\\x00131f\uFFFD\u0510\uFFFD=b[\uFFFD\uFFFD\uFFFD^\uFFFDi\uFFFD\uFFFDM\uFFFD\uFFFD\\x0003\\N}jN\u5363a)$"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/agents/sign_in",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2B5cujlaKbloRL7wMqkXQA5U8BocA7P6Z2H8K1HJ",
-							"otherinfo": "\uFFFD\\x001e\\\uFFFD9Z)\uFFFDhD\uFFFD\uFFFD2\uFFFD\\x0017@\\x000eT\uFFFD\\x001a\\x001c\\x0003\uFFFD\uFFFDga\uFFFD+Q\uFFFD"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.min-b3d5644802a45f337da5a0bc1f87eb63d35bb7fa5e933b0c03f5273c122e8baf.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5",
-							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist/dsfr.nomodule.min-801b5094f222092b5cd28c3dfa675fa05ac136942ec6be99b63972a877d3b56d.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/Financial-Times/polyfill-service/issues/317",
-							"otherinfo": "r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^"
+							"evidence": "Yn1EP9d1puBGEDxlFgDShb1m5XrdrTqvs3MmWL",
+							"otherinfo": "b}D?\uFFFDu\uFFFD\uFFFDF\\x0010<e\\x0016\\x0000\u0485\uFFFDf\uFFFDz\u076D:\uFFFD\uFFFDs&X"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/favicon.ico",
@@ -665,24 +641,32 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2BL5jZUsgcIYMCEaDzxSGG1LWhhpk2WdMVI270N",
-							"otherinfo": "\uFFFD\\x0012\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD\\x00180!\\x001a\\x000f<R\\x0018mKZ\\x0018i\uFFFDe\uFFFD1R6\uFFFDC"
+							"evidence": "DpBPG7j8CWSa2QIshZViHdtR1yG7sKYhmRRolXW7kL9wKp87oQodyDu",
+							"otherinfo": "\\x000e\uFFFDO\\x001b\uFFFD\uFFFD\td\uFFFD\uFFFD\\x0002,\uFFFD\uFFFDb\\x001d\uFFFDQ\uFFFD!\uFFFD\uFFFD\uFFFD!\uFFFD\\x0014h\uFFFDu\uFFFD\uFFFD\uFFFDp*\uFFFD;\uFFFD\n\\x001d\uFFFD;"
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/politique_de_confidentialite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2F1hRy66ekyztQuFJEzCT8w1GD3VsGJp6eXzQAK3MuJv5OsFvDV4",
+							"otherinfo": "\uFFFD]aG.\uFFFDzL\uFFFD\uFFFD\\x000b\uFFFD$L\uFFFDO\uFFFD5\\x0018=\u0570bi\uFFFD\uFFFD\uFFFD@\\x0002\uFFFD2\uFFFDo\uFFFD\uFFFD\\x0005\uFFFD5x"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2BB4xPMQdoSDPklbWUhdYa61x9AOnJVGOJbeYkcZYIKMKF7u5ROHtwbm7x3TmHHB",
-							"otherinfo": "\uFFFD\\x0010x\uFFFD\uFFFD\\x0010v\uFFFD\uFFFD>I[YH]a\uFFFD\uFFFD\uFFFD\uFFFD\\x000e\uFFFD\uFFFDF8\uFFFD\uFFFDbG\\x0019`\uFFFD\uFFFD(^\uFFFD\uFFFD\\x0013\uFFFD\uFFFD\\x0006\uFFFD\uFFFD\\x001d\u04D8q\uFFFD"
+							"evidence": "2Fi7EXOD9omSvqr5PksJG3T1dDiriaTYKbdNMbxAXjeCjKXgZRWoYpBgKaZDAEX7zvIct2xwLNqLbwMZV5FVMcrSW1V6humk",
+							"otherinfo": "\uFFFDX\uFFFD\\x0011s\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD>K\t\\x001bt\uFFFDt8\uFFFD\uFFFD\uFFFD\uFFFD)\uFFFDM1\uFFFD@^7\uFFFD\uFFFD\uFFFD\uFFFDe\\x0015\uFFFDb\uFFFD`)\uFFFDC\\x0000E\uFFFD\uFFFD\uFFFD\\x001c\uFFFDlp,\u068Bo\\x0003\\x0019W\uFFFDU1\uFFFD\uFFFD[Uz\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/prendre_rdv_prescripteur/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2FLSpJGziEkvRaodznDbJ8miuHmRVzXD08T64Ykmf9jnOvusnZdG1vrHkUiXXH17ID1z5dZ",
-							"otherinfo": "\uFFFDR\u04A4\uFFFD\uFFFD\uFFFDI/E\uFFFD\\x001d\uFFFDp\uFFFD'\u0262\uFFFDy\uFFFDW5\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD&\uFFFD\uFFFD:\uFFFD\uFFFD\uFFFD\uFFFDF\uFFFD\uFFFD\u01D1H\uFFFD\\}{ =s\uFFFD\uFFFD"
+							"evidence": "2Bcf0nkEtNzO9rcVnMN6huaYJTBXgQfnAQRH",
+							"otherinfo": "\uFFFD\\x0017\\x001f\uFFFDy\\x0004\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0015\uFFFD\uFFFDz\uFFFD\uFFFD%0W\uFFFD\\x0007\uFFFD\\x0001\\x0004G"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
@@ -697,21 +681,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2B3qwAWo1BdiMEoEIJVTuBsbU7a5OloqmFcAMYNoIgAXAUDjvhwOyv",
-							"otherinfo": "\uFFFD\\x001d\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\\x0017b0J\\x0004 \uFFFDS\uFFFD\\x001b\\x001bS\uFFFD\uFFFD:Z*\uFFFDW\\x00001\uFFFDh\"\\x0000\\x0017\\x0001@\uFFFD\\x001c\\x000e\uFFFD"
+							"evidence": "2FzDYtxk7J8r8ZkSjjNsgvYX0rvMnd",
+							"otherinfo": "\uFFFD\\\uFFFDb\uFFFDd\uFFFD+\uFFFD\\x0012\uFFFD3l\uFFFD\uFFFD\\x0017\u04BB\u031D"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/users/sign_in",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3NokoYJ6iVJqtT6fRT5M1UEHg4hmPhyyD4ZnM3l1Ovm5XKlGdKfyVR7AMo6AvXNVtDBOF0ln7CuUFOgwDOHsBxsOMLoV4N6yNBK6A12mqoiAkQxouGwUXlA",
-							"otherinfo": "\uFFFD\uFFFD$\uFFFD\uFFFDz\uFFFDRj\uFFFD>\uFFFDE>L\uFFFDA\\x0007\uFFFD\uFFFDf>\\x001c\uFFFD\\x000f\uFFFDg3yu:\uFFFD\uFFFD\\\uFFFDFt\uFFFD\uFFFDU\\x001e\uFFFD2\uFFFD\uFFFD\uFFFDsU\uFFFD0N\\x0017Ig\uFFFD+\uFFFD\\x0014\uFFFD0\\x000c\uFFFD\uFFFD\\x0007\\x001b\\x000e0\uFFFD\\x0015\uFFFD\u07B24\\x0012\uFFFD\\x0003]\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x000ch\uFFFDl\\x0014^P"
+							"evidence": "2FMD3DnQH7EDRyuIGj2SK430aiZtD7PillH4QKTZDEorCv5jSHe4DPCnQnrCNlfvcl8MQ4pEr9ujcYlEN3hztlsMwOk3Iw2cvaoQt2k",
+							"otherinfo": "\uFFFDS\\x0003\uFFFD9\uFFFD\\x001f\uFFFD\\x0003G+\uFFFD\\x001a=\uFFFD+\uFFFD\uFFFDj&m\\x000f\uFFFD\uFFFDQ\uFFFD@\uFFFD\uFFFD\\x000cJ+\n\uFFFDcHw\uFFFD\\x000c\uFFFDBz\uFFFD6W\uFFFDr_\\x000cC\uFFFDD\uFFFD\u06E3q\uFFFDD7xs\uFFFD[\\x000c\uFFFD\uFFFD7#\r\uFFFD\uFFFD\uFFFD\\x0010\uFFFDi"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\\x0012n%\uFFFDw]lV\uFFFD\"\uFFFD\\x0008{\uFFFD\uFFFD\\x0019{\u05B5\uFFFD\uFFFD*\uFFFD2a\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\\x001dn\uFFFD\\x0013\uFFFD:\\x0005\uFFFD{\uFFFDkOa\uFFFDn\\x0019\uFFFDGPQ\\x000b\uFFFD\\x0008\uFFFD-\\x0003\uFFFD<\uFFFD\\x000cBf\uFFFD$!j\r\\x0002\uFFFD\uFFFD'\uFFFD\uFFFD\\x000f\uFFFDI#\\N(|\uFFFD\uFFFD<GMEg`W\uFFFDm\r\uFFFDz\uFFFD(\uFFFD\uFFFD\uFFFD\\x001a\\x0002&FH\u0213</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -779,7 +763,31 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
-							"uri": "https://rdv.anct.gouv.fr/prendre_rdv?address=688+Zaproxy+Ridge&city_code&departement&latitude&longitude&prescripteur=1&street_ban_id",
+							"uri": "https://rdv.anct.gouv.fr/agents/password/new",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-label=\"Close\" class=\"close\" data-dismiss=\"alert\" href=\"#\"><i class=\"fa fa-times\"></i></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/stats/notifications",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-label=\"Close\" class=\"close\" data-dismiss=\"alert\" href=\"#\"><i class=\"fa fa-times\"></i></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/stats?territory=3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a aria-label=\"Close\" class=\"close\" data-dismiss=\"alert\" href=\"#\"><i class=\"fa fa-times\"></i></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/stats?territory=40",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -787,13 +795,13 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
-					"count": "1",
+					"count": "4",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "148"
+					"sourceid": "147"
 				},
 				{
 					"pluginid": "10049",
@@ -972,14 +980,6 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://rdv.anct.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1004,13 +1004,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1023,14 +1023,6 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://rdv.anct.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1055,13 +1047,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1074,14 +1066,6 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://rdv.anct.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1106,13 +1090,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1125,14 +1109,6 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://rdv.anct.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://rdv.anct.gouv.fr/prescripteur/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1157,13 +1133,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10112",
@@ -1180,7 +1156,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "RPyzGFlhnusJ%2BL08h%2BJuJbZ3XWxW4iKRCHvC7hl71rX62iqfMmHe%2FOSmAcaXZAL0utcHyTXIA200pIz18VebZzc2683z%2F8bLbOtx6zTQOF8Phbm96P5n%2FdLCFmy%2FINrVmRG69x4nyd2lRxcaqcf5rtSUa0J9hzzWmYscJ5hzXO3tV8SNLCHaA7DhEECud6%2BV2eNxDs2Qqh1oX8YSGMSVjujW%2Bk6A2baZzCI1x1m%2Fnj0PBR1fx6KMfY6AM8h5MCyNrUEgwbAjtfE2yh4dIFuDgall4zm5SRU%3D--8Bqc2uI9q25bFbex--0tJawr8SU2ySmbAbRaLXbQ%3D%3D",
+							"evidence": "G%2B1u6RO5OgXde6BrT2GfbhnNR1BRC5oIyC0D2TzKDEJm0iQhag0Cvf4ni4cP1kkjXE4ofPLuPEdNRWdgV9dtDeh6xCi99vsaAiZGSMiT%2F6GlPTr5LnY%2FhV74ZISui6hXhDrv8MEgxEAa8WI%2FgOQ2K8mExuhyow0tsRfnLWeX3yr2HJj5071cLSgZC7DLWZiF4tljFo0fnUnZ5vY%2F293lrL3Y18YLQcOUeT0MJ1O3AoBECsvUTvJ%2FUhnzy5b5M%2FpgpHk7YEeN9Qt08pEwH1Y%2BYfJIhYI%2Blkc%3D--vCrUwb8RK%2FXoxCO7--93NvOn2yjONNCaM1iVe58A%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1188,7 +1164,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "oxeSzqXhGyFKSIDHE4kKm0XQLVIJYA%2FmIpzrKBIjDUkOZGKA4ssTNGRoeenNf3C%2BgkQkcmxTwfTShu4hE7lTl0wixhx4dtFFcRzNZTVdClOWNl2MYeIt4s8x3VCNbUA3d0u7S56%2FIoL7%2Ft4KzHvw3t4RlZOW%2FwdCKtwP7KfmQVRVjPljp%2B6v41DSB6uvzZ7957RYYAl6x70s5q5uyw5vLM5kd55OCxERFzspI3BzG8NbgR6LTYawFfAB5luhV1ia2Qn57rdw6w9FqgOPgjXjMoF7XjnX4pU%3D--Wjn48FBkdzoHK06I--s3ZK580odhzOmth3Cy%2Fz1w%3D%3D",
+							"evidence": "mPXbi6CsBgXdgn2WRsOmsRvBnr1g7O6inxw%2F%2F5CFYIGzRBlFJxsXNQ7LT8rH4MjCKNmdv6Jzg8tJaltuCi%2BiDxn3kLYb0I6KxZAJ6ps%2B8Bl6muel7320VhipWwvVddFusXHICu2ggX4%2BzKFtOkFj2qk%2BKGquQDIThbtz48rqnkErVUb3p7Ube4W6zT21GRWijFM9jfQPC08zalfDoTh4UXVj1deJGvYSO6E%2FkvX%2BPJlzq9olhAdWlLgZvd5tvyCAOKjbdMckkoU1PCKPR7I%2FHo5RVFzd418%3D--X1IYwXoQv6QNpLt0--aAMsUqjwRu%2B0NvQb%2BEzrfA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1196,7 +1172,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "%2BoDFJJUar9uVvfqicfjyG64jGME4MgPLqHjy9k9j0fHgLbzixY4wwkrgI7WA5%2FU1e4PN4eif5EwBBDott6XK8r%2FclGR4qVJYlD4AbevOFe%2FPG5j%2B2dzw4VzzWcS%2BD%2F%2FYu2%2B2WafPW0iarKASJo42MQ9E%2BGb1wyKBDBJH%2BaqHB%2B8vLr4Nb0%2FaUhjNXqw89K4eR5wZ38W8S20CHm1paheQ%2FizPS4OJ1aPf6VYgD3B0lfJhu96Dz6XNohPBYyRk5D1hQHse6KGWUfSwPTn7zktlIqT8TnpGzPShqlu4Gt2VYs7JxMJShS%2FkpsyX7HSjvijh1q4VOnpjkIEQPGktTTMxQaegGw%3D%3D--NFlP%2BEGyQkHmfkkR--qfO4rPp%2FJGBvXdH2z2FR9A%3D%3D",
+							"evidence": "siWWBKr9D7hLFqQTMWbc1JDsPWJb8IuQXoVplvVNlNQDXE59ak7ljaNhKSQ%2BB3HL7sGVxA12ksUYjkDrG%2BqZLmdSfIOV%2FeTgU%2BVEd8N1ujGGgBWNoFnu9%2FVTp3dBCXT5YuLZAJ4jANlj3Xq44BfMumiA1gjdrAa3BlZ6R8U%2BaQ%2B66WHusBxJ%2BiQZWiYR4ToyDa5Iwy51PTVXIUInuBeIoU4zSAkWVyWkJvg7oMyXiXSLcL46rE31OTuMthOr7xqb6Slzm3JCKAnxTUepHemBChKlljU%2BdCHGh7yivA8yIts7bdlK5uRkEsBrb9zkpQmsWuWAhfphmr86528WsiBNPo6anQ%3D%3D--UORWFT2I%2FrLmzJMt--IdceO263pywK73nnOdV%2BbA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1204,15 +1180,15 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "hNijZZTcS1cnggHuDH8frgRkpfk75WG08%2FYusxMTM9zVHXU369g2EOLmcx53jBqkOg5FwEFHx%2FwxgM4XxEDQ62Ztd%2BZOywO%2F8q3BZWBWGbZ5dzkXUb0%2B5cujlaKbloRL7wMqkXQA5U8BocA7P6Z2H8K1HJ%2FHjdAUAKTQ7bUc9eUoiVvj6bxClzxyvnQy0eko8QbOyWOSwigD9PgLcnDoc7vaEajMtR%2F6T5QFSpSeL2ycv6UwbJ1%2FdZrhGBdYcxOCkinOGQPw2TyOSwtvL4nK8DiMG2GMBAfLJy0UFmmZshEizZUP9qH6zIeN8%2FfbAE6TbSRtkqgaM6XpsqHCwJ5GFIDDnt2i8g4jtOlYQHagJYjBXrs%3D--te3sMOXdFmT5f7Yd--x1k%2Bo9lg7Gv9o3ynCE2dDA%3D%3D",
+							"evidence": "Yn1EP9d1puBGEDxlFgDShb1m5XrdrTqvs3MmWL%2FOMglOZJQZa2HlY%2BRXLLn6Bl5INj8vvdEDBA%2BnvG8MFuG%2FfX%2FTL%2FxIbMvOAxZEMshlEbX0gMx2ete%2BMN%2BxNKCXTkkif7fWoHkEqKCV5lMgDcLpxvUIF27i365BCFAt2mjI35lTidj6ZimU9k1MTYQy9zDuL%2FqnHpMazaRWa3SvQ70zyEbw%2Fb7dRFYB%2BBV42spY9IXzhsRVyP1W6cjwBLtG%2B9eudaUXFcbtdW08V0MFdcgryoNKpxbt0g9Y%2FOIktCjwz%2F9ymdTVl2b7uyBGjLRp%2F5qBB%2FTVRL4YMWVYV15vjYM9LaunXbl7v9AwC%2Bk2Ea2AowUo3xc%3D--1n12cG4owYTU3wLC--%2F8vpRHPLC5HvY6sOYVfiyQ%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
-							"uri": "https://rdv.anct.gouv.fr/prendre_rdv?prescripteur=1",
+							"uri": "https://rdv.anct.gouv.fr/mentions_legales",
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "YQqveHhrv73q21zVOcvFQOO6f%2Foz0VUqNGtbBDCPhI9%2BB4xPMQdoSDPklbWUhdYa61x9AOnJVGOJbeYkcZYIKMKF7u5ROHtwbm7x3TmHHB%2F%2FxlgNHp%2FygOAK7tS4GMn9wUQtPB6ibS%2FGGTZxRrbYGoxWhN99GL%2FMmjHy61Oj8t717Y1oDfcVoy%2FULtow%2BWE3mwRmgwF2yryw6umjI5txAGfXjLRgf0oZ50da%2F2MTd0WoMSYeZXNlpiZRphA4R5qtkv%2FtUFAOmNVyOij5ytvZ55uSmqMpgHiH5drBFAXX1wQ%2FxkEyM%2FyVKvi3uTiSfdLEoTAcdFbhtF7G2ZxN%2BUMq%2Ftc7%2BaYYGirkfttYh8qTPFlvYVs%3D--83qYvxnuTo9EPaoa--EJWUtdElr0lZA4PC%2BllRJw%3D%3D",
+							"evidence": "DpBPG7j8CWSa2QIshZViHdtR1yG7sKYhmRRolXW7kL9wKp87oQodyDu%2B1QQIMn0dfwHz%2BLEu8OnWwceQN14FQIzUdt0vNwfcb9skjIvKCOK9CLnnnLJkaVjOiezD4pRJXMPjCtOBgWTlsWef70%2B2wH7oyW%2FjELPH%2BW%2B5rUI9OqoYX51NR%2BpqA26ImqQKQhWaKmYaWpKIXvLj6%2BfPOxLnf6DEYiX%2F30IYwW6MOWmvd%2FNkki3EQUEpsJX8Cit1Yet3PHj2FMh9InQrV7oqwTjiwsLFa%2FqX6I6kJxEKmsbpjnmRGmKGkTHcJGQaYsffLwV%2F3J%2FvU9AmEqArAkzy2Lag9xxZHAGGFa4%3D--GsrrRoURbOppMnL7--VzuBBZyXtkh0SFEuisH%2FLQ%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1220,7 +1196,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "iKvyOcb2kbrotYrTrM53uUIQWq%2B%2FLSpJGziEkvRaodznDbJ8miuHmRVzXD08T64Ykmf9jnOvusnZdG1vrHkUiXXH17ID1z5dZ%2BzFQWjb%2B4xTIkOHzF47pt1rhh6FdkILWCM19dwqT135a4p9VJZVzXfDiLUwfOTKX%2FePItl2okeEHThiEEEcOdDPTA79u5cf827HhEaYxWpXvV6MhByeEmGTiyVaP%2BvvPUqGA1R1kIwMNcDZ4s9nBjXcZaTk4xUrvUUqhcpqUc4evDfGn8jicMDOIlze0HgEjbc7jfnPogsa8fSDyPnsqGuGgaGmVJE2fQeK30unJN5ivVZnaRbxAPfvFufZrxDxnQhMQuOZctbpFq4%3D--EEmeDpyEEn476F0a--JHHodN1s6DMMOgMkULGTbg%3D%3D",
+							"evidence": "PsKK%2Bcf0nkEtNzO9rcVnMN6huaYJTBXgQfnAQRH%2Ftr6iOwAnReM7n1MLLaKIS30t70Z0Fd1zMwnalVwh8n%2B9hkGIBSGrhJb5Cr1V9mZ6Rs7CH9Jdyv1Oh2J96X8IgSbu7izb5N3hV2v11amNeiSmhjTrkOKhhQvYm%2F6xSPkCXH9vqZzYaUaXYppJUly7xHjADozCZGnQWcF2YUo02S%2Fcyxm6wggIZjNz%2FvH4CtjT5ddMf0%2BvuuRAT3XhxbSNtzeXe5%2Bg--tcSX2iohW34QB4Ir--veiTYZzVGE83dhloT87AJA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1228,7 +1204,15 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "3NokoYJ6iVJqtT6fRT5M1UEHg4hmPhyyD4ZnM3l1Ovm5XKlGdKfyVR7AMo6AvXNVtDBOF0ln7CuUFOgwDOHsBxsOMLoV4N6yNBK6A12mqoiAkQxouGwUXlA%2FJAfTH38E9VG7hNRIkejhO3rV%2F9sc1ohGaZqbX6WJLxmp7KCNA8zRdlHyc6IZT%2BAqFhbWMDq%2BUF7v%2BisiKhSRd9SZXZW%2BQJt%2BeCdjpb2FcdDnnibEft0Uj6hcJUpIg2puvrMLUoU%2FlxyytqUoH2ADndwkXGQnYsBenrgJMSyCLaRm%2FS%2BzWN7SmTVrfxdrodccrCEW0J4AiRP0yMyAYNsRgJKgNRD24QTgv%2BxmPIkEda6LwfgkfzT9Wyc%3D--W%2BZXX28dH7PA6rln--QUnApvW1xogGAWLLqqXoHQ%3D%3D",
+							"evidence": "chA2zXvo7r4L1EHrNRG%2FMD3DnQH7EDRyuIGj2SK430aiZtD7PillH4QKTZDEorCv5jSHe4DPCnQnrCNlfvcl8MQ4pEr9ujcYlEN3hztlsMwOk3Iw2cvaoQt2k%2FgWtT4PAyuZDGsx7NOcSQSuf%2Fr3Uizh09biPpwjkH89RkmFsUU6U9gn1GQmeKlIUQnCysn4xITMz5GCJMW8EYbyII6EQ5LR%2BUne%2B5ZXprBDepsBcBhbX6W1oXzhgv2CzzZWEiy0ZUu75BHqz9LrCz3Qi1baOJgVBMovKB%2BEpTnKnjUgQlXTjDP3BtVTrG9aCum1NtegDABZzDAkiH%2FpuDn%2FOKMS7OKZvSmRBwnxljDIBZ3cDmdIbqU%3D--n91q%2FO9ODJ7KRb9R--prn1SzGL0SUUiu%2B%2FX0%2BOhA%3D%3D",
+							"otherinfo": "\ncookie:_rdv_sp_session"
+						},
+						{
+							"uri": "https://rdv.anct.gouv.fr/assets/@gouvfr/dsfr/dist",
+							"method": "GET",
+							"param": "_rdv_sp_session",
+							"attack": "",
+							"evidence": "chA2zXvo7r4L1EHrNRG%2FMD3DnQH7EDRyuIGj2SK430aiZtD7PillH4QKTZDEorCv5jSHe4DPCnQnrCNlfvcl8MQ4pEr9ujcYlEN3hztlsMwOk3Iw2cvaoQt2k%2FgWtT4PAyuZDGsx7NOcSQSuf%2Fr3Uizh09biPpwjkH89RkmFsUU6U9gn1GQmeKlIUQnCysn4xITMz5GCJMW8EYbyII6EQ5LR%2BUne%2B5ZXprBDepsBcBhbX6W1oXzhgv2CzzZWEiy0ZUu75BHqz9LrCz3Qi1baOJgVBMovKB%2BEpTnKnjUgQlXTjDP3BtVTrG9aCum1NtegDABZzDAkiH%2FpuDn%2FOKMS7OKZvSmRBwnxljDIBZ3cDmdIbqU%3D--n91q%2FO9ODJ7KRb9R--prn1SzGL0SUUiu%2B%2FX0%2BOhA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1236,7 +1220,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "3NokoYJ6iVJqtT6fRT5M1UEHg4hmPhyyD4ZnM3l1Ovm5XKlGdKfyVR7AMo6AvXNVtDBOF0ln7CuUFOgwDOHsBxsOMLoV4N6yNBK6A12mqoiAkQxouGwUXlA%2FJAfTH38E9VG7hNRIkejhO3rV%2F9sc1ohGaZqbX6WJLxmp7KCNA8zRdlHyc6IZT%2BAqFhbWMDq%2BUF7v%2BisiKhSRd9SZXZW%2BQJt%2BeCdjpb2FcdDnnibEft0Uj6hcJUpIg2puvrMLUoU%2FlxyytqUoH2ADndwkXGQnYsBenrgJMSyCLaRm%2FS%2BzWN7SmTVrfxdrodccrCEW0J4AiRP0yMyAYNsRgJKgNRD24QTgv%2BxmPIkEda6LwfgkfzT9Wyc%3D--W%2BZXX28dH7PA6rln--QUnApvW1xogGAWLLqqXoHQ%3D%3D",
+							"evidence": "chA2zXvo7r4L1EHrNRG%2FMD3DnQH7EDRyuIGj2SK430aiZtD7PillH4QKTZDEorCv5jSHe4DPCnQnrCNlfvcl8MQ4pEr9ujcYlEN3hztlsMwOk3Iw2cvaoQt2k%2FgWtT4PAyuZDGsx7NOcSQSuf%2Fr3Uizh09biPpwjkH89RkmFsUU6U9gn1GQmeKlIUQnCysn4xITMz5GCJMW8EYbyII6EQ5LR%2BUne%2B5ZXprBDepsBcBhbX6W1oXzhgv2CzzZWEiy0ZUu75BHqz9LrCz3Qi1baOJgVBMovKB%2BEpTnKnjUgQlXTjDP3BtVTrG9aCum1NtegDABZzDAkiH%2FpuDn%2FOKMS7OKZvSmRBwnxljDIBZ3cDmdIbqU%3D--n91q%2FO9ODJ7KRb9R--prn1SzGL0SUUiu%2B%2FX0%2BOhA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						},
 						{
@@ -1244,15 +1228,7 @@
 							"method": "GET",
 							"param": "_rdv_sp_session",
 							"attack": "",
-							"evidence": "iKvyOcb2kbrotYrTrM53uUIQWq%2B%2FLSpJGziEkvRaodznDbJ8miuHmRVzXD08T64Ykmf9jnOvusnZdG1vrHkUiXXH17ID1z5dZ%2BzFQWjb%2B4xTIkOHzF47pt1rhh6FdkILWCM19dwqT135a4p9VJZVzXfDiLUwfOTKX%2FePItl2okeEHThiEEEcOdDPTA79u5cf827HhEaYxWpXvV6MhByeEmGTiyVaP%2BvvPUqGA1R1kIwMNcDZ4s9nBjXcZaTk4xUrvUUqhcpqUc4evDfGn8jicMDOIlze0HgEjbc7jfnPogsa8fSDyPnsqGuGgaGmVJE2fQeK30unJN5ivVZnaRbxAPfvFufZrxDxnQhMQuOZctbpFq4%3D--EEmeDpyEEn476F0a--JHHodN1s6DMMOgMkULGTbg%3D%3D",
-							"otherinfo": "\ncookie:_rdv_sp_session"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/prendre_rdv_prescripteur",
-							"method": "GET",
-							"param": "_rdv_sp_session",
-							"attack": "",
-							"evidence": "RPyzGFlhnusJ%2BL08h%2BJuJbZ3XWxW4iKRCHvC7hl71rX62iqfMmHe%2FOSmAcaXZAL0utcHyTXIA200pIz18VebZzc2683z%2F8bLbOtx6zTQOF8Phbm96P5n%2FdLCFmy%2FINrVmRG69x4nyd2lRxcaqcf5rtSUa0J9hzzWmYscJ5hzXO3tV8SNLCHaA7DhEECud6%2BV2eNxDs2Qqh1oX8YSGMSVjujW%2Bk6A2baZzCI1x1m%2Fnj0PBR1fx6KMfY6AM8h5MCyNrUEgwbAjtfE2yh4dIFuDgall4zm5SRU%3D--8Bqc2uI9q25bFbex--0tJawr8SU2ySmbAbRaLXbQ%3D%3D",
+							"evidence": "PsKK%2Bcf0nkEtNzO9rcVnMN6huaYJTBXgQfnAQRH%2Ftr6iOwAnReM7n1MLLaKIS30t70Z0Fd1zMwnalVwh8n%2B9hkGIBSGrhJb5Cr1V9mZ6Rs7CH9Jdyv1Oh2J96X8IgSbu7izb5N3hV2v11amNeiSmhjTrkOKhhQvYm%2F6xSPkCXH9vqZzYaUaXYppJUly7xHjADozCZGnQWcF2YUo02S%2Fcyxm6wggIZjNz%2FvH4CtjT5ddMf0%2BvuuRAT3XhxbSNtzeXe5%2Bg--tcSX2iohW34QB4Ir--veiTYZzVGE83dhloT87AJA%3D%3D",
 							"otherinfo": "\ncookie:_rdv_sp_session"
 						}
 					],
@@ -1329,7 +1305,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "61"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "10031",
@@ -1348,30 +1324,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://rdv.anct.gouv.fr/prendre_rdv?address=688+Zaproxy+Ridge&city_code&departement&latitude&longitude&prescripteur=1&street_ban_id\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\naddress=688 Zaproxy Ridge\n\nThe user-controlled value was:\n688 zaproxy ridge"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/agents/password",
-							"method": "POST",
-							"param": "agent[email]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://rdv.anct.gouv.fr/agents/password\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nagent[email]=foo-bar@example.com\n\nThe user-controlled value was:\nfoo-bar@example.com"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/agents/password",
-							"method": "POST",
-							"param": "commit",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://rdv.anct.gouv.fr/agents/password\n\nappears to include user input in: \n\na(n) [input] tag [data-disable-with] attribute \n\nThe user input found was:\ncommit=Envoyer\n\nThe user-controlled value was:\nenvoyer"
-						},
-						{
-							"uri": "https://rdv.anct.gouv.fr/agents/password",
-							"method": "POST",
-							"param": "commit",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://rdv.anct.gouv.fr/agents/password\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncommit=Envoyer\n\nThe user-controlled value was:\nenvoyer"
 						},
 						{
 							"uri": "https://rdv.anct.gouv.fr/users",
@@ -1446,13 +1398,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://rdv.anct.gouv.fr/users/password\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nuser[email]=foo-bar@example.com\n\nThe user-controlled value was:\nfoo-bar@example.com"
 						}
 					],
-					"count": "13",
+					"count": "10",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://rdv.anct.gouv.fr/prendre_rdv?address=688+Zaproxy+Ridge&city_code&departement&latitude&longitude&prescripteur=1&street_ban_id</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>address=688 Zaproxy Ridge</p><p></p><p>The user-controlled value was:</p><p>688 zaproxy ridge</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "148"
+					"sourceid": "173"
 				}
 			]
 		}
