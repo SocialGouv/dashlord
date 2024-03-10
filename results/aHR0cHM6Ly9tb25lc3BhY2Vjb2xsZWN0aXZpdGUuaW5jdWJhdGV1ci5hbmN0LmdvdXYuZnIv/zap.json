@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Mar 2024 01:12:49",
+	"@generated": "Sun, 10 Mar 2024 01:09:34",
 	"site":[ 
 		{
 			"@name": "https://monespacecollectivite.incubateur.anct.gouv.fr",
@@ -9,6 +9,65 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10202",
+					"alertRef": "10202",
+					"alert": "Absence of Anti-CSRF Tokens",
+					"name": "Absence of Anti-CSRF Tokens",
+					"riskcode": "2",
+					"confidence": "1",
+					"riskdesc": "Medium (Low)",
+					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"cookie-consent-accept\"\n                          action=\"/cookies/accept/\"\n                          method=\"POST\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ]."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"cookie-consent-accept\"\n                          action=\"/cookies/decline/\"\n                          method=\"POST\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"\" ]."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"GET\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" \"searching\" ]."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?query=ZAP&searching=on",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"GET\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" \"searching\" ]."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?searching=on",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"GET\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"query\" \"searching\" ]."
+						}
+					],
+					"count": "5",
+					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ].</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "59"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038-1",
@@ -28,7 +87,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -44,7 +111,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -52,7 +119,31 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -66,15 +157,577 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/236/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'une%20subvention%20d%C3%A9partementale%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/317/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'un%20financement%20d%C3%A9partemental%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/364/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/409/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/508/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'un%20appui%20pour%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/70/&subject=Une%20question%20sur%20la%20ressource%20Faciliter%20l'acc%C3%A8s%20aux%20financements%20%E2%80%A6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "12",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "46"
+				},
+				{
+					"pluginid": "10010",
+					"alertRef": "10010",
+					"alert": "Cookie No HttpOnly Flag",
+					"name": "Cookie No HttpOnly Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/password/reset/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/login/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/analytics/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/tracking_media/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/analytics/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
+					"cweid": "1004",
+					"wascid": "13",
+					"sourceid": "55"
+				},
+				{
+					"pluginid": "10011",
+					"alertRef": "10011",
+					"alert": "Cookie Without Secure Flag",
+					"name": "Cookie Without Secure Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/analytics/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/accept/tracking_media/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/analytics/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/tracking_media/",
+							"method": "POST",
+							"param": "cookie_consent",
+							"attack": "",
+							"evidence": "set-cookie: cookie_consent",
+							"otherinfo": ""
+						}
+					],
+					"count": "6",
+					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
+					"cweid": "614",
+					"wascid": "13",
+					"sourceid": "153"
+				},
+				{
+					"pluginid": "10054",
+					"alertRef": "10054-2",
+					"alert": "Cookie with SameSite Attribute None",
+					"name": "Cookie with SameSite Attribute None",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set with its SameSite attribute set to \"none\", which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/236/bookmark/create/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/508/bookmark/create/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/password/reset/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/login/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "POST",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "set-cookie: csrftoken",
+							"otherinfo": ""
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
+					"cweid": "1275",
+					"wascid": "13",
+					"sourceid": "55"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/236/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'une%20subvention%20d%C3%A9partementale%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/317/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'un%20financement%20d%C3%A9partemental%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/364/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/409/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/508/&subject=Une%20question%20sur%20la%20ressource%20B%C3%A9n%C3%A9ficier%20d'un%20appui%20pour%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/70/&subject=Une%20question%20sur%20la%20ressource%20Faciliter%20l'acc%C3%A8s%20aux%20financements%20%E2%80%A6",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "POST",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "46"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/js/jquery-3.6.0.slim.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "128"
 				},
 				{
 					"pluginid": "10063",
@@ -95,7 +748,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/main-app-499ceb1d85f6aad8.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -103,23 +756,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/webpack-5c6613d81fc3399c.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -135,7 +772,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/dsfr.module.min.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -143,7 +780,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/dsfr.nomodule.min.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -151,15 +788,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -168,6 +797,30 @@
 						},
 						{
 							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/_commonjsHelpers-de833af9.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/app-5bdaddbd.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -184,73 +837,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10037",
-					"alertRef": "10037",
-					"alert": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
-					"name": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</p>",
-					"instances":[ 
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/confidentialite",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "x-powered-by: Next.js",
-							"otherinfo": ""
-						}
-					],
-					"count": "6",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
 					"pluginid": "10035",
 					"alertRef": "10035-1",
 					"alert": "Strict-Transport-Security Header Not Set",
@@ -261,78 +847,6 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/css/0496ca6be1381ab0.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/css/84174d88988be0db.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/fonts/Marianne-Medium.woff2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/fonts/Marianne-Regular.woff2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/favicon/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -341,7 +855,87 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/_commonjsHelpers-de833af9.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/app-5bdaddbd.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/base.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/markdownx.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/menu-top.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/css/dsfr/custom-dsfr.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/css/home/home.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/main-1f699096.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/module.esm-feb18927.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/user-4cfab65f.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -349,13 +943,390 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "42"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1416354905",
+							"otherinfo": "1416354905, which evaluates to: 2014-11-18 23:55:05"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1444681467",
+							"otherinfo": "1444681467, which evaluates to: 2015-10-12 20:24:27"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1473231341",
+							"otherinfo": "1473231341, which evaluates to: 2016-09-07 06:55:41"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1502002290",
+							"otherinfo": "1502002290, which evaluates to: 2017-08-06 06:51:30"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1530992060",
+							"otherinfo": "1530992060, which evaluates to: 2018-07-07 19:34:20"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1560198380",
+							"otherinfo": "1560198380, which evaluates to: 2019-06-10 20:26:20"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1700485571",
+							"otherinfo": "1700485571, which evaluates to: 2023-11-20 13:06:11"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1732584193",
+							"otherinfo": "1732584193, which evaluates to: 2024-11-26 01:23:13"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1732584194",
+							"otherinfo": "1732584194, which evaluates to: 2024-11-26 01:23:14"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1735328473",
+							"otherinfo": "1735328473, which evaluates to: 2024-12-27 19:41:13"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1770035416",
+							"otherinfo": "1770035416, which evaluates to: 2026-02-02 12:30:16"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1804603682",
+							"otherinfo": "1804603682, which evaluates to: 2027-03-09 14:48:02"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1839030562",
+							"otherinfo": "1839030562, which evaluates to: 2028-04-11 01:49:22"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1873313359",
+							"otherinfo": "1873313359, which evaluates to: 2029-05-12 20:49:19"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1894986606",
+							"otherinfo": "1894986606, which evaluates to: 2030-01-18 17:10:06"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1926607734",
+							"otherinfo": "1926607734, which evaluates to: 2031-01-19 16:48:54"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1958414417",
+							"otherinfo": "1958414417, which evaluates to: 2032-01-22 20:00:17"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1990404162",
+							"otherinfo": "1990404162, which evaluates to: 2033-01-27 02:02:42"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2022574463",
+							"otherinfo": "2022574463, which evaluates to: 2034-02-03 10:14:23"
+						}
+					],
+					"count": "19",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1416354905, which evaluates to: 2014-11-18 23:55:05</p>",
+					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "71"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/_commonjsHelpers-de833af9.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/app-5bdaddbd.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/base.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/markdownx.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/menu-top.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/css/dsfr/custom-dsfr.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/css/home/home.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/main-1f699096.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/module.esm-feb18927.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/user-4cfab65f.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						}
+					],
+					"count": "12",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "42"
+				},
+				{
+					"pluginid": "10111",
+					"alertRef": "10111",
+					"alert": "Authentication Request Identified",
+					"name": "Authentication Request Identified",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to \"Auto-Detect\" then this rule will change the authentication to match the request identified.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/236/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/317/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/354/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/355/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/364/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/409/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/508/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "POST",
+							"param": "login",
+							"attack": "",
+							"evidence": "password",
+							"otherinfo": "userParam=login\nuserValue=foo-bar@example.com\npasswordParam=password\nreferer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/70/bookmark/create/\ncsrfToken=csrfmiddlewaretoken"
+						}
+					],
+					"count": "9",
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p>userParam=login</p><p>userValue=foo-bar@example.com</p><p>passwordParam=password</p><p>referer=https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/</p><p>csrfToken=csrfmiddlewaretoken</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "146"
 				},
 				{
 					"pluginid": "10094",
@@ -368,21 +1339,101 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/dsfr.nomodule.min.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "com/Financial-Times/polyfill-service/issues/317",
-							"otherinfo": "r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^"
+							"evidence": "sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor",
+							"otherinfo": "\uFFFD\\x0016\uFFFD\uFFFDz\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0008d4o\uFFFD2\uFFFDF\uFFFD>:\uFFFDgTPK\uFFFD3\uFFFD\uFFFD\uFFFD\uB2CBc||ZZ\uFFFDT\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFDV\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "di0j51rR82PAof8gGr1jHbQYQWyRhaqe",
+							"otherinfo": "v-#\uFFFDZ\uFFFD\uFFFDc\uFFFD\uFFFD\uFFFD \\x001a\uFFFDc\\x001d\uFFFD\\x0018Al\uFFFD\uFFFD\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "4KVuxBtr2El2pvw277ejOWVBkOwU9M8O",
+							"otherinfo": "\uFFFDn\uFFFD\\x001bk\uFFFDIv\uFFFD\uFFFD6\uFDE39eA\uFFFD\uFFFD\\x0014\uFFFD\uFFFD\\x000e"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/confidentialite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor",
+							"otherinfo": "\uFFFD\\x0016\uFFFD\uFFFDz\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0008d4o\uFFFD2\uFFFDF\uFFFD>:\uFFFDgTPK\uFFFD3\uFFFD\uFFFD\uFFFD\uB2CBc||ZZ\uFFFDT\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFDV\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "UUdSg2xEOz0OvGcMRU7u60IcAASKOnUw",
+							"otherinfo": "QGR\uFFFDlD;=\\x000e\uFFFDg\\x000cEN\uFFFD\uFFFDB\\x001c\\x0000\\x0004\uFFFD:u0"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor",
+							"otherinfo": "\uFFFD\\x0016\uFFFD\uFFFDz\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0008d4o\uFFFD2\uFFFDF\uFFFD>:\uFFFDgTPK\uFFFD3\uFFFD\uFFFD\uFFFD\uB2CBc||ZZ\uFFFDT\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFDV\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\uFFFD2\uFFFD\uFFFDC\\x00141\uFFFDI\uFFFD\uFFFD\\x001d\uFFFDe\uFFFD\"\uFFFDX+Ei\\x000c\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor",
+							"otherinfo": "\uFFFD\\x0016\uFFFD\uFFFDz\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0008d4o\uFFFD2\uFFFDF\uFFFD>:\uFFFDgTPK\uFFFD3\uFFFD\uFFFD\uFFFD\uB2CBc||ZZ\uFFFDT\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFDV\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+							"otherinfo": "\\x0000\\x0010\uFFFD\\x0010Q\uFFFD \uFFFD\uFFFD0\u04CFA\\x0014\uFFFDQU\uFFFDa\uFFFD\uFFFDq\u05DF\uFFFD\\x0018\uFFFD\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u06EF\uFFFD\\x001c\uFFFD\uFFFD]\uFFFD\u37BB\uFFFD\u07FF"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/js/dsfr/dsfr.module.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "net/wiki/spaces/DB/pages/222789846/En-t+te+-+Header",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD)\"\uFFFD\uFFFDZq\uFFFD?\\x000c\\x001f\uFFFDj\\x0007\uFFFD\uFFFDm\uFFFD\uFFFD\uFFFD|\uFFFD\u011F\uFFFD~\uFFFD\uFFFD\uFFFDw\uFFFDu\uFFFD"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/home/js/dsfr/dsfr.nomodule.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "net/wiki/spaces/DB/pages/222789846/En-t+te+-+Header",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD)\"\uFFFD\uFFFDZq\uFFFD?\\x000c\\x001f\uFFFDj\\x0007\uFFFD\uFFFDm\uFFFD\uFFFD\uFFFD|\uFFFD\u011F\uFFFD~\uFFFD\uFFFD\uFFFDw\uFFFDu\uFFFD"
 						}
 					],
-					"count": "1",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^</p>",
+					"otherinfo": "<p>\uFFFD\\x0016\uFFFD\uFFFDz\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0008d4o\uFFFD2\uFFFDF\uFFFD>:\uFFFDgTPK\uFFFD3\uFFFD\uFFFD\uFFFD\uB2CBc||ZZ\uFFFDT\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFDV\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -395,61 +1446,152 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/1294-bf47b4296716ec21.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/app-5bdaddbd.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1294],{6470:function(e,t){\"use strict\";function n(e,t,n,r,a,l,o){try{va\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import{m as a}from\"./module.esm-feb18927.js\";a.store(\"app\",{isLoading:!1,notification:{isOpen:!1,message:\"\"}});const o=a.store(\"\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/1294-bf47b4296716ec21.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \" */var r,a,l,o,u,i,s,c=n(6011),f=n(9079),d={usingClientEntryPoint:!1,Events:null,Dispatcher:{current:null}};function p(e){for(va\", see evidence field for the suspicious comment/snippet."
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import{g as $}from\"./_commonjsHelpers-de833af9.js\";var T={exports:{}},_={exports:{}};(function(){var h=\"ABCDEFGHIJKLMNOPQRSTUVWX\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/1294-bf47b4296716ec21.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/module.esm-feb18927.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "where",
-							"otherinfo": "The following pattern was used: \\bWHERE\\b and was detected in the element starting with: \" */var n=Symbol.for(\"react.element\"),r=Symbol.for(\"react.portal\"),a=Symbol.for(\"react.fragment\"),l=Symbol.for(\"react.strict_mode\", see evidence field for the suspicious comment/snippet."
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"var Ce=!1,Me=!1,N=[],Te=-1;function kn(e){zn(e)}function zn(e){N.includes(e)||N.push(e),Hn()}function Ct(e){let t=N.indexOf(e);t\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/module.esm-feb18927.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){var t=\"undefined\"!=typeof globalThis?globalThis:\"undefined\"!=typeof window?window:\"undefined\"!=typeof global?global:\", see evidence field for the suspicious comment/snippet."
+							"evidence": "SELECT",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"`:\"\"}`,t),setTimeout(()=>{throw e},0)}var le=!0;function Jt(e){let t=le;le=!1;let n=e();return le=t,n}function L(e,t,n={}){let r\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/dsfr.module.min.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"const e=new class{constructor(){this.modules={}}create(e){const t=new e;this.modules[t.type]=t}getModule(e){return this.modules[\", see evidence field for the suspicious comment/snippet."
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/dsfr.nomodule.min.js",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"!function(){\"use strict\";var t=function(){this.modules={}},e={isActive:{configurable:!0},isLegacy:{configurable:!0}};t.prototype\", see evidence field for the suspicious comment/snippet."
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/confidentialite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected 8 times, the first in the element starting with: \"<!-- Admin Actions -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "User",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<!-- User -->\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "6",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1294],{6470:function(e,t){\"use strict\";function n(e,t,n,r,a,l,o){try{va\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import{m as a}from\"./module.esm-feb18927.js\";a.store(\"app\",{isLoading:!1,notification:{isOpen:!1,message:\"\"}});const o=a.store(\"\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "62"
+					"sourceid": "75"
+				},
+				{
+					"pluginid": "90033",
+					"alertRef": "90033",
+					"alert": "Loosely Scoped Cookie",
+					"name": "Loosely Scoped Cookie",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>Cookies can be scoped by domain or path. This check is only concerned with domain scope.The domain scope applied to a cookie determines which domains can access it. For example, a cookie can be scoped strictly to a subdomain e.g. www.nottrusted.com, or loosely scoped to a parent domain e.g. nottrusted.com. In the latter case, any subdomain of nottrusted.com can access the cookie. Loosely scoped cookies are common in mega-applications like google.com and live.com. Cookies set from a subdomain like app.foo.bar are transmitted only to that domain by the browser. However, cookies scoped to a parent-level domain may be transmitted to the parent, or any subdomain of the parent.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nmonespacecollectivite.incubateur.anct.gouv.fr\nPosthog=\"\"\nYoutube=\"\"\n"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/analytics/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nmonespacecollectivite.incubateur.anct.gouv.fr\nPosthog=\"\"\n"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/decline/tracking_media/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nmonespacecollectivite.incubateur.anct.gouv.fr\nYoutube=\"\"\n"
+						}
+					],
+					"count": "3",
+					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>monespacecollectivite.incubateur.anct.gouv.fr</p><p>Posthog=\"\"</p><p>Youtube=\"\"</p><p></p>",
+					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
+					"cweid": "565",
+					"wascid": "15",
+					"sourceid": "150"
 				},
 				{
 					"pluginid": "10109",
@@ -462,96 +1604,77 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/236/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Mon espace collectivit\u00E9\" class=\"nuxt-link-exact-active nuxt-link-active\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/317/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Mon espace collectivit\u00E9\" class=\"nuxt-link-exact-active nuxt-link-active\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/confidentialite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/354/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Mon espace collectivit\u00E9\" class=\"nuxt-link-exact-active nuxt-link-active\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/355/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js\" nomodule=\"\"></script>",
-							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/364/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js\" nomodule=\"\"></script>",
-							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/409/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a aria-current=\"page\" target=\"_self\" title=\"Mon espace collectivit\u00E9\" class=\"nuxt-link-exact-active nuxt-link-active\" href=\"/\"><p class=\"fr-logo\">Minist\u00E8re<br/>de la transition<br/>\u00E9cologique<br/>et de la coh\u00E9sion<br/>des territoires</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/508/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/70/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a onclick=\"window.print()\" class=\"button blue w-100 text-center\">\n                    <svg class=\"bi align-middle me-2\" width=\"18\" height=\"18\" fill=\"#0063CB\">\n                        <use xlink:href=\"/static/svg/bootstrap-icons.svg#printer\" />\n                    </svg>\n                    <span>Imprimer</span>\n                </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
-					"count": "6",
+					"count": "8",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
-					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
+					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Non-Storable Content",
-					"name": "Non-Storable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-store",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace/indicateurs",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-store",
-							"otherinfo": ""
-						}
-					],
-					"count": "2",
-					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
-					"otherinfo": "",
-					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "31"
+					"sourceid": "186"
 				},
 				{
 					"pluginid": "10015",
@@ -568,15 +1691,31 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"evidence": "",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/password/reset/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
 							"otherinfo": ""
 						},
 						{
@@ -584,15 +1723,47 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"evidence": "",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/favicon/manifest.webmanifest",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "public, max-age=0",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
 							"otherinfo": ""
 						},
 						{
@@ -600,19 +1771,11 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "public, max-age=0",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "s-maxage=31536000, stale-while-revalidate",
+							"evidence": "",
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -639,7 +1802,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -647,7 +1810,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -661,7 +1824,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -682,7 +1845,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -690,7 +1853,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -704,7 +1867,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -725,7 +1888,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -733,7 +1896,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -747,7 +1910,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -768,7 +1931,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/mon-espace",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -776,7 +1939,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -790,7 +1953,98 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "di0j51rR82PAof8gGr1jHbQYQWyRhaqe",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "4KVuxBtr2El2pvw277ejOWVBkOwU9M8O",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "UUdSg2xEOz0OvGcMRU7u60IcAASKOnUw",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/?next=/ressource/364/bookmark/create/",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/355/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/ressource/364/&subject=Une%20question%20sur%20la%20ressource%20Fonds%20vert%20:%20b%C3%A9n%C3%A9ficier%20%E2%80%A6",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/email-envoy%C3%A9",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "qTLi5IRDFDGYSYixHe5l2yK5WCtFaQya",
+							"otherinfo": "\ncookie:csrftoken"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/css/menu-top.css",
+							"method": "GET",
+							"param": "csrftoken",
+							"attack": "",
+							"evidence": "di0j51rR82PAof8gGr1jHbQYQWyRhaqe",
+							"otherinfo": "\ncookie:csrftoken"
+						}
+					],
+					"count": "9",
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p></p><p>cookie:csrftoken</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "55"
 				},
 				{
 					"pluginid": "10049",
@@ -807,100 +2061,276 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/css/0496ca6be1381ab0.css",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/_next/static/css/84174d88988be0db.css",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accounts/signup/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/accessibilite",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/cookies/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "s-maxage=31536000",
-							"otherinfo": ""
-						}
-					],
-					"count": "5",
-					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "6"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable but Non-Cacheable Content",
-					"name": "Storable but Non-Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
-					"instances":[ 
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/fonts/Marianne-Medium.woff2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/dsfr/fonts/Marianne-Regular.woff2",
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/methodologie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/favicon/apple-touch-icon.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
 							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/gravatar-1eac2d52.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/main-1f699096.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/static/user-4cfab65f.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "4",
-					"solution": "",
-					"otherinfo": "",
+					"count": "11",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
+					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "33"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10031",
+					"alertRef": "10031",
+					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
+					"name": "User Controllable HTML Element Attribute (Potential XSS)",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
+					"instances":[ 
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact",
+							"method": "GET",
+							"param": "subject",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsubject=Prise de contact\n\nThe user-controlled value was:\nprise de contact"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?query=ZAP&searching=on",
+							"method": "GET",
+							"param": "query",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?query=ZAP&searching=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nquery=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?query=ZAP&searching=on",
+							"method": "GET",
+							"param": "searching",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/ressource/?query=ZAP&searching=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nsearching=on\n\nThe user-controlled value was:\non"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "POST",
+							"param": "content",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [textarea] tag [value] attribute \n\nThe user input found was:\ncontent=Zaproxy alias impedit expedita quisquam pariatur exercitationem. Nemo rerum eveniet dolores rem quia dignissimos.\n\nThe user-controlled value was:\nzaproxy alias impedit expedita quisquam pariatur exercitationem. nemo rerum eveniet dolores rem quia dignissimos."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/contact/",
+							"method": "POST",
+							"param": "name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [textarea] tag [value] attribute \n\nThe user input found was:\nname=ZAP\n\nThe user-controlled value was:\nzaproxy alias impedit expedita quisquam pariatur exercitationem. nemo rerum eveniet dolores rem quia dignissimos."
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "email",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nemail=zaproxy@example.com\n\nThe user-controlled value was:\nzaproxy@example.com"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "first_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nfirst_name=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "first_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nfirst_name=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "last_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlast_name=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "last_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlast_name=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "location",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlocation=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "location",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nlocation=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nname=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nname=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "org_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [div] tag [x-data] attribute \n\nThe user input found was:\norg_name=organization\n\nThe user-controlled value was:\norganizationsearch(\"organization\")"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "org_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\norg_name=organization\n\nThe user-controlled value was:\norganization"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "org_name",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [x-model] attribute \n\nThe user input found was:\norg_name=organization\n\nThe user-controlled value was:\norganization"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "phone",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nphone=9999999999\n\nThe user-controlled value was:\n9999999999"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "postcode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\npostcode=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/",
+							"method": "POST",
+							"param": "postcode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://monespacecollectivite.incubateur.anct.gouv.fr/onboarding/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\npostcode=ZAP\n\nThe user-controlled value was:\nzaproxy@example.com"
+						}
+					],
+					"count": "20",
+					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://monespacecollectivite.incubateur.anct.gouv.fr/contact/?next=/&subject=Prise%20de%20contact</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>subject=Prise de contact</p><p></p><p>The user-controlled value was:</p><p>prise de contact</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "235"
 				}
 			]
 		}
