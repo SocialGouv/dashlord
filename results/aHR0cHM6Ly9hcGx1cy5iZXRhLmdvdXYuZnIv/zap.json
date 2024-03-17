@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Mar 2024 02:26:07",
+	"@generated": "Sun, 17 Mar 2024 02:31:03",
 	"site":[ 
 		{
 			"@name": "https://aplus.beta.gouv.fr",
@@ -28,7 +28,23 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://aplus.beta.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "img-src 'self' data: stats.data.gouv.fr; connect-src 'self' https://stats.data.gouv.fr; frame-src 'self' blob: *.aplus.beta.gouv.fr https://www.dailymotion.com; form-action 'self'; style-src 'self' 'unsafe-inline' stats.data.gouv.fr; object-src 'none'; default-src 'none'; base-uri 'none'; script-src 'self' stats.data.gouv.fr; font-src 'self'; frame-ancestors 'self'",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://aplus.beta.gouv.fr/login",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "img-src 'self' data: stats.data.gouv.fr; connect-src 'self' https://stats.data.gouv.fr; frame-src 'self' blob: *.aplus.beta.gouv.fr https://www.dailymotion.com; form-action 'self'; style-src 'self' 'unsafe-inline' stats.data.gouv.fr; object-src 'none'; default-src 'none'; base-uri 'none'; script-src 'self' stats.data.gouv.fr; font-src 'self'; frame-ancestors 'self'",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -52,7 +68,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -71,22 +87,6 @@
 					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
 					"instances":[ 
 						{
-							"uri": "https://aplus.beta.gouv.fr/aide",
-							"method": "GET",
-							"param": "PLAY_FLASH",
-							"attack": "",
-							"evidence": "Set-Cookie: PLAY_FLASH",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/cgu",
-							"method": "GET",
-							"param": "PLAY_FLASH",
-							"attack": "",
-							"evidence": "Set-Cookie: PLAY_FLASH",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://aplus.beta.gouv.fr/login",
 							"method": "POST",
 							"param": "PLAY_FLASH",
@@ -95,13 +95,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "1",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "78"
+					"sourceid": "73"
 				},
 				{
 					"pluginid": "10063",
@@ -122,7 +122,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/27b644604665a9c5ea67eb8b142d88dd-index.js",
+							"uri": "https://aplus.beta.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -130,7 +130,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/4b79d41ff9eab77b2b31e6dc5ba0d396-dsfr.nomodule.min.js",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/62db3c16dd5ffb14a5c13964ee1ec86b-index.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -138,7 +138,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/ca990a26895f75eab7cc1fbc58421eec-dsfr.module.min.js",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/a1516673cc1db1832a4c71849111f555-dsfr.nomodule.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/fccae43da89eac3e08d7ce99b4b7e816-dsfr.module.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -194,13 +202,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -217,35 +225,19 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6Ijc0MTFiYzcyNjIyYmY1ZWZmMTE2NzlmZTlkY2JhY2EyZmI3YzI1NTgtMTcxMDAzNzU2MTg4Ni0xZTBhYWUzZjUxZTFkZTgxYjZlZWI4MDcifSwiZXhwIjoxNzEyNjI5NTYxLCJuYmYiOjE3MTAwMzc1NjEsImlhdCI6MTcxMDAzNzU2MX0",
-							"otherinfo": "{\"data\":{\"csrfToken\":\"7411bc72622bf5eff11679fe9dcbaca2fb7c2558-1710037561886-1e0aae3f51e1de81b6eeb807\"},\"exp\":1712629561,\"nbf\":1710037561,\"iat\":1710037561}"
+							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjFlYjBmMjk4YjA5MzMzZTZhOTI2ZDkwYWM3MGMwMDBjNDk1ODdmOTctMTcxMDY0MjY1ODI4NC0xOWFiNDkyNTU5YjM1OGNlY2FlYTVmNDkifSwiZXhwIjoxNzEzMjM0NjU4LCJuYmYiOjE3MTA2NDI2NTgsImlhdCI6MTcxMDY0MjY1OH0",
+							"otherinfo": "{\"data\":{\"csrfToken\":\"1eb0f298b09333e6a926d90ac70c000c49587f97-1710642658284-19ab492559b358cecaea5f49\"},\"exp\":1713234658,\"nbf\":1710642658,\"iat\":1710642658}"
 						},
 						{
 							"uri": "https://aplus.beta.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImMzMDZiNTQxYzdmZGYzZTRiMGI1NTI1ODU3ZGI4MjNhZTQ2OWI2YjgtMTcxMDAzNzU2MTYzNC05MDU4MzVmMDYzYmQyYjViYTI4Y2I4NGEifSwiZXhwIjoxNzEyNjI5NTYxLCJuYmYiOjE3MTAwMzc1NjEsImlhdCI6MTcxMDAzNzU2MX0",
-							"otherinfo": "{\"data\":{\"csrfToken\":\"c306b541c7fdf3e4b0b5525857db823ae469b6b8-1710037561634-905835f063bd2b5ba28cb84a\"},\"exp\":1712629561,\"nbf\":1710037561,\"iat\":1710037561}"
+							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImFkMmEwMGQ2Y2NkN2Y4OGJhZjE3NGQzN2Q5NmExZDNhNjlkOTJkMjgtMTcxMDY0MjY1Nzk0Ni03MDA2M2U0NmQ0Mjc0ZmU3N2U0YjRjZWMifSwiZXhwIjoxNzEzMjM0NjU3LCJuYmYiOjE3MTA2NDI2NTcsImlhdCI6MTcxMDY0MjY1N30",
+							"otherinfo": "{\"data\":{\"csrfToken\":\"ad2a00d6ccd7f88baf174d37d96a1d3a69d92d28-1710642657946-70063e46d4274fe77e4b4cec\"},\"exp\":1713234657,\"nbf\":1710642657,\"iat\":1710642657}"
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/aide",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6Ijc0MTFiYzcyNjIyYmY1ZWZmMTE2NzlmZTlkY2JhY2EyZmI3YzI1NTgtMTcxMDAzNzU2MTg4Ni0xZTBhYWUzZjUxZTFkZTgxYjZlZWI4MDcifSwiZXhwIjoxNzEyNjI5NTYyLCJuYmYiOjE3MTAwMzc1NjIsImlhdCI6MTcxMDAzNzU2Mn0",
-							"otherinfo": "{\"data\":{\"csrfToken\":\"7411bc72622bf5eff11679fe9dcbaca2fb7c2558-1710037561886-1e0aae3f51e1de81b6eeb807\"},\"exp\":1712629562,\"nbf\":1710037562,\"iat\":1710037562}"
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/4b79d41ff9eab77b2b31e6dc5ba0d396-dsfr.nomodule.min.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/Financial-Times/polyfill-service/issues/317",
-							"otherinfo": "r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^"
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/6d903d884a63bcca5c1bd031707f933f-dsfr.min.css",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/733328e9031e374da49435846705b429-dsfr.min.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -253,12 +245,12 @@
 							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/cgu",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/a1516673cc1db1832a4c71849111f555-dsfr.nomodule.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImNzcmZUb2tlbiI6Ijc0MTFiYzcyNjIyYmY1ZWZmMTE2NzlmZTlkY2JhY2EyZmI3YzI1NTgtMTcxMDAzNzU2MTg4Ni0xZTBhYWUzZjUxZTFkZTgxYjZlZWI4MDcifSwiZXhwIjoxNzEyNjI5NTYyLCJuYmYiOjE3MTAwMzc1NjIsImlhdCI6MTcxMDAzNzU2Mn0",
-							"otherinfo": "{\"data\":{\"csrfToken\":\"7411bc72622bf5eff11679fe9dcbaca2fb7c2558-1710037561886-1e0aae3f51e1de81b6eeb807\"},\"exp\":1712629562,\"nbf\":1710037562,\"iat\":1710037562}"
+							"evidence": "com/Financial-Times/polyfill-service/issues/317",
+							"otherinfo": "r\uFFFD\uFFFD\\x0016)\u069D\u021A\uFFFD\uFFFD\uFFFD\uFFFD?\uFFFD\uFFFDr~)e\uFFFD\u01EB\uFFFD'\\x001e\uFFFD+,\uFFFD\uFFFD?\uFFFD^"
 						},
 						{
 							"uri": "https://aplus.beta.gouv.fr/login",
@@ -281,21 +273,13 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImVycm9yIjoiQXVjdW4gY29tcHRlIGFjdGlmIG7igJllc3QgYXNzb2Npw6kgw6AgY2V0dGUgYWRyZXNzZSBlLW1haWwuXG5NZXJjaSBkZSB2w6lyaWZpZXIgcXXigJlpbCBz4oCZYWdpdCBiaWVuIGRlIHZvdHJlIGFkcmVzc2UgcHJvZmVzc2lvbm5lbGxlIGV0IG5vbWluYXRpdmUuIiwiZW1haWwtdmFsdWUiOiJ6YXByb3h5QGV4YW1wbGUuY29tIn0sIm5iZiI6MTcxMDAzNzU2MiwiaWF0IjoxNzEwMDM3NTYyfQ",
-							"otherinfo": "{\"data\":{\"error\":\"Aucun compte actif n\u2019est associ\u00E9 \u00E0 cette adresse e-mail.\\nMerci de v\u00E9rifier qu\u2019il s\u2019agit bien de votre adresse professionnelle et nominative.\",\"email-value\":\"zaproxy@example.com\"},\"nbf\":1710037562,\"iat\":1710037562}"
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/login",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "eyJkYXRhIjp7ImVycm9yIjoiQXVjdW4gY29tcHRlIGFjdGlmIG7igJllc3QgYXNzb2Npw6kgw6AgY2V0dGUgYWRyZXNzZSBlLW1haWwuXG5NZXJjaSBkZSB2w6lyaWZpZXIgcXXigJlpbCBz4oCZYWdpdCBiaWVuIGRlIHZvdHJlIGFkcmVzc2UgcHJvZmVzc2lvbm5lbGxlIGV0IG5vbWluYXRpdmUuIiwiZW1haWwtdmFsdWUiOiJ6YXByb3h5QGV4YW1wbGUuY29tIn0sIm5iZiI6MTcxMDAzNzU2MywiaWF0IjoxNzEwMDM3NTYzfQ",
-							"otherinfo": "{\"data\":{\"error\":\"Aucun compte actif n\u2019est associ\u00E9 \u00E0 cette adresse e-mail.\\nMerci de v\u00E9rifier qu\u2019il s\u2019agit bien de votre adresse professionnelle et nominative.\",\"email-value\":\"zaproxy@example.com\"},\"nbf\":1710037563,\"iat\":1710037563}"
+							"evidence": "eyJkYXRhIjp7ImVycm9yIjoiQXVjdW4gY29tcHRlIGFjdGlmIG7igJllc3QgYXNzb2Npw6kgw6AgY2V0dGUgYWRyZXNzZSBlLW1haWwuXG5NZXJjaSBkZSB2w6lyaWZpZXIgcXXigJlpbCBz4oCZYWdpdCBiaWVuIGRlIHZvdHJlIGFkcmVzc2UgcHJvZmVzc2lvbm5lbGxlIGV0IG5vbWluYXRpdmUuIiwiZW1haWwtdmFsdWUiOiJ6YXByb3h5QGV4YW1wbGUuY29tIn0sIm5iZiI6MTcxMDY0MjY1OSwiaWF0IjoxNzEwNjQyNjU5fQ",
+							"otherinfo": "{\"data\":{\"error\":\"Aucun compte actif n\u2019est associ\u00E9 \u00E0 cette adresse e-mail.\\nMerci de v\u00E9rifier qu\u2019il s\u2019agit bien de votre adresse professionnelle et nominative.\",\"email-value\":\"zaproxy@example.com\"},\"nbf\":1710642659,\"iat\":1710642659}"
 						}
 					],
-					"count": "10",
+					"count": "7",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>{\"data\":{\"csrfToken\":\"7411bc72622bf5eff11679fe9dcbaca2fb7c2558-1710037561886-1e0aae3f51e1de81b6eeb807\"},\"exp\":1712629561,\"nbf\":1710037561,\"iat\":1710037561}</p>",
+					"otherinfo": "<p>{\"data\":{\"csrfToken\":\"1eb0f298b09333e6a926d90ac70c000c49587f97-1710642658284-19ab492559b358cecaea5f49\"},\"exp\":1713234658,\"nbf\":1710642658,\"iat\":1710642658}</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -312,7 +296,7 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/27b644604665a9c5ea67eb8b142d88dd-index.js",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/62db3c16dd5ffb14a5c13964ee1ec86b-index.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -320,7 +304,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){var e={4968:function(e,t,i){\"use strict\";var n;(n=\"undefined\"!=typeof process&&\"[object process]\"==={}.toString.call\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/4b79d41ff9eab77b2b31e6dc5ba0d396-dsfr.nomodule.min.js",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/a1516673cc1db1832a4c71849111f555-dsfr.nomodule.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -328,7 +312,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){\"use strict\";var t=function(){this.modules={}},e={isActive:{configurable:!0},isLegacy:{configurable:!0}};t.prototype\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/ca990a26895f75eab7cc1fbc58421eec-dsfr.module.min.js",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/fccae43da89eac3e08d7ce99b4b7e816-dsfr.module.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -342,7 +326,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "77"
+					"sourceid": "82"
 				},
 				{
 					"pluginid": "10109",
@@ -377,7 +361,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -398,7 +382,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://aplus.beta.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://aplus.beta.gouv.fr/login",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/stats",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -406,13 +406,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -601,7 +601,7 @@
 							"method": "GET",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6Ijc0MTFiYzcyNjIyYmY1ZWZmMTE2NzlmZTlkY2JhY2EyZmI3YzI1NTgtMTcxMDAzNzU2MTg4Ni0xZTBhYWUzZjUxZTFkZTgxYjZlZWI4MDcifSwiZXhwIjoxNzEyNjI5NTYxLCJuYmYiOjE3MTAwMzc1NjEsImlhdCI6MTcxMDAzNzU2MX0.JV9RXO50NVoW9IWc-yRO0g19Nf--oJ8E088fiVYKhZA",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjFlYjBmMjk4YjA5MzMzZTZhOTI2ZDkwYWM3MGMwMDBjNDk1ODdmOTctMTcxMDY0MjY1ODI4NC0xOWFiNDkyNTU5YjM1OGNlY2FlYTVmNDkifSwiZXhwIjoxNzEzMjM0NjU4LCJuYmYiOjE3MTA2NDI2NTgsImlhdCI6MTcxMDY0MjY1OH0.SNWY-mZ9eFplhH_o5IXTddNXxQuG4YjNkJC2hme80iM",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						},
 						{
@@ -609,19 +609,27 @@
 							"method": "GET",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImMzMDZiNTQxYzdmZGYzZTRiMGI1NTI1ODU3ZGI4MjNhZTQ2OWI2YjgtMTcxMDAzNzU2MTYzNC05MDU4MzVmMDYzYmQyYjViYTI4Y2I4NGEifSwiZXhwIjoxNzEyNjI5NTYxLCJuYmYiOjE3MTAwMzc1NjEsImlhdCI6MTcxMDAzNzU2MX0.6hLp-zFWLLgg6BHmPGY3vM1wbn7jYqjVLaZ-xt_HEmo",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImFkMmEwMGQ2Y2NkN2Y4OGJhZjE3NGQzN2Q5NmExZDNhNjlkOTJkMjgtMTcxMDY0MjY1Nzk0Ni03MDA2M2U0NmQ0Mjc0ZmU3N2U0YjRjZWMifSwiZXhwIjoxNzEzMjM0NjU3LCJuYmYiOjE3MTA2NDI2NTcsImlhdCI6MTcxMDY0MjY1N30.ga6nkrKCA0J54NmkjJzFUdbrYQwzaOSQseV815tlspA",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/utility",
+							"uri": "https://aplus.beta.gouv.fr/assets/generated-js/dsfr/733328e9031e374da49435846705b429-dsfr.min.css",
 							"method": "GET",
 							"param": "PLAY_SESSION",
 							"attack": "",
-							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6Ijc0MTFiYzcyNjIyYmY1ZWZmMTE2NzlmZTlkY2JhY2EyZmI3YzI1NTgtMTcxMDAzNzU2MTg4Ni0xZTBhYWUzZjUxZTFkZTgxYjZlZWI4MDcifSwiZXhwIjoxNzEyNjI5NTYxLCJuYmYiOjE3MTAwMzc1NjEsImlhdCI6MTcxMDAzNzU2MX0.JV9RXO50NVoW9IWc-yRO0g19Nf--oJ8E088fiVYKhZA",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjFlYjBmMjk4YjA5MzMzZTZhOTI2ZDkwYWM3MGMwMDBjNDk1ODdmOTctMTcxMDY0MjY1ODI4NC0xOWFiNDkyNTU5YjM1OGNlY2FlYTVmNDkifSwiZXhwIjoxNzEzMjM0NjU4LCJuYmYiOjE3MTA2NDI2NTgsImlhdCI6MTcxMDY0MjY1OH0.SNWY-mZ9eFplhH_o5IXTddNXxQuG4YjNkJC2hme80iM",
+							"otherinfo": "\ncookie:PLAY_SESSION"
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/login",
+							"method": "POST",
+							"param": "PLAY_SESSION",
+							"attack": "",
+							"evidence": "eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjFlYjBmMjk4YjA5MzMzZTZhOTI2ZDkwYWM3MGMwMDBjNDk1ODdmOTctMTcxMDY0MjY1ODI4NC0xOWFiNDkyNTU5YjM1OGNlY2FlYTVmNDkifSwiZXhwIjoxNzEzMjM0NjU4LCJuYmYiOjE3MTA2NDI2NTgsImlhdCI6MTcxMDY0MjY1OH0.SNWY-mZ9eFplhH_o5IXTddNXxQuG4YjNkJC2hme80iM",
 							"otherinfo": "\ncookie:PLAY_SESSION"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:PLAY_SESSION</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
@@ -641,6 +649,14 @@
 					"instances":[ 
 						{
 							"uri": "https://aplus.beta.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://aplus.beta.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -680,12 +696,12 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://aplus.beta.gouv.fr/jsRoutes",
+							"uri": "https://aplus.beta.gouv.fr/assets/stylesheets/d3ce18e68eeb3222147b0bf6d75c1093-main.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://aplus.beta.gouv.fr/robots.txt",
@@ -718,14 +734,6 @@
 							"attack": "",
 							"evidence": "max-age=3600",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://aplus.beta.gouv.fr/webjars/roboto-fontface/0.10.0/css/roboto/roboto-fontface.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=3600",
-							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -734,7 +742,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				}
 			]
 		}
