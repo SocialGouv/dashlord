@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Mar 2024 00:53:04",
+	"@generated": "Sun, 24 Mar 2024 00:51:25",
 	"site":[ 
 		{
 			"@name": "https://deveco.incubateur.anct.gouv.fr",
@@ -52,22 +52,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/faq",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
@@ -76,7 +60,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -100,6 +92,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/webinaires",
 							"method": "GET",
 							"param": "",
@@ -114,34 +114,50 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
+					"pluginid": "110009",
+					"alertRef": "110009",
+					"alert": "Full Path Disclosure",
+					"name": "Full Path Disclosure",
 					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>The full path of files which might be sensitive has been exposed to the client.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/SIG/",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/documentation/etablissement-contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"evidence": "/system/",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/documentation/memo",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/system/",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/documentation/rappels",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/system/",
 							"otherinfo": ""
 						}
 					],
-					"count": "1",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"count": "3",
+					"solution": "<p>Disable directory browsing in your web server. Refer to the web server documentation.</p>",
 					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
+					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
+					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "141"
+					"sourceid": "146"
 				},
 				{
 					"pluginid": "10063",
@@ -170,23 +186,15 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/cgu",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/scripts/dsfr.module.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -210,7 +218,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -234,6 +250,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/webinaires",
 							"method": "GET",
 							"param": "",
@@ -242,13 +266,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10036",
@@ -261,6 +285,22 @@
 					"desc": "<p>The web/application server is leaking version information via the \"Server\" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.</p>",
 					"instances":[ 
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/404",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.21.6",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/dsfr.2aa33e97.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.21.6",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -269,7 +309,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/highcharts.e0e146ac.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -277,7 +317,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.72c9368f.css",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.90f64f16.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.21.6",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.f2ef3bdc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.21.6",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/vendor.5f748af6.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -325,13 +381,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress the \"Server\" header or provide generic details.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "12"
+					"sourceid": "152"
 				},
 				{
 					"pluginid": "10096",
@@ -358,7 +414,7 @@
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "92"
+					"sourceid": "41"
 				},
 				{
 					"pluginid": "10021",
@@ -387,7 +443,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/cgu",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -396,14 +452,6 @@
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/favicon/favicon.ico",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -427,7 +475,23 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -451,6 +515,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/webinaires",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -459,13 +531,13 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -478,7 +550,7 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/highcharts.e0e146ac.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -486,12 +558,12 @@
 							"otherinfo": "GIF89a\\x0001\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000!\uFFFD\\x0004\\x0001\n\\x0000\\x0001\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0002L\\x0001\\x0000;"
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.72c9368f.css",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.90f64f16.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5",
-							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
+							"evidence": "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",
+							"otherinfo": "\uFFFD\t\\x0000\\x0000,\t\\x0000\\x0000\\x0001\\x0000\\x0002\\x0000\\x0000\\x0000\\x0000\\x0000\\x0002\\x0000\\x0005\\x0003\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\uFFFD\\x0001\\x0000\\x0000\\x0000\\x0000LP\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0010\uFFFD\\x0011M\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0012\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000\\x0000\\x0000\\x000e\\x0000R\\x0000e\\x0000g\\x0000u\\x0000l\\x0000a\\x0000r\\x0000\\x0000\\x0000\\x0016\\x0000V\\x0000e\\x0000r\\x0000s\\x0000i\\x0000o\\x0000n\\x0000 \\x00004\\x0000.\\x00002\\x0000\\x0000\\x0000\\x0012\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x000b\\x0000\uFFFD\\x0000\\x0003\\x00000GSUB \uFFFD%z\\x0000\\x0000\\x00018\\x0000\\x0000\\x0000TOS/2CDNr\\x0000\\x0000\\x0001\uFFFD\\x0000\\x0000\\x0000Vcmap\uFFFD\\x000cI\uFFFD\\x0000\\x0000\\x0001\uFFFD\\x0000\\x0000\\x0001\uFFFDglyf\uFFFD\uFFFD\uFFFD\\x0000\\x0000\\x0003\uFFFD\\x0000\\x0000\\x0001\uFFFDhead'\uFFFD\uFFFD\\x0008\\x0000\\x0000\\x0000\uFFFD\\x0000\\x0000\\x00006hhea\\x0008J\\x0004\\x0001\\x0000\\x0000\\x0000\uFFFD\\x0000\\x0000\\x0000$hmtx\\x000e\\x0010\\x0000\\x0000\\x0000\\x0000\\x0001\uFFFD\\x0000\\x0000\\x0000\\x0010loca\\x0001T\\x0000\uFFFD\\x0000\\x0000\\x0003\uFFFD\\x0000\\x0000\\x0000\nmaxp\\x0001\\x0013\\x0000a\\x0000\\x0000\\x0001\\x0018\\x0000\\x0000\\x0000 name\\x001c\t\uFFFD2\\x0000\\x0000\\x0005\uFFFD\\x0000\\x0000\\x0003*post'n+\uFFFD\\x0000\\x0000\\x0008\uFFFD\\x0000\\x0000\\x0000e\\x0000\\x0001\\x0000\\x0000\\x0003\uFFFD\uFFFDL\\x0000\\x0000\\x0004\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0004L\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0004\\x0000\\x0001\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000M\\x0011\uFFFD\\x0010_\\x000f<\uFFFD\\x0000\\x000b\\x0004\uFFFD\\x0000\\x0000\\x0000\\x0000\uFFFD\\x001e,\uFFFD\\x0000\\x0000\\x0000\\x0000\uFFFD\\x001e,\uFFFD\\x0000\\x0000\uFFFD\uFFFD\\x0004L\\x0003\uFFFD\\x0000\\x0000\\x0000\\x0008\\x0000\\x0002\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0004\\x0000U\\x0000\\x0005\\x0000\\x0000\\x0000\\x0000\\x0000\\x0002\\x0000\\x0000\\x0000\n\\x0000\n\\x0000\\x0000\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\n\\x00000\\x0000>\\x0000\\x0002DFLT\\x0000\\x000elatn\\x0000\\x001a\\x0000\\x0004\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0004\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0001liga\\x0000\\x0008\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0001\\x0000\\x0004\\x0000\\x0004\\x0000\\x0000\\x0000\\x0001\\x0000\\x0008\\x0000\\x0001\\x0000\\x0006\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0001\\x0003\uFFFD\\x0001\uFFFD\\x0000\\x0005\\x0000\\x0000\\x0002\uFFFD\\x0003H\\x0000\\x0000\\x0000\uFFFD\\x0002\uFFFD\\x0003H\\x0000\\x0000\\x0002@\\x0000:\\x00015\\x0000\\x0000\\x0002\\x0000\\x0005\\x0003\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000PfEd\\x0000@\uFFFD\uFFFD\uFFFD\\x0003\uFFFD\uFFFDL\\x0000l\\x0003\uFFFD\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0004\uFFFD\\x0000\\x0000\\x0004\uFFFD\\x0000\\x0000\\x0004\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\\x0005\\x0000\\x0000\\x0000\\x0003\\x0000\\x0000\\x0000,\\x0000\\x0000\\x0000\\x0004\\x0000\\x0000\\x0001h\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000b\\x0000\\x0003\\x0000\\x0001\\x0000\\x0000\\x0000,\\x0000\\x0003\\x0000\n\\x0000\\x0000\\x0001h\\x0000\\x0004\\x00006\\x0000\\x0000\\x0000\\x0008\\x0000\\x0008\\x0000\\x0002\\x0000\\x0000\uFFFD\uFFFD|\uFFFD\uFFFD\uFFFD\uFFFD\\x0000\\x0000\uFFFD\uFFFD|\uFFFD\uFFFD\uFFFD\uFFFD\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0008\\x0000\\x0008\\x0000\\x0008\\x0000\\x0000\\x0000\\x0003\\x0000\\x0002\\x0000\\x0001\\x0000\\x0000\\x0001\\x0006\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x000c\\x0000\\x0000\\x0000\\x0000\\x00004\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0003\\x0000\\x0000\uFFFD\\x0000\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0003\\x0000\\x0000\uFFFD|\\x0000\\x0000\uFFFD|\\x0000\\x0000\\x0000\\x0002\\x0000\\x0000\uFFFD\uFFFD\\x0000\\x0000\uFFFD\uFFFD\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000V\\x0000\uFFFD\\x0000\uFFFD\\x0000\\x0000\\x0000\\x0005\\x0000\\x0000\uFFFD\uFFFD\\x0004\\x001a\\x0003\uFFFD\\x0000\\x0011\\x0000\\x0019\\x0000\"\\x0000/\\x00007\\x0000\\x0000\\x0005!\".\\x00015\\x00114>\\x00013!2\\x0016\\x0015\\x0011\\x0014\\x0006'5!\"\\x0006\\x0014\\x00163'63!\\x0011!\"\\x0006\\x0015\\x0005\".\\x00014>\\x00012\\x001e\\x0001\\x0014\\x000e\\x0001\\x00074>\\x00012\\x001e\\x0001\\x0015\\x0003\uFFFD\uFFFDD)E((E)\\x0002\uFFFD\\x0015\\x001d\\x001dG\uFFFDv\\x0015\\x001d\\x001d\\x00152\\x0018\\x001a\\x0002\uFFFD\uFFFDv\\x0015\\x001d\\x0001^\\x001b.\\x001b\\x001b.6.\\x001b\\x001b.\uFFFD(ERE(P(E)\\x0002\uFFFD)E(\\x001d\\x0015\uFFFD|\\x0015\\x001ddd\\x001d*\\x001d\uFFFD\t\\x0002X\\x001d\\x0015\uFFFD\\x001b.6.\\x001b\\x001b.6.\\x001b\uFFFD)E((E)\\x0000\\x0000\\x0001\\x0000\\x0000\uFFFD\uFFFD\\x0004L\\x0003\uFFFD\\x0000\\x0018\\x0000\\x0000\\x000527>\\x0001764'.\\x0001'&\"\\x0007\\x000e\\x0001\\x0007\\x0006\\x0014\\x0017\\x001e\\x0001\\x0017\\x0016\\x0002Xf]Y\uFFFD&''&\uFFFDY]\uFFFD]Y\uFFFD&''&\uFFFDY]P'&\uFFFDY]\uFFFD]Y\uFFFD&''&\uFFFDY]\uFFFD]Y\uFFFD&'\\x0000\\x0000\\x0000\\x0002\\x0000\\x0000\uFFFD\uFFFD\\x0004L\\x0003\uFFFD\\x0000G\\x0000T\\x0000\\x0000\\x00014'&'&\"\\x0007\\x0006\\x0007\\x0006\\x0014\\x0017\\x0016\\x0017\\x00163267\\x0017\\x0006\\x0007\\x0006#\"'.\\x0001'&47>\\x0001762\\x0017\\x001e\\x0001\\x0017\\x0016\\x001d\\x0001\\x0014\\x000e\\x0001#\"&'\\x000e\\x0001#\".\\x00014>\\x000132\\x0016\\x00173\\x0011\\x0014\\x0016265%\"\\x000e\\x0001\\x0014\\x001e\\x00012>\\x00014.\\x0001\\x0003\uFFFD75Z]\uFFFD]Z5775Z]m=p17<FGLf]Y\uFFFD&''&\uFFFDY]\uFFFD]Y\uFFFD&'/P0,M\\x0018#]4DsCCsD*L d,>,\uFFFDp)E((ERE((E\\x0001\uFFFDm]Z5775Z]\uFFFD]Z57# S)\\x0015\\x0016'&\uFFFDY]\uFFFD]Y\uFFFD&''&\uFFFDY]fK0P/)$$)Cs\uFFFDsC\\x001a\\x0018\uFFFD\uFFFD\\x001f,,\\x001f\uFFFD(ERE((ERE(\\x0000\\x0000\\x0000\\x0000\\x0012\\x0000\uFFFD\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\t\\x0000\\x0000\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\t\\x0000\t\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0002\\x0000\\x0007\\x0000\\x0012\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0003\\x0000\t\\x0000\\x0019\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0004\\x0000\t\\x0000\"\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0005\\x0000\\x000b\\x0000+\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x0006\\x0000\t\\x00006\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\n\\x0000r\\x0000?\\x0000\\x0001\\x0000\\x0000\\x0000\\x0000\\x0000\\x000b\\x0000\\x0013\\x0000\uFFFD\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0000\\x0000\\x0012\\x0000\uFFFD\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0001\\x0000\\x0012\\x0000\uFFFD\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0002\\x0000\\x000e\\x0000\uFFFD\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0003\\x0000\\x0012\\x0000\uFFFD\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0004\\x0000\\x0012\\x0001\\x0008\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0005\\x0000\\x0016\\x0001\\x001a\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x0006\\x0000\\x0012\\x00010\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\n\\x0000\uFFFD\\x0001B\\x0000\\x0003\\x0000\\x0001\\x0004\t\\x0000\\x000b\\x0000&\\x0002&RemixIconremixiconRegularremixiconremixiconVersion 4.2remixiconRemix Icon is a set of open-source neutral-style system symbols elaborately crafted for designers and developers. http://fontello.com\\x0000R\\x0000e\\x0000m\\x0000i\\x0000x\\x0000I\\x0000c\\x0000o\\x0000n\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000R\\x0000e\\x0000g\\x0000u\\x0000l\\x0000a\\x0000r\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000V\\x0000e\\x0000r\\x0000s\\x0000i\\x0000o\\x0000n\\x0000 \\x00004\\x0000.\\x00002\\x0000r\\x0000e\\x0000m\\x0000i\\x0000x\\x0000i\\x0000c\\x0000o\\x0000n\\x0000R\\x0000e\\x0000m\\x0000i\\x0000x\\x0000 \\x0000I\\x0000c\\x0000o\\x0000n\\x0000 \\x0000i\\x0000s\\x0000 \\x0000a\\x0000 \\x0000s\\x0000e\\x0000t\\x0000 \\x0000o\\x0000f\\x0000 \\x0000o\\x0000p\\x0000e\\x0000n\\x0000-\\x0000s\\x0000o\\x0000u\\x0000r\\x0000c\\x0000e\\x0000 \\x0000n\\x0000e\\x0000u\\x0000t\\x0000r\\x0000a\\x0000l\\x0000-\\x0000s\\x0000t\\x0000y\\x0000l\\x0000e\\x0000 \\x0000s\\x0000y\\x0000s\\x0000t\\x0000e\\x0000m\\x0000 \\x0000s\\x0000y\\x0000m\\x0000b\\x0000o\\x0000l\\x0000s\\x0000 \\x0000e\\x0000l\\x0000a\\x0000b\\x0000o\\x0000r\\x0000a\\x0000t\\x0000e\\x0000l\\x0000y\\x0000 \\x0000c\\x0000r\\x0000a\\x0000f\\x0000t\\x0000e\\x0000d\\x0000 \\x0000f\\x0000o\\x0000r\\x0000 \\x0000d\\x0000e\\x0000s\\x0000i\\x0000g\\x0000n\\x0000e\\x0000r\\x0000s\\x0000 \\x0000a\\x0000n\\x0000d\\x0000 \\x0000d\\x0000e\\x0000v\\x0000e\\x0000l\\x0000o\\x0000p\\x0000e\\x0000r\\x0000s\\x0000.\\x0000 \\x0000h\\x0000t\\x0000t\\x0000p\\x0000:\\x0000/\\x0000/\\x0000f\\x0000o\\x0000n\\x0000t\\x0000e\\x0000l\\x0000l\\x0000o\\x0000.\\x0000c\\x0000o\\x0000m\\x0000\\x0000\\x0000\\x0002\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x000c\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0000\\x0004\\x0001\\x0002\\x0001\\x0003\\x0001\\x0004\\x0001\\x0005\\x0000\\x0014contacts-book-2-line\\x001acheckbox-blank-circle-fill\\x0007at-line\\x0000\\x0000\\x0000\\x0000\\x0000"
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation/sources-donnees",
@@ -518,7 +590,7 @@
 							"otherinfo": "\uFFFDo\uFFFD~\uFFFD\uFFFD~/\uFFFD\\x001dzW\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFDey\uFFFDn"
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter/",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -548,42 +620,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "82"
-				},
-				{
-					"pluginid": "10019",
-					"alertRef": "10019-1",
-					"alert": "Content-Type Header Missing",
-					"name": "Content-Type Header Missing",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The Content-Type header was either missing or empty.</p>",
-					"instances":[ 
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "2",
-					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p>",
-					"cweid": "345",
-					"wascid": "12",
-					"sourceid": "38"
+					"sourceid": "101"
 				},
 				{
 					"pluginid": "10027",
@@ -596,52 +633,92 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"`)),H=\"mailto:\"+(en(\",\",d)+ch(r([$,D])));return a(Je,g,r([Mo(H,g,r([f(\"Demander la suppression d'un collaborateur\")]))]))}(),vt(\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "db",
-							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 3 times, the first in the element starting with: \"const tAe=function(){const he=document.createElement(\"link\").relList;if(he&&he.supports&&he.supports(\"modulepreload\"))return;for\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/dsfr.2aa33e97.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "debug",
-							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"      `)),this.chart=Dw.exports.chart(this.container,this.config),requestAnimationFrame(()=>{this.chart.reflow()})}disconnectedC\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"var Ks=typeof globalThis!=\"undefined\"?globalThis:typeof window!=\"undefined\"?window:typeof global!=\"undefined\"?global:typeof self\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/dsfr.2aa33e97.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"Unable to get HTTP header: \"content-length\"`),this.gather()})}mutate(N){N.indexOf(\"href\")!==-1&&(this.href=this.getAttribute(\"hr\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"Unable to get HTTP header: \"content-length\"`),this.gather()})}mutate(e){e.indexOf(\"href\")!==-1&&(this.href=this.getAttribute(\"hr\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/dsfr.2aa33e97.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"`);for(const vn of N.children)Ut+=this._branch(vn,Te+1,pt)}}const ke=new Le,Fe=Ot=>{document.readyState!==\"loading\"?window.reque\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"`);for(const c of e.children)o+=this._branch(c,t+1,i)}}const d=new C,X=r=>{document.readyState!==\"loading\"?window.requestAnimati\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.2fb28304.js",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/dsfr.2aa33e97.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "SELECT",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"${b.header.doc}`);break;default:this.menuLinks.innerHTML=C}}}class as extends b.core.Instance{static get instanceClassName(){ret\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/highcharts.e0e146ac.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import{c as Et}from\"./dsfr.2aa33e97.js\";var Mt={exports:{}};(function(Tt){(function(et,lt){Tt.exports?(lt.default=lt,Tt.exports=\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/highcharts.e0e146ac.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 5 times, the first in the element starting with: \"`,\"Entrepreneur individuel\",\"Soci\\xE9t\\xE9 en participation\",\"Fiducie\",\"Assujetti unique \\xE0 la TVA\",\"Autre groupement de droit\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \" - `.concat(b,\": \").concat(c),k&&(O+=encodeURI(b)+\"=\"+encodeURI(c))}),O+=L}w(N,\"displayError\",{chart:p,code:i,message:O,params:d\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.f2ef3bdc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"`)),A=\"mailto:\"+(Er(\",\",h)+oc(t([l,j])));return u(H,p,t([Dn(A,p,t([v(\"Demander la suppression d'un collaborateur\")]))]))}(),ue(c\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.f2ef3bdc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "db",
+							"otherinfo": "The following pattern was used: \\bDB\\b and was detected 3 times, the first in the element starting with: \"`),n=a.length;n--;){var $=a[n],c=$.indexOf(\": \");if(c>0){var l=$.substring(0,c),h=$.substring(c+2);r=Zf(l,function(j){return P(P\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.f2ef3bdc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"import\"./vendor.5f748af6.js\";import\"./dsfr.2aa33e97.js\";import{h as U9e,e as I9e,H as Xx}from\"./highcharts.e0e146ac.js\";const z9\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/index.f2ef3bdc.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select",
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 4 times, the first in the element starting with: \"`,\"Entrepreneur individuel\",\"Soci\\xE9t\\xE9 en participation\",\"Fiducie\",\"Assujetti unique \\xE0 la TVA\",\"Autre groupement de droit\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/vendor.5f748af6.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"function at(h){const s=document.createElement(\"pre\");return s.style.width=\"1px\",s.style.height=\"1px\",s.style.position=\"fixed\",s.\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/scripts/dsfr.module.min.js",
@@ -660,13 +737,13 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){\"use strict\";var t=function(){this.modules={}},e={isActive:{configurable:!0},isLegacy:{configurable:!0}};t.prototype\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "8",
+					"count": "13",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"`)),H=\"mailto:\"+(en(\",\",d)+ch(r([$,D])));return a(Je,g,r([Mo(H,g,r([f(\"Demander la suppression d'un collaborateur\")]))]))}(),vt(\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"var Ks=typeof globalThis!=\"undefined\"?globalThis:typeof window!=\"undefined\"?window:typeof global!=\"undefined\"?global:typeof self\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "82"
+					"sourceid": "99"
 				},
 				{
 					"pluginid": "10109",
@@ -707,16 +784,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.2fb28304.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.f2ef3bdc.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"/\" class=\"fr-link fr-link--md\" title=\"Accueil - Deveco\" target=\"_self\"><p class=\"fr-logo\">R\u00E9publique<br>Fran\u00E7aise</p></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/faq",
@@ -735,7 +804,15 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"/\" class=\"fr-link fr-link--md\" title=\"Accueil - Deveco\" target=\"_self\"><p class=\"fr-logo\">R\u00E9publique<br>Fran\u00E7aise</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -747,7 +824,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.2fb28304.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.f2ef3bdc.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -755,8 +832,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.2fb28304.js\"></script>",
+							"evidence": "<script type=\"module\" crossorigin src=\"/assets/index.f2ef3bdc.js\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"/\" class=\"fr-link fr-link--md\" title=\"Accueil - Deveco\" target=\"_self\"><p class=\"fr-logo\">R\u00E9publique<br>Fran\u00E7aise</p></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/webinaires",
@@ -767,13 +852,13 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -802,15 +887,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "no-cache",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/documentation",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/cgu",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -818,11 +895,11 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/dsfr/favicon/manifest.webmanifest",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "public, max-age=0",
+							"evidence": "no-cache",
 							"otherinfo": ""
 						},
 						{
@@ -842,7 +919,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "public, max-age=0",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -858,11 +943,11 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/sitemap.xml",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "public, max-age=0",
 							"otherinfo": ""
 						},
 						{
@@ -880,7 +965,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -893,7 +978,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -901,7 +986,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -923,7 +1008,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "12"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -936,7 +1021,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -944,7 +1029,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -966,7 +1051,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "12"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -979,7 +1064,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -987,7 +1072,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1009,7 +1094,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "12"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1022,7 +1107,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1030,7 +1115,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/connexion",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1052,7 +1137,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "12"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1073,15 +1158,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/assets/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/faq",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/cgu",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1089,7 +1166,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1097,15 +1174,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/nouveautes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"uri": "https://deveco.incubateur.anct.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1121,13 +1190,13 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "7",
+					"count": "5",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "42"
 				},
 				{
 					"pluginid": "10049",
@@ -1156,6 +1225,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/newsletter",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://deveco.incubateur.anct.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1170,15 +1247,23 @@
 							"attack": "",
 							"evidence": "no-cache",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://deveco.incubateur.anct.gouv.fr/statistiques",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0",
+							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
