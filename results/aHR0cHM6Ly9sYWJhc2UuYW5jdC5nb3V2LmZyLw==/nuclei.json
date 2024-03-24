@@ -1,43 +1,6 @@
 [
   [
     {
-      "template": "dns/dns-saas-service-detection.yaml",
-      "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
-      "template-id": "dns-saas-service-detection",
-      "template-path": "/home/runner/nuclei-templates/dns/dns-saas-service-detection.yaml",
-      "info": {
-        "name": "DNS SaaS Service Detection",
-        "author": [
-          "noah @thesubtlety",
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "service"
-        ],
-        "description": "A CNAME DNS record was discovered",
-        "reference": [
-          "https://ns1.com/resources/cname",
-          "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
-          "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "dns",
-      "host": "labase.anct.gouv.fr.",
-      "matched-at": "labase.anct.gouv.fr",
-      "extracted-results": [
-        "labase.tlscp.fr."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 34827\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 34827\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n",
-      "timestamp": "2024-03-10T01:49:33.560136522Z",
-      "matcher-status": true
-    },
-    {
       "template": "dns/caa-fingerprint.yaml",
       "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
       "template-id": "caa-fingerprint",
@@ -69,9 +32,46 @@
       "type": "dns",
       "host": "labase.anct.gouv.fr.",
       "matched-at": "labase.anct.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 3728\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 3728\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n\n;; AUTHORITY SECTION:\ntlscp.fr.\t60\tIN\tSOA\tdns15.ovh.net. tech.ovh.net. 2024030606 86400 3600 3600000 60\n",
-      "timestamp": "2024-03-10T01:49:33.84396182Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 55502\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 55502\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n\n;; AUTHORITY SECTION:\ntlscp.fr.\t60\tIN\tSOA\tdns15.ovh.net. tech.ovh.net. 2024031801 86400 3600 3600000 60\n",
+      "timestamp": "2024-03-24T01:52:49.166464721Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/dns-saas-service-detection.yaml",
+      "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
+      "template-id": "dns-saas-service-detection",
+      "template-path": "/home/runner/nuclei-templates/dns/dns-saas-service-detection.yaml",
+      "info": {
+        "name": "DNS SaaS Service Detection",
+        "author": [
+          "noah @thesubtlety",
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "service"
+        ],
+        "description": "A CNAME DNS record was discovered",
+        "reference": [
+          "https://ns1.com/resources/cname",
+          "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
+          "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "dns",
+      "host": "labase.anct.gouv.fr.",
+      "matched-at": "labase.anct.gouv.fr",
+      "extracted-results": [
+        "labase.tlscp.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 56890\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 56890\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;labase.anct.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nlabase.anct.gouv.fr.\t3600\tIN\tCNAME\tlabase.tlscp.fr.\n",
+      "timestamp": "2024-03-24T01:52:50.07342498Z",
       "matcher-status": true
     },
     {
@@ -97,10 +97,64 @@
       "host": "https://labase.anct.gouv.fr/",
       "matched-at": "https://labase.anct.gouv.fr/",
       "request": "GET / HTTP/1.1\r\nHost: labase.anct.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Sun, 10 Mar 2024 01:50:18 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 24 Mar 2024 01:53:27 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:50:18.433572624Z",
+      "timestamp": "2024-03-24T01:53:27.234993363Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://labase.anct.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/miscellaneous/external-service-interaction.yaml",
+      "template-url": "https://templates.nuclei.sh/public/external-service-interaction",
+      "template-id": "external-service-interaction",
+      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/external-service-interaction.yaml",
+      "info": {
+        "name": "External Service Interaction",
+        "author": [
+          "andreluna"
+        ],
+        "tags": [
+          "miscellaneous",
+          "http",
+          "misc",
+          "oast"
+        ],
+        "description": "External Service interaction via Host Header Injection.",
+        "reference": [
+          "https://portswigger.net/kb/issues/00300210_external-service-interaction-http",
+          "https://success.qualys.com/support/s/article/000006843",
+          "https://owasp.org/www-project-web-security-testing-guide/latest/4-web_application_security_testing/07-input_validation_testing/17-testing_for_host_header_injection"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-918",
+            "cwe-406"
+          ]
+        }
+      },
+      "type": "http",
+      "host": "https://labase.anct.gouv.fr/",
+      "matched-at": "https://labase.anct.gouv.fr/",
+      "request": "GET / HTTP/1.1\r\nHost: cnvoesc3i9ef9okaje8gw669jhnmnck8f.oast.online\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 302 Moved Temporarily\r\nConnection: close\r\nContent-Length: 138\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html\r\nDate: Sun, 24 Mar 2024 01:53:47 GMT\r\nLocation: https://cnvoesc3i9ef9okaje8gw669jhnmnck8f.oast.online/yunohost/admin\r\nPermissions-Policy: interest-cohort=()\r\nReferrer-Policy: 'same-origin'\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nX-Content-Type-Options: nosniff\r\nX-Download-Options: noopen\r\nX-Frame-Options: SAMEORIGIN\r\nX-Permitted-Cross-Domain-Policies: none\r\nX-Xss-Protection: 1; mode=block\r\n\r\n",
+      "ip": "51.255.172.124",
+      "timestamp": "2024-03-24T01:53:51.376392541Z",
+      "interaction": {
+        "protocol": "dns",
+        "unique-id": "cnvoesc3i9ef9okaje8gw669jhnmnck8f",
+        "full-id": "CNvoESC3i9EF9okaJE8Gw669JHnMnCk8f",
+        "q-type": "A",
+        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 16482\n;; flags: cd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0\n\n;; QUESTION SECTION:\n;CNvoESC3i9EF9okaJE8Gw669JHnMnCk8f.oASt.onliNe.\tIN\t A\n",
+        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 16482\n;; flags: qr aa cd; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;CNvoESC3i9EF9okaJE8Gw669JHnMnCk8f.oASt.onliNe.\tIN\t A\n\n;; ANSWER SECTION:\nCNvoESC3i9EF9okaJE8Gw669JHnMnCk8f.oASt.onliNe.\t3600\tIN\tA\t167.99.69.236\n\n;; AUTHORITY SECTION:\nCNvoESC3i9EF9okaJE8Gw669JHnMnCk8f.oASt.onliNe.\t3600\tIN\tNS\tns1.oast.online.\nCNvoESC3i9EF9okaJE8Gw669JHnMnCk8f.oASt.onliNe.\t3600\tIN\tNS\tns2.oast.online.\n\n;; ADDITIONAL SECTION:\nns1.oast.online.\t3600\tIN\tA\t167.99.69.236\nns2.oast.online.\t3600\tIN\tA\t167.99.69.236\n",
+        "remote-address": "172.253.10.5",
+        "timestamp": "2024-03-24T01:53:47.282842276Z"
+      },
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cnvoesc3i9ef9okaje8gw669jhnmnck8f.oast.online' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://labase.anct.gouv.fr/'",
       "matcher-status": true
     },
     {
@@ -139,73 +193,92 @@
       "host": "https://labase.anct.gouv.fr/",
       "matched-at": "https://labase.anct.gouv.fr/",
       "request": "POST / HTTP/1.1\r\nHost: labase.anct.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 178\r\nContent-Type: text/html\r\nDate: Sun, 10 Mar 2024 01:50:58 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx/1.18.0 (Ubuntu)\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 24 Mar 2024 01:54:01 GMT\r\nLocation: https://lesbases.anct.gouv.fr/api/redirection?origin=https://labase.anct.gouv.fr/\r\nServer: nginx\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:50:58.181783356Z",
+      "timestamp": "2024-03-24T01:54:01.13872766Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: labase.anct.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://labase.anct.gouv.fr/'",
       "matcher-status": true
     },
     {
-      "template": "ssl/detect-ssl-issuer.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
-      "template-id": "ssl-issuer",
-      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "template": "network/detection/openssh-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/openssh-detect",
+      "template-id": "openssh-detect",
+      "template-path": "/home/runner/nuclei-templates/network/detection/openssh-detect.yaml",
       "info": {
-        "name": "Detect SSL Certificate Issuer",
+        "name": "OpenSSH Service - Detect",
         "author": [
-          "lingtren"
+          "r3dg33k",
+          "daffainfo",
+          "iamthefrogy"
         ],
         "tags": [
-          "ssl",
-          "tls"
+          "seclists",
+          "network",
+          "ssh",
+          "openssh",
+          "detect"
         ],
-        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "description": "OpenSSH service was detected.\n",
+        "reference": [
+          "http://www.openwall.com/lists/oss-security/2016/08/01/2",
+          "http://www.openwall.com/lists/oss-security/2018/08/15/5",
+          "http://seclists.org/fulldisclosure/2016/jul/51",
+          "https://nvd.nist.gov/vuln/detail/cve-2016-6210",
+          "https://nvd.nist.gov/vuln/detail/cve-2018-15473"
+        ],
         "severity": "info",
         "metadata": {
           "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ],
+          "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
         }
       },
-      "type": "ssl",
-      "host": "labase.anct.gouv.fr",
-      "matched-at": "labase.anct.gouv.fr:443",
+      "type": "tcp",
+      "host": "labase.anct.gouv.fr:22",
+      "matched-at": "labase.anct.gouv.fr:22",
       "extracted-results": [
-        "Let's Encrypt"
+        "SSH-2.0-OpenSSH_8.4p1 Debian-5+deb11u3"
       ],
+      "response": "SSH-2.0-OpenSSH_8.4p1 Debian-5+deb11u3\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:51:24.201539946Z",
+      "timestamp": "2024-03-24T01:54:41.460939195Z",
       "matcher-status": true
     },
     {
-      "template": "ssl/ssl-dns-names.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
-      "template-id": "ssl-dns-names",
-      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "template": "network/detection/starttls-mail-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/starttls-mail-detect",
+      "template-id": "starttls-mail-detect",
+      "template-path": "/home/runner/nuclei-templates/network/detection/starttls-mail-detect.yaml",
       "info": {
-        "name": "SSL DNS Names",
+        "name": "STARTTLS Mail Server Detection",
         "author": [
-          "pdteam"
+          "r3dg33k"
         ],
         "tags": [
-          "ssl",
-          "tls"
+          "mail",
+          "starttls",
+          "network",
+          "detect",
+          "smtp"
         ],
-        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "description": "STARTTLS is an email protocol command that tells an email server that an email client, including an email client running in a web browser, wants to turn an existing insecure connection into a secure one.\n",
         "severity": "info",
         "metadata": {
           "max-request": 1
         }
       },
-      "type": "ssl",
-      "host": "labase.anct.gouv.fr",
-      "matched-at": "labase.anct.gouv.fr:443",
-      "extracted-results": [
-        "preprod.labase.anct.gouv.fr",
-        "preprod.labase.tlscp.fr",
-        "labase.anct.gouv.fr",
-        "labase.tlscp.fr"
-      ],
+      "type": "tcp",
+      "host": "labase.anct.gouv.fr:25",
+      "matched-at": "labase.anct.gouv.fr:25",
+      "request": "65686c6f20636865636b746c730a",
+      "response": "220 janet.tlscp.fr Service ready\r\n250-janet.tlscp.fr\r\n250-PIPELINING\r\n250-SIZE 35914708\r\n250-ETRN\r\n250-STARTTLS\r\n250-ENHANCEDSTATUSCODES\r\n250-8BITMIME\r\n250-DSN\r\n250 CHUNKING\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:51:24.201672302Z",
+      "timestamp": "2024-03-24T01:55:01.315057171Z",
       "matcher-status": true
     },
     {
@@ -239,9 +312,72 @@
       "host": "labase.anct.gouv.fr:443",
       "matched-at": "labase.anct.gouv.fr:443",
       "request": "2E",
-      "response": "HTTP/1.1 400 Bad Request\r\nServer: nginx/1.18.0 (Ubuntu)\r\nDate: Sun, 10 Mar 2024 01:51:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 166\r\nConnection: close\r\n\r\n<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>nginx/1.18.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 400 Bad Request\r\nServer: nginx\r\nDate: Sun, 24 Mar 2024 01:55:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 150\r\nConnection: close\r\nContent-Security-Policy: upgrade-insecure-requests\r\nX-Content-Type-Options: nosniff\r\nX-XSS-Protection: 1; mode=block\r\nX-Download-Options: noopen\r\nX-Permitted-Cross-Domain-Policies: none\r\nX-Frame-Options: SAMEORIGIN\r\nPermissions-Policy: interest-cohort=()\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nReferrer-Policy: 'same-origin'\r\n\r\n<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:51:24.55565019Z",
+      "timestamp": "2024-03-24T01:55:23.184331068Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "labase.anct.gouv.fr",
+      "matched-at": "labase.anct.gouv.fr:443",
+      "extracted-results": [
+        "Let's Encrypt"
+      ],
+      "ip": "51.255.172.124",
+      "timestamp": "2024-03-24T01:55:24.067523889Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "labase.anct.gouv.fr",
+      "matched-at": "labase.anct.gouv.fr:443",
+      "extracted-results": [
+        "labase.anct.gouv.fr",
+        "labase.tlscp.fr",
+        "preprod.labase.anct.gouv.fr",
+        "preprod.labase.tlscp.fr"
+      ],
+      "ip": "51.255.172.124",
+      "timestamp": "2024-03-24T01:55:24.06765809Z",
       "matcher-status": true
     },
     {
@@ -272,7 +408,7 @@
         "tls12"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:51:26.01556034Z",
+      "timestamp": "2024-03-24T01:55:27.269381365Z",
       "matcher-status": true
     },
     {
@@ -303,7 +439,7 @@
         "tls13"
       ],
       "ip": "51.255.172.124",
-      "timestamp": "2024-03-10T01:51:26.252084739Z",
+      "timestamp": "2024-03-24T01:55:27.452912332Z",
       "matcher-status": true
     }
   ]
