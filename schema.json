@@ -104,6 +104,19 @@
       "required": []
     }
   },
+  "patternProperties": {
+    "^_.*": {
+      "description": "Commentaire ou configuration interne (ex.ancres YAML)",
+      "type": [
+        "string",
+        "number",
+        "object",
+        "array",
+        "boolean",
+        "null"
+      ]
+    }
+  },
   "properties": {
     "title": {
       "type": "string",
@@ -181,7 +194,7 @@
     "tools": {
       "$ref": "#/definitions/tools"
     },
-    "colmuns": {
+    "columns": {
       "$ref": "#/definitions/tools"
     },
     "urls": {
