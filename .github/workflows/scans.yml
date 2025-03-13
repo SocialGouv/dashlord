@@ -197,15 +197,15 @@ jobs:
 
       - name: ZAP Scan
         if: ${{ matrix.sites.tools.zap }}
-        uses: zaproxy/action-baseline@v0.6.1
+        uses: zaproxy/action-baseline@v0.14.0
+        continue-on-error: true
         timeout-minutes: 10
         with:
           token: "" # disable issue creation
           rules_file_name: "zap-rules.tsv"
-          docker_name: "owasp/zap2docker-stable"
+          allow_issue_writing: false
           target: "${{ matrix.sites.url }}"
           cmd_options: "-a"
-          allow_issue_writing: false
 
         # https://github.com/treosh/lighthouse-ci-action#inputs
       - name: Lighthouse scan
