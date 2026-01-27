@@ -5,26 +5,28 @@ footer: Powered by SocialGouv
 marianne: false
 seo: false
 tools:
-  "404": true
-  screenshot: true
-  nmap: true
-  zap: true
-  wappalyzer: true
-  http: true
-  testssl: true
-  lighthouse: true
-  thirdparties: true
-  nuclei: true
-  updownio: false
-  dependabot: true
-  codescan: true
-  stats: false
-  declaration-a11y: true
-  ecoindex: true
-  dsfr: true
-  betagouv: true
+  # Security scanning tools - ENABLED
+  zap: true              # OWASP ZAP - Web application vulnerability scanner
+  testssl: true          # SSL/TLS security testing
+  nmap: true             # Port scanning and vulnerability detection
+  nuclei: true           # Template-based vulnerability scanner
+  http: true             # HTTP security headers analysis
+  dependabot: true       # GitHub dependency vulnerability alerts
+  codescan: true         # GitHub code security analysis
+  thirdparties: true     # Third-party scripts detection (security risk assessment)
+  
+  # Non-security tools - DISABLED
+  "404": false           # Broken links detection
+  screenshot: false      # Website screenshots
+  wappalyzer: false      # Technology stack detection
+  lighthouse: false      # Performance and accessibility
+  updownio: false        # Uptime monitoring
+  stats: false           # Statistics page detection
+  declaration-a11y: false # Accessibility declaration
+  ecoindex: false        # Environmental impact
+  dsfr: false            # French design system compliance
+  betagouv: false        # Beta.gouv specific checks
 columns: # pour masquer des colonnes
-  zap: false
 updownioStatusPage: https://updown.io/status_pages
 updownioRecipients:
   - email:123456
@@ -36,3 +38,4 @@ urls:
     docker:
       - ghcr.io/socialgouv/fabrique/frontend
   - url: https://beta.gouv.fr
+  - url: https://espace-membre.incubateur.net
