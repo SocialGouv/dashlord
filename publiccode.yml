@@ -1,36 +1,65 @@
-publiccodeYmlVersion: "0.2"
+publiccodeYmlVersion: "0"
 name: DashLord
 url: https://github.com/SocialGouv/dashlord
 landingURL: https://github.com/SocialGouv/dashlord
-creationDate: 2021-04-04
-latestRelease:
-  date: "2024-06-04"
-  version: "1.40.1"
+softwareVersion: "1.40.1"
 logo: https://github.com/SocialGouv.png
+platforms:
+  - web
 usedBy:
- - Ministères sociaux
- - beta.gouv.fr
- - MTES
- - ANS
- - ADEME
- - ANACT
+  - Ministères sociaux
+  - beta.gouv.fr
+  - MTES
+  - ANS
+  - ADEME
+  - ANACT
 fundedBy:
   - name: Fabrique numérique des ministères sociaux
-    url: https://www.fabrique.social.gouv.fr
-roadmap: ""
-softwareType: ""
+    uri: https://www.fabrique.social.gouv.fr
+developmentStatus: stable
+softwareType: standalone/web
 description:
   en:
     shortDescription: The best-practices Dashboard
-    documentation: ""
+    longDescription: >
+      DashLord is a GitHub Actions-based dashboard that scans a list of URLs
+      and aggregates the results of multiple security and quality tools into a
+      single web report. It runs checks for HTTP headers, TLS configuration,
+      accessibility, third-party scripts, Dependabot alerts, uptime, and more.
+      The report is published as a static site on GitHub Pages, making it easy
+      for teams to monitor the technical health of their web applications over
+      time.
+    features:
+      - Automated scans via GitHub Actions on a configurable schedule
+      - Aggregates results from multiple tools into one static web report
+      - Checks HTTP security headers, TLS, accessibility, and third-party scripts
+      - Supports Dependabot and CodeQL security alert integration
+      - Deployable as a GitHub repository template
   fr:
     shortDescription: Tableau de bord des bonnes pratiques techniques
-    documentation: ""
+    longDescription: >
+      DashLord est un tableau de bord basé sur GitHub Actions qui scanne une
+      liste d'URLs et agrège les résultats de plusieurs outils de sécurité et
+      de qualité dans un rapport web unique. Il vérifie les en-têtes HTTP, la
+      configuration TLS, l'accessibilité, les scripts tiers, les alertes
+      Dependabot, la disponibilité et bien plus encore. Le rapport est publié
+      en tant que site statique sur GitHub Pages, permettant aux équipes de
+      suivre la santé technique de leurs applications web dans le temps.
+    features:
+      - Scans automatisés via GitHub Actions selon un planning configurable
+      - Agrège les résultats de plusieurs outils dans un rapport web statique
+      - Vérifie les en-têtes de sécurité HTTP, TLS, accessibilité et scripts tiers
+      - Intégration des alertes de sécurité Dependabot et CodeQL
+      - Déployable comme template de repository GitHub
 legal:
-  license: apache-2.0
-  authorsFile: ""
+  license: Apache-2.0
 maintenance:
   type: internal
   contacts:
     - name: "Julien Bouquillon"
       email: "julien.bouquillon@beta.gouv.fr"
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - fr
