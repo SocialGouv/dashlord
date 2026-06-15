@@ -46,7 +46,7 @@ jobs:
       sites: ${{ steps.init.outputs.sites }}
       config: ${{ steps.init.outputs.config }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: init
         uses: "SocialGouv/dashlord-actions/init@v1"
         with:
@@ -69,14 +69,14 @@ jobs:
       matrix:
         sites: ${{ fromJson(needs.init.outputs.sites) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.ref }}
 
       - run: |
           mkdir scans
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -239,7 +239,7 @@ jobs:
         id: hostname
         run: |
           HOSTNAME=$(echo "${{ matrix.sites.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
-          echo "::set-output name=value::$HOSTNAME"
+          echo "value=$HOSTNAME" >> "$GITHUB_OUTPUT"
 
       - name: testssl.sh scan
         if: ${{ matrix.sites.tools.testssl }}
